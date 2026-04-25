@@ -8,6 +8,9 @@ const Home = ({ t }) => {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [activityIndex, setActivityIndex] = useState(0);
   const [videoIndex, setVideoIndex] = useState(0);
+  const videoImages = ['/assets/skilling.png', '/assets/about-image.png', '/assets/hero-image.png', '/assets/skilling.png', '/assets/about-image.png'];
+  const activityImages = ['/assets/skilling.png', '/assets/about-image.png', '/assets/hero-image.png', '/assets/skilling.png'];
+
   return (
     <div className="bg-white">
       <Hero t={t} />
@@ -17,8 +20,8 @@ const Home = ({ t }) => {
       <section className="section-padding overflow-hidden bg-white">
         <div className="container">
           <div className="text-center mb-16">
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Testimonials</span>
-            <h2 className="text-3xl md:text-5xl font-bold font-outfit">Lives Transformed</h2>
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">{t.home.testimonials}</span>
+            <h2 className="text-3xl md:text-5xl font-bold font-outfit">{t.home.livesTransformed}</h2>
           </div>
 
           <div className="relative max-w-4xl mx-auto">
@@ -37,15 +40,15 @@ const Home = ({ t }) => {
                            ))}
                         </div>
                         <p className="text-xl md:text-2xl text-gray-700 mb-10 italic leading-relaxed relative z-10">
-                          "TEWOYEI changed my life. I learned tailoring and now I can support my children and pay their school fees from my own earnings. The support I received was a turning point for my family's future."
+                          "{t.home.testimonialQuote}"
                         </p>
                         <div className="flex items-center gap-6">
                           <div className="w-16 h-16 rounded-full bg-gray-300 overflow-hidden ring-4 ring-white shadow-lg">
-                            <img src={`https://i.pravatar.cc/150?u=beneficiary${i}`} alt="Beneficiary" className="w-full h-full object-cover" />
+                            <img src={`https://i.pravatar.cc/150?u=beneficiary${i}`} alt={t.home.beneficiaryAlt} className="w-full h-full object-cover" />
                           </div>
                           <div>
-                            <h4 className="font-bold text-lg">Beneficiary Name {i}</h4>
-                            <p className="text-sm text-gray-500 font-semibold uppercase tracking-wider">Kapelebyong District</p>
+                            <h4 className="font-bold text-lg">{t.home.beneficiaryName} {i}</h4>
+                            <p className="text-sm text-gray-500 font-semibold uppercase tracking-wider">{t.home.kapelebyongDistrict}</p>
                           </div>
                         </div>
                      </div>
@@ -87,10 +90,10 @@ const Home = ({ t }) => {
         <div className="container relative z-10">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 gap-10">
              <div className="max-w-2xl">
-               <span className="text-secondary font-bold uppercase tracking-widest text-sm mb-4 block">Field Stories</span>
-               <h2 className="text-4xl md:text-5xl font-bold font-outfit mb-6 leading-tight">Seeing the <span className="text-secondary">Impact</span> in Motion</h2>
+               <span className="text-secondary font-bold uppercase tracking-widest text-sm mb-4 block">{t.home.fieldStories}</span>
+               <h2 className="text-4xl md:text-5xl font-bold font-outfit mb-6 leading-tight">{t.home.impactMotion}</h2>
                <p className="text-gray-400 text-lg">
-                 Experience the raw energy and dedication of our field teams and beneficiaries. Our video series highlights the daily transformations in Teso.
+                 {t.home.fieldStoriesDescription}
                </p>
              </div>
              
@@ -117,28 +120,22 @@ const Home = ({ t }) => {
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${videoIndex * 33.33}%)` }}
               >
-                {[
-                  { img: '/assets/skilling.png', title: 'Watch: Tailoring Workshop (Atiira)', dur: '4:20' },
-                  { img: '/assets/about-image.png', title: 'Watch: Savings Groups Success', dur: '5:45' },
-                  { img: '/assets/hero-image.png', title: 'Watch: Community Outreach Program', dur: '3:12' },
-                  { img: '/assets/skilling.png', title: 'Watch: Youth Entrepreneurship Summit', dur: '6:50' },
-                  { img: '/assets/about-image.png', title: 'Watch: GBV Awareness Campaign', dur: '8:10' }
-                ].map((vid, i) => (
+                {t.home.videos.map((vid, i) => (
                   <div key={i} className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-4">
                     <motion.div 
                       className="relative aspect-video bg-white/5 rounded-[2.5rem] overflow-hidden group cursor-pointer flex items-center justify-center border border-white/10"
                       whileHover={{ y: -10 }}
                     >
-                      <div className={`absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 transition-transform duration-1000`} style={{ backgroundImage: `url('${vid.img}')` }}></div>
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+                      <div className={`absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 transition-transform duration-1000`} style={{ backgroundImage: `url('${videoImages[i]}')` }}></div>
+                      <div className="absolute inset-0 bg-teso-dark/20 group-hover:bg-teso-dark/0 transition-colors"></div>
                       
                       <div className="relative z-10 w-20 h-20 rounded-full bg-secondary/20 backdrop-blur-md flex items-center justify-center border border-secondary/30 group-hover:bg-secondary group-hover:scale-110 transition-all text-secondary group-hover:text-teso-dark">
                         <PlayCircle size={40} className="ml-1" />
                       </div>
                       
-                      <div className="absolute bottom-6 left-6 right-6 p-4 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 flex justify-between items-center">
+                      <div className="absolute bottom-6 left-6 right-6 p-4 bg-teso-dark/60 backdrop-blur-md rounded-2xl border border-white/10 flex justify-between items-center">
                         <p className="text-xs md:text-sm font-bold truncate pr-4">{vid.title}</p>
-                        <span className="text-[10px] font-bold bg-white/10 px-2 py-1 rounded-lg shrink-0">{vid.dur}</span>
+                        <span className="text-[10px] font-bold bg-white/10 px-2 py-1 rounded-lg shrink-0">{vid.duration}</span>
                       </div>
                     </motion.div>
                   </div>
@@ -162,8 +159,8 @@ const Home = ({ t }) => {
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">
-              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Field Activities</span>
-              <h2 className="text-4xl md:text-5xl font-bold font-outfit">Our Work in the Community</h2>
+              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">{t.home.fieldActivities}</span>
+              <h2 className="text-4xl md:text-5xl font-bold font-outfit">{t.home.communityWork}</h2>
             </div>
             <div className="flex gap-4">
               <button 
@@ -187,18 +184,13 @@ const Home = ({ t }) => {
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${activityIndex * 25}%)` }}
               >
-                {[
-                  { img: '/assets/skilling.png', title: 'Tailoring Program', loc: 'Atiira' },
-                  { img: '/assets/about-image.png', title: 'Savings Groups', loc: 'Kapelebyong' },
-                  { img: '/assets/hero-image.png', title: 'Leadership Summit', loc: 'Amuria' },
-                  { img: '/assets/skilling.png', title: 'Baker Skills', loc: 'Orungo' }
-                ].map((act, i) => (
+                {t.home.activities.map((act, i) => (
                   <div key={i} className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-4">
                     <div className="group relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-xl">
-                      <img src={act.img} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={act.title} />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
+                      <img src={activityImages[i]} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={act.title} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/95 via-teso-dark/25 to-transparent opacity-80" />
                       <div className="absolute bottom-8 left-8 right-8 text-white">
-                        <span className="px-3 py-1 bg-primary text-[10px] font-bold rounded-full uppercase tracking-widest mb-3 inline-block">{act.loc}</span>
+                        <span className="px-3 py-1 bg-primary text-[10px] font-bold rounded-full uppercase tracking-widest mb-3 inline-block">{act.location}</span>
                         <h4 className="text-2xl font-bold font-outfit">{act.title}</h4>
                       </div>
                     </div>
@@ -213,7 +205,7 @@ const Home = ({ t }) => {
       {/* Partners section */}
       <section className="py-20">
         <div className="container">
-          <p className="text-center text-gray-400 font-semibold uppercase tracking-[0.2em] text-xs mb-10">Trusted By Global Partners</p>
+          <p className="text-center text-gray-400 font-semibold uppercase tracking-[0.2em] text-xs mb-10">{t.home.trustedBy}</p>
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-30 grayscale hover:grayscale-0 transition-all">
              <span className="text-2xl font-bold font-outfit">USAID</span>
              <span className="text-2xl font-bold font-outfit">Global Fund</span>

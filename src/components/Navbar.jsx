@@ -7,6 +7,18 @@ const Navbar = ({ t, language, setLanguage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMediaOpen, setIsMediaOpen] = useState(false);
   const location = useLocation();
+  const navLinks = [
+    { to: '/', label: t.nav.home },
+    { to: '/about', label: t.nav.about },
+    { to: '/programs', label: t.nav.programs },
+    { to: '/get-involved', label: t.nav.getInvolved },
+    { to: '/contact', label: t.nav.contact },
+  ];
+  const mediaLinks = [
+    { to: '/events', label: t.nav.events, color: 'bg-primary' },
+    { to: '/gallery', label: t.nav.gallery, color: 'bg-primary' },
+    { to: '/resources', label: t.nav.resources, color: 'bg-secondary' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -38,16 +50,15 @@ const Navbar = ({ t, language, setLanguage }) => {
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8 font-medium">
-          {['/', '/about', '/programs', '/get-involved', '/contact'].map((path, i) => {
-            const labels = ['Home', 'About Us', 'Programs', 'Get Involved', 'Contact'];
+          {navLinks.map((link) => {
             return (
               <Link
-                key={path}
-                to={path}
+                key={link.to}
+                to={link.to}
                 className="hover:text-primary transition-colors font-semibold"
-                style={{ color: isScrolled ? '#0f172a' : 'white' }}
+                style={{ color: isScrolled ? '#243b6b' : 'white' }}
               >
-                {labels[i]}
+                {link.label}
               </Link>
             );
           })}
@@ -56,31 +67,27 @@ const Navbar = ({ t, language, setLanguage }) => {
           <div className="relative">
             <button
               className="flex items-center gap-1 hover:text-primary transition-colors font-semibold"
-              style={{ color: isScrolled ? '#0f172a' : 'white' }}
+              style={{ color: isScrolled ? '#243b6b' : 'white' }}
               onMouseEnter={() => setIsMediaOpen(true)}
               onMouseLeave={() => setIsMediaOpen(false)}
             >
-              Media <ChevronDown size={16} className={`transition-transform duration-200 ${isMediaOpen ? 'rotate-180' : ''}`} />
+              {t.nav.media} <ChevronDown size={16} className={`transition-transform duration-200 ${isMediaOpen ? 'rotate-180' : ''}`} />
             </button>
             <div
               className={`absolute top-full -left-4 w-52 bg-white rounded-2xl shadow-2xl border border-primary/10 py-2 z-50 transition-all duration-200 ${isMediaOpen ? 'opacity-100 visible translate-y-2' : 'opacity-0 invisible translate-y-4'}`}
               onMouseEnter={() => setIsMediaOpen(true)}
               onMouseLeave={() => setIsMediaOpen(false)}
             >
-              <Link to="/events" className="flex items-center gap-2 px-5 py-3 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary transition-colors font-semibold">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span> Events
-              </Link>
-              <Link to="/gallery" className="flex items-center gap-2 px-5 py-3 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary transition-colors font-semibold">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span> Gallery
-              </Link>
-              <Link to="/resources" className="flex items-center gap-2 px-5 py-3 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary transition-colors font-semibold">
-                <span className="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span> Resources
-              </Link>
+              {mediaLinks.map((link) => (
+                <Link key={link.to} to={link.to} className="flex items-center gap-2 px-5 py-3 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary transition-colors font-semibold">
+                  <span className={`w-1.5 h-1.5 rounded-full ${link.color} inline-block`}></span> {link.label}
+                </Link>
+              ))}
               <span className="flex items-center gap-2 px-5 py-3 text-sm text-gray-300 font-semibold cursor-not-allowed">
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-200 inline-block"></span> Press Release
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-200 inline-block"></span> {t.nav.pressRelease}
               </span>
               <span className="flex items-center gap-2 px-5 py-3 text-sm text-gray-300 font-semibold cursor-not-allowed">
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-200 inline-block"></span> Success Stories
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-200 inline-block"></span> {t.nav.successStories}
               </span>
             </div>
           </div>
@@ -108,7 +115,7 @@ const Navbar = ({ t, language, setLanguage }) => {
               target="_blank" rel="noopener noreferrer"
               className="btn btn-primary text-sm px-6 py-2.5"
             >
-              Donate
+              {t.nav.donate}
             </a>
           </div>
         </nav>
@@ -129,22 +136,23 @@ const Navbar = ({ t, language, setLanguage }) => {
             {/* Pink accent bar at top */}
             <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #e91e8c, #1565C0)' }} />
             <div className="p-6 flex flex-col gap-3">
-              <Link to="/" className="text-lg font-bold text-gray-900 py-3 border-b border-gray-100 hover:text-primary transition-colors">Home</Link>
-              <Link to="/about" className="text-lg font-bold text-gray-900 py-3 border-b border-gray-100 hover:text-primary transition-colors">About Us</Link>
-              <Link to="/programs" className="text-lg font-bold text-gray-900 py-3 border-b border-gray-100 hover:text-primary transition-colors">Programs</Link>
+              {navLinks.slice(0, 3).map((link) => (
+                <Link key={link.to} to={link.to} className="text-lg font-bold text-teso-dark py-3 border-b border-gray-100 hover:text-primary transition-colors">{link.label}</Link>
+              ))}
 
               <div className="py-3 border-b border-gray-100">
-                <span className="text-xs font-black text-primary uppercase tracking-[0.2em] mb-3 block">Media</span>
+                <span className="text-xs font-extrabold text-primary uppercase tracking-[0.2em] mb-3 block">{t.nav.media}</span>
                 <div className="flex flex-col gap-2 pl-4">
-                  <Link to="/events" className="text-base font-semibold text-gray-700 hover:text-primary">Events</Link>
-                  <Link to="/gallery" className="text-base font-semibold text-gray-700 hover:text-primary">Gallery</Link>
-                  <Link to="/resources" className="text-base font-semibold text-gray-700 hover:text-secondary">Resources</Link>
-                  <span className="text-base text-gray-300">Success Stories</span>
+                  {mediaLinks.map((link) => (
+                    <Link key={link.to} to={link.to} className="text-base font-semibold text-gray-700 hover:text-primary">{link.label}</Link>
+                  ))}
+                  <span className="text-base text-gray-300">{t.nav.successStories}</span>
                 </div>
               </div>
 
-              <Link to="/get-involved" className="text-lg font-bold text-gray-900 py-3 border-b border-gray-100 hover:text-primary transition-colors">Get Involved</Link>
-              <Link to="/contact" className="text-lg font-bold text-gray-900 py-3 border-b border-gray-100 hover:text-primary transition-colors">Contact</Link>
+              {navLinks.slice(3).map((link) => (
+                <Link key={link.to} to={link.to} className="text-lg font-bold text-teso-dark py-3 border-b border-gray-100 hover:text-primary transition-colors">{link.label}</Link>
+              ))}
 
               <div className="flex items-center gap-5 py-4 text-primary">
                 <a href="#"><Facebook size={22} /></a>
@@ -153,7 +161,7 @@ const Navbar = ({ t, language, setLanguage }) => {
                 <a href="#"><Youtube size={22} /></a>
               </div>
 
-              <a href="https://wa.me/256777676436?text=Hello%20TEWOYEI,%20I%20would%20like%20to%20support%20your%20campaigns." target="_blank" rel="noopener noreferrer" className="btn btn-primary text-center w-full">Donate Now</a>
+              <a href="https://wa.me/256777676436?text=Hello%20TEWOYEI,%20I%20would%20like%20to%20support%20your%20campaigns." target="_blank" rel="noopener noreferrer" className="btn btn-primary text-center w-full">{t.nav.donateNow}</a>
             </div>
           </div>
         )}
