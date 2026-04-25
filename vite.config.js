@@ -9,6 +9,7 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: renderPort || 5173,
+    allowedHosts: ['twedo.onrender.com'],
   },
   preview: {
     host: '0.0.0.0',
