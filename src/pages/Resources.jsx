@@ -5,26 +5,7 @@ import { ChevronLeft, ChevronRight, Play, FileText, BookOpen } from 'lucide-reac
 const Resources = ({ t }) => {
   const [videoIndex, setVideoIndex] = useState(0);
 
-  const videos = [
-    {
-      id: '25d83dD1Ops',
-      title: 'Gender Based Violence Awareness',
-      category: 'GBV',
-      description: 'An educational video highlighting the impact of Gender Based Violence in communities and the pathways to prevention and support.'
-    },
-    {
-      id: 'RYFQBYb4Zcs',
-      title: 'GBV Prevention & Response',
-      category: 'GBV',
-      description: 'Understanding the root causes of Gender Based Violence and how communities can work together to end it.'
-    },
-    {
-      id: 'Zczerp00kEY',
-      title: 'Sexuality Education',
-      category: 'SRHR',
-      description: 'Comprehensive sexuality education to empower youth with knowledge about their reproductive health and rights.'
-    }
-  ];
+  const videos = t.resources.videos;
 
   const maxIndex = videos.length - 1;
 
@@ -33,13 +14,13 @@ const Resources = ({ t }) => {
       {/* Page Header */}
       <section className="relative py-32 bg-teso-dark text-white text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/assets/skilling.png" alt="Resources Background" className="w-full h-full object-cover opacity-20" />
+          <img src="/assets/skilling.png" alt={t.resources.pageTitle} className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-t from-teso-dark via-teso-dark/70 to-teso-dark/40"></div>
         </div>
         <div className="container relative z-10">
-          <span className="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-4 block">Media</span>
-          <h1 className="text-5xl md:text-6xl font-bold font-outfit mb-6">Resources</h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">Educational videos, publications, and materials on GBV awareness, SRHR, and community empowerment.</p>
+          <span className="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-4 block">{t.resources.media}</span>
+          <h1 className="text-5xl md:text-6xl font-bold font-outfit mb-6">{t.resources.pageTitle}</h1>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">{t.resources.subtitle}</p>
         </div>
       </section>
 
@@ -48,9 +29,9 @@ const Resources = ({ t }) => {
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
             <div>
-              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-2 block">Video Library</span>
-              <h2 className="text-3xl md:text-4xl font-bold font-outfit">Educational Videos</h2>
-              <p className="text-gray-500 mt-2 text-lg">Watch and share these critical awareness resources.</p>
+              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-2 block">{t.resources.videoLibrary}</span>
+              <h2 className="text-3xl md:text-4xl font-bold font-outfit">{t.resources.educationalVideos}</h2>
+              <p className="text-gray-500 mt-2 text-lg">{t.resources.videoIntro}</p>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-sm font-bold text-gray-400">{videoIndex + 1} / {videos.length}</span>
@@ -81,7 +62,7 @@ const Resources = ({ t }) => {
                     <div className="grid lg:grid-cols-5 gap-8 items-start">
                       {/* Video Embed */}
                       <div className="lg:col-span-3">
-                        <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gray-900">
+                        <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-teso-dark">
                           <iframe
                             src={`https://www.youtube.com/embed/${video.id}`}
                             title={video.title}
@@ -94,7 +75,7 @@ const Resources = ({ t }) => {
                       </div>
                       {/* Video Info */}
                       <div className="lg:col-span-2 flex flex-col justify-center">
-                        <span className="px-4 py-1.5 bg-primary/10 text-primary text-xs font-black rounded-full uppercase tracking-widest w-fit mb-4">{video.category}</span>
+                        <span className="px-4 py-1.5 bg-primary/10 text-primary text-xs font-extrabold rounded-full uppercase tracking-widest w-fit mb-4">{video.category}</span>
                         <h3 className="text-2xl md:text-3xl font-bold font-outfit mb-4">{video.title}</h3>
                         <p className="text-gray-500 leading-relaxed text-lg mb-6">{video.description}</p>
                         <a
@@ -103,7 +84,7 @@ const Resources = ({ t }) => {
                           rel="noopener noreferrer"
                           className="btn btn-primary w-fit flex items-center gap-2"
                         >
-                          <Play size={18} /> Watch on YouTube
+                          <Play size={18} /> {t.common.watchOnYoutube}
                         </a>
                       </div>
                     </div>
@@ -129,7 +110,7 @@ const Resources = ({ t }) => {
       {/* All Videos Grid */}
       <section className="section-padding bg-gray-50">
         <div className="container">
-          <h3 className="text-2xl font-bold font-outfit mb-10">All Videos</h3>
+          <h3 className="text-2xl font-bold font-outfit mb-10">{t.resources.allVideos}</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {videos.map((video, i) => (
               <motion.div
@@ -146,13 +127,13 @@ const Resources = ({ t }) => {
                     alt={video.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute inset-0 bg-teso-dark/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <a href={`https://youtu.be/${video.id}`} target="_blank" rel="noopener noreferrer"
                       className="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white shadow-lg">
                       <Play size={28} className="ml-1" />
                     </a>
                   </div>
-                  <span className="absolute top-4 left-4 px-3 py-1 bg-primary text-white text-[10px] font-black rounded-full uppercase">{video.category}</span>
+                  <span className="absolute top-4 left-4 px-3 py-1 bg-primary text-white text-[10px] font-extrabold rounded-full uppercase">{video.category}</span>
                 </div>
                 <div className="p-6">
                   <h4 className="text-lg font-bold font-outfit mb-2">{video.title}</h4>
@@ -168,14 +149,14 @@ const Resources = ({ t }) => {
       <section className="py-20">
         <div className="container">
           <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold font-outfit">More Resources Coming Soon</h3>
-            <p className="text-gray-500 mt-2">Publications, research papers, and downloadable toolkits.</p>
+            <h3 className="text-2xl font-bold font-outfit">{t.resources.moreComing}</h3>
+            <p className="text-gray-500 mt-2">{t.resources.moreComingText}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: FileText, title: 'Research Publications', desc: 'Peer-reviewed papers and field research reports.' },
-              { icon: BookOpen, title: 'Training Manuals', desc: 'Downloadable guides for GBV response and SRHR education.' },
-              { icon: Play, title: 'Documentary Series', desc: 'Long-form documentaries from the Teso sub-region.' }
+              { icon: FileText, ...t.resources.future[0] },
+              { icon: BookOpen, ...t.resources.future[1] },
+              { icon: Play, ...t.resources.future[2] }
             ].map((item, i) => (
               <div key={i} className="p-8 rounded-3xl border-2 border-dashed border-gray-200 text-center opacity-60">
                 <item.icon size={40} className="text-gray-300 mx-auto mb-4" />

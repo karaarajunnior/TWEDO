@@ -36,15 +36,15 @@ const Hero = ({ t }) => {
   const slides = [
     {
       image: "/assets/hero-image.png",
-      alt: "Women Empowerment Training"
+      alt: t.hero.slides.womenTraining
     },
     {
       image: "/assets/skilling.png",
-      alt: "Youth Skilling"
+      alt: t.hero.slides.youthSkilling
     },
     {
       image: "/assets/about-image.png",
-      alt: "Community Outreach"
+      alt: t.hero.slides.communityOutreach
     }
   ];
 
@@ -57,9 +57,9 @@ const Hero = ({ t }) => {
   }, [slides.length]);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#1a1a1a] pb-32 md:pb-40">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-teso-dark pb-32 md:pb-40">
       {/* Background Image Carousel with Overlay */}
-      <div className="absolute inset-0 z-0 bg-black">
+      <div className="absolute inset-0 z-0 bg-teso-dark">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -74,7 +74,7 @@ const Hero = ({ t }) => {
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-black/50 to-transparent opacity-80"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-teso-dark via-secondary-dark/60 to-transparent opacity-80"></div>
       </div>
 
       <div className="container relative z-10 pt-32 lg:pt-40">
@@ -99,7 +99,7 @@ const Hero = ({ t }) => {
             className="flex flex-wrap gap-4"
           >
             <Link to="/programs" className="btn btn-primary text-lg px-10">{t.hero.cta_programs}</Link>
-            <Link to="/about" className="btn btn-outline text-white border-white text-lg px-10 hover:bg-white hover:text-black">
+            <Link to="/about" className="btn btn-outline text-white border-white text-lg px-10 hover:bg-white hover:text-teso-dark">
               {t.hero.cta_learn}
             </Link>
           </motion.div>

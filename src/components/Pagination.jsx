@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+const Pagination = ({ currentPage, totalPages, onPageChange, lastLabel }) => {
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
@@ -16,7 +16,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         >
           {page}
           {currentPage === page && (
-            <span className="absolute bottom-[-4px] left-0 w-full h-[3px] bg-[#4a4a4a]"></span>
+            <span className="absolute bottom-[-4px] left-0 w-full h-[3px] bg-secondary"></span>
           )}
         </button>
       ))}
@@ -34,7 +34,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(totalPages)}
         disabled={currentPage === totalPages}
       >
-        Last
+        {lastLabel}
       </button>
     </div>
   );
