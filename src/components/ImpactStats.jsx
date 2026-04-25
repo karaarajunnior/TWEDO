@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 /* Reusable SVG Donut Chart */
-const DonutChart = ({ value, total, label, color, colorLight, size = 160 }) => {
+const DonutChart = ({ value, total, label, totalLabel, color, colorLight, size = 160 }) => {
   const radius = 62;
   const circumference = 2 * Math.PI * radius;
   const percentage = (value / total) * 100;
@@ -34,7 +34,7 @@ const DonutChart = ({ value, total, label, color, colorLight, size = 160 }) => {
         </svg>
         {/* Center text */}
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-xs font-semibold uppercase tracking-wider text-white/70">{t.common.total}</span>
+          <span className="text-xs font-semibold uppercase tracking-wider text-white/70">{totalLabel}</span>
           <span className="text-3xl font-extrabold font-outfit" style={{ color }}>{value}</span>
         </div>
       </div>
@@ -116,10 +116,10 @@ const ImpactStats = ({ t }) => {
 
           {/* Main donut charts row */}
           <div className="px-8 md:px-12 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-white/5">
-            <DonutChart value={787} total={1361} label={t.impact.amuriaDistrict} color="#e91e8c" colorLight="rgba(233,30,140,0.15)" />
-            <DonutChart value={574} total={1361} label={t.impact.kapelebyongDistrict} color="#1565C0" colorLight="rgba(21,101,192,0.15)" />
-            <DonutChart value={1010} total={1361} label={t.impact.femalesTrained} color="#f06292" colorLight="rgba(240,98,146,0.15)" />
-            <DonutChart value={351} total={1361} label={t.impact.malesTrained} color="#42a5f5" colorLight="rgba(66,165,245,0.15)" />
+            <DonutChart value={787} total={1361} label={t.impact.amuriaDistrict} totalLabel={t.common.total} color="#e91e8c" colorLight="rgba(233,30,140,0.15)" />
+            <DonutChart value={574} total={1361} label={t.impact.kapelebyongDistrict} totalLabel={t.common.total} color="#1565C0" colorLight="rgba(21,101,192,0.15)" />
+            <DonutChart value={1010} total={1361} label={t.impact.femalesTrained} totalLabel={t.common.total} color="#f06292" colorLight="rgba(240,98,146,0.15)" />
+            <DonutChart value={351} total={1361} label={t.impact.malesTrained} totalLabel={t.common.total} color="#42a5f5" colorLight="rgba(66,165,245,0.15)" />
           </div>
 
           {/* Skill-by-skill breakdown with mini rings */}
