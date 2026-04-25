@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  /* === PRIMARY: Pink — Women, Empowerment, Warmth === */
+  --color-primary: #e91e8c;
+  --color-primary-dark: #c6167a;
+  --color-primary-light: #fce4f3;
+
+  /* === SECONDARY: Blue — Justice, Trust, Integrity === */
+  --color-secondary: #1565C0;
+  --color-secondary-dark: #0D47A1;
+  --color-secondary-light: #E3F2FD;
+
+  /* === NEUTRALS: White for Transparency === */
+  --color-teso-dark: #0f172a;
+  --color-teso-light: #f8faff;
+
+  /* === TYPOGRAPHY === */
+  --font-outfit: "Outfit", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-inter);
+    color: var(--color-teso-dark);
+    background-color: white;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-outfit);
+  }
+}
+
+@layer components {
+  /* === BUTTONS === */
+  .btn {
+    @apply inline-block px-8 py-3 rounded-full font-semibold transition-all duration-300;
+  }
+
+  /* Pink — Primary CTA (Women-focused actions) */
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(233,30,140,0.4)];
+  }
+
+  /* Blue — Secondary CTA (Trust/Advocacy actions) */
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(21,101,192,0.4)];
+  }
+
+  /* White outline — Justice/Transparency */
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white;
+  }
+
+  .btn-outline-blue {
+    @apply border-2 border-secondary text-secondary hover:bg-secondary hover:text-white;
+  }
+
+  /* === LAYOUT === */
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-6;
+  }
+
+  /* === GRADIENTS — Brand Storytelling === */
+  .gradient-women {
+    background: linear-gradient(135deg, #e91e8c 0%, #f06292 100%);
+  }
+
+  .gradient-justice {
+    background: linear-gradient(135deg, #1565C0 0%, #42a5f5 100%);
+  }
+
+  .gradient-tricolor {
+    background: linear-gradient(135deg, #e91e8c 0%, #ffffff 50%, #1565C0 100%);
+  }
+
+  /* Pink glow for hero cards */
+  .card-pink {
+    @apply bg-primary-light border border-primary/20 rounded-3xl;
+  }
+
+  /* Blue glow for trust sections */
+  .card-blue {
+    @apply bg-secondary-light border border-secondary/20 rounded-3xl;
+  }
+
+  /* === ACCENT BARS === */
+  .accent-pink {
+    @apply border-l-4 border-primary pl-4;
+  }
+
+  .accent-blue {
+    @apply border-l-4 border-secondary pl-4;
+  }
+}

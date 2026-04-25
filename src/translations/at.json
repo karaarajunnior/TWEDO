@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "about": "Aitejei Isio",
+    "programs": "Iidisan",
+    "impact": "Aiyapane Kosi",
+    "gallery": "Eitabo Lokapiko",
+    "contact": "Aitodik",
+    "donate": "Aingarakin"
+  },
+  "hero": {
+    "title": "Aitogogoŋ Angor, Aijulak Teso.",
+    "subtitle": "Teso Women Empowerment Youth Organization Initiative (TEWOYEI) erai eicolong loangor loete keda akitogogoŋ keda aijulakin Teso.",
+    "cta_programs": "Iidisan Kosi",
+    "cta_learn": "Akisisyom Kakidau"
+  },
+  "impact": {
+    "youths": "Atikok Kosi",
+    "districts": "Idisikit",
+    "skills": "Idisikit luegelgel",
+    "pillars": "Apilae nuepolok"
+  },
+  "about": {
+    "story": "Awaragatia Kosi",
+    "title": "Kouye keda akitogogoŋ",
+    "content": "Ageun kotoma okaru 2018, TEWOYEI ageun kwape egiriko loangor lueitingerete aibwo keda akitogogoŋ. Aboikin isio ebe atiokisio nueloliete angor—kwape akitameun aidis, akitagalakin keda ailatit.",
+    "vision": "Vision: Etem loemetar kotoma adisikit.",
+    "pillars": "Apilae nuepolok: Aiyun, Adup keda Aitidau."
+  },
+  "gallery": {
+    "title": "Iidisan kosi kosoman",
+    "atiira": "Aijon Atiira",
+    "kapelebyong": "Aijon Kapelebyong",
+    "orungo": "BCP Orungo"
+  },
+  "contact": {
+    "title": "Aitodik Isio",
+    "person": "Among Dinah Grace",
+    "email": "Iiwandikak Isio",
+    "call": "Aisirum Kanu"
+  }
+}

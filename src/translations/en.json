@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "about": "About Us",
+    "programs": "Programs",
+    "impact": "Our Impact",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "donate": "Donate Now"
+  },
+  "hero": {
+    "title": "Empowering Women, Transforming Teso.",
+    "subtitle": "Teso Women Empowerment Youth Organization Initiative (TEWOYEI) is a women-led initiative dedicated to social, economic, and political transformation in Uganda.",
+    "cta_programs": "Our Programs",
+    "cta_learn": "Learn More"
+  },
+  "impact": {
+    "youths": "Youths Trained",
+    "districts": "Districts Impacted",
+    "skills": "Skills Programs",
+    "pillars": "Strategic Pillars"
+  },
+  "about": {
+    "story": "Our Story",
+    "title": "From Savings to Empowerment",
+    "content": "Formed in 2018, TEWOYEI started as a collective of women organized in savings groups. Recognizing that their challenges—family neglect, domestic violence, and lack of essential resources—needed a structural solution, they transformed their initiative into a Community Based Organization.",
+    "vision": "Vision: A community free from injustice.",
+    "pillars": "Core Pillars: Faith, Justice, and Integrity."
+  },
+  "gallery": {
+    "title": "Field Activities",
+    "atiira": "Tailoring in Atiira",
+    "kapelebyong": "Tailoring in Kapelebyong",
+    "orungo": "BCP in Orungo"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "person": "Among Dinah Grace",
+    "email": "Email Us",
+    "call": "Call Now"
+  }
+}

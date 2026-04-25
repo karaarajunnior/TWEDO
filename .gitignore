@@ -1,0 +1,61 @@
+# ===========================
+# TEWOYEI NGO Website — .gitignore
+# ===========================
+
+# --- Node ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Build output ---
+dist/
+dist-ssr/
+build/
+
+# --- Vite ---
+.vite/
+vite.config.js.timestamp-*
+
+# --- Environment variables (KEEP SECRETS OUT) ---
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# --- Editor & OS ---
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+desktop.ini
+
+# --- VS Code ---
+.vscode/
+!.vscode/extensions.json
+
+# --- JetBrains IDEs ---
+.idea/
+
+# --- Logs ---
+logs/
+*.log
+
+# --- Cache ---
+.cache/
+.eslintcache
+.stylelintcache
+
+# --- Package manager locks (keep only one) ---
+# yarn.lock  ← uncomment if using yarn
+# pnpm-lock.yaml ← uncomment if using pnpm
+
+# --- Misc sensitive / large non-repo files ---
+*.docx
+*.pdf
+profile_extracted/
+bak/

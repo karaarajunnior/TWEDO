@@ -1,0 +1,42 @@
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import About from './pages/About';
+import Programs from './pages/Programs';
+import Gallery from './pages/Gallery';
+import Contact from './pages/Contact';
+import GetInvolved from './pages/GetInvolved';
+import Events from './pages/Events';
+import Resources from './pages/Resources';
+import en from './translations/en.json';
+import at from './translations/at.json';
+
+const App = () => {
+  const [language, setLanguage] = useState('en');
+  const t = language === 'en' ? en : at;
+
+  return (
+    <Router>
+      <div className="min-h-screen flex flex-col">
+        <Navbar t={t} language={language} setLanguage={setLanguage} />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home t={t} />} />
+            <Route path="/about" element={<About t={t} />} />
+            <Route path="/programs" element={<Programs t={t} />} />
+            <Route path="/gallery" element={<Gallery t={t} />} />
+            <Route path="/events" element={<Events t={t} />} />
+            <Route path="/get-involved" element={<GetInvolved t={t} />} />
+            <Route path="/resources" element={<Resources t={t} />} />
+            <Route path="/contact" element={<Contact t={t} />} />
+          </Routes>
+        </main>
+        <Footer t={t} />
+      </div>
+    </Router>
+  );
+};
+
+export default App;
