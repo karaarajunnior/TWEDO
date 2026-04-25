@@ -1,41 +1,394 @@
 {
   "nav": {
+    "home": "Home",
     "about": "About Us",
     "programs": "Programs",
     "impact": "Our Impact",
     "gallery": "Gallery",
     "contact": "Contact",
-    "donate": "Donate Now"
+    "getInvolved": "Get Involved",
+    "media": "Media",
+    "events": "Events",
+    "resources": "Resources",
+    "pressRelease": "Press Release",
+    "successStories": "Success Stories",
+    "donate": "Donate",
+    "donateNow": "Donate Now"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "ourPrograms": "Our Programs",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us",
+    "newsletter": "Newsletter",
+    "subscribe": "Subscribe",
+    "emailPlaceholder": "Your email address",
+    "developedBy": "Developed by",
+    "location": "Location",
+    "email": "Email",
+    "callUs": "Call Us",
+    "sendMessage": "Send Message",
+    "viewDetails": "View Details",
+    "applyNow": "Apply Now",
+    "partnerWithUs": "Partner With Us",
+    "watchOnYoutube": "Watch on YouTube",
+    "total": "Total"
   },
   "hero": {
     "title": "Empowering Women, Transforming Teso.",
     "subtitle": "Teso Women Empowerment Youth Organization Initiative (TEWOYEI) is a women-led initiative dedicated to social, economic, and political transformation in Uganda.",
     "cta_programs": "Our Programs",
-    "cta_learn": "Learn More"
+    "cta_learn": "Learn More",
+    "slides": {
+      "womenTraining": "Women Empowerment Training",
+      "youthSkilling": "Youth Skilling",
+      "communityOutreach": "Community Outreach"
+    }
   },
   "impact": {
     "youths": "Youths Trained",
     "districts": "Districts Impacted",
     "skills": "Skills Programs",
-    "pillars": "Strategic Pillars"
+    "pillars": "Strategic Pillars",
+    "trainingBreakdown": "Training Statistics Breakdown",
+    "trainingPeriod": "Nov 2021 - March 2022 - Amuria & Kapelebyong Districts",
+    "amuriaDistrict": "Amuria District",
+    "kapelebyongDistrict": "Kapelebyong District",
+    "femalesTrained": "Females Trained",
+    "malesTrained": "Males Trained",
+    "skillsDistribution": "Skills Distribution",
+    "tailoring": "Tailoring",
+    "bcp": "BCP",
+    "hairdressingShort": "H.D",
+    "computerShort": "Comp.",
+    "sweater": "Sweater",
+    "females": "Females",
+    "males": "Males",
+    "grandTotal": "Grand Total Beneficiaries"
   },
   "about": {
     "story": "Our Story",
     "title": "From Savings to Empowerment",
-    "content": "Formed in 2018, TEWOYEI started as a collective of women organized in savings groups. Recognizing that their challenges—family neglect, domestic violence, and lack of essential resources—needed a structural solution, they transformed their initiative into a Community Based Organization.",
+    "content": "Formed in 2018, TEWOYEI started as a collective of women organized in savings groups. Recognizing that their challenges - family neglect, domestic violence, and lack of essential resources - needed a structural solution, they transformed their initiative into a Community Based Organization.",
     "vision": "Vision: A community free from injustice.",
-    "pillars": "Core Pillars: Faith, Justice, and Integrity."
+    "pillars": "Core Pillars: Faith, Justice, and Integrity.",
+    "pageTitle": "Who We Are",
+    "tabs": {
+      "about": "About Us",
+      "history": "Our History",
+      "leadership": "Our Leadership"
+    },
+    "introTitle": "About Us",
+    "intro": "TEWOYEI stands on three pillars of faith, justice and integrity with a major objective of fronting the needs of the less privileged in the society for social, economic and political transformation.",
+    "introSecond": "We are a women-led organization dedicated to empowering communities through charitable and community-based interventions focusing on women and youths for sustainable development.",
+    "visionTitle": "Vision",
+    "visionText": "A community free from injustice.",
+    "missionTitle": "Mission",
+    "missionText": "To provide charitable and community-based interventions focusing on women and youths for sustainable development.",
+    "historyTitle": "Our History",
+    "historyFirst": "Founded in 2018, TEWOYEI started as a collective of women organized in savings groups in the Teso sub-region of Uganda.",
+    "historySecond": "Recognizing that their challenges - family neglect, domestic violence, and lack of essential resources - needed a structural solution, they transformed their initiative into a Community Based Organization to front the needs of the less privileged.",
+    "leadershipTitle": "Our Leadership",
+    "executiveTeam": "Our Executive Team",
+    "leadershipImageAlt": "Leadership",
+    "team": [
+      {
+        "name": "Angela Ahrendts",
+        "title": "Board Chair",
+        "bio": "Angela Ahrendts DBE was most recently Senior Vice President, Apple Retail based in Cupertino, CA. During her five years with Apple, she integrated the company's physical and digital businesses to create a seamless customer journey for over a billion visitors a year. Under her leadership, she redesigned the stores, recrafted the roles for 70,000 employees globally, and reimagined the retail experience. Before Apple, Angela was Chief Executive Officer of Burberry Group plc for nearly nine years, where she led the 150-year-old British fashion house through a period of phenomenal global growth."
+      },
+      {
+        "name": "Among Dinah Grace",
+        "title": "Project Coordinator",
+        "bio": "A dedicated leader in community transformation, Dinah Grace oversees the strategic implementation of TEWOYEI's field operations. With years of experience in grass-roots mobilization in the Teso sub-region, she ensures that every intervention - from SRHR sensitizations to vocational skilling - reaches the most vulnerable women and youth."
+      }
+    ]
+  },
+  "home": {
+    "testimonials": "Testimonials",
+    "livesTransformed": "Lives Transformed",
+    "testimonialQuote": "TEWOYEI changed my life. I learned tailoring and now I can support my children and pay their school fees from my own earnings. The support I received was a turning point for my family's future.",
+    "beneficiaryName": "Beneficiary Name",
+    "beneficiaryAlt": "Beneficiary",
+    "kapelebyongDistrict": "Kapelebyong District",
+    "fieldStories": "Field Stories",
+    "impactMotion": "Seeing the Impact in Motion",
+    "fieldStoriesDescription": "Experience the raw energy and dedication of our field teams and beneficiaries. Our video series highlights the daily transformations in Teso.",
+    "videos": [
+      { "title": "Watch: Tailoring Workshop (Atiira)", "duration": "4:20" },
+      { "title": "Watch: Savings Groups Success", "duration": "5:45" },
+      { "title": "Watch: Community Outreach Program", "duration": "3:12" },
+      { "title": "Watch: Youth Entrepreneurship Summit", "duration": "6:50" },
+      { "title": "Watch: GBV Awareness Campaign", "duration": "8:10" }
+    ],
+    "fieldActivities": "Field Activities",
+    "communityWork": "Our Work in the Community",
+    "activities": [
+      { "title": "Tailoring Program", "location": "Atiira" },
+      { "title": "Savings Groups", "location": "Kapelebyong" },
+      { "title": "Leadership Summit", "location": "Amuria" },
+      { "title": "Bakery Skills", "location": "Orungo" }
+    ],
+    "trustedBy": "Trusted By Global Partners"
+  },
+  "programs": {
+    "headerTitle": "Our Interventions",
+    "headerSubtitle": "We provide charitable and community-based interventions focusing on women and youth for sustainable socio-economic development, driven by our core objectives and thematic areas.",
+    "coreObjectivesTitle": "TEWOYEI'S Core Objectives",
+    "objectives": [
+      "To enhance good governance through lobbying for quality public policies and effective service delivery",
+      "To empower communities to end Gender Based Violence and child marriage",
+      "To empower women and encourage them to engage in active leadership at different capacities in the society",
+      "To promote fundamental human rights",
+      "Support victims of war, gender-based violence, human torture, natural calamities, Orphans and Vulnerable Children among others (OVCs)",
+      "To popularize the national sexuality education framework in schools and various communities",
+      "To establish child health clubs for advocacy and raising the voice of the marginalized adolescent girls",
+      "To partner with other organizations and government in promoting the rights of the girl child."
+    ],
+    "thematicAreasTitle": "Thematic Areas",
+    "thematicAreas": [
+      "Women and youth empowerment on livelihood and sustainability.",
+      "Advocacy and Human rights",
+      "Cross cutting issues (GBV, Health, OVCs, PLWDS, Climate and Environment, PLWHIV/AIDS, Widows).",
+      "Psychosocial support.",
+      "Sexual Reproductive Health and Rights."
+    ],
+    "projectActivities": "Project Activities",
+    "currentActivitiesTitle": "Current Activities",
+    "currentActivities": [
+      "Community engagements and sensitization on GBV",
+      "Community and school engagements on Menstrual cups and SRHR",
+      "District engagement on CLM in Kapelebyong district in 8 Health facilities.",
+      "Skilling of the youth and vulnerable women (tailoring, building and concrete practice, sweater making, knitting, hairdressing, beading, bakery)",
+      "Trainings on mind set change for both youth and parents",
+      "Guidance and counseling",
+      "Support to the OVCs",
+      "Sexual Reproductive health training",
+      "Business planning and entrepreneurship training",
+      "Radio dramas (focusing on sensitization of the community on the impact of Covid 19 especially how it has contributed to gender base violence)",
+      "Training on how to make reusable pads for girls and vulnerable women",
+      "Sensitizing communities on malaria prevalence, prevention and treatment care services in Okungur Sub County in Kapelebyong district in the parishes of Agonga and Airabet."
+    ],
+    "plannedActivitiesTitle": "Planned Activities",
+    "plannedActivities": [
+      "Continue on the menstrual cup training and distribution",
+      "Complete the skilling project in Amuria and Kapelebyong district.",
+      "Continue on CLM implementation.",
+      "Continue on community sensitizations on GBV awareness and its impacts.",
+      "Conduct SRHR trainings and sensitizations in the community and schools."
+    ],
+    "successfullyImplemented": "Successfully Implemented",
+    "achievements": [
+      "Successfully implemented on a Menstrual cup project in Okungur subcounty and Obalanga Town council (300 cups distributed) supported by Rotary Club of Kyanja Metro & Could You cup.",
+      "Conducted a mapping exercise and mobilization of 40 CBOs for Lango region under KAL Consortium Africa.",
+      "Currently implementing a 2 yr CLM project funded by Global Fund under TASO through CDFU in Kapelebyong District.",
+      "Successfully implemented malaria project in Kapelebyong district, Okungur Subcounty supported by TASO Uganda through CDFU funded by GLOBAL FUND (Aug-Sept 2023, June-Dec 2022).",
+      "Successfully implemented menstrual health project in 4 schools from Kapelebyong district, supported by USAID through East West Management Institute (March-Sept 2023).",
+      "Trained 1,361 youths in Amuria (787) and Kapelebyong (574) districts. Included 1,010 females and 351 males.",
+      "Supported 10 highly vulnerable youths (5 female, 5 male) from Akeriau, Ogongora, and Okungur to acquire skills.",
+      "Included PWDs (dumb and deaf) who are successfully coping with the training.",
+      "Sensitized communities on the impact of COVID-19 on GBV, producing 8 radio dramas.",
+      "Trained 05 girls and women in brick laying and concrete practice.",
+      "Participated in the 16 Days of Activism campaign to end teenage pregnancy and fight GBV.",
+      "Trained 80 women on baking bread and knitting (2020/2021).",
+      "Sensitized over 1500 people on malaria prevalence in Airabet and Agonga."
+    ],
+    "challengesTitle": "Challenges Met",
+    "challenges": [
+      "Limited funds to facilitate the activities within the sub counties of operation.",
+      "Negative attitude towards contributing for trainings by the community whereby they need everything to be given to them to aid the trainings e.g. materials, machines etc.",
+      "Few staff members yet they need to help in the monitoring of the projects activities.",
+      "Lack of office equipment like computer and other office accessories like printer, photocopying machine among others."
+    ],
+    "supportTitle": "Want to support our programs?",
+    "ourWork": "Our Work",
+    "socioEconomicInterventions": "Socio-Economic Interventions",
+    "cards": [
+      {
+        "img": "skilling.png",
+        "title": "Livelihood & Skilling",
+        "desc": "Providing vocational training in tailoring, bakery, and construction."
+      },
+      {
+        "img": "health.png",
+        "title": "Health & Hygiene",
+        "desc": "Implementing menstrual health and malaria prevention projects."
+      },
+      {
+        "img": "leadership.png",
+        "title": "Leadership & Advocacy",
+        "desc": "Empowering women for active social and political participation."
+      }
+    ]
   },
   "gallery": {
     "title": "Field Activities",
     "atiira": "Tailoring in Atiira",
     "kapelebyong": "Tailoring in Kapelebyong",
-    "orungo": "BCP in Orungo"
+    "orungo": "BCP in Orungo",
+    "pageTitle": "Field Gallery",
+    "subtitle": "Witness the real transformations happening on the ground in the Teso sub-region.",
+    "featuredHighlights": "Featured Highlights",
+    "fullCollection": "Full Collection",
+    "ourGallery": "Our Gallery",
+    "images": [
+      { "title": "Tailoring in Atiira", "tags": ["Skilling", "Atiira"] },
+      { "title": "Tailoring in Kapelebyong", "tags": ["Skilling", "Kapelebyong"] },
+      { "title": "BCP in Orungo", "tags": ["BCP", "Orungo"] },
+      { "title": "Construction Training", "tags": ["BCP"] },
+      { "title": "Community Project", "tags": ["BCP"] },
+      { "title": "Savings Group", "tags": ["Community"] }
+    ],
+    "componentImages": [
+      "Tailoring in Atiira",
+      "Tailoring in Kapelebyong",
+      "BCP in Orungo",
+      "Construction Training",
+      "Community Project",
+      "Teso Region"
+    ]
   },
   "contact": {
     "title": "Get in Touch",
     "person": "Among Dinah Grace",
     "email": "Email Us",
-    "call": "Call Now"
+    "call": "Call Now",
+    "pageTitle": "Contact Us",
+    "subtitle": "We'd love to hear from you. Reach out for partnerships, inquiries, or support.",
+    "headquarters": "Headquarters",
+    "address": "Amuria / Kapelebyong District, Teso Sub-Region, Uganda",
+    "projectCoordinator": "Project Coordinator",
+    "sendMessageTitle": "Send a Message",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "emailAddress": "Email Address",
+    "message": "Message",
+    "firstNamePlaceholder": "John",
+    "lastNamePlaceholder": "Doe",
+    "emailPlaceholder": "john@example.com",
+    "messagePlaceholder": "How can we collaborate?",
+    "coordinatorTitle": "Project Coordinator & Founder",
+    "name": "Name",
+    "yourName": "Your Name",
+    "yourEmail": "Your Email",
+    "helpPlaceholder": "How can we help?"
+  },
+  "getInvolved": {
+    "pageTitle": "Get Involved",
+    "subtitle": "Join us in making a lasting impact in the Teso sub-region. Here's how you can be part of the change.",
+    "donationTitle": "Make a Donation",
+    "donationText": "Your financial support directly funds our vocational training, health outreach, and vulnerable children programs. Every contribution counts.",
+    "whatsappDonate": "Discuss Contribution via WhatsApp",
+    "partnerTitle": "Become a Partner",
+    "partnerText": "We collaborate with organizations, government bodies, and corporate sponsors to scale our impact.",
+    "partnerInquiry": "Partner Inquiry",
+    "volunteerTitle": "Volunteer",
+    "volunteerText": "Offer your skills in training, administration, or field work. We welcome passionate individuals to join our team on the ground.",
+    "applyVolunteer": "Apply to Volunteer",
+    "joinTeam": "Join Our Team",
+    "openPositions": "Open Volunteer Positions",
+    "positionsIntro": "We are actively looking for passionate people to support our various campaigns on the ground. Check out our open volunteer roles below.",
+    "positions": [
+      {
+        "title": "Community Outreach Facilitator",
+        "meta": "Location: Kapelebyong & Amuria Districts | Commitment: Part-time",
+        "description": "Assist in mobilizing local communities, organizing SRHR sensitizations, and monitoring the distribution of menstrual cups in schools.",
+        "subject": "Application: Community Outreach Facilitator"
+      },
+      {
+        "title": "Vocational Skills Trainer",
+        "meta": "Location: Varied | Commitment: Project-based",
+        "description": "Seeking experts in tailoring, bakery, bricklaying, or hairdressing to lead short-term skill workshops for vulnerable youth and women.",
+        "subject": "Application: Vocational Skills Trainer"
+      },
+      {
+        "title": "Psychosocial Counselor",
+        "meta": "Location: Regional | Commitment: Part-time / On-call",
+        "description": "Provide trauma counseling and psychosocial support to victims of Gender-Based Violence (GBV) and Orphans/Vulnerable Children (OVCs).",
+        "subject": "Application: Psychosocial Counselor"
+      }
+    ]
+  },
+  "events": {
+    "pageTitle": "Events & Campaigns",
+    "subtitle": "Stay updated with our ongoing, upcoming, and past community interventions across the Teso sub-region.",
+    "tabs": {
+      "upcoming": "Upcoming Events",
+      "latest": "Latest Activities",
+      "completed": "Completed Projects"
+    },
+    "noEventsPrefix": "No",
+    "noEventsSuffix": "events found.",
+    "last": "Last",
+    "data": {
+      "upcoming": [
+        { "title": "Annual Women Skilling Workshop", "date": "Oct 15, 2026", "time": "09:00 AM", "location": "Amuria District", "type": "Training" },
+        { "title": "Community SRHR Sensitization", "date": "Nov 02, 2026", "time": "10:00 AM", "location": "Kapelebyong", "type": "Community" },
+        { "title": "Menstrual Hygiene Day Celebrations", "date": "May 28, 2027", "time": "08:00 AM", "location": "Okungur Subcounty", "type": "Campaign" }
+      ],
+      "latest": [
+        { "title": "Youth Entrepreneurship Pitch", "date": "Apr 10, 2026", "time": "10:00 AM", "location": "Teso Region", "type": "Workshop" },
+        { "title": "GBV Awareness Drive", "date": "Mar 25, 2026", "time": "09:00 AM", "location": "Orungo", "type": "Advocacy" }
+      ],
+      "completed": [
+        { "title": "Malaria Prevention Sensitization", "date": "Aug 2023 - Sep 2023", "time": "Various", "location": "Agonga & Airabet", "type": "Health" },
+        { "title": "Menstrual Cup Distribution", "date": "March 2023 - Sep 2023", "time": "Various", "location": "4 Schools in Kapelebyong", "type": "Distribution" },
+        { "title": "16 Days of Activism Campaign", "date": "Dec 2022", "time": "All Day", "location": "Regional", "type": "Campaign" },
+        { "title": "COVID-19 Impact on GBV Radio Dramas", "date": "2021", "time": "Weekly", "location": "Radio Stations", "type": "Media" },
+        { "title": "Bread Baking & Knitting Training", "date": "2020 - 2021", "time": "Routine", "location": "Amuria", "type": "Training" }
+      ]
+    }
+  },
+  "resources": {
+    "media": "Media",
+    "pageTitle": "Resources",
+    "subtitle": "Educational videos, publications, and materials on GBV awareness, SRHR, and community empowerment.",
+    "videoLibrary": "Video Library",
+    "educationalVideos": "Educational Videos",
+    "videoIntro": "Watch and share these critical awareness resources.",
+    "allVideos": "All Videos",
+    "moreComing": "More Resources Coming Soon",
+    "moreComingText": "Publications, research papers, and downloadable toolkits.",
+    "videos": [
+      {
+        "id": "25d83dD1Ops",
+        "title": "Gender Based Violence Awareness",
+        "category": "GBV",
+        "description": "An educational video highlighting the impact of Gender Based Violence in communities and the pathways to prevention and support."
+      },
+      {
+        "id": "RYFQBYb4Zcs",
+        "title": "GBV Prevention & Response",
+        "category": "GBV",
+        "description": "Understanding the root causes of Gender Based Violence and how communities can work together to end it."
+      },
+      {
+        "id": "Zczerp00kEY",
+        "title": "Sexuality Education",
+        "category": "SRHR",
+        "description": "Comprehensive sexuality education to empower youth with knowledge about their reproductive health and rights."
+      }
+    ],
+    "future": [
+      { "title": "Research Publications", "desc": "Peer-reviewed papers and field research reports." },
+      { "title": "Training Manuals", "desc": "Downloadable guides for GBV response and SRHR education." },
+      { "title": "Documentary Series", "desc": "Long-form documentaries from the Teso sub-region." }
+    ]
+  },
+  "cta": {
+    "supportText": "Your support directly impacts lives in Teso. Contact us to contribute to our ongoing campaigns.",
+    "whatsappDonate": "WhatsApp Us to Donate",
+    "emailDonation": "Email Donation Inquiry"
+  },
+  "footer": {
+    "description": "Empowering women, adolescent girls, and youth in Teso for sustainable socio-economic and political transformation - rooted in Faith, Justice & Integrity.",
+    "women": "Women (Pink)",
+    "justice": "Justice (Blue)",
+    "integrity": "Integrity (White)",
+    "address": "Amuria / Kapelebyong District, Teso Sub-Region, Uganda",
+    "newsletterText": "Join our mailing list for field updates and impact stories from Teso.",
+    "copyright": "TEWOYEI - Teso Women Empowerment & Youth Initiatives.",
+    "registration": "Reg No:",
+    "registered": "Registered CBO in Uganda."
   }
 }

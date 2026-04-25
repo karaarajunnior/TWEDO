@@ -34,8 +34,8 @@ const DonutChart = ({ value, total, label, color, colorLight, size = 160 }) => {
         </svg>
         {/* Center text */}
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Total</span>
-          <span className="text-3xl font-black font-outfit" style={{ color }}>{value}</span>
+          <span className="text-xs font-semibold uppercase tracking-wider text-white/70">{t.common.total}</span>
+          <span className="text-3xl font-extrabold font-outfit" style={{ color }}>{value}</span>
         </div>
       </div>
       <p className="mt-4 text-sm font-bold text-gray-600 text-center">{label}</p>
@@ -58,9 +58,9 @@ const MiniRing = ({ value, maxVal, label, color }) => {
           <circle cx="32" cy="32" r={r} fill="none" stroke={color} strokeWidth="5" strokeLinecap="round"
             strokeDasharray={c} strokeDashoffset={off} style={{ transition: 'stroke-dashoffset 1.2s ease' }} />
         </svg>
-        <div className="absolute inset-0 flex items-center justify-center text-sm font-black" style={{ color }}>{value}</div>
+        <div className="absolute inset-0 flex items-center justify-center text-sm font-extrabold" style={{ color }}>{value}</div>
       </div>
-      <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider text-center leading-tight">{label}</span>
+          <span className="text-[10px] font-semibold text-white/70 uppercase tracking-wider text-center leading-tight">{label}</span>
     </div>
   );
 };
@@ -110,35 +110,35 @@ const ImpactStats = ({ t }) => {
         >
           {/* Header */}
           <div className="px-8 md:px-12 pt-10 pb-6">
-            <h3 className="text-2xl md:text-3xl font-bold font-outfit text-white">Training Statistics Breakdown</h3>
-            <p className="text-sm text-gray-400 font-semibold mt-1">Nov 2021 – March 2022 · Amuria &amp; Kapelebyong Districts</p>
+            <h3 className="text-2xl md:text-3xl font-bold font-outfit text-white">{t.impact.trainingBreakdown}</h3>
+            <p className="text-sm text-white/70 font-semibold mt-1">{t.impact.trainingPeriod}</p>
           </div>
 
           {/* Main donut charts row */}
           <div className="px-8 md:px-12 py-10 grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-white/5">
-            <DonutChart value={787} total={1361} label="Amuria District" color="#e91e8c" colorLight="rgba(233,30,140,0.15)" />
-            <DonutChart value={574} total={1361} label="Kapelebyong District" color="#1565C0" colorLight="rgba(21,101,192,0.15)" />
-            <DonutChart value={1010} total={1361} label="Females Trained" color="#f06292" colorLight="rgba(240,98,146,0.15)" />
-            <DonutChart value={351} total={1361} label="Males Trained" color="#42a5f5" colorLight="rgba(66,165,245,0.15)" />
+            <DonutChart value={787} total={1361} label={t.impact.amuriaDistrict} color="#e91e8c" colorLight="rgba(233,30,140,0.15)" />
+            <DonutChart value={574} total={1361} label={t.impact.kapelebyongDistrict} color="#1565C0" colorLight="rgba(21,101,192,0.15)" />
+            <DonutChart value={1010} total={1361} label={t.impact.femalesTrained} color="#f06292" colorLight="rgba(240,98,146,0.15)" />
+            <DonutChart value={351} total={1361} label={t.impact.malesTrained} color="#42a5f5" colorLight="rgba(66,165,245,0.15)" />
           </div>
 
           {/* Skill-by-skill breakdown with mini rings */}
           <div className="px-8 md:px-12 py-10">
-            <h4 className="text-lg font-bold text-white font-outfit mb-8 uppercase tracking-widest text-sm">Skills Distribution</h4>
+            <h4 className="text-lg font-bold text-white font-outfit mb-8 uppercase tracking-widest text-sm">{t.impact.skillsDistribution}</h4>
             <div className="grid md:grid-cols-2 gap-10">
 
               {/* Amuria */}
               <div className="bg-white/5 rounded-3xl p-8 border border-white/5">
                 <h5 className="text-primary font-bold font-outfit mb-6 text-lg flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-primary inline-block"></span> Amuria
-                  <span className="ml-auto text-2xl font-black">787</span>
+                  <span className="ml-auto text-2xl font-extrabold">787</span>
                 </h5>
                 <div className="grid grid-cols-5 gap-4">
-                  <MiniRing value={415} maxVal={500} label="Tailoring" color="#e91e8c" />
-                  <MiniRing value={220} maxVal={500} label="BCP" color="#f06292" />
-                  <MiniRing value={89} maxVal={500} label="H.D" color="#f48fb1" />
-                  <MiniRing value={30} maxVal={500} label="Comp." color="#f8bbd0" />
-                  <MiniRing value={33} maxVal={500} label="Sweater" color="#fce4ec" />
+                  <MiniRing value={415} maxVal={500} label={t.impact.tailoring} color="#e91e8c" />
+                  <MiniRing value={220} maxVal={500} label={t.impact.bcp} color="#f06292" />
+                  <MiniRing value={89} maxVal={500} label={t.impact.hairdressingShort} color="#f48fb1" />
+                  <MiniRing value={30} maxVal={500} label={t.impact.computerShort} color="#f8bbd0" />
+                  <MiniRing value={33} maxVal={500} label={t.impact.sweater} color="#fce4ec" />
                 </div>
               </div>
 
@@ -146,12 +146,12 @@ const ImpactStats = ({ t }) => {
               <div className="bg-white/5 rounded-3xl p-8 border border-white/5">
                 <h5 className="text-secondary font-bold font-outfit mb-6 text-lg flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-secondary inline-block"></span> Kapelebyong
-                  <span className="ml-auto text-2xl font-black">574</span>
+                  <span className="ml-auto text-2xl font-extrabold">574</span>
                 </h5>
                 <div className="grid grid-cols-3 gap-4">
-                  <MiniRing value={408} maxVal={500} label="Tailoring" color="#1565C0" />
-                  <MiniRing value={94} maxVal={500} label="BCP" color="#42a5f5" />
-                  <MiniRing value={72} maxVal={500} label="H.D" color="#90caf9" />
+                  <MiniRing value={408} maxVal={500} label={t.impact.tailoring} color="#1565C0" />
+                  <MiniRing value={94} maxVal={500} label={t.impact.bcp} color="#42a5f5" />
+                  <MiniRing value={72} maxVal={500} label={t.impact.hairdressingShort} color="#90caf9" />
                 </div>
               </div>
             </div>
@@ -162,22 +162,22 @@ const ImpactStats = ({ t }) => {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary text-lg">♀</div>
               <div>
-                <p className="text-xs text-gray-400 font-semibold uppercase">Females</p>
-                <p className="text-xl font-black font-outfit text-white">1,010</p>
+                <p className="text-xs text-white/70 font-semibold uppercase">{t.impact.females}</p>
+                <p className="text-xl font-extrabold font-outfit text-white">1,010</p>
               </div>
             </div>
             <div className="hidden md:block w-px h-10 bg-white/10"></div>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary text-lg">♂</div>
               <div>
-                <p className="text-xs text-gray-400 font-semibold uppercase">Males</p>
-                <p className="text-xl font-black font-outfit text-white">351</p>
+                <p className="text-xs text-white/70 font-semibold uppercase">{t.impact.males}</p>
+                <p className="text-xl font-extrabold font-outfit text-white">351</p>
               </div>
             </div>
             <div className="hidden md:block w-px h-10 bg-white/10"></div>
             <div className="text-center md:text-right">
-              <p className="text-xs text-gray-400 font-semibold uppercase">Grand Total Beneficiaries</p>
-              <p className="text-3xl font-black font-outfit text-white">1,361</p>
+              <p className="text-xs text-white/70 font-semibold uppercase">{t.impact.grandTotal}</p>
+              <p className="text-3xl font-extrabold font-outfit text-white">1,361</p>
             </div>
           </div>
         </motion.div>

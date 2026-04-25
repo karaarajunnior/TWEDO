@@ -1,41 +1,394 @@
 {
   "nav": {
+    "home": "Erai",
     "about": "Aitejei Isio",
     "programs": "Iidisan",
     "impact": "Aiyapane Kosi",
     "gallery": "Eitabo Lokapiko",
     "contact": "Aitodik",
-    "donate": "Aingarakin"
+    "getInvolved": "Itiakito",
+    "media": "Media",
+    "events": "Itiaka keda Campaigns",
+    "resources": "Aceketa",
+    "pressRelease": "Awaragasia lo Press",
+    "successStories": "Awaragasia nuilolong",
+    "donate": "Aingarakin",
+    "donateNow": "Aingarakin Kanu"
+  },
+  "common": {
+    "learnMore": "Akisisyom Kakidau",
+    "ourPrograms": "Iidisan Kosi",
+    "quickLinks": "Aijarakin Nuiswama",
+    "contactUs": "Aitodik Isio",
+    "newsletter": "Awaragasia",
+    "subscribe": "Akiroko",
+    "emailPlaceholder": "Email kon",
+    "developedBy": "Etiai",
+    "location": "Aiboisit",
+    "email": "Email",
+    "callUs": "Aisirum Isio",
+    "sendMessage": "Itiak Akiro",
+    "viewDetails": "Angolokin Nuisirigak",
+    "applyNow": "Ikewai Kanu",
+    "partnerWithUs": "Ainyikok keda Isio",
+    "watchOnYoutube": "Angolokin kotoma YouTube",
+    "total": "Akesi"
   },
   "hero": {
-    "title": "Aitogogoŋ Angor, Aijulak Teso.",
-    "subtitle": "Teso Women Empowerment Youth Organization Initiative (TEWOYEI) erai eicolong loangor loete keda akitogogoŋ keda aijulakin Teso.",
+    "title": "Aitogogong Angor, Aijulak Teso.",
+    "subtitle": "Teso Women Empowerment Youth Organization Initiative (TEWOYEI) erai eicolong loangor loete keda akitogogong keda aijulakin Teso.",
     "cta_programs": "Iidisan Kosi",
-    "cta_learn": "Akisisyom Kakidau"
+    "cta_learn": "Akisisyom Kakidau",
+    "slides": {
+      "womenTraining": "Aitodolikin Angor",
+      "youthSkilling": "Aitodolikin Atukot",
+      "communityOutreach": "Aitodik Etem"
+    }
   },
   "impact": {
-    "youths": "Atikok Kosi",
-    "districts": "Idisikit",
-    "skills": "Idisikit luegelgel",
-    "pillars": "Apilae nuepolok"
+    "youths": "Atukot Nueitodolikinit",
+    "districts": "Idisikit Nueyapinit",
+    "skills": "Iidisan Luegelgel",
+    "pillars": "Apilae Nuepolok",
+    "trainingBreakdown": "Akiro Nukaitodolikin",
+    "trainingPeriod": "Nov 2021 - March 2022 - Amuria keda Kapelebyong Districts",
+    "amuriaDistrict": "Amuria District",
+    "kapelebyongDistrict": "Kapelebyong District",
+    "femalesTrained": "Angor Nueitodolikinit",
+    "malesTrained": "Iŋes Nueitodolikinit",
+    "skillsDistribution": "Aijulakin Nukogelgel",
+    "tailoring": "Aijon",
+    "bcp": "BCP",
+    "hairdressingShort": "H.D",
+    "computerShort": "Comp.",
+    "sweater": "Sweater",
+    "females": "Angor",
+    "males": "Iŋes",
+    "grandTotal": "Akesi Nukiror"
   },
   "about": {
     "story": "Awaragatia Kosi",
-    "title": "Kouye keda akitogogoŋ",
-    "content": "Ageun kotoma okaru 2018, TEWOYEI ageun kwape egiriko loangor lueitingerete aibwo keda akitogogoŋ. Aboikin isio ebe atiokisio nueloliete angor—kwape akitameun aidis, akitagalakin keda ailatit.",
+    "title": "Kouye keda Akitogogong",
+    "content": "Ageun kotoma okaru 2018, TEWOYEI ageun kwape egiriko loangor lueitingerete aibwo keda akitogogong. Aboikin isio ebe atiokisio nueloliete angor - kwape akitameun aidis, akitagalakin keda ailatit - ekotos ebeit aiswama nuepolok.",
     "vision": "Vision: Etem loemetar kotoma adisikit.",
-    "pillars": "Apilae nuepolok: Aiyun, Adup keda Aitidau."
+    "pillars": "Apilae nuepolok: Aiyun, Adup keda Aitidau.",
+    "pageTitle": "Nga Isio",
+    "tabs": {
+      "about": "Aitejei Isio",
+      "history": "Awaragasia Kosi",
+      "leadership": "Airit Kosi"
+    },
+    "introTitle": "Aitejei Isio",
+    "intro": "TEWOYEI ekamuni apilae aiyun, adup keda aitidau, keda akiro nukitalakinit aijarakin etunga luemitakina kotoma etem.",
+    "introSecond": "Isio erai ekiror loangor loeswama aitogogong etem kotoma aidis nueijarakin angor keda atukot neejeni aitoron.",
+    "visionTitle": "Vision",
+    "visionText": "Etem loemetar kotoma adisikit.",
+    "missionTitle": "Mission",
+    "missionText": "Aijarakin etem keda aidis nueyapakin angor keda atukot neejeni aitoron.",
+    "historyTitle": "Awaragasia Kosi",
+    "historyFirst": "Ageun kotoma okaru 2018, TEWOYEI ageun kwape egiriko loangor lueitingerete aibwo kotoma Teso sub-region, Uganda.",
+    "historySecond": "Aboikin isio ebe atiokisio nueloliete angor ekotos ebeit aiswama nuepolok, isio ajulakini ekiror lo Community Based Organization aijarakin luemitakina.",
+    "leadershipTitle": "Airit Kosi",
+    "executiveTeam": "Atukot Nueirit",
+    "leadershipImageAlt": "Airit",
+    "team": [
+      {
+        "name": "Angela Ahrendts",
+        "title": "Board Chair",
+        "bio": "Angela Ahrendts ebuni kotoma airit aijarakin keda aswam. Akisiyom keda airit neswamai etunga luipu kotoma aidis nuepolok."
+      },
+      {
+        "name": "Among Dinah Grace",
+        "title": "Project Coordinator",
+        "bio": "Dinah Grace erai airit loetem loeswamai aitodolikin aidis lu TEWOYEI kotoma Teso sub-region, neejeni ebe aidis daadang eyapi angor keda atukot luemitakina."
+      }
+    ]
+  },
+  "home": {
+    "testimonials": "Awaragasia",
+    "livesTransformed": "Aijulakin Ejok",
+    "testimonialQuote": "TEWOYEI ajulakina ajokakina. Akisiyoma aijon, kanu emamori ijokon nuijarakin apese ka keda asomero kotoma agogong kon.",
+    "beneficiaryName": "Ekiror Lokijarakin",
+    "beneficiaryAlt": "Ekijarakin",
+    "kapelebyongDistrict": "Kapelebyong District",
+    "fieldStories": "Awaragasia Kosoman",
+    "impactMotion": "Aigolikin Aiyapane Kotoma Aswam",
+    "fieldStoriesDescription": "Angolokin aswam, agogong, keda aijarakin nuka atukot kosi kosoman kotoma Teso.",
+    "videos": [
+      { "title": "Angolokin: Aijon Atiira", "duration": "4:20" },
+      { "title": "Angolokin: Aibwo Nueyapinit", "duration": "5:45" },
+      { "title": "Angolokin: Aidis Nukatem", "duration": "3:12" },
+      { "title": "Angolokin: Youth Entrepreneurship Summit", "duration": "6:50" },
+      { "title": "Angolokin: GBV Awareness Campaign", "duration": "8:10" }
+    ],
+    "fieldActivities": "Iidisan Kosoman",
+    "communityWork": "Aswam Kosi Kotoma Etem",
+    "activities": [
+      { "title": "Aidis Nukaijon", "location": "Atiira" },
+      { "title": "Egiriko Loaibwo", "location": "Kapelebyong" },
+      { "title": "Airit Summit", "location": "Amuria" },
+      { "title": "Aitodolikin Bakery", "location": "Orungo" }
+    ],
+    "trustedBy": "Aiyunio Keda Partners"
+  },
+  "programs": {
+    "headerTitle": "Aidis Kosi",
+    "headerSubtitle": "Isio itogogong angor keda atukot kotoma aidis nueijarakin etem, ajokis keda aitoron.",
+    "coreObjectivesTitle": "Aipone Nukitolomun TEWOYEI",
+    "objectives": [
+      "Aijarakin airit ejok keda public policies nuejok",
+      "Aitogogong etem kanu aisodit Gender Based Violence keda child marriage",
+      "Aitogogong angor kanu airit kotoma etem",
+      "Aitogogong aijarakin human rights",
+      "Aijarakin victims of war, GBV, human torture, natural calamities, OVCs keda luce",
+      "Aijarakin sexuality education kotoma asomero keda etem",
+      "Aitolomun child health clubs kanu advocacy keda aisisian akiro nu adolescent girls",
+      "Ainyikok keda organizations keda government kotoma rights nuka apese."
+    ],
+    "thematicAreasTitle": "Aiboisio Nuiswama",
+    "thematicAreas": [
+      "Akitogogong angor keda atukot kotoma livelihood keda sustainability.",
+      "Advocacy keda Human rights",
+      "Cross cutting issues (GBV, Health, OVCs, PLWDS, Climate and Environment, PLWHIV/AIDS, Widows).",
+      "Psychosocial support.",
+      "Sexual Reproductive Health and Rights."
+    ],
+    "projectActivities": "Aswam Nuka Project",
+    "currentActivitiesTitle": "Aswam Nueiswama",
+    "currentActivities": [
+      "Community engagements keda sensitization on GBV",
+      "Community keda school engagements on Menstrual cups keda SRHR",
+      "District engagement on CLM kotoma Kapelebyong district kotoma 8 Health facilities.",
+      "Skilling of youth keda vulnerable women (tailoring, building, concrete practice, sweater making, knitting, hairdressing, beading, bakery)",
+      "Trainings on mindset change kanu youth keda parents",
+      "Guidance keda counseling",
+      "Support to the OVCs",
+      "Sexual Reproductive health training",
+      "Business planning keda entrepreneurship training",
+      "Radio dramas aisisian etem on impact of Covid 19 keda GBV",
+      "Training on how to make reusable pads for girls keda vulnerable women",
+      "Sensitizing communities on malaria prevention keda treatment services in Okungur Sub County, Agonga keda Airabet."
+    ],
+    "plannedActivitiesTitle": "Aswam Nueboikinit",
+    "plannedActivities": [
+      "Aisisia keda aijulakin menstrual cup training and distribution",
+      "Aimalar skilling project in Amuria keda Kapelebyong district.",
+      "Aisisia CLM implementation.",
+      "Aisisia community sensitizations on GBV awareness.",
+      "Aiswama SRHR trainings keda sensitizations kotoma etem keda asomero."
+    ],
+    "successfullyImplemented": "Nueswamit Ejok",
+    "achievements": [
+      "Menstrual cup project kotoma Okungur subcounty keda Obalanga Town council (300 cups distributed).",
+      "Mapping exercise keda mobilization of 40 CBOs for Lango region under KAL Consortium Africa.",
+      "Implementing 2 yr CLM project funded by Global Fund under TASO through CDFU in Kapelebyong District.",
+      "Malaria project in Kapelebyong district, Okungur Subcounty supported by TASO Uganda through CDFU funded by GLOBAL FUND.",
+      "Menstrual health project in 4 schools from Kapelebyong district, supported by USAID through East West Management Institute.",
+      "Trained 1,361 youths in Amuria (787) keda Kapelebyong (574) districts; 1,010 females keda 351 males.",
+      "Supported 10 highly vulnerable youths from Akeriau, Ogongora, keda Okungur to acquire skills.",
+      "Included PWDs who are successfully coping with the training.",
+      "Sensitized communities on COVID-19 impact on GBV, producing 8 radio dramas.",
+      "Trained 05 girls and women in brick laying and concrete practice.",
+      "Participated in 16 Days of Activism campaign.",
+      "Trained 80 women on baking bread and knitting.",
+      "Sensitized over 1500 people on malaria prevalence in Airabet and Agonga."
+    ],
+    "challengesTitle": "Atiokisio Nueboikinit",
+    "challenges": [
+      "Limited funds to facilitate activities within sub counties of operation.",
+      "Negative attitude towards contributing for trainings by the community.",
+      "Few staff members for monitoring project activities.",
+      "Lack of office equipment like computer, printer, photocopying machine among others."
+    ],
+    "supportTitle": "Ikotosi aijarakin iidisan kosi?",
+    "ourWork": "Aswam Kosi",
+    "socioEconomicInterventions": "Iidisan lo Social keda Economy",
+    "cards": [
+      {
+        "img": "skilling.png",
+        "title": "Livelihood keda Skilling",
+        "desc": "Aijarakin training kotoma tailoring, bakery, keda construction."
+      },
+      {
+        "img": "health.png",
+        "title": "Health keda Hygiene",
+        "desc": "Aiswam menstrual health keda malaria prevention projects."
+      },
+      {
+        "img": "leadership.png",
+        "title": "Leadership keda Advocacy",
+        "desc": "Aitogogong angor kotoma leadership keda participation."
+      }
+    ]
   },
   "gallery": {
-    "title": "Iidisan kosi kosoman",
+    "title": "Iidisan Kosi Kosoman",
     "atiira": "Aijon Atiira",
     "kapelebyong": "Aijon Kapelebyong",
-    "orungo": "BCP Orungo"
+    "orungo": "BCP Orungo",
+    "pageTitle": "Eitabo Lokapiko",
+    "subtitle": "Angolokin aijulakin nueitodolikina kotoma Teso sub-region.",
+    "featuredHighlights": "Nuepolok",
+    "fullCollection": "Akec Kokisila",
+    "ourGallery": "Eitabo Kosi",
+    "images": [
+      { "title": "Aijon Atiira", "tags": ["Skilling", "Atiira"] },
+      { "title": "Aijon Kapelebyong", "tags": ["Skilling", "Kapelebyong"] },
+      { "title": "BCP Orungo", "tags": ["BCP", "Orungo"] },
+      { "title": "Construction Training", "tags": ["BCP"] },
+      { "title": "Community Project", "tags": ["BCP"] },
+      { "title": "Savings Group", "tags": ["Community"] }
+    ],
+    "componentImages": [
+      "Aijon Atiira",
+      "Aijon Kapelebyong",
+      "BCP Orungo",
+      "Construction Training",
+      "Community Project",
+      "Teso Region"
+    ]
   },
   "contact": {
     "title": "Aitodik Isio",
     "person": "Among Dinah Grace",
     "email": "Iiwandikak Isio",
-    "call": "Aisirum Kanu"
+    "call": "Aisirum Kanu",
+    "pageTitle": "Aitodik Isio",
+    "subtitle": "Isio ikotosi akisisiakina keda ijo. Todiik isio kanu partnerships, inquiries, arai support.",
+    "headquarters": "Headquarters",
+    "address": "Amuria / Kapelebyong District, Teso Sub-Region, Uganda",
+    "projectCoordinator": "Project Coordinator",
+    "sendMessageTitle": "Itiak Akiro",
+    "firstName": "Ekiror Lokageun",
+    "lastName": "Ekiror Loekaadak",
+    "emailAddress": "Email Address",
+    "message": "Akiro",
+    "firstNamePlaceholder": "John",
+    "lastNamePlaceholder": "Doe",
+    "emailPlaceholder": "john@example.com",
+    "messagePlaceholder": "Etiai ngesi aswam keda isio?",
+    "coordinatorTitle": "Project Coordinator & Founder",
+    "name": "Ekiror",
+    "yourName": "Ekiror Kon",
+    "yourEmail": "Email Kon",
+    "helpPlaceholder": "Etiai ngesi isio aijarakin?"
+  },
+  "getInvolved": {
+    "pageTitle": "Itiakito",
+    "subtitle": "Itiak keda isio kotoma aijulakin Teso sub-region.",
+    "donationTitle": "Aingarakin",
+    "donationText": "Aingarakin kon ijari vocational training, health outreach, keda vulnerable children programs.",
+    "whatsappDonate": "Akiro Nukainarakin kotoma WhatsApp",
+    "partnerTitle": "Ainyikok keda Isio",
+    "partnerText": "Isio iswamai keda organizations, government bodies, keda sponsors kanu aiyapane.",
+    "partnerInquiry": "Akiro Nupartner",
+    "volunteerTitle": "Volunteer",
+    "volunteerText": "Itiak skills kon kotoma training, administration, arai field work.",
+    "applyVolunteer": "Ikewai Volunteer",
+    "joinTeam": "Itiak keda Atukot Kosi",
+    "openPositions": "Aiboisio Nu Volunteer",
+    "positionsIntro": "Isio igangai etunga luepolok kanu aijarakin campaigns kosi kosoman.",
+    "positions": [
+      {
+        "title": "Community Outreach Facilitator",
+        "meta": "Aiboisit: Kapelebyong & Amuria Districts | Commitment: Part-time",
+        "description": "Aijarakin mobilizing local communities, SRHR sensitizations, keda monitoring menstrual cups in schools.",
+        "subject": "Application: Community Outreach Facilitator"
+      },
+      {
+        "title": "Vocational Skills Trainer",
+        "meta": "Aiboisit: Varied | Commitment: Project-based",
+        "description": "Seeking experts in tailoring, bakery, bricklaying, arai hairdressing kanu skill workshops.",
+        "subject": "Application: Vocational Skills Trainer"
+      },
+      {
+        "title": "Psychosocial Counselor",
+        "meta": "Aiboisit: Regional | Commitment: Part-time / On-call",
+        "description": "Aijarakin trauma counseling keda psychosocial support to victims of GBV and OVCs.",
+        "subject": "Application: Psychosocial Counselor"
+      }
+    ]
+  },
+  "events": {
+    "pageTitle": "Itiaka keda Campaigns",
+    "subtitle": "Aisisia akiro nuka aidis nueswama, nueboikinit, keda nueyawunit kotoma Teso sub-region.",
+    "tabs": {
+      "upcoming": "Itiaka Nueboikinit",
+      "latest": "Aswam Nukitetet",
+      "completed": "Projects Nueyawunit"
+    },
+    "noEventsPrefix": "Emam",
+    "noEventsSuffix": "events found.",
+    "last": "Asekon",
+    "data": {
+      "upcoming": [
+        { "title": "Annual Women Skilling Workshop", "date": "Oct 15, 2026", "time": "09:00 AM", "location": "Amuria District", "type": "Training" },
+        { "title": "Community SRHR Sensitization", "date": "Nov 02, 2026", "time": "10:00 AM", "location": "Kapelebyong", "type": "Community" },
+        { "title": "Menstrual Hygiene Day Celebrations", "date": "May 28, 2027", "time": "08:00 AM", "location": "Okungur Subcounty", "type": "Campaign" }
+      ],
+      "latest": [
+        { "title": "Youth Entrepreneurship Pitch", "date": "Apr 10, 2026", "time": "10:00 AM", "location": "Teso Region", "type": "Workshop" },
+        { "title": "GBV Awareness Drive", "date": "Mar 25, 2026", "time": "09:00 AM", "location": "Orungo", "type": "Advocacy" }
+      ],
+      "completed": [
+        { "title": "Malaria Prevention Sensitization", "date": "Aug 2023 - Sep 2023", "time": "Various", "location": "Agonga & Airabet", "type": "Health" },
+        { "title": "Menstrual Cup Distribution", "date": "March 2023 - Sep 2023", "time": "Various", "location": "4 Schools in Kapelebyong", "type": "Distribution" },
+        { "title": "16 Days of Activism Campaign", "date": "Dec 2022", "time": "All Day", "location": "Regional", "type": "Campaign" },
+        { "title": "COVID-19 Impact on GBV Radio Dramas", "date": "2021", "time": "Weekly", "location": "Radio Stations", "type": "Media" },
+        { "title": "Bread Baking & Knitting Training", "date": "2020 - 2021", "time": "Routine", "location": "Amuria", "type": "Training" }
+      ]
+    }
+  },
+  "resources": {
+    "media": "Media",
+    "pageTitle": "Aceketa",
+    "subtitle": "Videos nuka aisisian, publications, keda materials on GBV awareness, SRHR, keda community empowerment.",
+    "videoLibrary": "Video Library",
+    "educationalVideos": "Videos Nuka Aisisian",
+    "videoIntro": "Angolokin keda itodolik aceketa nuepolok.",
+    "allVideos": "Videos Daadang",
+    "moreComing": "Aceketa Luce Ebuni",
+    "moreComingText": "Publications, research papers, keda downloadable toolkits.",
+    "videos": [
+      {
+        "id": "25d83dD1Ops",
+        "title": "Gender Based Violence Awareness",
+        "category": "GBV",
+        "description": "Video nuka aisisian on impact of Gender Based Violence in communities and pathways to prevention and support."
+      },
+      {
+        "id": "RYFQBYb4Zcs",
+        "title": "GBV Prevention & Response",
+        "category": "GBV",
+        "description": "Aisisian root causes of Gender Based Violence and how communities can work together to end it."
+      },
+      {
+        "id": "Zczerp00kEY",
+        "title": "Sexuality Education",
+        "category": "SRHR",
+        "description": "Sexuality education kanu aitogogong youth with knowledge about reproductive health and rights."
+      }
+    ],
+    "future": [
+      { "title": "Research Publications", "desc": "Field research reports keda papers." },
+      { "title": "Training Manuals", "desc": "Guides for GBV response keda SRHR education." },
+      { "title": "Documentary Series", "desc": "Documentaries from Teso sub-region." }
+    ]
+  },
+  "cta": {
+    "supportText": "Aingarakin kon ijulakini ajokakina kotoma Teso. Todiik isio kanu aijarakin campaigns kosi.",
+    "whatsappDonate": "WhatsApp Isio Kanu Aingarakin",
+    "emailDonation": "Email Aingarakin"
+  },
+  "footer": {
+    "description": "Aitogogong angor, adolescent girls, keda atukot kotoma Teso kanu aijulakin social, economic keda political - kotoma Aiyun, Adup keda Aitidau.",
+    "women": "Angor (Pink)",
+    "justice": "Adup (Blue)",
+    "integrity": "Aitidau (White)",
+    "address": "Amuria / Kapelebyong District, Teso Sub-Region, Uganda",
+    "newsletterText": "Itiak mailing list kanu field updates keda impact stories from Teso.",
+    "copyright": "TEWOYEI - Teso Women Empowerment & Youth Initiatives.",
+    "registration": "Reg No:",
+    "registered": "Registered CBO in Uganda."
   }
 }

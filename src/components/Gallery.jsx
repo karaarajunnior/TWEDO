@@ -2,20 +2,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Gallery = ({ t }) => {
+  const titles = t.gallery.componentImages;
   const images = [
-    { src: 'tailoring-atiira.jpg', title: t.gallery.atiira },
-    { src: 'tailoring-kapelebyong.jpg', title: t.gallery.kapelebyong },
-    { src: 'bcp-orungo.jpg', title: t.gallery.orungo },
-    { src: 'bcp-construction1.jpg', title: 'Construction Training' },
-    { src: 'bcp-construction2.jpg', title: 'Community Project' },
-    { src: 'hero-image.png', title: 'Teso Region' }
+    { src: 'tailoring-atiira.jpg', title: titles[0] },
+    { src: 'tailoring-kapelebyong.jpg', title: titles[1] },
+    { src: 'bcp-orungo.jpg', title: titles[2] },
+    { src: 'bcp-construction1.jpg', title: titles[3] },
+    { src: 'bcp-construction2.jpg', title: titles[4] },
+    { src: 'hero-image.png', title: titles[5] }
   ];
 
   return (
-    <section className="section-padding bg-[var(--bg-muted)]" id="gallery">
+    <section className="section-padding bg-teso-light" id="gallery">
       <div className="container">
         <div className="text-center mb-16">
-          <span className="text-[var(--primary)] font-bold uppercase tracking-widest text-sm mb-4 block">Our Gallery</span>
+          <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">{t.gallery.ourGallery}</span>
           <h2 className="text-4xl font-bold font-outfit">{t.gallery.title}</h2>
         </div>
 
@@ -34,7 +35,7 @@ const Gallery = ({ t }) => {
                 alt={img.title} 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+              <div className="absolute inset-0 bg-teso-dark/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                 <p className="text-white font-bold">{img.title}</p>
               </div>
             </motion.div>
