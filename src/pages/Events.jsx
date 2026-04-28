@@ -6,6 +6,7 @@ const Events = ({ t }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [activeTab, setActiveTab] = useState('upcoming');
   const itemsPerPage = 3;
+  const getAssetPath = (image) => image?.startsWith('/') ? image : `/assets/${image}`;
 
   const eventsData = t.events.data;
 
@@ -68,13 +69,25 @@ const Events = ({ t }) => {
                paginatedEvents.map(event => (
                  <div key={`${event.title}-${event.date}`} className="bg-white p-5 md:p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col md:flex-row md:items-center gap-6 hover:shadow-md transition-shadow">
                     <div className="relative w-full md:w-44 h-52 md:h-36 shrink-0 bg-teso-light rounded-2xl overflow-hidden text-white">
-                       <img src={event.image} alt={event.title} className="absolute inset-0 w-full h-full object-cover" />
+                       <img src={getAssetPath(event.image)} alt={event.title} className="absolute inset-0 w-full h-full object-cover" />
                        <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/85 via-teso-dark/20 to-transparent" />
                        <span className="absolute bottom-4 left-4 text-xs font-bold uppercase tracking-wider bg-primary px-3 py-1 rounded-full">{event.type}</span>
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold font-outfit mb-3">{event.title}</h3>
-                      <p className="text-gray-600 mb-4 leading-relaxed">{event.description}</p>
+                      <p className="text-gray-600 mb-4 leading-relaxed">{event.summary}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {event.impact && (
+                          <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
+                            {t.events.impact}: {event.impact}
+                          </span>
+                        )}
+                        {event.partners && (
+                          <span className="px-3 py-1 rounded-full bg-secondary/10 text-secondary-dark text-xs font-bold">
+                            {t.events.partners}: {event.partners}
+                          </span>
+                        )}
+                      </div>
                       <div className="flex flex-wrap gap-4 text-sm text-gray-500 font-inter">
                         <span className="flex items-center gap-1"><Calendar size={16}/> {event.date}</span>
                         <span className="flex items-center gap-1"><Clock size={16}/> {event.time}</span>
@@ -82,7 +95,7 @@ const Events = ({ t }) => {
                       </div>
                       {event.videoId && (
                         <a href={`https://youtu.be/${event.videoId}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary font-bold text-sm mt-4">
-                          <PlayCircle size={18} /> {t.events.watchCampaign}
+                          <PlayCircle size={18} /> {t.events.watchCampaign || t.events.watchVideo}
                         </a>
                       )}
                     </div>
