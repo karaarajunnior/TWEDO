@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Pagination from '../components/Pagination';
-import { Calendar, MapPin, Clock } from 'lucide-react';
+import { Calendar, MapPin, Clock, PlayCircle } from 'lucide-react';
 
 const Events = ({ t }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -66,20 +66,27 @@ const Events = ({ t }) => {
           <div className="space-y-6 mb-12">
             {paginatedEvents.length > 0 ? (
                paginatedEvents.map(event => (
-                 <div key={`${event.title}-${event.date}`} className="bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col md:flex-row md:items-center gap-6 hover:shadow-md transition-shadow">
-                    <div className="w-full md:w-32 h-32 shrink-0 bg-teso-light rounded-2xl flex flex-col items-center justify-center text-primary">
-                       <Calendar size={32} className="mb-2" />
-                       <span className="text-xs font-bold uppercase tracking-wider">{event.type}</span>
+                 <div key={`${event.title}-${event.date}`} className="bg-white p-5 md:p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col md:flex-row md:items-center gap-6 hover:shadow-md transition-shadow">
+                    <div className="relative w-full md:w-44 h-52 md:h-36 shrink-0 bg-teso-light rounded-2xl overflow-hidden text-white">
+                       <img src={event.image} alt={event.title} className="absolute inset-0 w-full h-full object-cover" />
+                       <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/85 via-teso-dark/20 to-transparent" />
+                       <span className="absolute bottom-4 left-4 text-xs font-bold uppercase tracking-wider bg-primary px-3 py-1 rounded-full">{event.type}</span>
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold font-outfit mb-3">{event.title}</h3>
+                      <p className="text-gray-600 mb-4 leading-relaxed">{event.description}</p>
                       <div className="flex flex-wrap gap-4 text-sm text-gray-500 font-inter">
                         <span className="flex items-center gap-1"><Calendar size={16}/> {event.date}</span>
                         <span className="flex items-center gap-1"><Clock size={16}/> {event.time}</span>
                         <span className="flex items-center gap-1"><MapPin size={16}/> {event.location}</span>
                       </div>
+                      {event.videoId && (
+                        <a href={`https://youtu.be/${event.videoId}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary font-bold text-sm mt-4">
+                          <PlayCircle size={18} /> {t.events.watchCampaign}
+                        </a>
+                      )}
                     </div>
-                    <button className="btn btn-outline shrink-0">{t.common.viewDetails}</button>
+                    <a href={`mailto:tewoyeiuganda@gmail.com?subject=${encodeURIComponent(event.title)}`} className="btn btn-outline shrink-0 text-center">{t.common.viewDetails}</a>
                  </div>
                ))
             ) : (

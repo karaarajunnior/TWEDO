@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 210" role="img" aria-labelledby="title desc">
+  <title id="title">TEWOYEI logo</title>
+  <desc id="desc">Women empowerment logo with two women, a rainbow arc, and TEWOYEI text.</desc>
+  <rect width="320" height="210" fill="#ffffff"/>
+  <path d="M48 54c57-39 170-39 226 0" fill="none" stroke="#e91e8c" stroke-width="15" stroke-linecap="round"/>
+  <path d="M58 60c51-31 154-31 204 0" fill="none" stroke="#f7d85d" stroke-width="7" stroke-linecap="round"/>
+  <text x="160" y="35" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#8a1760" transform="rotate(2 160 35)">TESO WOMEN EMPOWERMENT YOUTH ORGANIZATION INITIATIVE</text>
+  <g fill="none" stroke="#151515" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M121 78c-13 8-23 27-25 50-1 16 10 32 28 31" stroke-width="7"/>
+    <path d="M122 81c10 20 7 46-11 72" stroke-width="5"/>
+    <path d="M115 87c-12 6-24 8-34 6" stroke-width="5"/>
+    <path d="M94 130c-8 15-18 24-30 27" stroke-width="6"/>
+    <path d="M125 158c-11 6-24 8-37 3" stroke-width="5"/>
+    <path d="M189 78c13 8 23 27 25 50 1 16-10 32-28 31" stroke-width="7"/>
+    <path d="M188 81c-10 20-7 46 11 72" stroke-width="5"/>
+    <path d="M195 87c12 6 24 8 34 6" stroke-width="5"/>
+    <path d="M216 130c8 15 18 24 30 27" stroke-width="6"/>
+    <path d="M185 158c11 6 24 8 37 3" stroke-width="5"/>
+    <path d="M155 70c-18 21-18 60 0 89" stroke-width="8"/>
+    <path d="M165 70c18 21 18 60 0 89" stroke-width="8"/>
+    <path d="M137 91c17 10 29 10 46 0" stroke-width="5"/>
+  </g>
+  <path d="M91 161h138v29H91z" fill="#1a1a1a"/>
+  <path d="M111 166h98v17h-98z" fill="#e91e8c"/>
+  <text x="160" y="179" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">TEWOYEI</text>
+</svg>

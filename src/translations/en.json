@@ -322,20 +322,22 @@
     "last": "Last",
     "data": {
       "upcoming": [
-        { "title": "Annual Women Skilling Workshop", "date": "Oct 15, 2026", "time": "09:00 AM", "location": "Amuria District", "type": "Training" },
-        { "title": "Community SRHR Sensitization", "date": "Nov 02, 2026", "time": "10:00 AM", "location": "Kapelebyong", "type": "Community" },
-        { "title": "Menstrual Hygiene Day Celebrations", "date": "May 28, 2027", "time": "08:00 AM", "location": "Okungur Subcounty", "type": "Campaign" }
+        { "title": "Annual Women Skilling Workshop", "date": "Oct 15, 2026", "time": "09:00 AM", "location": "Amuria District", "type": "Training", "image": "/assets/skilling.png", "summary": "Hands-on tailoring, bakery, and entrepreneurship sessions for vulnerable women and youth.", "videoId": "25d83dD1Ops" },
+        { "title": "Community SRHR Sensitization", "date": "Nov 02, 2026", "time": "10:00 AM", "location": "Kapelebyong", "type": "Community", "image": "/assets/health.png", "summary": "School and community outreach on menstrual health, SRHR, and youth-friendly services.", "videoId": "Zczerp00kEY" },
+        { "title": "Menstrual Hygiene Day Celebrations", "date": "May 28, 2027", "time": "08:00 AM", "location": "Okungur Subcounty", "type": "Campaign", "image": "/assets/about-image.png", "summary": "A district campaign promoting dignity, reusable options, and practical menstrual health education." },
+        { "title": "Girls' Leadership Dialogue", "date": "Aug 12, 2027", "time": "02:00 PM", "location": "Amuria Town Council", "type": "Dialogue", "image": "/assets/leadership.png", "summary": "Mentorship and leadership conversations for adolescent girls, women leaders, and local duty bearers." }
       ],
       "latest": [
-        { "title": "Youth Entrepreneurship Pitch", "date": "Apr 10, 2026", "time": "10:00 AM", "location": "Teso Region", "type": "Workshop" },
-        { "title": "GBV Awareness Drive", "date": "Mar 25, 2026", "time": "09:00 AM", "location": "Orungo", "type": "Advocacy" }
+        { "title": "Youth Entrepreneurship Pitch", "date": "Apr 10, 2026", "time": "10:00 AM", "location": "Teso Region", "type": "Workshop", "image": "/assets/skilling.png", "summary": "Young people presented business ideas from skilling programs and received coaching on market readiness." },
+        { "title": "GBV Awareness Drive", "date": "Mar 25, 2026", "time": "09:00 AM", "location": "Orungo", "type": "Advocacy", "image": "/assets/hero-image.png", "summary": "Community conversations focused on prevention, referral pathways, and survivor support.", "videoId": "RYFQBYb4Zcs" },
+        { "title": "Community Savings Group Visit", "date": "Feb 18, 2026", "time": "11:00 AM", "location": "Kapelebyong", "type": "Field Visit", "image": "/assets/about-image.png", "summary": "Follow-up visit with women's savings groups to document progress and strengthen accountability." }
       ],
       "completed": [
-        { "title": "Malaria Prevention Sensitization", "date": "Aug 2023 - Sep 2023", "time": "Various", "location": "Agonga & Airabet", "type": "Health" },
-        { "title": "Menstrual Cup Distribution", "date": "March 2023 - Sep 2023", "time": "Various", "location": "4 Schools in Kapelebyong", "type": "Distribution" },
-        { "title": "16 Days of Activism Campaign", "date": "Dec 2022", "time": "All Day", "location": "Regional", "type": "Campaign" },
-        { "title": "COVID-19 Impact on GBV Radio Dramas", "date": "2021", "time": "Weekly", "location": "Radio Stations", "type": "Media" },
-        { "title": "Bread Baking & Knitting Training", "date": "2020 - 2021", "time": "Routine", "location": "Amuria", "type": "Training" }
+        { "title": "Malaria Prevention Sensitization", "date": "Aug 2023 - Sep 2023", "time": "Various", "location": "Agonga & Airabet", "type": "Health", "image": "/assets/health.png", "summary": "Reached households with prevention messages and referrals for malaria testing and care." },
+        { "title": "Menstrual Cup Distribution", "date": "March 2023 - Sep 2023", "time": "Various", "location": "4 Schools in Kapelebyong", "type": "Distribution", "image": "/assets/about-image.png", "summary": "Distributed 300 menstrual cups with practical training and school-based follow-up support." },
+        { "title": "16 Days of Activism Campaign", "date": "Dec 2022", "time": "All Day", "location": "Regional", "type": "Campaign", "image": "/assets/hero-image.png", "summary": "Mobilized communities to end teenage pregnancy and fight gender-based violence." },
+        { "title": "COVID-19 Impact on GBV Radio Dramas", "date": "2021", "time": "Weekly", "location": "Radio Stations", "type": "Media", "image": "/assets/leadership.png", "summary": "Produced eight radio dramas on COVID-19 pressures, family safety, and GBV prevention.", "videoId": "RYFQBYb4Zcs" },
+        { "title": "Bread Baking & Knitting Training", "date": "2020 - 2021", "time": "Routine", "location": "Amuria", "type": "Training", "image": "/assets/skilling.png", "summary": "Trained 80 women in income-generating bakery and knitting skills." }
       ]
     }
   },
