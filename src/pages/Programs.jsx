@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Scissors, Hammer, HeartPulse, GraduationCap, CheckCircle, Target as TargetIcon, ArrowRight, AlertTriangle, ListChecks } from 'lucide-react';
 
 const Programs = ({ t }) => {
@@ -136,7 +137,7 @@ const Programs = ({ t }) => {
       <section className="section-padding bg-primary text-white text-center">
         <div className="container">
            <h2 className="text-4xl font-bold font-outfit mb-8">{t.programs.supportTitle}</h2>
-           <a href="/contact" className="btn btn-primary bg-secondary text-teso-dark hover:scale-105">{t.common.partnerWithUs}</a>
+           <Link to="/contact" className="btn btn-primary bg-secondary text-teso-dark hover:scale-105">{t.common.partnerWithUs}</Link>
         </div>
       </section>
     </div>

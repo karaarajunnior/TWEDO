@@ -20,23 +20,23 @@ const About = ({ t }) => {
     <div className="pt-20 bg-white min-h-screen">
       {/* Sidebar Layout */}
       <div className="container py-20">
-        <div className="grid lg:grid-cols-4 gap-12">
+        <div className="grid lg:grid-cols-4 gap-8 lg:gap-12">
           
           {/* Sidebar */}
           <aside className="lg:col-span-1">
-            <div className="sticky top-32">
+            <div className="sticky top-24 lg:top-32 z-20 bg-white/95 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-0 pb-3 lg:pb-0">
               <div className="flex items-center justify-between mb-0 border-b border-gray-200 pb-4">
-                <h2 className="text-4xl font-bold font-outfit uppercase tracking-tighter text-gray-800">{t.about.pageTitle}</h2>
+                <h2 className="text-3xl lg:text-4xl font-bold font-outfit uppercase tracking-tighter text-gray-800">{t.about.pageTitle}</h2>
                 <ChevronUp className="text-primary stroke-[3]" size={24} />
               </div>
-              <nav className="flex flex-col border-t-2 border-primary">
+              <nav className="flex flex-wrap lg:flex-col gap-2 lg:gap-0 border-t-2 border-primary pt-3 lg:pt-0">
                 {subSections.map((section) => (
                   <button
                     key={section.id}
                     onClick={() => setActiveSubSection(section.id)}
-                    className={`text-left py-6 px-8 text-2xl font-bold font-outfit transition-all border-b border-gray-200 relative ${
+                    className={`text-left py-3 px-5 lg:py-6 lg:px-8 text-base lg:text-2xl font-bold font-outfit transition-all border border-gray-200 lg:border-x-0 lg:border-t-0 rounded-full lg:rounded-none relative ${
                       activeSubSection === section.id 
-                      ? 'bg-gray-50 text-teso-dark border-l-[6px] border-l-primary'
+                      ? 'bg-primary text-white lg:bg-gray-50 lg:text-teso-dark lg:border-l-[6px] lg:border-l-primary'
                       : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50'
                     }`}
                   >
