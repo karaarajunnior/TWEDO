@@ -8,7 +8,14 @@ const Home = ({ t }) => {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [activityIndex, setActivityIndex] = useState(0);
   const [videoIndex, setVideoIndex] = useState(0);
-  const videoImages = ['/assets/skilling.png', '/assets/about-image.png', '/assets/hero-image.png', '/assets/skilling.png', '/assets/about-image.png'];
+  // Local field-story videos from public/assets/video clips/
+  const localVideos = [
+    {
+      src: '/assets/video%20clips/WhatsApp%20Video%202026-05-13%20at%2010.10.41.mp4',
+      title: 'TEWOYEI Field Story',
+      label: 'Community Outreach'
+    }
+  ];
   const activityImages = ['/assets/skilling.png', '/assets/about-image.png', '/assets/hero-image.png', '/assets/skilling.png'];
 
   return (
@@ -97,59 +104,74 @@ const Home = ({ t }) => {
                </p>
              </div>
              
-             {/* Slider Controls */}
-             <div className="flex gap-4">
-                <button 
-                  onClick={() => setVideoIndex(prev => prev === 0 ? 2 : prev - 1)}
-                  className="w-16 h-16 rounded-full border-2 border-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-teso-dark hover:border-secondary transition-all"
-                >
-                  <ChevronLeft size={28} />
-                </button>
-                <button 
-                  onClick={() => setVideoIndex(prev => prev === 2 ? 0 : prev + 1)}
-                  className="w-16 h-16 rounded-full border-2 border-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-teso-dark hover:border-secondary transition-all"
-                >
-                  <ChevronRight size={28} />
-                </button>
-             </div>
+             {/* Slider Controls — shown only when multiple videos */}
+             {localVideos.length > 1 && (
+               <div className="flex gap-4">
+                 <button
+                   onClick={() => setVideoIndex(prev => (prev === 0 ? localVideos.length - 1 : prev - 1))}
+                   className="w-16 h-16 rounded-full border-2 border-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-teso-dark hover:border-secondary transition-all"
+                 >
+                   <ChevronLeft size={28} />
+                 </button>
+                 <button
+                   onClick={() => setVideoIndex(prev => (prev === localVideos.length - 1 ? 0 : prev + 1))}
+                   className="w-16 h-16 rounded-full border-2 border-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-teso-dark hover:border-secondary transition-all"
+                 >
+                   <ChevronRight size={28} />
+                 </button>
+               </div>
+             )}
           </div>
 
           <div className="relative">
             <div className="overflow-hidden pb-10">
-              <div 
+              <div
                 className="flex transition-transform duration-700 ease-in-out"
-                style={{ transform: `translateX(-${videoIndex * 33.33}%)` }}
+                style={{ transform: `translateX(-${videoIndex * 100}%)` }}
               >
-                {t.home.videos.map((vid, i) => (
-                  <div key={i} className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-4">
-                    <motion.div 
-                      className="relative aspect-video bg-white/5 rounded-[2.5rem] overflow-hidden group cursor-pointer flex items-center justify-center border border-white/10"
-                      whileHover={{ y: -10 }}
+                {localVideos.map((vid, i) => (
+                  <div key={i} className="w-full shrink-0 px-4">
+                    <motion.div
+                      className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-black"
+                      whileHover={{ y: -6 }}
                     >
-                      <div className={`absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 transition-transform duration-1000`} style={{ backgroundImage: `url('${videoImages[i]}')` }}></div>
-                      <div className="absolute inset-0 bg-teso-dark/20 group-hover:bg-teso-dark/0 transition-colors"></div>
-                      
-                      <div className="relative z-10 w-20 h-20 rounded-full bg-secondary/20 backdrop-blur-md flex items-center justify-center border border-secondary/30 group-hover:bg-secondary group-hover:scale-110 transition-all text-secondary group-hover:text-teso-dark">
-                        <PlayCircle size={40} className="ml-1" />
+                      {/* Label badge */}
+                      <div className="absolute top-5 left-5 z-10 px-3 py-1 bg-secondary text-teso-dark text-xs font-bold rounded-full uppercase tracking-widest shadow">
+                        {vid.label}
                       </div>
-                      
-                      <div className="absolute bottom-6 left-6 right-6 p-4 bg-teso-dark/60 backdrop-blur-md rounded-2xl border border-white/10 flex justify-between items-center">
-                        <p className="text-xs md:text-sm font-bold truncate pr-4">{vid.title}</p>
-                        <span className="text-[10px] font-bold bg-white/10 px-2 py-1 rounded-lg shrink-0">{vid.duration}</span>
+                      {/* Native video player */}
+                      <video
+                        src={vid.src}
+                        controls
+                        preload="metadata"
+                        className="w-full aspect-video object-cover"
+                        style={{ display: 'block' }}
+                      />
+                      {/* Title bar */}
+                      <div className="px-6 py-4 bg-teso-dark/80 backdrop-blur-md border-t border-white/10 flex items-center gap-3">
+                        <PlayCircle size={20} className="text-secondary shrink-0" />
+                        <p className="text-sm font-bold text-white truncate">{vid.title}</p>
                       </div>
                     </motion.div>
                   </div>
                 ))}
               </div>
             </div>
-            
-            {/* Progress Bar */}
-            <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
-               <div 
-                 className="h-full bg-secondary transition-all duration-700"
-                 style={{ width: `${((videoIndex + 1) / 3) * 100}%` }}
-               />
-            </div>
+
+            {/* Progress dots */}
+            {localVideos.length > 1 && (
+              <div className="flex justify-center gap-3 mt-4">
+                {localVideos.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setVideoIndex(idx)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      videoIndex === idx ? 'w-8 bg-secondary' : 'w-2 bg-white/20'
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>

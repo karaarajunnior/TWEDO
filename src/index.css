@@ -40,7 +40,7 @@
 @layer components {
   /* === BUTTONS === */
   .btn {
-    @apply inline-block px-8 py-3 rounded-full font-semibold transition-all duration-300;
+    @apply inline-flex items-center justify-center px-6 py-2.5 md:px-8 md:py-3 rounded-full font-semibold transition-all duration-300 text-center text-sm md:text-base;
   }
 
   /* Pink — Primary CTA (Women-focused actions) */
