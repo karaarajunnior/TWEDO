@@ -1,6 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, Heart } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, Mail, MessageCircle, Phone, MapPin, Heart } from 'lucide-react';
+
+const CONTACT_EMAILS = ['tewoyeiuganda@gmail.com', 'dinahgraceabel@gmail.com'];
+const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
+const CONTACT_NUMBERS = [
+  { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' },
+  { label: '+256 789 789 806', tel: '+256789789806', whatsapp: '256789789806' }
+];
+
+const PhoneOptions = ({ number, iconColor }) => (
+  <li className="flex items-start gap-3">
+    <Phone size={16} className={`${iconColor} shrink-0 mt-2`} />
+    <details className="group flex-1 rounded-xl bg-white/5 border border-white/10 p-2">
+      <summary className="cursor-pointer list-none flex items-center justify-between gap-3 text-secondary-light/80 hover:text-primary transition-colors">
+        <span>{number.label}</span>
+        <span className="text-[10px] uppercase tracking-widest text-primary">Options</span>
+      </summary>
+      <div className="grid grid-cols-2 gap-2 mt-3">
+        <a
+          href={`https://wa.me/${number.whatsapp}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-1 rounded-full bg-green-500 text-white px-2 py-2 text-[11px] font-bold"
+        >
+          <MessageCircle size={12} /> WhatsApp
+        </a>
+        <a
+          href={`tel:${number.tel}`}
+          className="inline-flex items-center justify-center gap-1 rounded-full bg-secondary text-white px-2 py-2 text-[11px] font-bold"
+        >
+          <Phone size={12} /> Phone
+        </a>
+      </div>
+    </details>
+  </li>
+);
 
 const Footer = ({ t }) => {
   const handleNewsletterSubmit = (e) => {
@@ -11,7 +46,7 @@ const Footer = ({ t }) => {
     const subject = 'Newsletter subscription';
     const body = `Hello TEWOYEI,\n\nPlease add ${email} to your newsletter mailing list.`;
 
-    window.location.href = `mailto:tewoyeiuganda@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${CONTACT_MAILTO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const quickLinks = [
@@ -81,17 +116,16 @@ const Footer = ({ t }) => {
                 <MapPin size={16} className="text-primary shrink-0 mt-0.5" />
                 <span className="text-secondary-light/80">{t.footer.address}</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone size={16} className="text-primary shrink-0" />
-                <a href="tel:+256777676436" className="text-secondary-light/80 hover:text-primary transition-colors">+256 777 676 436</a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone size={16} className="text-secondary shrink-0" />
-                <a href="tel:+256789789806" className="text-secondary-light/80 hover:text-primary transition-colors">+256 789 789 806</a>
-              </li>
+              {CONTACT_NUMBERS.map((number, i) => (
+                <PhoneOptions key={number.tel} number={number} iconColor={i % 2 === 0 ? 'text-primary' : 'text-secondary'} />
+              ))}
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-primary shrink-0" />
-                <a href="mailto:tewoyeiuganda@gmail.com" className="text-secondary-light/80 hover:text-primary transition-colors">tewoyeiuganda@gmail.com</a>
+                <div className="space-y-1">
+                  {CONTACT_EMAILS.map((email) => (
+                    <a key={email} href={`mailto:${CONTACT_MAILTO}`} className="block text-secondary-light/80 hover:text-primary transition-colors">{email}</a>
+                  ))}
+                </div>
               </li>
             </ul>
           </div>

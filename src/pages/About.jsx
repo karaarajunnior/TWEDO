@@ -6,10 +6,19 @@ const About = ({ t }) => {
   const [activeSubSection, setActiveSubSection] = useState('leadership');
   const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
 
-  const leaderImages = ['hero-image.png', 'leadership.png'];
+  const fallbackLeaderImages = ['hero-image.png', 'leadership.png'];
+  const getLeaderImage = (leader, index) => {
+    if (/dinah|grace/i.test(leader.name)) {
+      return getAssetPath('leadership/grace.jpg');
+    }
+
+    return getAssetPath(fallbackLeaderImages[index % fallbackLeaderImages.length]);
+  };
+
   const leaders = t.about.team.map((leader, i) => ({
     ...leader,
-    image: getAssetPath(leaderImages[i % leaderImages.length])
+    image: getLeaderImage(leader, i),
+    fallbackImage: getAssetPath(fallbackLeaderImages[i % fallbackLeaderImages.length])
   }));
 
   const subSections = [
@@ -143,7 +152,15 @@ const About = ({ t }) => {
                        <div key={i} className="grid md:grid-cols-3 gap-12 items-start">
                          <div className="md:col-span-1">
                             <div className="aspect-[4/5] overflow-hidden rounded-lg mb-6 shadow-lg border border-gray-100">
-                               <img src={leader.image} className="w-full h-full object-cover" alt={leader.name} />
+                               <img
+                                 src={leader.image}
+                                 onError={(e) => {
+                                   e.currentTarget.onerror = null;
+                                   e.currentTarget.src = leader.fallbackImage;
+                                 }}
+                                 className="w-full h-full object-cover"
+                                 alt={leader.name}
+                               />
                             </div>
                             <h4 className="text-2xl font-bold font-outfit uppercase">{leader.name}</h4>
                             <p className="text-gray-500 font-medium">{leader.title}</p>

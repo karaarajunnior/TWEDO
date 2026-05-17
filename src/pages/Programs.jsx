@@ -194,6 +194,23 @@ const Programs = ({ t }) => {
     'bcp-orungo.jpg',
     'hospital/hospital-visit-4.jpg'
   ];
+  const objectiveImages = [
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.37.jpeg',
+    'hero-image.png',
+    'leadership.png',
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.47.jpeg',
+    'about-image.png',
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.26.jpeg',
+    'health.png',
+    'tailoring-kapelebyong.jpg'
+  ];
+  const thematicImages = [
+    'tailoring-atiira.jpg',
+    'leadership.png',
+    'hospital/hospital-visit-1.jpg',
+    'others/other_1/WhatsApp Image 2026-05-11 at 19.29.02.jpeg',
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.44.jpeg'
+  ];
 
   return (
     <div className="pt-20">
@@ -213,36 +230,90 @@ const Programs = ({ t }) => {
       </section>
 
       {/* Core Objectives & Thematic Areas */}
-      <section className="section-padding">
+      <section className="section-padding bg-white overflow-hidden">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-16">
-             <div className="bg-white p-10 rounded-[3rem] shadow-xl border border-gray-100">
-               <h3 className="text-3xl font-bold font-outfit mb-8 flex items-center gap-3">
-                 <TargetIcon className="text-primary" size={32} /> {t.programs.coreObjectivesTitle}
-               </h3>
-               <ul className="space-y-4">
-                 {objectives.map((obj, i) => (
-                   <li key={i} className="flex gap-3 text-gray-700">
-                     <span className="shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-sm font-bold">{i+1}</span>
-                     <span>{obj}</span>
-                   </li>
-                 ))}
-               </ul>
-             </div>
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">{t.programs.ourWork}</span>
+            <h2 className="text-4xl md:text-5xl font-bold font-outfit text-teso-dark">Strategy at a Glance</h2>
+            <p className="text-gray-500 mt-4 text-lg">{t.programs.headerSubtitle}</p>
+          </div>
 
-             <div className="bg-teso-dark p-10 rounded-[3rem] shadow-xl text-white">
-               <h3 className="text-3xl font-bold font-outfit mb-8 flex items-center gap-3 text-secondary">
-                 <ListChecks size={32} /> {t.programs.thematicAreasTitle}
-               </h3>
-               <ul className="space-y-4">
-                 {thematicAreas.map((area, i) => (
-                   <li key={i} className="flex gap-3 items-center text-gray-300">
-                     <CheckCircle className="text-secondary shrink-0" size={20} />
-                     <span className="text-lg">{area}</span>
-                   </li>
-                 ))}
-               </ul>
-             </div>
+          <div className="grid xl:grid-cols-[1.25fr_0.75fr] gap-8 lg:gap-10 items-start">
+            <div className="rounded-[3rem] bg-teso-light p-5 md:p-8 border border-primary/10 shadow-xl">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+                <div>
+                  <span className="inline-flex items-center gap-2 text-primary font-extrabold uppercase tracking-widest text-xs mb-3">
+                    <TargetIcon size={18} /> Core Focus
+                  </span>
+                  <h3 className="text-3xl md:text-4xl font-bold font-outfit text-teso-dark">{t.programs.coreObjectivesTitle}</h3>
+                </div>
+                <span className="w-fit px-4 py-2 rounded-full bg-white text-primary font-bold shadow-sm">
+                  {objectives.length} objectives
+                </span>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                {objectives.map((obj, i) => (
+                  <motion.div
+                    key={obj}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.04 }}
+                    className="group rounded-[2rem] bg-white border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+                  >
+                    <div className="relative h-36 bg-teso-dark overflow-hidden">
+                      <img
+                        src={getAssetPath(objectiveImages[i % objectiveImages.length])}
+                        alt={obj}
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/85 via-teso-dark/15 to-transparent" />
+                      <span className="absolute top-4 left-4 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-extrabold shadow-lg">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <div className="p-5">
+                      <p className="text-gray-700 leading-relaxed font-medium">{obj}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl bg-teso-dark text-white sticky top-24">
+              <img src={getAssetPath('skilling.png')} alt={t.programs.thematicAreasTitle} className="absolute inset-0 w-full h-full object-cover opacity-25" />
+              <div className="absolute inset-0 bg-gradient-to-br from-teso-dark via-teso-dark/95 to-secondary-dark/90" />
+              <div className="relative p-6 md:p-8">
+                <span className="inline-flex items-center gap-2 text-secondary font-extrabold uppercase tracking-widest text-xs mb-3">
+                  <ListChecks size={18} /> Intervention Pillars
+                </span>
+                <h3 className="text-3xl md:text-4xl font-bold font-outfit mb-8">{t.programs.thematicAreasTitle}</h3>
+
+                <div className="grid gap-4">
+                  {thematicAreas.map((area, i) => (
+                    <motion.div
+                      key={area}
+                      initial={{ opacity: 0, x: 18 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.06 }}
+                      className="group grid grid-cols-[5.5rem_1fr] gap-4 items-center rounded-3xl bg-white/10 backdrop-blur-md border border-white/10 p-3 hover:bg-white/15 transition-all"
+                    >
+                      <div className="relative h-20 rounded-2xl overflow-hidden bg-white/10">
+                        <img src={getAssetPath(thematicImages[i % thematicImages.length])} alt={area} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <div className="absolute inset-0 bg-secondary-dark/30" />
+                        <CheckCircle className="absolute bottom-2 left-2 text-secondary" size={20} />
+                      </div>
+                      <div>
+                        <span className="text-secondary font-extrabold text-xs uppercase tracking-widest">Area {i + 1}</span>
+                        <p className="text-white/90 font-semibold leading-relaxed mt-1">{area}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

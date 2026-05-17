@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Mail } from 'lucide-react';
 
+const CONTACT_MAILTO = 'tewoyeiuganda@gmail.com,dinahgraceabel@gmail.com';
+
 const CtaBanner = ({ t }) => {
   return (
     <section className="py-20 bg-secondary rounded-[3rem] mx-4 md:mx-10 my-20">
@@ -28,7 +30,7 @@ const CtaBanner = ({ t }) => {
           </a>
           
           <a 
-            href="mailto:tewoyeiuganda@gmail.com?subject=Donation%20Inquiry" 
+            href={`mailto:${CONTACT_MAILTO}?subject=Donation%20Inquiry`}
             className="btn btn-outline border-white text-white flex items-center gap-3 px-8 py-5 text-lg hover:bg-white hover:text-secondary transition-all"
           >
             <Mail size={24} /> {t.cta.emailDonation}

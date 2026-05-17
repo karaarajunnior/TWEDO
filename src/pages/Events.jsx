@@ -2,6 +2,90 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Pagination from '../components/Pagination';
 import { Calendar, MapPin, Clock, PlayCircle, X, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
 
+const galleryPhotoSets = {
+  hospital: [
+    'hospital/hospital-visit-1.jpg',
+    'hospital/hospital-visit-2.jpg',
+    'hospital/hospital-visit-3.jpg',
+    'hospital/hospital-visit-4.jpg',
+    'hospital/hospital-visit-5.jpg',
+    'hospital/WhatsApp Image 2026-05-11 at 19.29.51.jpeg',
+    'hospital/WhatsApp Image 2026-05-11 at 19.29.52.jpeg',
+    'hospital/WhatsApp Image 2026-05-11 at 19.30.00.jpeg'
+  ],
+  skilling: [
+    'skilling.png',
+    'tailoring-atiira.jpg',
+    'tailoring-kapelebyong.jpg',
+    'bcp-construction1.jpg',
+    'bcp-construction2.jpg',
+    'bcp-orungo.jpg'
+  ],
+  health: [
+    'health.png',
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.15.jpeg',
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.23.jpeg',
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.26.jpeg',
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.32.jpeg',
+    'hospital/hospital-visit-3.jpg'
+  ],
+  advocacy: [
+    'hero-image.png',
+    'leadership.png',
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.37.jpeg',
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.41.jpeg',
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.47.jpeg',
+    'others/other_2/WhatsApp Image 2026-05-11 at 19.29.24.jpeg'
+  ],
+  community: [
+    'about-image.png',
+    'others/other_1/WhatsApp Image 2026-05-11 at 19.29.02.jpeg',
+    'others/other_1/WhatsApp Image 2026-05-11 at 19.29.07.jpeg',
+    'others/other_2/WhatsApp Image 2026-05-11 at 19.29.20.jpeg',
+    'others/other_3/WhatsApp Image 2026-05-11 at 19.29.14.jpeg',
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.44.jpeg'
+  ],
+  meeting: [
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.34.jpeg',
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.36.jpeg',
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.39.jpeg',
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.44.jpeg',
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.48.jpeg',
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.50.jpeg'
+  ]
+};
+
+const getEventPhotoSet = (event) => {
+  if (event.photos?.length) return event.photos;
+
+  const searchableText = [
+    event.title,
+    event.type,
+    event.summary,
+    event.location,
+    event.image
+  ].filter(Boolean).join(' ').toLowerCase();
+
+  if (searchableText.includes('hospital')) return galleryPhotoSets.hospital;
+  if (/(skilling|training|workshop|tailoring|bakery|knitting|construction|entrepreneur|pitch)/.test(searchableText)) {
+    return galleryPhotoSets.skilling;
+  }
+  if (/(health|srhr|menstrual|malaria|hygiene|cup|sexuality)/.test(searchableText)) {
+    return galleryPhotoSets.health;
+  }
+  if (/(gbv|activism|campaign|radio|covid|advocacy|violence|teenage)/.test(searchableText)) {
+    return galleryPhotoSets.advocacy;
+  }
+  if (/(leadership|dialogue|clm|district|partner|meeting)/.test(searchableText)) {
+    return galleryPhotoSets.meeting;
+  }
+  if (/(community|savings|field|visit|outreach)/.test(searchableText)) {
+    return galleryPhotoSets.community;
+  }
+
+  return galleryPhotoSets.community;
+};
+
 /* ─── Photo Gallery Modal ─── */
 const PhotoGalleryModal = ({ event, onClose, getAssetPath }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -189,7 +273,10 @@ const Events = ({ t }) => {
           {/* Event List */}
           <div className="space-y-6 mb-12">
             {paginatedEvents.length > 0 ? (
-              paginatedEvents.map(event => (
+              paginatedEvents.map(event => {
+                const eventPhotos = getEventPhotoSet(event);
+
+                return (
                 <div
                   key={`${event.title}-${event.date}`}
                   className="bg-white p-5 md:p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col md:flex-row md:items-center gap-6 hover:shadow-md transition-shadow"
@@ -207,11 +294,9 @@ const Events = ({ t }) => {
                       {event.type}
                     </span>
                     {/* Photo count badge */}
-                    {event.photos && (
-                      <span className="absolute top-3 right-3 flex items-center gap-1 text-xs font-bold bg-black/60 text-white px-2 py-1 rounded-full">
-                        <ImageIcon size={12} /> {event.photos.length}
-                      </span>
-                    )}
+                    <span className="absolute top-3 right-3 flex items-center gap-1 text-xs font-bold bg-black/60 text-white px-2 py-1 rounded-full">
+                      <ImageIcon size={12} /> {eventPhotos.length}
+                    </span>
                   </div>
 
                   {/* Info */}
@@ -248,25 +333,17 @@ const Events = ({ t }) => {
                   </div>
 
                   {/* Action Button */}
-                  {event.photos ? (
-                    <button
-                      type="button"
-                      onClick={() => setGalleryEvent(event)}
-                      className="btn btn-primary shrink-0 w-full md:w-auto flex items-center justify-center gap-2"
-                    >
-                      <ImageIcon size={16} />
-                      View Photos
-                    </button>
-                  ) : (
-                    <a
-                      href={`mailto:tewoyeiuganda@gmail.com?subject=${encodeURIComponent(event.title)}`}
-                      className="btn btn-outline shrink-0 w-full md:w-auto text-center"
-                    >
-                      {t.common.viewDetails}
-                    </a>
-                  )}
+                  <button
+                    type="button"
+                    onClick={() => setGalleryEvent({ ...event, photos: eventPhotos })}
+                    className="btn btn-primary shrink-0 w-full md:w-auto flex items-center justify-center gap-2"
+                  >
+                    <ImageIcon size={16} />
+                    {t.common.viewDetails}
+                  </button>
                 </div>
-              ))
+                );
+              })
             ) : (
               <div className="text-center py-20 text-gray-400 font-medium text-lg">
                 {t.events.noEventsPrefix} {t.events.tabs[activeTab].toLowerCase()} {t.events.noEventsSuffix}

@@ -1,7 +1,37 @@
 import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, MessageCircle, Phone, MapPin } from 'lucide-react';
 
-const CONTACT_EMAIL = 'tewoyeiuganda@gmail.com';
+const CONTACT_EMAILS = ['tewoyeiuganda@gmail.com', 'dinahgraceabel@gmail.com'];
+const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
+const CONTACT_NUMBERS = [
+  { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' },
+  { label: '+256 789 789 806', tel: '+256789789806', whatsapp: '256789789806' }
+];
+
+const PhoneOptions = ({ number }) => (
+  <details className="group rounded-2xl bg-gray-50 border border-gray-100 p-3">
+    <summary className="cursor-pointer list-none flex items-center justify-between gap-3 text-gray-600 hover:text-primary transition-colors">
+      <span className="font-semibold">{number.label}</span>
+      <span className="text-xs uppercase tracking-widest text-primary">Options</span>
+    </summary>
+    <div className="grid grid-cols-2 gap-2 mt-3">
+      <a
+        href={`https://wa.me/${number.whatsapp}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 text-white px-3 py-2 text-xs font-bold"
+      >
+        <MessageCircle size={14} /> WhatsApp
+      </a>
+      <a
+        href={`tel:${number.tel}`}
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary text-white px-3 py-2 text-xs font-bold"
+      >
+        <Phone size={14} /> Phone
+      </a>
+    </div>
+  </details>
+);
 
 const Contact = ({ t }) => {
   const handleContactSubmit = (e) => {
@@ -18,7 +48,7 @@ const Contact = ({ t }) => {
       message || ''
     ].filter(line => line !== null).join('\n');
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Website message from ${name}`)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${CONTACT_MAILTO}?subject=${encodeURIComponent(`Website message from ${name}`)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -45,7 +75,11 @@ const Contact = ({ t }) => {
                 </div>
                 <div>
                   <h4 className="font-bold">{t.contact.call}</h4>
-                  <p className="text-gray-600 font-medium">+256 777 676 436 / +256 789 789 806</p>
+                  <div className="space-y-3">
+                    {CONTACT_NUMBERS.map((number) => (
+                      <PhoneOptions key={number.tel} number={number} />
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -55,7 +89,11 @@ const Contact = ({ t }) => {
                 </div>
                 <div>
                   <h4 className="font-bold">{t.contact.email}</h4>
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-gray-600 font-medium hover:text-primary hover:underline">{CONTACT_EMAIL}</a>
+                  <div className="space-y-1">
+                    {CONTACT_EMAILS.map((email) => (
+                      <a key={email} href={`mailto:${CONTACT_MAILTO}`} className="block text-gray-600 font-medium hover:text-primary hover:underline">{email}</a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
