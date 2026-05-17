@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { galleryImagePaths } from '../data/galleryImages';
+import { imageAssets } from '../data/siteAssets';
 
 const collectionPageSize = 12;
-
-const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
 
 const formatImageTitle = (path) => {
   const filename = path.split('/').pop() || path;
@@ -41,10 +39,10 @@ const Gallery = ({ t }) => {
     { src: '/assets/bcp-construction2.jpg', ...galleryItems[4] },
     { src: '/assets/about-image.png', ...galleryItems[5] }
   ];
-  const fullCollection = galleryImagePaths.map((path) => ({
-    src: getAssetPath(path),
-    title: formatImageTitle(path),
-    tags: getImageTags(path)
+  const fullCollection = imageAssets.map((asset) => ({
+    src: asset.src,
+    title: formatImageTitle(asset.path),
+    tags: getImageTags(asset.path)
   }));
   const totalCollectionPages = Math.ceil(fullCollection.length / collectionPageSize);
   const collectionStart = collectionPage * collectionPageSize;

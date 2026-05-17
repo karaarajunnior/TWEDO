@@ -3,24 +3,17 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Users, TrendingUp, PlayCircle, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import Hero from '../components/Hero';
 import ImpactStats from '../components/ImpactStats';
+import { fieldStoryVideos } from '../data/siteAssets';
 
 const Home = ({ t }) => {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [activityIndex, setActivityIndex] = useState(0);
   const [videoIndex, setVideoIndex] = useState(0);
-  // Local field-story videos from public/assets/video clips/
-  const localVideos = [
-    {
-      src: '/assets/video%20clips/WhatsApp%20Video%202026-05-13%20at%2010.10.41.mp4',
-      title: 'TEWOYEI Field Story',
-      label: 'Community Outreach'
-    },
-    {
-      src: '/assets/video%20clips/WhatsApp%20Video%202026-05-11%20at%2019.29.59.mp4',
-      title: 'Hospital Visit Highlights',
-      label: 'Health Advocacy'
-    }
-  ];
+  const localVideos = fieldStoryVideos.map((video, index) => ({
+    src: video.src,
+    title: video.title || `TEWOYEI Field Story ${index + 1}`,
+    label: index === 0 ? 'Community Outreach' : 'Field Story'
+  }));
   const activityImages = ['/assets/skilling.png', '/assets/about-image.png', '/assets/hero-image.png', '/assets/skilling.png'];
 
   return (
