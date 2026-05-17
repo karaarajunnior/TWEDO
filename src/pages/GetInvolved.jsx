@@ -1,6 +1,8 @@
 import React from 'react';
 import { Heart, Briefcase, Users, MessageCircle } from 'lucide-react';
 
+const CONTACT_MAILTO = 'tewoyeiuganda@gmail.com,dinahgraceabel@gmail.com';
+
 const GetInvolved = ({ t }) => {
   const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
   const positionImages = [
@@ -61,7 +63,7 @@ const GetInvolved = ({ t }) => {
               <h3 className="text-2xl font-bold font-outfit mb-4">{t.getInvolved.partnerTitle}</h3>
               <p className="text-gray-600 font-inter mb-8">{t.getInvolved.partnerText}</p>
               <a
-                href="mailto:tewoyeiuganda@gmail.com?subject=Partnership%20Inquiry&body=Hello%20TEWOYEI,%0A%0AI%20would%20like%20to%20discuss%20a%20partnership."
+                href={`mailto:${CONTACT_MAILTO}?subject=Partnership%20Inquiry&body=Hello%20TEWOYEI,%0A%0AI%20would%20like%20to%20discuss%20a%20partnership.`}
                 className="btn btn-outline w-full"
               >
                 {t.getInvolved.partnerInquiry}
@@ -109,7 +111,7 @@ const GetInvolved = ({ t }) => {
                     <p className="text-gray-600 text-sm mb-4">{position.meta}</p>
                     <p className="text-sm text-gray-500 max-w-2xl">{position.description}</p>
                  </div>
-                 <a href={`mailto:tewoyeiuganda@gmail.com?subject=${encodeURIComponent(position.subject)}`} className="btn btn-outline shrink-0 w-full md:w-auto">{t.common.applyNow}</a>
+                 <a href={`mailto:${CONTACT_MAILTO}?subject=${encodeURIComponent(position.subject)}`} className="btn btn-outline shrink-0 w-full md:w-auto">{t.common.applyNow}</a>
                </div>
              ))}
           </div>
