@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Pagination from '../components/Pagination';
-import { Calendar, MapPin, Clock, PlayCircle, X, ChevronLeft, ChevronRight, Image } from 'lucide-react';
+import { Calendar, MapPin, Clock, PlayCircle, X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
 
 /* ─── Photo Gallery Modal ─── */
 const PhotoGalleryModal = ({ event, onClose, getAssetPath }) => {
@@ -37,6 +37,7 @@ const PhotoGalleryModal = ({ event, onClose, getAssetPath }) => {
           <p className="text-gray-400 text-sm mt-0.5">{activeIndex + 1} / {photos.length} photos</p>
         </div>
         <button
+          type="button"
           onClick={onClose}
           className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition text-white"
           aria-label="Close gallery"
@@ -53,6 +54,7 @@ const PhotoGalleryModal = ({ event, onClose, getAssetPath }) => {
         {/* Prev Arrow */}
         {photos.length > 1 && (
           <button
+            type="button"
             onClick={prev}
             className="absolute left-2 md:left-4 z-10 p-2 md:p-3 rounded-full bg-white/10 hover:bg-primary/80 transition text-white shadow-xl"
             aria-label="Previous photo"
@@ -72,6 +74,7 @@ const PhotoGalleryModal = ({ event, onClose, getAssetPath }) => {
         {/* Next Arrow */}
         {photos.length > 1 && (
           <button
+            type="button"
             onClick={next}
             className="absolute right-2 md:right-4 z-10 p-2 md:p-3 rounded-full bg-white/10 hover:bg-primary/80 transition text-white shadow-xl"
             aria-label="Next photo"
@@ -89,6 +92,7 @@ const PhotoGalleryModal = ({ event, onClose, getAssetPath }) => {
         >
           {photos.map((photo, i) => (
             <button
+              type="button"
               key={i}
               onClick={() => setActiveIndex(i)}
               className={`shrink-0 w-14 h-14 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 transition-all duration-200 ${
@@ -167,6 +171,7 @@ const Events = ({ t }) => {
           <div className="flex flex-wrap border-b border-gray-200 mb-10 gap-4 md:gap-8">
             {['upcoming', 'latest', 'completed'].map(tab => (
               <button
+                type="button"
                 key={tab}
                 onClick={() => handleTabChange(tab)}
                 className={`py-4 text-base md:text-xl font-bold font-outfit transition-colors relative ${
@@ -245,6 +250,7 @@ const Events = ({ t }) => {
                   {/* Action Button */}
                   {event.photos ? (
                     <button
+                      type="button"
                       onClick={() => setGalleryEvent(event)}
                       className="btn btn-primary shrink-0 w-full md:w-auto flex items-center justify-center gap-2"
                     >

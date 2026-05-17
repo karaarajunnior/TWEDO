@@ -3,6 +3,17 @@ import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, Heart } from 'lucide-react';
 
 const Footer = ({ t }) => {
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('newsletterEmail')?.toString().trim();
+    const subject = 'Newsletter subscription';
+    const body = `Hello TEWOYEI,\n\nPlease add ${email} to your newsletter mailing list.`;
+
+    window.location.href = `mailto:tewoyeiuganda@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   const quickLinks = [
     { to: '/', label: t.nav.home },
     { to: '/about', label: t.nav.about },
@@ -10,6 +21,12 @@ const Footer = ({ t }) => {
     { to: '/events', label: t.nav.events },
     { to: '/gallery', label: t.gallery.pageTitle },
     { to: '/get-involved', label: t.nav.getInvolved },
+  ];
+  const socialLinks = [
+    { href: 'https://www.facebook.com/search/top?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on Facebook', Icon: Facebook },
+    { href: 'https://twitter.com/search?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on X', Icon: Twitter },
+    { href: 'https://www.instagram.com/explore/search/keyword/?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on Instagram', Icon: Instagram },
+    { href: 'https://www.youtube.com/results?search_query=TEWOYEI+Uganda', label: 'Find TEWOYEI on YouTube', Icon: Youtube },
   ];
 
   return (
@@ -23,9 +40,9 @@ const Footer = ({ t }) => {
 
           {/* Brand */}
           <div className="space-y-6 lg:col-span-1">
-            <div className="text-3xl font-bold font-outfit" style={{ background: 'linear-gradient(90deg, #e91e8c, #1565C0)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-              TEWOYEI
-            </div>
+            <Link to="/" aria-label="TEWOYEI home" className="inline-flex bg-white rounded-2xl p-2 shadow-lg">
+              <img src="/assets/tewoyei-logo.svg" alt="TEWOYEI logo" className="h-16 w-24 object-contain" />
+            </Link>
             <p className="text-sm leading-relaxed text-secondary-light/80">{t.footer.description}</p>
             {/* Pillars legend */}
             <div className="flex flex-wrap gap-3 text-xs font-bold">
@@ -66,11 +83,11 @@ const Footer = ({ t }) => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-primary shrink-0" />
-                <span className="text-secondary-light/80">+256 777 676 436</span>
+                <a href="tel:+256777676436" className="text-secondary-light/80 hover:text-primary transition-colors">+256 777 676 436</a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-secondary shrink-0" />
-                <span className="text-secondary-light/80">+256 789 789 806</span>
+                <a href="tel:+256789789806" className="text-secondary-light/80 hover:text-primary transition-colors">+256 789 789 806</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-primary shrink-0" />
@@ -83,16 +100,18 @@ const Footer = ({ t }) => {
           <div className="space-y-6">
             <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">{t.common.newsletter}</h4>
             <p className="text-sm text-secondary-light/80">{t.footer.newsletterText}</p>
-            <div className="flex flex-col gap-3">
+            <form className="flex flex-col gap-3" onSubmit={handleNewsletterSubmit}>
               <input
+                name="newsletterEmail"
                 type="email"
+                required
                 placeholder={t.common.emailPlaceholder}
                 className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-white placeholder-gray-500"
               />
-              <button className="btn btn-primary text-sm py-3 w-full">
+              <button type="submit" className="btn btn-primary text-sm py-3 w-full">
                 {t.common.subscribe}
               </button>
-            </div>
+            </form>
           </div>
         </div>
 
@@ -110,8 +129,8 @@ const Footer = ({ t }) => {
 
           {/* Social Icons */}
           <div className="flex items-center gap-3">
-            {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
-              <a key={i} href="#" className="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:-translate-y-1"
+            {socialLinks.map(({ href, label, Icon }, i) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:-translate-y-1"
                 style={{ background: i % 2 === 0 ? 'rgba(233,30,140,0.15)' : 'rgba(21,101,192,0.15)', color: i % 2 === 0 ? '#e91e8c' : '#1565C0' }}
               >
                 <Icon size={15} />

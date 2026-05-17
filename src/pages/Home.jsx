@@ -14,6 +14,11 @@ const Home = ({ t }) => {
       src: '/assets/video%20clips/WhatsApp%20Video%202026-05-13%20at%2010.10.41.mp4',
       title: 'TEWOYEI Field Story',
       label: 'Community Outreach'
+    },
+    {
+      src: '/assets/hospital/WhatsApp%20Video%202026-05-11%20at%2019.29.59.mp4',
+      title: 'Hospital Visit Highlights',
+      label: 'Health Advocacy'
     }
   ];
   const activityImages = ['/assets/skilling.png', '/assets/about-image.png', '/assets/hero-image.png', '/assets/skilling.png'];
@@ -93,38 +98,40 @@ const Home = ({ t }) => {
       </section>
 
       {/* Videos Highlight / Field Stories Slider */}
-      <section className="section-padding bg-teso-dark text-white rounded-[3rem] mx-4 md:mx-10 my-10 relative overflow-hidden px-6 md:px-16">
-        <div className="container relative z-10">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 gap-10">
+      <section className="py-12 md:py-16 bg-teso-dark text-white rounded-[2rem] md:rounded-[3rem] mx-4 md:mx-10 my-10 relative overflow-hidden px-4 md:px-10">
+        <div className="container max-w-5xl relative z-10">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-6">
              <div className="max-w-2xl">
                <span className="text-secondary font-bold uppercase tracking-widest text-sm mb-4 block">{t.home.fieldStories}</span>
-               <h2 className="text-4xl md:text-5xl font-bold font-outfit mb-6 leading-tight">{t.home.impactMotion}</h2>
-               <p className="text-gray-400 text-lg">
+               <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-4 leading-tight">{t.home.impactMotion}</h2>
+               <p className="text-gray-400 text-base md:text-lg">
                  {t.home.fieldStoriesDescription}
                </p>
              </div>
              
-             {/* Slider Controls — shown only when multiple videos */}
-             {localVideos.length > 1 && (
-               <div className="flex gap-4">
+             {/* Slider Controls */}
+             <div className="flex gap-3">
                  <button
+                   type="button"
                    onClick={() => setVideoIndex(prev => (prev === 0 ? localVideos.length - 1 : prev - 1))}
-                   className="w-16 h-16 rounded-full border-2 border-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-teso-dark hover:border-secondary transition-all"
+                   className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-teso-dark hover:border-secondary transition-all"
+                   aria-label="Previous impact video"
                  >
-                   <ChevronLeft size={28} />
+                   <ChevronLeft size={24} />
                  </button>
                  <button
+                   type="button"
                    onClick={() => setVideoIndex(prev => (prev === localVideos.length - 1 ? 0 : prev + 1))}
-                   className="w-16 h-16 rounded-full border-2 border-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-teso-dark hover:border-secondary transition-all"
+                   className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-teso-dark hover:border-secondary transition-all"
+                   aria-label="Next impact video"
                  >
-                   <ChevronRight size={28} />
+                   <ChevronRight size={24} />
                  </button>
-               </div>
-             )}
+             </div>
           </div>
 
-          <div className="relative">
-            <div className="overflow-hidden pb-10">
+          <div className="relative max-w-3xl mx-auto">
+            <div className="overflow-hidden pb-6">
               <div
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${videoIndex * 100}%)` }}
@@ -132,11 +139,11 @@ const Home = ({ t }) => {
                 {localVideos.map((vid, i) => (
                   <div key={i} className="w-full shrink-0 px-4">
                     <motion.div
-                      className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-black"
+                      className="relative rounded-[1.75rem] md:rounded-[2.25rem] overflow-hidden border border-white/10 shadow-2xl bg-black"
                       whileHover={{ y: -6 }}
                     >
                       {/* Label badge */}
-                      <div className="absolute top-5 left-5 z-10 px-3 py-1 bg-secondary text-teso-dark text-xs font-bold rounded-full uppercase tracking-widest shadow">
+                      <div className="absolute top-4 left-4 z-10 px-3 py-1 bg-secondary text-teso-dark text-xs font-bold rounded-full uppercase tracking-widest shadow">
                         {vid.label}
                       </div>
                       {/* Native video player */}
@@ -159,19 +166,19 @@ const Home = ({ t }) => {
             </div>
 
             {/* Progress dots */}
-            {localVideos.length > 1 && (
-              <div className="flex justify-center gap-3 mt-4">
+            <div className="flex justify-center gap-3 mt-3">
                 {localVideos.map((_, idx) => (
                   <button
+                    type="button"
                     key={idx}
                     onClick={() => setVideoIndex(idx)}
+                    aria-label={`Show impact video ${idx + 1}`}
                     className={`h-2 rounded-full transition-all duration-300 ${
                       videoIndex === idx ? 'w-8 bg-secondary' : 'w-2 bg-white/20'
                     }`}
                   />
                 ))}
-              </div>
-            )}
+            </div>
           </div>
         </div>
       </section>
@@ -186,12 +193,14 @@ const Home = ({ t }) => {
             </div>
             <div className="flex gap-4">
               <button 
+                type="button"
                 onClick={() => setActivityIndex(prev => prev === 0 ? 3 : prev - 1)}
                 className="w-14 h-14 rounded-full border-2 border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
               >
                 <ChevronLeft />
               </button>
               <button 
+                type="button"
                 onClick={() => setActivityIndex(prev => prev === 3 ? 0 : prev + 1)}
                 className="w-14 h-14 rounded-full border-2 border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
               >

@@ -2,7 +2,29 @@ import React from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const CONTACT_EMAIL = 'tewoyeiuganda@gmail.com';
+
 const Contact = ({ t }) => {
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const firstName = formData.get('firstName')?.toString().trim();
+    const lastName = formData.get('lastName')?.toString().trim();
+    const senderEmail = formData.get('email')?.toString().trim();
+    const message = formData.get('message')?.toString().trim();
+    const fullName = [firstName, lastName].filter(Boolean).join(' ') || 'Website visitor';
+    const subject = `Website message from ${fullName}`;
+    const body = [
+      `Name: ${fullName}`,
+      senderEmail ? `Email: ${senderEmail}` : null,
+      '',
+      message || ''
+    ].filter(line => line !== null).join('\n');
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <div className="pt-20">
       <section className="relative py-32 bg-teso-dark text-white text-center overflow-hidden">
@@ -49,7 +71,7 @@ const Contact = ({ t }) => {
                   <div className="mt-1 text-secondary"><Mail size={28} /></div>
                   <div>
                     <h5 className="font-bold mb-1 text-gray-300">{t.common.email}</h5>
-                    <p className="text-secondary break-all">tewoyeiuganda@gmail.com</p>
+                    <a href={`mailto:${CONTACT_EMAIL}`} className="text-secondary break-all hover:underline">{CONTACT_EMAIL}</a>
                   </div>
                 </div>
               </div>
@@ -69,26 +91,26 @@ const Contact = ({ t }) => {
               className="lg:col-span-3 bg-white rounded-[3rem] p-12 shadow-xl border border-gray-100"
             >
               <h3 className="text-3xl font-bold font-outfit mb-8">{t.contact.sendMessageTitle}</h3>
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6" onSubmit={handleContactSubmit}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-gray-600 ml-2">{t.contact.firstName}</label>
-                    <input type="text" className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder={t.contact.firstNamePlaceholder} />
+                    <input name="firstName" type="text" className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder={t.contact.firstNamePlaceholder} />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-gray-600 ml-2">{t.contact.lastName}</label>
-                    <input type="text" className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder={t.contact.lastNamePlaceholder} />
+                    <input name="lastName" type="text" className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder={t.contact.lastNamePlaceholder} />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-gray-600 ml-2">{t.contact.emailAddress}</label>
-                  <input type="email" className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder={t.contact.emailPlaceholder} />
+                  <input name="email" type="email" required className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder={t.contact.emailPlaceholder} />
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-gray-600 ml-2">{t.contact.message}</label>
-                  <textarea rows="5" className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none" placeholder={t.contact.messagePlaceholder}></textarea>
+                  <textarea name="message" rows="5" required className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none" placeholder={t.contact.messagePlaceholder}></textarea>
                 </div>
 
                 <button type="submit" className="btn btn-primary w-full py-4 text-lg flex justify-center items-center gap-2">

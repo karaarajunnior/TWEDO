@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Heart, Briefcase, Users, MessageCircle } from 'lucide-react';
 
 const GetInvolved = ({ t }) => {
@@ -19,7 +18,7 @@ const GetInvolved = ({ t }) => {
       <section className="section-padding">
         <div className="container max-w-5xl">
           {/* Donate */}
-          <div className="bg-white rounded-[3rem] p-10 md:p-16 shadow-xl border border-gray-100 flex md:flex-row flex-col gap-10 items-center mb-16">
+          <div id="donate" className="scroll-mt-28 bg-white rounded-[3rem] p-10 md:p-16 shadow-xl border border-gray-100 flex md:flex-row flex-col gap-10 items-center mb-16">
             <div className="w-24 h-24 shrink-0 rounded-full bg-primary/10 flex items-center justify-center text-primary">
               <Heart size={40} />
             </div>
@@ -39,30 +38,35 @@ const GetInvolved = ({ t }) => {
 
           <div className="grid md:grid-cols-2 gap-10">
              {/* Partner */}
-            <div className="bg-teso-light rounded-[3rem] p-10 border border-gray-100 text-center">
+            <div id="partner" className="scroll-mt-28 bg-teso-light rounded-[3rem] p-10 border border-gray-100 text-center">
               <div className="w-20 h-20 mx-auto rounded-full bg-secondary/20 flex items-center justify-center text-secondary-dark mb-6">
                 <Briefcase size={32} />
               </div>
               <h3 className="text-2xl font-bold font-outfit mb-4">{t.getInvolved.partnerTitle}</h3>
               <p className="text-gray-600 font-inter mb-8">{t.getInvolved.partnerText}</p>
-              <Link to="/contact" className="btn btn-outline w-full">{t.getInvolved.partnerInquiry}</Link>
+              <a
+                href="mailto:tewoyeiuganda@gmail.com?subject=Partnership%20Inquiry&body=Hello%20TEWOYEI,%0A%0AI%20would%20like%20to%20discuss%20a%20partnership."
+                className="btn btn-outline w-full"
+              >
+                {t.getInvolved.partnerInquiry}
+              </a>
             </div>
 
             {/* Volunteer */}
-            <div className="bg-teso-light rounded-[3rem] p-10 border border-gray-100 text-center">
+            <div id="volunteer" className="scroll-mt-28 bg-teso-light rounded-[3rem] p-10 border border-gray-100 text-center">
               <div className="w-20 h-20 mx-auto rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
                 <Users size={32} />
               </div>
               <h3 className="text-2xl font-bold font-outfit mb-4">{t.getInvolved.volunteerTitle}</h3>
               <p className="text-gray-600 font-inter mb-8">{t.getInvolved.volunteerText}</p>
-              <Link to="/contact" className="btn btn-outline w-full">{t.getInvolved.applyVolunteer}</Link>
+              <a href="#volunteer-positions" className="btn btn-outline w-full">{t.getInvolved.applyVolunteer}</a>
             </div>
           </div>
         </div>
       </section>
 
       {/* Volunteer Positions Section */}
-      <section className="section-padding bg-gray-50 border-t border-gray-200">
+      <section id="volunteer-positions" className="section-padding scroll-mt-28 bg-gray-50 border-t border-gray-200">
         <div className="container max-w-5xl">
           <div className="text-center mb-16">
              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">{t.getInvolved.joinTeam}</span>

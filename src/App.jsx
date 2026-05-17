@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -13,12 +13,31 @@ import Resources from './pages/Resources';
 import en from './translations/en.json';
 import at from './translations/at.json';
 
+const ScrollToHash = () => {
+  const { hash, pathname } = useLocation();
+
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const target = document.querySelector(hash);
+    if (target) {
+      window.setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
+    }
+  }, [hash, pathname]);
+
+  return null;
+};
+
 const App = () => {
   const [language, setLanguage] = useState('en');
   const t = language === 'en' ? en : at;
 
   return (
     <Router>
+      <ScrollToHash />
       <div className="min-h-screen flex flex-col">
         <Navbar t={t} language={language} setLanguage={setLanguage} />
         <main className="flex-grow">
