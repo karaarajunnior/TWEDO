@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Pagination from '../components/Pagination';
-import { Calendar, MapPin, Clock, PlayCircle, X, ChevronLeft, ChevronRight, Images } from 'lucide-react';
+import { Calendar, MapPin, Clock, PlayCircle, X, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
 
 /* ─── Photo Gallery Modal ─── */
 const PhotoGalleryModal = ({ event, onClose, getAssetPath }) => {
@@ -209,7 +209,7 @@ const Events = ({ t }) => {
                     {/* Photo count badge */}
                     {event.photos && (
                       <span className="absolute top-3 right-3 flex items-center gap-1 text-xs font-bold bg-black/60 text-white px-2 py-1 rounded-full">
-                        <Images size={12} /> {event.photos.length}
+                        <ImageIcon size={12} /> {event.photos.length}
                       </span>
                     )}
                   </div>
@@ -254,7 +254,7 @@ const Events = ({ t }) => {
                       onClick={() => setGalleryEvent(event)}
                       className="btn btn-primary shrink-0 w-full md:w-auto flex items-center justify-center gap-2"
                     >
-                      <Images size={16} />
+                      <ImageIcon size={16} />
                       View Photos
                     </button>
                   ) : (
