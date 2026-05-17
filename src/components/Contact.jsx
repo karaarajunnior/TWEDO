@@ -1,7 +1,26 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+
+const CONTACT_EMAIL = 'tewoyeiuganda@gmail.com';
 
 const Contact = ({ t }) => {
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name')?.toString().trim() || 'Website visitor';
+    const senderEmail = formData.get('email')?.toString().trim();
+    const message = formData.get('message')?.toString().trim();
+    const body = [
+      `Name: ${name}`,
+      senderEmail ? `Email: ${senderEmail}` : null,
+      '',
+      message || ''
+    ].filter(line => line !== null).join('\n');
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Website message from ${name}`)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <section className="section-padding bg-white" id="contact">
       <div className="container">
@@ -36,7 +55,7 @@ const Contact = ({ t }) => {
                 </div>
                 <div>
                   <h4 className="font-bold">{t.contact.email}</h4>
-                  <p className="text-gray-600 font-medium">tewoyeiuganda@gmail.com</p>
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-gray-600 font-medium hover:text-primary hover:underline">{CONTACT_EMAIL}</a>
                 </div>
               </div>
             </div>
@@ -50,20 +69,20 @@ const Contact = ({ t }) => {
 
           {/* Contact Form Placeholder */}
           <div className="bg-white border border-gray-200 rounded-[3rem] p-10 shadow-xl">
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleContactSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">{t.contact.name}</label>
-                  <input type="text" className="w-full px-5 py-4 rounded-2xl bg-gray-50 border-none focus:ring-2 focus:ring-primary transition-all" placeholder={t.contact.yourName} />
+                  <input name="name" type="text" className="w-full px-5 py-4 rounded-2xl bg-gray-50 border-none focus:ring-2 focus:ring-primary transition-all" placeholder={t.contact.yourName} />
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">{t.common.email}</label>
-                  <input type="email" className="w-full px-5 py-4 rounded-2xl bg-gray-50 border-none focus:ring-2 focus:ring-primary transition-all" placeholder={t.contact.yourEmail} />
+                  <input name="email" type="email" required className="w-full px-5 py-4 rounded-2xl bg-gray-50 border-none focus:ring-2 focus:ring-primary transition-all" placeholder={t.contact.yourEmail} />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-2">{t.contact.message}</label>
-                <textarea rows="4" className="w-full px-5 py-4 rounded-2xl bg-gray-50 border-none focus:ring-2 focus:ring-primary transition-all" placeholder={t.contact.helpPlaceholder}></textarea>
+                <textarea name="message" rows="4" required className="w-full px-5 py-4 rounded-2xl bg-gray-50 border-none focus:ring-2 focus:ring-primary transition-all" placeholder={t.contact.helpPlaceholder}></textarea>
               </div>
               <button type="submit" className="btn btn-primary w-full py-5 text-lg">{t.common.sendMessage}</button>
             </form>

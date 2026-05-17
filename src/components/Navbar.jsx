@@ -18,6 +18,14 @@ const Navbar = ({ t, language, setLanguage }) => {
     { to: '/events', label: t.nav.events, color: 'bg-primary' },
     { to: '/gallery', label: t.nav.gallery, color: 'bg-primary' },
     { to: '/resources', label: t.nav.resources, color: 'bg-secondary' },
+    { to: '/resources#press-release', label: t.nav.pressRelease, color: 'bg-secondary' },
+    { to: '/resources#success-stories', label: t.nav.successStories, color: 'bg-primary' },
+  ];
+  const socialLinks = [
+    { href: 'https://www.facebook.com/search/top?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on Facebook', Icon: Facebook },
+    { href: 'https://twitter.com/search?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on X', Icon: Twitter },
+    { href: 'https://www.instagram.com/explore/search/keyword/?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on Instagram', Icon: Instagram },
+    { href: 'https://www.youtube.com/results?search_query=TEWOYEI+Uganda', label: 'Find TEWOYEI on YouTube', Icon: Youtube },
   ];
 
   useEffect(() => {
@@ -36,8 +44,8 @@ const Navbar = ({ t, language, setLanguage }) => {
       <div className="container flex justify-between items-center">
 
         <Link to="/" className="flex items-center gap-3 font-bold font-outfit" aria-label="TEWOYEI home">
-          <span className="bg-white rounded-full p-1.5 shadow-sm">
-            <img src="/assets/tewoyei-logo.svg" alt="TEWOYEI logo" className="h-11 w-11 object-contain" />
+          <span className="bg-white rounded-2xl p-1.5 shadow-sm">
+            <img src="/assets/tewoyei-logo.svg" alt="TEWOYEI logo" className="h-12 w-16 md:h-14 md:w-20 object-contain" />
           </span>
           <span
             className="text-xl md:text-2xl"
@@ -67,10 +75,13 @@ const Navbar = ({ t, language, setLanguage }) => {
           {/* Media Dropdown */}
           <div className="relative">
             <button
+              type="button"
               className="flex items-center gap-1 hover:text-primary transition-colors font-semibold"
               style={{ color: isScrolled ? '#243b6b' : 'white' }}
               onMouseEnter={() => setIsMediaOpen(true)}
               onMouseLeave={() => setIsMediaOpen(false)}
+              onClick={() => setIsMediaOpen(prev => !prev)}
+              aria-expanded={isMediaOpen}
             >
               {t.nav.media} <ChevronDown size={16} className={`transition-transform duration-200 ${isMediaOpen ? 'rotate-180' : ''}`} />
             </button>
@@ -84,12 +95,6 @@ const Navbar = ({ t, language, setLanguage }) => {
                   <span className={`w-1.5 h-1.5 rounded-full ${link.color} inline-block`}></span> {link.label}
                 </Link>
               ))}
-              <span className="flex items-center gap-2 px-5 py-3 text-sm text-gray-300 font-semibold cursor-not-allowed">
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-200 inline-block"></span> {t.nav.pressRelease}
-              </span>
-              <span className="flex items-center gap-2 px-5 py-3 text-sm text-gray-300 font-semibold cursor-not-allowed">
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-200 inline-block"></span> {t.nav.successStories}
-              </span>
             </div>
           </div>
 
@@ -97,13 +102,15 @@ const Navbar = ({ t, language, setLanguage }) => {
           <div className="flex items-center gap-4 border-l pl-6 border-white/20">
             {/* Social icons */}
             <div className="flex items-center gap-3" style={{ color: isScrolled ? '#e91e8c' : 'rgba(255,255,255,0.8)' }}>
-              <a href="#" className="hover:scale-125 hover:text-primary transition-all"><Facebook size={16} /></a>
-              <a href="#" className="hover:scale-125 hover:text-primary transition-all"><Twitter size={16} /></a>
-              <a href="#" className="hover:scale-125 hover:text-primary transition-all"><Instagram size={16} /></a>
-              <a href="#" className="hover:scale-125 hover:text-primary transition-all"><Youtube size={16} /></a>
+              {socialLinks.map(({ href, label, Icon }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="hover:scale-125 hover:text-primary transition-all">
+                  <Icon size={16} />
+                </a>
+              ))}
             </div>
 
             <button
+              type="button"
               onClick={() => setLanguage(language === 'en' ? 'at' : 'en')}
               className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold border-2 transition-all"
               style={{ borderColor: isScrolled ? '#e91e8c' : 'rgba(255,255,255,0.5)', color: isScrolled ? '#e91e8c' : 'white' }}
@@ -124,6 +131,7 @@ const Navbar = ({ t, language, setLanguage }) => {
         {/* Mobile Toggle */}
         <div className="lg:hidden flex items-center gap-3">
           <button
+            type="button"
             onClick={() => setLanguage(language === 'en' ? 'at' : 'en')}
             className={`p-2 rounded-full transition-colors ${isScrolled || isMenuOpen ? 'bg-primary/10 text-primary' : 'bg-primary/20 text-white'}`}
             aria-label="Toggle language"
@@ -131,6 +139,7 @@ const Navbar = ({ t, language, setLanguage }) => {
             <Globe size={18} />
           </button>
           <button
+            type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`p-2 rounded-full transition-colors ${isScrolled || isMenuOpen ? 'text-primary bg-primary/10' : 'text-white bg-white/10'}`}
             aria-expanded={isMenuOpen}
@@ -157,15 +166,15 @@ const Navbar = ({ t, language, setLanguage }) => {
                   {mediaLinks.map((link) => (
                     <Link key={link.to} to={link.to} className="px-4 py-2 rounded-full border border-gray-200 text-sm font-semibold text-gray-700 hover:border-primary hover:text-primary">{link.label}</Link>
                   ))}
-                  <span className="px-4 py-2 rounded-full border border-gray-100 text-sm text-gray-300">{t.nav.successStories}</span>
                 </div>
               </div>
 
               <div className="flex items-center justify-between gap-4 py-4 text-primary">
-                <a href="#"><Facebook size={22} /></a>
-                <a href="#"><Twitter size={22} /></a>
-                <a href="#"><Instagram size={22} /></a>
-                <a href="#"><Youtube size={22} /></a>
+                {socialLinks.map(({ href, label, Icon }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                    <Icon size={22} />
+                  </a>
+                ))}
               </div>
 
               <a href="https://wa.me/256777676436?text=Hello%20TEWOYEI,%20I%20would%20like%20to%20support%20your%20campaigns." target="_blank" rel="noopener noreferrer" className="btn btn-primary text-center w-full">{t.nav.donateNow}</a>

@@ -36,14 +36,18 @@ const Resources = ({ t }) => {
             <div className="flex items-center gap-4">
               <span className="text-sm font-bold text-gray-400">{videoIndex + 1} / {videos.length}</span>
               <button
+                type="button"
                 onClick={() => setVideoIndex(prev => prev === 0 ? maxIndex : prev - 1)}
                 className="w-14 h-14 rounded-full border-2 border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                aria-label="Previous resource video"
               >
                 <ChevronLeft size={24} />
               </button>
               <button
+                type="button"
                 onClick={() => setVideoIndex(prev => prev === maxIndex ? 0 : prev + 1)}
                 className="w-14 h-14 rounded-full border-2 border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                aria-label="Next resource video"
               >
                 <ChevronRight size={24} />
               </button>
@@ -97,8 +101,10 @@ const Resources = ({ t }) => {
             <div className="flex justify-center gap-3 mt-10">
               {videos.map((_, idx) => (
                 <button
+                  type="button"
                   key={idx}
                   onClick={() => setVideoIndex(idx)}
+                  aria-label={`Show resource video ${idx + 1}`}
                   className={`h-2.5 rounded-full transition-all duration-300 ${videoIndex === idx ? 'bg-primary w-10' : 'bg-gray-200 w-2.5'}`}
                 />
               ))}
@@ -108,7 +114,7 @@ const Resources = ({ t }) => {
       </section>
 
       {/* All Videos Grid */}
-      <section className="section-padding bg-gray-50">
+      <section id="success-stories" className="section-padding scroll-mt-28 bg-gray-50">
         <div className="container">
           <h3 className="text-2xl font-bold font-outfit mb-10">{t.resources.allVideos}</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -146,7 +152,7 @@ const Resources = ({ t }) => {
       </section>
 
       {/* Future Resources Placeholder */}
-      <section className="py-20">
+      <section id="press-release" className="py-20 scroll-mt-28">
         <div className="container">
           <div className="text-center mb-12">
             <h3 className="text-2xl font-bold font-outfit">{t.resources.moreComing}</h3>

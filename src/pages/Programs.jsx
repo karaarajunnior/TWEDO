@@ -137,7 +137,7 @@ const Programs = ({ t }) => {
       <section className="section-padding bg-primary text-white text-center">
         <div className="container">
            <h2 className="text-4xl font-bold font-outfit mb-8">{t.programs.supportTitle}</h2>
-           <Link to="/contact" className="btn btn-primary bg-secondary text-teso-dark hover:scale-105">{t.common.partnerWithUs}</Link>
+           <Link to="/get-involved#partner" className="btn btn-primary bg-secondary text-teso-dark hover:scale-105">{t.common.partnerWithUs}</Link>
         </div>
       </section>
     </div>
