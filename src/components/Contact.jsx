@@ -1,7 +1,56 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Mail, MessageCircle, Phone, MapPin } from 'lucide-react';
+
+const CONTACT_EMAILS = ['tewoyeiuganda@gmail.com', 'dinahgraceabel@gmail.com'];
+const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
+const CONTACT_NUMBERS = [
+  { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' },
+  { label: '+256 789 789 806', tel: '+256789789806', whatsapp: '256789789806' }
+];
+
+const PhoneOptions = ({ number }) => (
+  <details className="group rounded-2xl bg-gray-50 border border-gray-100 p-3">
+    <summary className="cursor-pointer list-none flex items-center justify-between gap-3 text-gray-600 hover:text-primary transition-colors">
+      <span className="font-semibold">{number.label}</span>
+      <span className="text-xs uppercase tracking-widest text-primary">Options</span>
+    </summary>
+    <div className="grid grid-cols-2 gap-2 mt-3">
+      <a
+        href={`https://wa.me/${number.whatsapp}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 text-white px-3 py-2 text-xs font-bold"
+      >
+        <MessageCircle size={14} /> WhatsApp
+      </a>
+      <a
+        href={`tel:${number.tel}`}
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary text-white px-3 py-2 text-xs font-bold"
+      >
+        <Phone size={14} /> Phone
+      </a>
+    </div>
+  </details>
+);
 
 const Contact = ({ t }) => {
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name')?.toString().trim() || 'Website visitor';
+    const senderEmail = formData.get('email')?.toString().trim();
+    const message = formData.get('message')?.toString().trim();
+    const body = [
+      `Name: ${name}`,
+      senderEmail ? `Email: ${senderEmail}` : null,
+      '',
+      message || ''
+    ].filter(line => line !== null).join('\n');
+
+    window.location.href = `mailto:${CONTACT_MAILTO}?subject=${encodeURIComponent(`Website message from ${name}`)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <section className="section-padding bg-white" id="contact">
       <div className="container">
@@ -26,7 +75,11 @@ const Contact = ({ t }) => {
                 </div>
                 <div>
                   <h4 className="font-bold">{t.contact.call}</h4>
-                  <p className="text-gray-600 font-medium">+256 777 676 436 / +256 789 789 806</p>
+                  <div className="space-y-3">
+                    {CONTACT_NUMBERS.map((number) => (
+                      <PhoneOptions key={number.tel} number={number} />
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -36,7 +89,11 @@ const Contact = ({ t }) => {
                 </div>
                 <div>
                   <h4 className="font-bold">{t.contact.email}</h4>
-                  <p className="text-gray-600 font-medium">tewoyeiuganda@gmail.com</p>
+                  <div className="space-y-1">
+                    {CONTACT_EMAILS.map((email) => (
+                      <a key={email} href={`mailto:${CONTACT_MAILTO}`} className="block text-gray-600 font-medium hover:text-primary hover:underline">{email}</a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -50,20 +107,20 @@ const Contact = ({ t }) => {
 
           {/* Contact Form Placeholder */}
           <div className="bg-white border border-gray-200 rounded-[3rem] p-10 shadow-xl">
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleContactSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">{t.contact.name}</label>
-                  <input type="text" className="w-full px-5 py-4 rounded-2xl bg-gray-50 border-none focus:ring-2 focus:ring-primary transition-all" placeholder={t.contact.yourName} />
+                  <input name="name" type="text" className="w-full px-5 py-4 rounded-2xl bg-gray-50 border-none focus:ring-2 focus:ring-primary transition-all" placeholder={t.contact.yourName} />
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">{t.common.email}</label>
-                  <input type="email" className="w-full px-5 py-4 rounded-2xl bg-gray-50 border-none focus:ring-2 focus:ring-primary transition-all" placeholder={t.contact.yourEmail} />
+                  <input name="email" type="email" required className="w-full px-5 py-4 rounded-2xl bg-gray-50 border-none focus:ring-2 focus:ring-primary transition-all" placeholder={t.contact.yourEmail} />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-2">{t.contact.message}</label>
-                <textarea rows="4" className="w-full px-5 py-4 rounded-2xl bg-gray-50 border-none focus:ring-2 focus:ring-primary transition-all" placeholder={t.contact.helpPlaceholder}></textarea>
+                <textarea name="message" rows="4" required className="w-full px-5 py-4 rounded-2xl bg-gray-50 border-none focus:ring-2 focus:ring-primary transition-all" placeholder={t.contact.helpPlaceholder}></textarea>
               </div>
               <button type="submit" className="btn btn-primary w-full py-5 text-lg">{t.common.sendMessage}</button>
             </form>

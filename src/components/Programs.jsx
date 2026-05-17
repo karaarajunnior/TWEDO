@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Programs = ({ t }) => {
   const programs = t.programs.cards || [];
@@ -31,7 +32,7 @@ const Programs = ({ t }) => {
                 <span className="text-lg font-semibold text-gray-800">{t.about.pillars}</span>
               </div>
             </div>
-            <a href="#" className="btn btn-outline">{t.hero.cta_learn}</a>
+            <Link to="/about" className="btn btn-outline">{t.hero.cta_learn}</Link>
           </motion.div>
 
           <motion.div 
@@ -70,9 +71,9 @@ const Programs = ({ t }) => {
                 <div className="p-8">
                   <h3 className="text-xl font-bold mb-4 font-outfit">{program.title}</h3>
                   <p className="text-gray-600 mb-6 font-inter">{program.desc}</p>
-                  <a href="#" className="text-primary font-bold hover:gap-4 transition-all inline-flex items-center gap-2">
+                  <Link to="/programs" className="text-primary font-bold hover:gap-4 transition-all inline-flex items-center gap-2">
                     {t.hero.cta_learn} <i className="fas fa-arrow-right text-xs"></i>
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             ))}

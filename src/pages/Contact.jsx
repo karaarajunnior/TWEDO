@@ -1,8 +1,60 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, MessageCircle, Phone, MapPin, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const CONTACT_EMAILS = ['tewoyeiuganda@gmail.com', 'dinahgraceabel@gmail.com'];
+const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
+const CONTACT_NUMBERS = [
+  { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' },
+  { label: '+256 789 789 806', tel: '+256789789806', whatsapp: '256789789806' }
+];
+
+const PhoneOptions = ({ number }) => (
+  <details className="group rounded-2xl bg-white/5 border border-white/10 p-3">
+    <summary className="cursor-pointer list-none flex items-center justify-between gap-3 text-gray-300 hover:text-secondary transition-colors">
+      <span className="font-semibold">{number.label}</span>
+      <span className="text-xs uppercase tracking-widest text-secondary">Options</span>
+    </summary>
+    <div className="grid grid-cols-2 gap-2 mt-3">
+      <a
+        href={`https://wa.me/${number.whatsapp}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 text-white px-3 py-2 text-xs font-bold"
+      >
+        <MessageCircle size={14} /> WhatsApp
+      </a>
+      <a
+        href={`tel:${number.tel}`}
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary text-white px-3 py-2 text-xs font-bold"
+      >
+        <Phone size={14} /> Phone
+      </a>
+    </div>
+  </details>
+);
+
 const Contact = ({ t }) => {
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const firstName = formData.get('firstName')?.toString().trim();
+    const lastName = formData.get('lastName')?.toString().trim();
+    const senderEmail = formData.get('email')?.toString().trim();
+    const message = formData.get('message')?.toString().trim();
+    const fullName = [firstName, lastName].filter(Boolean).join(' ') || 'Website visitor';
+    const subject = `Website message from ${fullName}`;
+    const body = [
+      `Name: ${fullName}`,
+      senderEmail ? `Email: ${senderEmail}` : null,
+      '',
+      message || ''
+    ].filter(line => line !== null).join('\n');
+
+    window.location.href = `mailto:${CONTACT_MAILTO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <div className="pt-20">
       <section className="relative py-32 bg-teso-dark text-white text-center overflow-hidden">
@@ -41,7 +93,11 @@ const Contact = ({ t }) => {
                   <div className="mt-1 text-secondary"><Phone size={28} /></div>
                   <div>
                     <h5 className="font-bold mb-1 text-gray-300">{t.common.callUs}</h5>
-                    <p className="text-gray-400">+256 777 676 436<br/>+256 789 789 806</p>
+                    <div className="space-y-3">
+                      {CONTACT_NUMBERS.map((number) => (
+                        <PhoneOptions key={number.tel} number={number} />
+                      ))}
+                    </div>
                   </div>
                 </div>
 
@@ -49,7 +105,11 @@ const Contact = ({ t }) => {
                   <div className="mt-1 text-secondary"><Mail size={28} /></div>
                   <div>
                     <h5 className="font-bold mb-1 text-gray-300">{t.common.email}</h5>
-                    <p className="text-secondary break-all">tewoyeiuganda@gmail.com</p>
+                    <div className="space-y-1">
+                      {CONTACT_EMAILS.map((email) => (
+                        <a key={email} href={`mailto:${CONTACT_MAILTO}`} className="block text-secondary break-all hover:underline">{email}</a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -69,26 +129,26 @@ const Contact = ({ t }) => {
               className="lg:col-span-3 bg-white rounded-[3rem] p-12 shadow-xl border border-gray-100"
             >
               <h3 className="text-3xl font-bold font-outfit mb-8">{t.contact.sendMessageTitle}</h3>
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6" onSubmit={handleContactSubmit}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-gray-600 ml-2">{t.contact.firstName}</label>
-                    <input type="text" className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder={t.contact.firstNamePlaceholder} />
+                    <input name="firstName" type="text" className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder={t.contact.firstNamePlaceholder} />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-gray-600 ml-2">{t.contact.lastName}</label>
-                    <input type="text" className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder={t.contact.lastNamePlaceholder} />
+                    <input name="lastName" type="text" className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder={t.contact.lastNamePlaceholder} />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-gray-600 ml-2">{t.contact.emailAddress}</label>
-                  <input type="email" className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder={t.contact.emailPlaceholder} />
+                  <input name="email" type="email" required className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder={t.contact.emailPlaceholder} />
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-gray-600 ml-2">{t.contact.message}</label>
-                  <textarea rows="5" className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none" placeholder={t.contact.messagePlaceholder}></textarea>
+                  <textarea name="message" rows="5" required className="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none" placeholder={t.contact.messagePlaceholder}></textarea>
                 </div>
 
                 <button type="submit" className="btn btn-primary w-full py-4 text-lg flex justify-center items-center gap-2">

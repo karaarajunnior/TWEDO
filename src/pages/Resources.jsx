@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Play, FileText, BookOpen } from 'lucide-react';
+import { fieldStoryVideos, resourceAssets } from '../data/siteAssets';
 
 const Resources = ({ t }) => {
   const [videoIndex, setVideoIndex] = useState(0);
 
   const videos = t.resources.videos;
+  const localVideos = fieldStoryVideos;
 
   const maxIndex = videos.length - 1;
 
@@ -36,14 +38,18 @@ const Resources = ({ t }) => {
             <div className="flex items-center gap-4">
               <span className="text-sm font-bold text-gray-400">{videoIndex + 1} / {videos.length}</span>
               <button
+                type="button"
                 onClick={() => setVideoIndex(prev => prev === 0 ? maxIndex : prev - 1)}
                 className="w-14 h-14 rounded-full border-2 border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                aria-label="Previous resource video"
               >
                 <ChevronLeft size={24} />
               </button>
               <button
+                type="button"
                 onClick={() => setVideoIndex(prev => prev === maxIndex ? 0 : prev + 1)}
                 className="w-14 h-14 rounded-full border-2 border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                aria-label="Next resource video"
               >
                 <ChevronRight size={24} />
               </button>
@@ -97,8 +103,10 @@ const Resources = ({ t }) => {
             <div className="flex justify-center gap-3 mt-10">
               {videos.map((_, idx) => (
                 <button
+                  type="button"
                   key={idx}
                   onClick={() => setVideoIndex(idx)}
+                  aria-label={`Show resource video ${idx + 1}`}
                   className={`h-2.5 rounded-full transition-all duration-300 ${videoIndex === idx ? 'bg-primary w-10' : 'bg-gray-200 w-2.5'}`}
                 />
               ))}
@@ -108,7 +116,7 @@ const Resources = ({ t }) => {
       </section>
 
       {/* All Videos Grid */}
-      <section className="section-padding bg-gray-50">
+      <section id="success-stories" className="section-padding scroll-mt-28 bg-gray-50">
         <div className="container">
           <h3 className="text-2xl font-bold font-outfit mb-10">{t.resources.allVideos}</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -145,13 +153,65 @@ const Resources = ({ t }) => {
         </div>
       </section>
 
+      {localVideos.length > 0 && (
+        <section className="section-padding bg-white border-t border-gray-100">
+          <div className="container">
+            <div className="flex flex-col md:flex-row justify-between md:items-end gap-4 mb-10">
+              <div>
+                <span className="text-primary font-bold uppercase tracking-widest text-sm mb-2 block">Local Videos</span>
+                <h3 className="text-2xl md:text-3xl font-bold font-outfit">Field Video Clips</h3>
+                <p className="text-gray-500 mt-2">Videos added to assets/video clips appear here automatically after deployment.</p>
+              </div>
+              <span className="text-sm font-bold text-gray-400">{localVideos.length} clips</span>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              {localVideos.map((video, i) => (
+                <motion.div
+                  key={video.path}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="bg-teso-dark rounded-3xl overflow-hidden shadow-lg border border-gray-100"
+                >
+                  <video src={video.src} controls preload="metadata" className="w-full aspect-video object-cover bg-black" />
+                  <div className="p-6 flex items-center gap-3 text-white">
+                    <Play size={20} className="text-secondary shrink-0" />
+                    <h4 className="font-bold font-outfit">{video.title}</h4>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Future Resources Placeholder */}
-      <section className="py-20">
+      <section id="press-release" className="py-20 scroll-mt-28">
         <div className="container">
           <div className="text-center mb-12">
             <h3 className="text-2xl font-bold font-outfit">{t.resources.moreComing}</h3>
             <p className="text-gray-500 mt-2">{t.resources.moreComingText}</p>
           </div>
+          {resourceAssets.length > 0 && (
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              {resourceAssets.map((resource) => (
+                <a
+                  key={resource.path}
+                  href={resource.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-6 rounded-3xl border border-primary/10 bg-white shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex items-start gap-4"
+                >
+                  <FileText size={28} className="text-primary shrink-0" />
+                  <div>
+                    <h4 className="font-bold font-outfit text-teso-dark">{resource.title}</h4>
+                    <p className="text-xs text-gray-400 mt-1">{resource.path}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { icon: FileText, ...t.resources.future[0] },
