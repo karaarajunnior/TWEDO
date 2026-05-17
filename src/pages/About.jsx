@@ -4,10 +4,12 @@ import { Eye, Heart, ChevronUp } from 'lucide-react';
 
 const About = ({ t }) => {
   const [activeSubSection, setActiveSubSection] = useState('leadership');
+  const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
 
-  const leaders = t.about.team.map((leader) => ({
+  const leaderImages = ['hero-image.png', 'leadership.png'];
+  const leaders = t.about.team.map((leader, i) => ({
     ...leader,
-    image: "/assets/hero-image.png"
+    image: getAssetPath(leaderImages[i % leaderImages.length])
   }));
 
   const subSections = [
@@ -58,14 +60,20 @@ const About = ({ t }) => {
                   exit={{ opacity: 0, x: -20 }}
                   className="space-y-12"
                 >
-                  <div className="bg-teso-light rounded-[3rem] p-12 border border-gray-100">
-                    <h3 className="text-4xl font-bold font-outfit mb-8">{t.about.introTitle}</h3>
-                    <p className="text-xl text-gray-600 leading-relaxed font-inter mb-8">
-                      {t.about.intro}
-                    </p>
-                    <p className="text-lg text-gray-500 leading-relaxed font-inter">
-                      {t.about.introSecond}
-                    </p>
+                  <div className="bg-teso-light rounded-[3rem] overflow-hidden border border-gray-100 grid lg:grid-cols-[1fr_18rem]">
+                    <div className="p-8 md:p-12">
+                      <h3 className="text-4xl font-bold font-outfit mb-8">{t.about.introTitle}</h3>
+                      <p className="text-xl text-gray-600 leading-relaxed font-inter mb-8">
+                        {t.about.intro}
+                      </p>
+                      <p className="text-lg text-gray-500 leading-relaxed font-inter">
+                        {t.about.introSecond}
+                      </p>
+                    </div>
+                    <div className="relative min-h-72 lg:min-h-full">
+                      <img src={getAssetPath('info_gathering/WhatsApp Image 2026-05-11 at 19.30.26.jpeg')} alt={t.about.introTitle} className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/45 to-transparent" />
+                    </div>
                   </div>
                   
                   <div className="grid md:grid-cols-2 gap-8">
@@ -93,13 +101,19 @@ const About = ({ t }) => {
                   exit={{ opacity: 0, x: -20 }}
                 >
                   <h3 className="text-4xl font-bold font-outfit mb-8 border-l-4 border-primary pl-6 uppercase">{t.about.historyTitle}</h3>
-                  <div className="prose prose-xl text-gray-600 font-inter">
-                    <p className="mb-6">
-                      {t.about.historyFirst}
-                    </p>
-                    <p>
-                      {t.about.historySecond}
-                    </p>
+                  <div className="grid lg:grid-cols-[18rem_1fr] gap-8 items-start">
+                    <div className="relative h-80 rounded-[2rem] overflow-hidden shadow-xl bg-teso-light">
+                      <img src={getAssetPath('district_meeting/WhatsApp Image 2026-05-11 at 19.29.41.jpeg')} alt={t.about.historyTitle} className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/55 to-transparent" />
+                    </div>
+                    <div className="prose prose-xl text-gray-600 font-inter">
+                      <p className="mb-6">
+                        {t.about.historyFirst}
+                      </p>
+                      <p>
+                        {t.about.historySecond}
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               )}
