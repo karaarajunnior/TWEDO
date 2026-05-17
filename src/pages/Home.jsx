@@ -16,7 +16,7 @@ const Home = ({ t }) => {
       label: 'Community Outreach'
     },
     {
-      src: '/assets/hospital/WhatsApp%20Video%202026-05-11%20at%2019.29.59.mp4',
+      src: '/assets/video%20clips/WhatsApp%20Video%202026-05-11%20at%2019.29.59.mp4',
       title: 'Hospital Visit Highlights',
       label: 'Health Advocacy'
     }
