@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Scissors, Hammer, HeartPulse, GraduationCap, CheckCircle, Target as TargetIcon, ArrowRight, AlertTriangle, ListChecks } from 'lucide-react';
+import { CheckCircle, Target as TargetIcon, ArrowRight, AlertTriangle, ListChecks } from 'lucide-react';
 
 const Programs = ({ t }) => {
   const {
@@ -12,6 +12,47 @@ const Programs = ({ t }) => {
     achievements,
     challenges
   } = t.programs;
+  const getAssetPath = (image) => {
+    if (!image) return '';
+    if (image.startsWith('/')) return image;
+    return '/assets/' + image.split('/').map(encodeURIComponent).join('/');
+  };
+  const currentActivityImages = [
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.41 (1).jpeg',
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.23.jpeg',
+    'hospital/hospital-visit-1.jpg',
+    'tailoring-atiira.jpg',
+    'skilling.png',
+    'others/other_1/WhatsApp Image 2026-05-11 at 19.29.02.jpeg',
+    'about-image.png',
+    'health.png',
+    'leadership.png',
+    'others/other_2/WhatsApp Image 2026-05-11 at 19.29.24.jpeg',
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.32.jpeg',
+    'hospital/hospital-visit-3.jpg'
+  ];
+  const plannedActivityImages = [
+    'health.png',
+    'tailoring-kapelebyong.jpg',
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.47.jpeg',
+    'hero-image.png',
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.44.jpeg'
+  ];
+  const achievementImages = [
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.15.jpeg',
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.44.jpeg',
+    'hospital/hospital-visit-2.jpg',
+    'health.png',
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.26.jpeg',
+    'tailoring-atiira.jpg',
+    'tailoring-kapelebyong.jpg',
+    'skilling.png',
+    'others/other_3/WhatsApp Image 2026-05-11 at 19.29.14.jpeg',
+    'bcp-construction1.jpg',
+    'leadership.png',
+    'bcp-orungo.jpg',
+    'hospital/hospital-visit-4.jpg'
+  ];
 
   return (
     <div className="pt-20">
@@ -71,29 +112,54 @@ const Programs = ({ t }) => {
            <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold font-outfit">{t.programs.projectActivities}</h2>
            </div>
-           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-             <div className="bg-white rounded-3xl p-8 border border-gray-200">
+           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+             <div className="bg-white rounded-3xl p-6 md:p-8 border border-gray-200">
                 <h4 className="text-2xl font-bold text-primary mb-6">{t.programs.currentActivitiesTitle}</h4>
-                <ul className="space-y-3">
+                <div className="grid gap-4">
                   {currentActivities.map((act, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600 border-b border-gray-50 pb-2">
-                       <ArrowRight size={16} className="text-primary shrink-0 mt-1" />
-                       <span>{act}</span>
-                    </li>
+                    <div key={i} className="group grid sm:grid-cols-[8rem_1fr] gap-4 rounded-2xl border border-gray-100 bg-gray-50/70 p-3 hover:border-primary/30 hover:bg-white hover:shadow-md transition-all">
+                      <div className="relative h-32 sm:h-full min-h-28 rounded-2xl overflow-hidden bg-teso-light">
+                        <img
+                          src={getAssetPath(currentActivityImages[i % currentActivityImages.length])}
+                          alt={act}
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <span className="absolute top-2 left-2 w-7 h-7 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center">
+                          {i + 1}
+                        </span>
+                      </div>
+                      <div className="flex items-start gap-2 text-sm text-gray-600 py-1">
+                        <ArrowRight size={16} className="text-primary shrink-0 mt-1" />
+                        <span>{act}</span>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
              </div>
              
-             <div className="bg-white rounded-3xl p-8 border border-gray-200">
+             <div className="bg-white rounded-3xl p-6 md:p-8 border border-gray-200">
                 <h4 className="text-2xl font-bold text-secondary-dark mb-6">{t.programs.plannedActivitiesTitle}</h4>
-                <ul className="space-y-3">
+                <div className="grid gap-4">
                   {plannedActivities.map((act, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600 border-b border-gray-50 pb-2">
-                       <ArrowRight size={16} className="text-secondary-dark shrink-0 mt-1" />
-                       <span>{act}</span>
-                    </li>
+                    <div key={i} className="group rounded-2xl overflow-hidden border border-gray-100 bg-teso-light hover:border-secondary/30 hover:shadow-md transition-all">
+                      <div className="relative h-40 bg-secondary-light">
+                        <img
+                          src={getAssetPath(plannedActivityImages[i % plannedActivityImages.length])}
+                          alt={act}
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/75 via-teso-dark/10 to-transparent" />
+                        <span className="absolute top-3 left-3 px-3 py-1 bg-secondary text-white text-[10px] font-extrabold rounded-full uppercase tracking-widest">
+                          Planned {i + 1}
+                        </span>
+                      </div>
+                      <div className="flex items-start gap-2 text-sm text-gray-600 p-4">
+                        <ArrowRight size={16} className="text-secondary-dark shrink-0 mt-1" />
+                        <span>{act}</span>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
              </div>
            </div>
         </div>
@@ -105,11 +171,19 @@ const Programs = ({ t }) => {
            <div className="grid lg:grid-cols-12 gap-12">
              <div className="lg:col-span-8">
                 <h3 className="text-3xl font-bold font-outfit mb-8">{t.programs.successfullyImplemented}</h3>
-                <div className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-5">
                   {achievements.map((ach, i) => (
-                    <div key={i} className="flex gap-4 items-start bg-gray-50 p-4 rounded-xl">
-                      <CheckCircle className="text-green-600 shrink-0 mt-1" size={24} />
-                      <p className="text-gray-700">{ach}</p>
+                    <div key={i} className="group bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden hover:border-green-200 hover:shadow-md transition-all">
+                      <div className="relative h-36 bg-teso-light">
+                        <img
+                          src={getAssetPath(achievementImages[i % achievementImages.length])}
+                          alt={ach}
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
+                        <CheckCircle className="absolute bottom-3 left-3 text-white drop-shadow" size={24} />
+                      </div>
+                      <p className="text-gray-700 text-sm leading-relaxed p-4">{ach}</p>
                     </div>
                   ))}
                 </div>
