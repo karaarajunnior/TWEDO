@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Mail } from 'lucide-react';
+import { CONTACT_MAILTO, buildWhatsappUrl } from '../data/contactDetails';
 import { contactMailto } from '../data/organization';
 
 const CONTACT_MAILTO = 'dinahgraceabel@gmail.com';
@@ -22,6 +23,7 @@ const CtaBanner = ({ t }) => {
 
         <div className="flex flex-wrap justify-center gap-6">
           <a
+            href={buildWhatsappUrl('Hello TEWOYEI, I would like to donate to your campaign.')}
             href="https://wa.me/256777676436?text=Hello%20TEWOYEI,%20I%20would%20like%20to%20donate%20to%20your%20campaign."
             target="_blank"
             rel="noopener noreferrer"
@@ -31,6 +33,7 @@ const CtaBanner = ({ t }) => {
           </a>
 
           <a
+            href={`mailto:${CONTACT_MAILTO}?subject=Donation%20Inquiry`}
             href={`mailto:${contactMailto}?subject=Donation%20Inquiry`}
             className="btn btn-outline border-white text-white flex items-center gap-3 px-8 py-5 text-lg hover:bg-white hover:text-secondary transition-all"
           >

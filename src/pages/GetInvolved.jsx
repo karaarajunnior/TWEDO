@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart, Briefcase, Users, MessageCircle } from 'lucide-react';
+import { CONTACT_MAILTO, buildWhatsappUrl } from '../data/contactDetails';
 import { contactMailto } from '../data/organization';
 
 const CONTACT_MAILTO = 'dinahgraceabel@gmail.com';
@@ -39,6 +40,7 @@ const GetInvolved = ({ t }) => {
                <h3 className="text-3xl font-bold font-outfit mb-4">{t.getInvolved.donationTitle}</h3>
                <p className="text-gray-600 font-inter mb-6">{t.getInvolved.donationText}</p>
                <a
+                  href={buildWhatsappUrl('Hello TEWOYEI, I would like to donate to your campaign.')}
                   href="https://wa.me/256777676436?text=Hello%20TEWOYEI,%20I%20would%20like%20to%20donate%20to%20your%20campaign."
                   target="_blank"
                   rel="noopener noreferrer"

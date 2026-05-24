@@ -1,11 +1,61 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { imageAssets } from '../data/siteAssets';
 import { leadershipPhotos } from '../data/leadership';
 
 const collectionPageSize = 12;
 
+const galleryStories = [
+  {
+    match: (path) => path.includes('district_meeting'),
+    title: 'District leadership engagement',
+    caption: 'Community leaders and partners gathered around shared accountability.',
+    tags: ['District Meeting', 'Advocacy']
+  },
+  {
+    match: (path) => path.includes('info_gathering'),
+    title: 'Listening in the community',
+    caption: 'Field teams documenting voices, needs, and lived realities.',
+    tags: ['Information Gathering', 'Field Work']
+  },
+  {
+    match: (path) => path.includes('hospital'),
+    title: 'Hospital visit documentation',
+    caption: 'Health service realities captured during TEWOYEI field advocacy.',
+    tags: ['Hospital Visit', 'Health']
+  },
+  {
+    match: (path) => path.includes('tailoring'),
+    title: 'Skilling for livelihood',
+    caption: 'Women and youth building practical skills for income and dignity.',
+    tags: ['Skilling', 'Tailoring']
+  },
+  {
+    match: (path) => path.includes('bcp'),
+    title: 'Building and concrete practice',
+    caption: 'Hands-on training opening new livelihood pathways.',
+    tags: ['Construction', 'BCP']
+  },
+  {
+    match: (path) => path.includes('health'),
+    title: 'Health and hygiene outreach',
+    caption: 'Community health work focused on prevention, care, and awareness.',
+    tags: ['Health']
+  },
+  {
+    match: (path) => path.includes('leadership'),
+    title: 'Leadership profile',
+    caption: 'The people guiding TEWOYEI work in the community.',
+    tags: ['Leadership']
+  },
+  {
+    match: (path) => path.includes('others'),
+    title: 'Community field moment',
+    caption: 'Every image is part of TEWOYEI work with families and communities.',
+    tags: ['Community', 'Field Work']
+  }
+];
 const formatImageTitle = (path) => {
   if (path.includes('district_meeting')) return 'District meeting in action';
   if (path.includes('info_gathering')) return 'Community voices in the field';
@@ -19,21 +69,16 @@ const formatImageTitle = (path) => {
   return 'TEWOYEI field photo';
 };
 
-const getImageTags = (path) => {
-  if (path.includes('district_meeting')) return ['District Meeting', 'Advocacy'];
-  if (path.includes('info_gathering')) return ['Information Gathering', 'Field Work'];
-  if (path.includes('hospital')) return ['Hospital Visit', 'Health'];
-  if (path.includes('tailoring')) return ['Skilling', 'Tailoring'];
-  if (path.includes('bcp')) return ['Construction', 'BCP'];
-  if (path.includes('health')) return ['Health'];
-  if (path.includes('leadership')) return ['Leadership'];
-  if (path.includes('others')) return ['Community', 'Field Work'];
-  return ['TEWOYEI', 'Gallery'];
+const getImageStory = (path) => galleryStories.find((story) => story.match(path)) || {
+  title: 'TEWOYEI field story',
+  caption: 'A moment from TEWOYEI community work in the Teso sub-region.',
+  tags: ['TEWOYEI', 'Gallery']
 };
 
 const Gallery = ({ t }) => {
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [collectionPage, setCollectionPage] = useState(0);
+  const [activePhoto, setActivePhoto] = useState(null);
   const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
   const galleryItems = t.gallery.images;
   const images = [
@@ -63,8 +108,8 @@ const Gallery = ({ t }) => {
   ];
   const fullCollection = imageAssets.map((asset) => ({
     src: asset.src,
-    title: formatImageTitle(asset.path),
-    tags: getImageTags(asset.path)
+    path: asset.path,
+    ...getImageStory(asset.path)
   }));
   const totalCollectionPages = Math.ceil(fullCollection.length / collectionPageSize);
   const collectionStart = collectionPage * collectionPageSize;
@@ -191,6 +236,9 @@ const Gallery = ({ t }) => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">{t.gallery.fullCollection}</span>
+              <h3 className="text-3xl md:text-4xl font-bold font-outfit text-teso-dark">Photos That Tell the Story</h3>
+              <p className="text-gray-500 mt-2">
+                Click any image to let the field moment fill the screen.
               <h3 className="text-3xl md:text-4xl font-bold font-outfit text-teso-dark">{t.gallery.photoStories}</h3>
               <p className="text-gray-500 mt-2">
                 {t.gallery.photoStoriesIntro} Showing {collectionStart + 1}-{Math.min(collectionStart + visibleCollection.length, fullCollection.length)} of {fullCollection.length} images.
@@ -217,19 +265,31 @@ const Gallery = ({ t }) => {
             </div>
           </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[18rem]">
+            {visibleCollection.map((item, index) => (
+              <motion.button
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {visibleCollection.map((item, index) => (
               <motion.div
                 key={`${item.src}-${collectionPage}`}
+                type="button"
+                onClick={() => setActivePhoto(item)}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.03 }}
+                className={`group relative rounded-3xl overflow-hidden shadow-lg cursor-zoom-in border-4 border-white text-left ${index % 7 === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}
+                aria-label={`Open ${item.title}`}
                 className="group relative rounded-3xl overflow-hidden shadow-lg aspect-square border-4 border-white"
                 className={`group relative rounded-3xl overflow-hidden shadow-lg cursor-zoom-in border-4 border-white bg-white ${index % 7 === 0 ? 'md:col-span-2 md:row-span-2 aspect-square' : 'aspect-[4/5]'}`}
               >
                 <img
                   src={item.src}
                   alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/90 via-teso-dark/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                  <div className="flex gap-2 mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform">
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
                 />
 
@@ -247,8 +307,9 @@ const Gallery = ({ t }) => {
                   <h3 className="text-white text-xl font-bold font-outfit max-w-sm">
                     {item.title}
                   </h3>
+                  <p className="text-white/80 text-sm mt-2 transform translate-y-4 group-hover:translate-y-0 transition-transform delay-100">{item.caption}</p>
                 </div>
-              </motion.div>
+              </motion.button>
             ))}
           </div>
 
@@ -271,6 +332,31 @@ const Gallery = ({ t }) => {
           </div>
         </div>
       </section>
+
+      {activePhoto && (
+        <div className="fixed inset-0 z-[1200] bg-teso-dark/95 p-4 md:p-10 flex items-center justify-center" role="dialog" aria-modal="true">
+          <button
+            type="button"
+            onClick={() => setActivePhoto(null)}
+            className="absolute top-5 right-5 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white hover:text-teso-dark transition-all"
+            aria-label="Close photo"
+          >
+            <X size={24} />
+          </button>
+          <div className="max-w-6xl w-full">
+            <img src={activePhoto.src} alt={activePhoto.title} className="w-full max-h-[78vh] object-contain rounded-3xl shadow-2xl bg-black" />
+            <div className="mt-5 text-white">
+              <div className="flex flex-wrap gap-2 mb-3">
+                {activePhoto.tags.map((tag) => (
+                  <span key={tag} className="px-3 py-1 bg-primary text-[10px] font-bold rounded-full uppercase tracking-widest">{tag}</span>
+                ))}
+              </div>
+              <h3 className="text-3xl font-bold font-outfit">{activePhoto.title}</h3>
+              <p className="text-white/70 mt-2">{activePhoto.caption}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe, ChevronDown, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { buildWhatsappUrl } from '../data/contactDetails';
 
 const Navbar = ({ t, language, setLanguage }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -119,7 +120,7 @@ const Navbar = ({ t, language, setLanguage }) => {
             </button>
 
             <a
-              href="https://wa.me/256777676436?text=Hello%20TEWOYEI,%20I%20would%20like%20to%20support%20your%20campaigns."
+              href={buildWhatsappUrl('Hello TEWOYEI, I would like to support your campaigns.')}
               target="_blank" rel="noopener noreferrer"
               className="btn btn-primary text-sm px-6 py-2.5"
             >
@@ -177,7 +178,7 @@ const Navbar = ({ t, language, setLanguage }) => {
                 ))}
               </div>
 
-              <a href="https://wa.me/256777676436?text=Hello%20TEWOYEI,%20I%20would%20like%20to%20support%20your%20campaigns." target="_blank" rel="noopener noreferrer" className="btn btn-primary text-center w-full">{t.nav.donateNow}</a>
+              <a href={buildWhatsappUrl('Hello TEWOYEI, I would like to support your campaigns.')} target="_blank" rel="noopener noreferrer" className="btn btn-primary text-center w-full">{t.nav.donateNow}</a>
             </div>
           </div>
         )}

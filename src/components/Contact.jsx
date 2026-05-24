@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, MessageCircle, Phone, MapPin } from 'lucide-react';
+import { CONTACT_EMAIL, CONTACT_EMAILS, CONTACT_MAILTO, CONTACT_NUMBERS } from '../data/contactDetails';
 import { contactEmails, contactMailto, contactNumbers } from '../data/organization';
 import { founders, primaryContact } from '../data/leadership';
 
@@ -105,6 +106,9 @@ const Contact = ({ t }) => {
             </div>
 
             <div className="p-8 rounded-3xl bg-teso-light border border-gray-100">
+               <h4 className="font-bold mb-2">{t.contact.person}</h4>
+               <p className="text-sm text-gray-500 mb-4">{t.contact.coordinatorTitle}</p>
+               <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary font-semibold hover:underline">{CONTACT_EMAIL}</a>
                <h4 className="font-bold mb-2">{founders[0].name}</h4>
                <p className="text-sm text-gray-500 mb-4">{founders[0].role}</p>
                <a href={`mailto:${primaryContact.email}`} className="text-primary font-semibold hover:underline">{primaryContact.email}</a>
