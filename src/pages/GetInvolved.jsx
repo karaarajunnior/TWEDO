@@ -1,6 +1,9 @@
 import React from 'react';
 import { Heart, Briefcase, Users, MessageCircle } from 'lucide-react';
 import { CONTACT_MAILTO, buildWhatsappUrl } from '../data/contactDetails';
+import { contactMailto } from '../data/organization';
+
+const CONTACT_MAILTO = 'dinahgraceabel@gmail.com';
 
 const GetInvolved = ({ t }) => {
   const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
@@ -25,7 +28,6 @@ const GetInvolved = ({ t }) => {
 
       <section className="section-padding">
         <div className="container max-w-5xl">
-          {/* Donate */}
           <div id="donate" className="scroll-mt-28 bg-white rounded-[3rem] p-10 md:p-16 shadow-xl border border-gray-100 flex md:flex-row flex-col gap-10 items-center mb-16">
             <div className="relative w-full md:w-64 h-56 shrink-0 rounded-[2rem] overflow-hidden shadow-lg bg-primary/10">
               <img src="/assets/health.png" alt={t.getInvolved.donationTitle} className="absolute inset-0 w-full h-full object-cover" />
@@ -39,6 +41,7 @@ const GetInvolved = ({ t }) => {
                <p className="text-gray-600 font-inter mb-6">{t.getInvolved.donationText}</p>
                <a
                   href={buildWhatsappUrl('Hello TEWOYEI, I would like to donate to your campaign.')}
+                  href="https://wa.me/256777676436?text=Hello%20TEWOYEI,%20I%20would%20like%20to%20donate%20to%20your%20campaign."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary inline-flex items-center gap-2"
@@ -49,7 +52,6 @@ const GetInvolved = ({ t }) => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-10">
-             {/* Partner */}
             <div id="partner" className="scroll-mt-28 bg-teso-light rounded-[3rem] overflow-hidden border border-gray-100 text-center">
               <div className="relative h-56">
                 <img src={getAssetPath('district_meeting/WhatsApp Image 2026-05-11 at 19.29.47.jpeg')} alt={t.getInvolved.partnerTitle} className="absolute inset-0 w-full h-full object-cover" />
@@ -62,7 +64,7 @@ const GetInvolved = ({ t }) => {
               <h3 className="text-2xl font-bold font-outfit mb-4">{t.getInvolved.partnerTitle}</h3>
               <p className="text-gray-600 font-inter mb-8">{t.getInvolved.partnerText}</p>
               <a
-                href={`mailto:${CONTACT_MAILTO}?subject=Partnership%20Inquiry&body=Hello%20TEWOYEI,%0A%0AI%20would%20like%20to%20discuss%20a%20partnership.`}
+                href={`mailto:${contactMailto}?subject=Partnership%20Inquiry&body=Hello%20TEWOYEI,%0A%0AI%20would%20like%20to%20discuss%20a%20partnership.`}
                 className="btn btn-outline w-full"
               >
                 {t.getInvolved.partnerInquiry}
@@ -70,7 +72,6 @@ const GetInvolved = ({ t }) => {
               </div>
             </div>
 
-            {/* Volunteer */}
             <div id="volunteer" className="scroll-mt-28 bg-teso-light rounded-[3rem] overflow-hidden border border-gray-100 text-center">
               <div className="relative h-56">
                 <img src={getAssetPath('info_gathering/WhatsApp Image 2026-05-11 at 19.30.44.jpeg')} alt={t.getInvolved.volunteerTitle} className="absolute inset-0 w-full h-full object-cover" />
@@ -89,7 +90,6 @@ const GetInvolved = ({ t }) => {
         </div>
       </section>
 
-      {/* Volunteer Positions Section */}
       <section id="volunteer-positions" className="section-padding scroll-mt-28 bg-gray-50 border-t border-gray-200">
         <div className="container max-w-5xl">
           <div className="text-center mb-16">
@@ -110,7 +110,7 @@ const GetInvolved = ({ t }) => {
                     <p className="text-gray-600 text-sm mb-4">{position.meta}</p>
                     <p className="text-sm text-gray-500 max-w-2xl">{position.description}</p>
                  </div>
-                 <a href={`mailto:${CONTACT_MAILTO}?subject=${encodeURIComponent(position.subject)}`} className="btn btn-outline shrink-0 w-full md:w-auto">{t.common.applyNow}</a>
+                 <a href={`mailto:${contactMailto}?subject=${encodeURIComponent(position.subject)}`} className="btn btn-outline shrink-0 w-full md:w-auto">{t.common.applyNow}</a>
                </div>
              ))}
           </div>

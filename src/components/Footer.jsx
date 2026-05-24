@@ -2,6 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Youtube, Mail, MessageCircle, Phone, MapPin, Heart } from 'lucide-react';
 import { CONTACT_EMAILS, CONTACT_MAILTO, CONTACT_NUMBERS } from '../data/contactDetails';
+import { contactEmails, contactMailto, contactNumbers } from '../data/organization';
+
+const CONTACT_EMAILS = ['dinahgraceabel@gmail.com'];
+const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
+const CONTACT_NUMBERS = [
+  { label: '0777 676 436', tel: '+256777676436', whatsapp: '256777676436' }
+const PRIMARY_EMAIL = 'dinahgraceabel@gmail.com';
+const CONTACT_EMAILS = [PRIMARY_EMAIL];
+const CONTACT_MAILTO = PRIMARY_EMAIL;
+const CONTACT_NUMBERS = [
+  { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' }
+];
 
 const PhoneOptions = ({ number, iconColor }) => (
   <li className="flex items-start gap-3">
@@ -38,9 +50,11 @@ const Footer = ({ t }) => {
     const formData = new FormData(e.currentTarget);
     const email = formData.get('newsletterEmail')?.toString().trim();
     const subject = 'Newsletter subscription';
-    const body = `Hello TEWOYEI,\n\nPlease add ${email} to your newsletter mailing list.`;
+    const body = `Hello TEWOYEI,
 
-    window.location.href = `mailto:${CONTACT_MAILTO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+Please add ${email} to your newsletter mailing list.`;
+
+    window.location.href = `mailto:${contactMailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   const quickLinks = [
@@ -61,19 +75,14 @@ const Footer = ({ t }) => {
   return (
     <footer className="text-secondary-light pt-20 pb-10" style={{ background: 'linear-gradient(160deg, #243b6b 0%, #31558f 60%, #1565C0 100%)' }}>
       <div className="container">
-
-        {/* Top pink-blue gradient strip */}
         <div className="h-1 w-full rounded-full mb-16" style={{ background: 'linear-gradient(90deg, #e91e8c 0%, #ffffff 50%, #1565C0 100%)' }} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-
-          {/* Brand */}
           <div className="space-y-6 lg:col-span-1">
             <Link to="/" aria-label="TEWOYEI home" className="inline-flex bg-white rounded-2xl p-2 shadow-lg">
               <img src="/assets/tewoyei-logo.svg" alt="TEWOYEI logo" className="h-16 w-24 object-contain" />
             </Link>
             <p className="text-sm leading-relaxed text-secondary-light/80">{t.footer.description}</p>
-            {/* Pillars legend */}
             <div className="flex flex-wrap gap-3 text-xs font-bold">
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 text-primary">
                 <span className="w-2 h-2 rounded-full bg-primary inline-block"></span> {t.footer.women}
@@ -87,7 +96,6 @@ const Footer = ({ t }) => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div className="space-y-6">
             <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">{t.common.quickLinks}</h4>
             <ul className="space-y-3 text-sm">
@@ -102,7 +110,6 @@ const Footer = ({ t }) => {
             </ul>
           </div>
 
-          {/* Contact */}
           <div className="space-y-6">
             <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">{t.common.contactUs}</h4>
             <ul className="space-y-4 text-sm">
@@ -110,21 +117,20 @@ const Footer = ({ t }) => {
                 <MapPin size={16} className="text-primary shrink-0 mt-0.5" />
                 <span className="text-secondary-light/80">{t.footer.address}</span>
               </li>
-              {CONTACT_NUMBERS.map((number, i) => (
+              {contactNumbers.map((number, i) => (
                 <PhoneOptions key={number.tel} number={number} iconColor={i % 2 === 0 ? 'text-primary' : 'text-secondary'} />
               ))}
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-primary shrink-0" />
                 <div className="space-y-1">
-                  {CONTACT_EMAILS.map((email) => (
-                    <a key={email} href={`mailto:${CONTACT_MAILTO}`} className="block text-secondary-light/80 hover:text-primary transition-colors">{email}</a>
+                  {contactEmails.map((email) => (
+                    <a key={email} href={`mailto:${contactMailto}`} className="block text-secondary-light/80 hover:text-primary transition-colors">{email}</a>
                   ))}
                 </div>
               </li>
             </ul>
           </div>
 
-          {/* Newsletter */}
           <div className="space-y-6">
             <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">{t.common.newsletter}</h4>
             <p className="text-sm text-secondary-light/80">{t.footer.newsletterText}</p>
@@ -143,7 +149,6 @@ const Footer = ({ t }) => {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-xs text-secondary-light/70 text-center md:text-left leading-relaxed">
             &copy; {new Date().getFullYear()} {t.footer.copyright}<br/>
@@ -155,7 +160,6 @@ const Footer = ({ t }) => {
             <span>{t.common.developedBy} <a href="tel:+256771331473" className="text-primary hover:underline">+256 771 331 473</a></span>
           </div>
 
-          {/* Social Icons */}
           <div className="flex items-center gap-3">
             {socialLinks.map(({ href, label, Icon }, i) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:-translate-y-1"
