@@ -24,8 +24,7 @@ const Contact = ({ t }) => {
       senderEmail ? `Email: ${senderEmail}` : null,
       '',
       message || ''
-    ].filter(line => line !== null).join('
-');
+    ].filter(line => line !== null).join('\n');
 
     window.location.href = `mailto:${contactMailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
