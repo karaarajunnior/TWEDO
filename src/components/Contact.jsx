@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, MessageCircle, Phone, MapPin } from 'lucide-react';
+import { contactEmails, contactMailto, contactNumbers } from '../data/organization';
 import { founders, primaryContact } from '../data/leadership';
 
 const CONTACT_EMAILS = ['dinahgraceabel@gmail.com'];
@@ -54,7 +55,7 @@ const Contact = ({ t }) => {
       message || ''
     ].filter((line) => line !== null).join('\n');
 
-    window.location.href = `mailto:${CONTACT_MAILTO}?subject=${encodeURIComponent(`Website message from ${name}`)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${contactMailto}?subject=${encodeURIComponent(`Website message from ${name}`)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -81,7 +82,7 @@ const Contact = ({ t }) => {
                 <div>
                   <h4 className="font-bold">{t.contact.call}</h4>
                   <div className="space-y-3">
-                    {CONTACT_NUMBERS.map((number) => (
+                    {contactNumbers.map((number) => (
                       <PhoneOptions key={number.tel} number={number} />
                     ))}
                   </div>
@@ -95,8 +96,8 @@ const Contact = ({ t }) => {
                 <div>
                   <h4 className="font-bold">{t.contact.email}</h4>
                   <div className="space-y-1">
-                    {CONTACT_EMAILS.map((email) => (
-                      <a key={email} href={`mailto:${CONTACT_MAILTO}`} className="block text-gray-600 font-medium hover:text-primary hover:underline">{email}</a>
+                    {contactEmails.map((email) => (
+                      <a key={email} href={`mailto:${contactMailto}`} className="block text-gray-600 font-medium hover:text-primary hover:underline">{email}</a>
                     ))}
                   </div>
                 </div>

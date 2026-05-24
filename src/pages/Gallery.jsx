@@ -34,6 +34,7 @@ const getImageTags = (path) => {
 const Gallery = ({ t }) => {
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [collectionPage, setCollectionPage] = useState(0);
+  const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
   const galleryItems = t.gallery.images;
   const images = [
     { src: '/assets/district_meeting/WhatsApp%20Image%202026-05-11%20at%2019.29.45.jpeg', ...galleryItems[0] },
@@ -42,6 +43,23 @@ const Gallery = ({ t }) => {
     { src: '/assets/leadership/grace.png', ...galleryItems[3] },
     { src: '/assets/tailoring-atiira.jpg', ...galleryItems[4] },
     { src: '/assets/bcp-construction1.jpg', ...galleryItems[5] }
+  ];
+  const photoStories = [
+    {
+      image: 'district_meeting/WhatsApp Image 2026-05-11 at 19.29.41.jpeg',
+      title: 'Leadership and community dialogue',
+      text: 'District-level and community conversations remain central to TEWOYEI advocacy work.'
+    },
+    {
+      image: 'info_gathering/WhatsApp Image 2026-05-11 at 19.30.26.jpeg',
+      title: 'Listening in the field',
+      text: 'Photos from information gathering sessions show the team staying close to real community concerns.'
+    },
+    {
+      image: 'hospital/hospital-visit-1.jpg',
+      title: 'Advocacy through presence',
+      text: 'Field visits and service follow-up help turn lived experience into action and response.'
+    }
   ];
   const fullCollection = imageAssets.map((asset) => ({
     src: asset.src,
@@ -99,7 +117,7 @@ const Gallery = ({ t }) => {
 
           <div className="relative h-[560px] mb-20 overflow-hidden rounded-[3rem] shadow-2xl bg-teso-dark">
              {images.map((item, index) => (
-               <div 
+               <div
                  key={index}
                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${galleryIndex === index ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
                >
@@ -115,6 +133,27 @@ const Gallery = ({ t }) => {
              ))}
           </div>
 
+          <div className="mb-16">
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Photo stories</span>
+            <h3 className="text-3xl md:text-4xl font-bold font-outfit text-teso-dark">Pictures that speak for themselves</h3>
+            <p className="text-gray-500 mt-3 max-w-3xl">
+              These selected images add context to the field gallery by showing leadership, listening, and direct community engagement.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 mb-20">
+            {photoStories.map((story) => (
+              <div key={story.title} className="overflow-hidden rounded-[2.5rem] border border-gray-100 bg-white shadow-sm">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img src={getAssetPath(story.image)} alt={story.title} className="absolute inset-0 w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/80 via-transparent to-transparent" />
+                </div>
+                <div className="p-6">
+                  <h4 className="text-2xl font-bold font-outfit">{story.title}</h4>
+                  <p className="text-gray-600 mt-3 leading-relaxed">{story.text}</p>
+                </div>
+              </div>
+            ))}
           <div className="mb-20">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
               <div>
@@ -180,18 +219,22 @@ const Gallery = ({ t }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {visibleCollection.map((item, index) => (
-              <motion.div 
+              <motion.div
                 key={`${item.src}-${collectionPage}`}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.03 }}
+                className="group relative rounded-3xl overflow-hidden shadow-lg aspect-square border-4 border-white"
                 className={`group relative rounded-3xl overflow-hidden shadow-lg cursor-zoom-in border-4 border-white bg-white ${index % 7 === 0 ? 'md:col-span-2 md:row-span-2 aspect-square' : 'aspect-[4/5]'}`}
               >
-                <img 
-                  src={item.src} 
-                  alt={item.title} 
+                <img
+                  src={item.src}
+                  alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
                 />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/90 via-teso-dark/20 to-transparent flex flex-col justify-end p-8">
+                  <div className="flex flex-wrap gap-2 mb-3">
                 
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-teso-dark/85 via-teso-dark/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 min-h-40">
                   <div className="flex flex-wrap gap-2 mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform">
@@ -201,7 +244,7 @@ const Gallery = ({ t }) => {
                        </span>
                      ))}
                   </div>
-                  <h3 className="text-white text-xl font-bold font-outfit transform translate-y-4 group-hover:translate-y-0 transition-transform delay-75">
+                  <h3 className="text-white text-xl font-bold font-outfit max-w-sm">
                     {item.title}
                   </h3>
                 </div>

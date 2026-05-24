@@ -1,4 +1,7 @@
 import React from 'react';
+import { Mail, MessageCircle, Phone, MapPin, Send, ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { contactEmails, contactMailto, contactNumbers, contactPhotoHighlights, founderMembers } from '../data/organization';
 import { Mail, MessageCircle, Phone, MapPin, Send, ArrowRight, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { founders, primaryContact } from '../data/leadership';
@@ -38,6 +41,11 @@ const PRIMARY_EMAIL = 'dinahgraceabel@gmail.com';
 const PRIMARY_PHONE = { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' };
 
 const Contact = ({ t }) => {
+  const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
+  const primaryContact = founderMembers[0];
+  const primaryNumber = contactNumbers[0];
+  const primaryEmail = contactEmails[0];
+
   const handleContactSubmit = (e) => {
     e.preventDefault();
 
@@ -55,6 +63,7 @@ const Contact = ({ t }) => {
       message || ''
     ].filter((line) => line !== null).join('\n');
 
+    window.location.href = `mailto:${contactMailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = `mailto:${PRIMARY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -144,6 +153,30 @@ const Contact = ({ t }) => {
               animate={{ opacity: 1, y: 0 }}
               className="lg:col-span-2 bg-teso-dark text-white rounded-[3rem] p-10 md:p-12 shadow-2xl"
             >
+              <div className="relative overflow-hidden rounded-[2rem] mb-8 aspect-[4/5] border border-white/10 bg-white/5">
+                <img
+                  src={getAssetPath(primaryContact.image)}
+                  alt={primaryContact.imageAlt}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-teso-dark via-teso-dark/15 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 text-left">
+                  <span className="inline-flex items-center rounded-full bg-primary/90 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-white">
+                    Primary contact
+                  </span>
+                  <h3 className="mt-4 text-3xl font-bold font-outfit">{primaryContact.name}</h3>
+                  <p className="text-secondary-light">{primaryContact.title} | Founder Member</p>
+                </div>
+              </div>
+
+              <div className="mb-8 pb-8 border-b border-white/10">
+                <h4 className="text-3xl font-bold font-outfit mb-4">{t.contact.title}</h4>
+                <p className="text-gray-300 leading-relaxed">
+                  Reach out directly for partnerships, field coordination, and questions about TEWOYEI's work.
+                </p>
+              </div>
+
+              <div className="space-y-8 mb-10">
               <h3 className="text-3xl font-bold font-outfit mb-8 pb-8 border-b border-white/10">{t.contact.title}</h3>
 
               <div className="space-y-8 mb-12">
@@ -157,6 +190,12 @@ const Contact = ({ t }) => {
 
                 <div className="flex gap-6">
                   <div className="mt-1 text-secondary"><Phone size={28} /></div>
+                  <div>
+                    <h5 className="font-bold mb-1 text-gray-300">Direct phone</h5>
+                    <a href={`tel:${primaryNumber.tel}`} className="inline-flex items-center gap-2 text-xl text-white hover:text-secondary transition-colors">
+                      {primaryNumber.national}
+                      <ArrowUpRight size={18} />
+                    </a>
                   <div className="flex-1">
                     <h5 className="font-bold mb-1 text-gray-300">{t.common.callUs}</h5>
                     <p className="text-2xl font-bold font-outfit text-white">{PRIMARY_PHONE.label}</p>
@@ -181,6 +220,10 @@ const Contact = ({ t }) => {
 
                 <div className="flex gap-6">
                   <div className="mt-1 text-secondary"><Mail size={28} /></div>
+                  <div>
+                    <h5 className="font-bold mb-1 text-gray-300">Direct email</h5>
+                    <a href={`mailto:${contactMailto}`} className="block text-secondary break-all hover:underline">
+                      {primaryEmail}
                   <div className="min-w-0 flex-1">
                     <h5 className="font-bold mb-1 text-gray-300">{t.common.email}</h5>
                     <a href={`mailto:${PRIMARY_EMAIL}`} className="text-secondary break-all hover:underline font-semibold">
@@ -190,7 +233,43 @@ const Contact = ({ t }) => {
                 </div>
               </div>
 
+              <div className="grid sm:grid-cols-3 gap-3 mb-10">
+                <a
+                  href={`https://wa.me/${primaryNumber.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-4 py-3 text-sm font-bold text-white hover:-translate-y-0.5 transition-transform"
+                >
+                  <MessageCircle size={16} /> WhatsApp
+                </a>
+                <a
+                  href={`tel:${primaryNumber.tel}`}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-4 py-3 text-sm font-bold text-white hover:-translate-y-0.5 transition-transform"
+                >
+                  <Phone size={16} /> Call now
+                </a>
+                <a
+                  href={`mailto:${contactMailto}`}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-bold text-teso-dark hover:-translate-y-0.5 transition-transform"
+                >
+                  <Mail size={16} /> Send email
+                </a>
+              </div>
+
               <div className="bg-white/5 rounded-3xl p-6 border border-white/10">
+                <h5 className="font-bold text-sm uppercase tracking-widest text-gray-500 mb-4">Field moments</h5>
+                <div className="grid gap-4">
+                  {contactPhotoHighlights.map((photo) => (
+                    <div key={photo.title} className="grid grid-cols-[6rem_1fr] gap-4 items-center rounded-[1.5rem] bg-white/5 p-3 border border-white/5">
+                      <div className="relative h-24 rounded-2xl overflow-hidden">
+                        <img src={getAssetPath(photo.image)} alt={photo.title} className="absolute inset-0 w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <h6 className="font-bold text-white">{photo.title}</h6>
+                        <p className="text-sm text-gray-400 leading-relaxed">{photo.description}</p>
+                      </div>
+                    </div>
+                  ))}
                 <h5 className="font-bold text-sm uppercase tracking-widest text-gray-500 mb-2">Primary Contact</h5>
                 <p className="font-outfit text-xl font-bold mb-1">{founders[0].name}</p>
                 <p className="text-sm text-gray-400 mb-2">{founders[0].role}</p>
