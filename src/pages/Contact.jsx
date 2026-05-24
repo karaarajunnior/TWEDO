@@ -1,7 +1,38 @@
 import React from 'react';
 import { Mail, MessageCircle, Phone, MapPin, Send, ArrowRight, User } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { founders, primaryContact } from '../data/leadership';
 
+const CONTACT_EMAILS = [primaryContact.email];
+const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
+const CONTACT_NUMBERS = [
+  { label: primaryContact.localPhone, tel: primaryContact.internationalPhone, whatsapp: primaryContact.internationalPhone.replace('+', '') }
+];
+
+const PhoneOptions = ({ number }) => (
+  <details className="group rounded-2xl bg-white/5 border border-white/10 p-3">
+    <summary className="cursor-pointer list-none flex items-center justify-between gap-3 text-gray-300 hover:text-secondary transition-colors">
+      <span className="font-semibold">{number.label}</span>
+      <span className="text-xs uppercase tracking-widest text-secondary">Options</span>
+    </summary>
+    <div className="grid grid-cols-2 gap-2 mt-3">
+      <a
+        href={`https://wa.me/${number.whatsapp}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 text-white px-3 py-2 text-xs font-bold"
+      >
+        <MessageCircle size={14} /> WhatsApp
+      </a>
+      <a
+        href={`tel:${number.tel}`}
+        className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary text-white px-3 py-2 text-xs font-bold"
+      >
+        <Phone size={14} /> Phone
+      </a>
+    </div>
+  </details>
+);
 const PRIMARY_EMAIL = 'dinahgraceabel@gmail.com';
 const PRIMARY_PHONE = { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' };
 
@@ -158,6 +189,24 @@ const Contact = ({ t }) => {
                 </div>
               </div>
 
+              <div className="bg-white/5 rounded-3xl p-6 border border-white/10">
+                <h5 className="font-bold text-sm uppercase tracking-widest text-gray-500 mb-2">Primary Contact</h5>
+                <p className="font-outfit text-xl font-bold mb-1">{founders[0].name}</p>
+                <p className="text-sm text-gray-400 mb-2">{founders[0].role}</p>
+                <a href={`mailto:${primaryContact.email}`} className="block text-secondary text-sm hover:underline">{primaryContact.email}</a>
+                <a href={`tel:${primaryContact.internationalPhone}`} className="block text-secondary text-sm hover:underline mt-1">{primaryContact.localPhone}</a>
+              </div>
+
+              <div className="bg-white/5 rounded-3xl p-6 border border-white/10 mt-4">
+                <h5 className="font-bold text-sm uppercase tracking-widest text-gray-500 mb-4">Founder Members</h5>
+                <ul className="space-y-3">
+                  {founders.map((founder) => (
+                    <li key={founder.name} className="border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
+                      <p className="font-semibold text-white">{founder.name}</p>
+                      <p className="text-xs text-gray-400 uppercase tracking-wider">{founder.role}</p>
+                    </li>
+                  ))}
+                </ul>
               <div className="bg-white/5 rounded-3xl p-6 border border-white/10 flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-primary/20 text-primary flex items-center justify-center shrink-0">
                   <User size={22} />
