@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, Eye, Heart, UserRound, ChevronUp } from 'lucide-react';
+import { Award, Eye, Heart, User, ChevronUp } from 'lucide-react';
 
 const About = ({ t }) => {
   const [activeSubSection, setActiveSubSection] = useState('leadership');
@@ -169,7 +169,7 @@ const About = ({ t }) => {
                                <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/80 via-transparent to-transparent" />
                                <div className="absolute bottom-6 left-6 right-6">
                                  <span className="inline-flex items-center gap-2 bg-primary text-white text-xs font-bold uppercase tracking-widest rounded-full px-4 py-2 mb-3">
-                                   <UserRound size={14} /> {leader.title}
+                                   <User size={14} /> {leader.title}
                                  </span>
                                  <h4 className="text-3xl font-bold font-outfit text-white uppercase">{leader.name}</h4>
                                </div>
