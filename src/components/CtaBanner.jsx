@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Mail } from 'lucide-react';
 
-const CONTACT_MAILTO = 'tewoyeiuganda@gmail.com,dinahgraceabel@gmail.com';
+const CONTACT_MAILTO = 'dinahgraceabel@gmail.com';
 
 const CtaBanner = ({ t }) => {
   return (
