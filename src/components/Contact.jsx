@@ -1,12 +1,6 @@
 import React from 'react';
 import { Mail, MessageCircle, Phone, MapPin } from 'lucide-react';
-
-const CONTACT_EMAILS = ['tewoyeiuganda@gmail.com', 'dinahgraceabel@gmail.com'];
-const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
-const CONTACT_NUMBERS = [
-  { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' },
-  { label: '+256 789 789 806', tel: '+256789789806', whatsapp: '256789789806' }
-];
+import { contactEmails, contactMailto, contactNumbers } from '../data/organization';
 
 const PhoneOptions = ({ number }) => (
   <details className="group rounded-2xl bg-gray-50 border border-gray-100 p-3">
@@ -46,16 +40,16 @@ const Contact = ({ t }) => {
       senderEmail ? `Email: ${senderEmail}` : null,
       '',
       message || ''
-    ].filter(line => line !== null).join('\n');
+    ].filter(line => line !== null).join('
+');
 
-    window.location.href = `mailto:${CONTACT_MAILTO}?subject=${encodeURIComponent(`Website message from ${name}`)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${contactMailto}?subject=${encodeURIComponent(`Website message from ${name}`)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
     <section className="section-padding bg-white" id="contact">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-16">
-          {/* Contact Info */}
           <div>
             <h2 className="text-4xl font-bold font-outfit mb-8">{t.contact.title}</h2>
             <div className="space-y-8 mb-12">
@@ -76,7 +70,7 @@ const Contact = ({ t }) => {
                 <div>
                   <h4 className="font-bold">{t.contact.call}</h4>
                   <div className="space-y-3">
-                    {CONTACT_NUMBERS.map((number) => (
+                    {contactNumbers.map((number) => (
                       <PhoneOptions key={number.tel} number={number} />
                     ))}
                   </div>
@@ -90,8 +84,8 @@ const Contact = ({ t }) => {
                 <div>
                   <h4 className="font-bold">{t.contact.email}</h4>
                   <div className="space-y-1">
-                    {CONTACT_EMAILS.map((email) => (
-                      <a key={email} href={`mailto:${CONTACT_MAILTO}`} className="block text-gray-600 font-medium hover:text-primary hover:underline">{email}</a>
+                    {contactEmails.map((email) => (
+                      <a key={email} href={`mailto:${contactMailto}`} className="block text-gray-600 font-medium hover:text-primary hover:underline">{email}</a>
                     ))}
                   </div>
                 </div>
@@ -105,7 +99,6 @@ const Contact = ({ t }) => {
             </div>
           </div>
 
-          {/* Contact Form Placeholder */}
           <div className="bg-white border border-gray-200 rounded-[3rem] p-10 shadow-xl">
             <form className="space-y-6" onSubmit={handleContactSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
