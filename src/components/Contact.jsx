@@ -2,6 +2,10 @@ import React from 'react';
 import { Mail, MessageCircle, Phone, MapPin } from 'lucide-react';
 import { founders, primaryContact } from '../data/leadership';
 
+const CONTACT_EMAILS = ['dinahgraceabel@gmail.com'];
+const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
+const CONTACT_NUMBERS = [
+  { label: '0777 676 436', tel: '+256777676436', whatsapp: '256777676436' }
 const CONTACT_EMAILS = [primaryContact.email];
 const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
 const CONTACT_NUMBERS = [
@@ -14,11 +18,8 @@ const CONTACT_NUMBERS = [
 ];
 
 const PhoneOptions = ({ number }) => (
-  <details className="group rounded-2xl bg-gray-50 border border-gray-100 p-3">
-    <summary className="cursor-pointer list-none flex items-center justify-between gap-3 text-gray-600 hover:text-primary transition-colors">
-      <span className="font-semibold">{number.label}</span>
-      <span className="text-xs uppercase tracking-widest text-primary">Options</span>
-    </summary>
+  <div className="rounded-2xl bg-gray-50 border border-gray-100 p-3">
+    <p className="font-semibold text-gray-700 mb-3">{number.label}</p>
     <div className="grid grid-cols-2 gap-2 mt-3">
       <a
         href={`https://wa.me/${number.whatsapp}`}
@@ -35,7 +36,7 @@ const PhoneOptions = ({ number }) => (
         <Phone size={14} /> Phone
       </a>
     </div>
-  </details>
+  </div>
 );
 
 const Contact = ({ t }) => {

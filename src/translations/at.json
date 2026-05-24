@@ -89,8 +89,42 @@
     "historyFirst": "Ageun kotoma okaru 2018, TEWOYEI ageun kwape egiriko loangor lueitingerete aibwo kotoma Teso sub-region, Uganda.",
     "historySecond": "Aboikin isio ebe atiokisio nueloliete angor ekotos ebeit aiswama nuepolok, isio ajulakini ekiror lo Community Based Organization aijarakin luemitakina.",
     "leadershipTitle": "Airit Kosi",
-    "executiveTeam": "Atukot Nueirit",
+    "foundersTitle": "Founder Members",
+    "boardTitle": "Board of Directors",
+    "executiveTeam": "Founder Members",
     "leadershipImageAlt": "Airit",
+    "founders": [
+      {
+        "name": "Among Dinah Grace",
+        "title": "Director",
+        "bio": "Founder member and Director of TEWOYEI. Bachelor's degree in Social Work and Social Administration."
+      },
+      {
+        "name": "Oluka Samuel Akol",
+        "title": "Co Director",
+        "bio": "Founder member and Co Director of TEWOYEI. Bachelor's degree in Human Medicine and Surgery."
+      }
+    ],
+    "boardMembers": [
+      {
+        "name": "Akurut Angella",
+        "title": "BOD Chair"
+      },
+      {
+        "name": "Ekodeu Ricard",
+        "title": "BOD"
+      },
+      {
+        "name": "Rev. Fr Opure Deo",
+        "title": "BOD Treasurer"
+      },
+      {
+        "name": "Edith",
+        "title": "BOD Member"
+      },
+      {
+        "name": "Among Dinah Grace",
+        "title": "BOD Secretary"
     "foundersTitle": "Etunga Luageunete Aiswamait",
     "foundersSubtitle": "Etunga luageunete TEWOYEI, lueirite aswam kosi kotoma aijulakin social, economic keda political.",
     "bodTitle": "Board of Directors",
@@ -246,22 +280,24 @@
     "subtitle": "Angolokin aijulakin nueitodolikina kotoma Teso sub-region.",
     "featuredHighlights": "Nuepolok",
     "fullCollection": "Akec Kokisila",
+    "photoStories": "Photo Stories",
+    "photoStoriesIntro": "Apiko itiai awaragasia nuka aswam ka TEWOYEI kosoman.",
     "ourGallery": "Eitabo Kosi",
     "images": [
-      { "title": "Aijon Atiira", "tags": ["Skilling", "Atiira"] },
-      { "title": "Aijon Kapelebyong", "tags": ["Skilling", "Kapelebyong"] },
-      { "title": "BCP Orungo", "tags": ["BCP", "Orungo"] },
-      { "title": "Construction Training", "tags": ["BCP"] },
-      { "title": "Community Project", "tags": ["BCP"] },
-      { "title": "Savings Group", "tags": ["Community"] }
+      { "title": "Community leadership in action", "tags": ["Leadership", "Advocacy"] },
+      { "title": "Listening to community voices", "tags": ["Field Work", "Community"] },
+      { "title": "Health service visit", "tags": ["Health", "Hospital"] },
+      { "title": "Among Dinah Grace", "tags": ["Leadership", "Director"] },
+      { "title": "Tailoring skills training", "tags": ["Skilling", "Livelihood"] },
+      { "title": "Building and concrete practice", "tags": ["BCP", "Training"] }
     ],
     "componentImages": [
-      "Aijon Atiira",
-      "Aijon Kapelebyong",
-      "BCP Orungo",
-      "Construction Training",
-      "Community Project",
-      "Teso Region"
+      "Community leadership in action",
+      "Listening to community voices",
+      "Health service visit",
+      "Among Dinah Grace",
+      "Tailoring skills training",
+      "Building and concrete practice"
     ]
   },
   "contact": {
@@ -273,7 +309,7 @@
     "subtitle": "Isio ikotosi akisisiakina keda ijo. Todiik isio kanu partnerships, inquiries, arai support.",
     "headquarters": "Headquarters",
     "address": "Amuria / Kapelebyong District, Teso Sub-Region, Uganda",
-    "projectCoordinator": "Project Coordinator",
+    "projectCoordinator": "Director / Founder Member",
     "sendMessageTitle": "Itiak Akiro",
     "firstName": "Ekiror Lokageun",
     "lastName": "Ekiror Loekaadak",
@@ -283,6 +319,7 @@
     "lastNamePlaceholder": "Doe",
     "emailPlaceholder": "john@example.com",
     "messagePlaceholder": "Etiai ngesi aswam keda isio?",
+    "coordinatorTitle": "Director & Founder Member",
     "coordinatorTitle": "Director keda Co-Founder",
     "name": "Ekiror",
     "yourName": "Ekiror Kon",

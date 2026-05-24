@@ -3,6 +3,10 @@ import { Mail, MessageCircle, Phone, MapPin, Send, ArrowRight, User } from 'luci
 import { motion } from 'framer-motion';
 import { founders, primaryContact } from '../data/leadership';
 
+const CONTACT_EMAILS = ['dinahgraceabel@gmail.com'];
+const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
+const CONTACT_NUMBERS = [
+  { label: '0777 676 436', tel: '+256777676436', whatsapp: '256777676436' }
 const CONTACT_EMAILS = [primaryContact.email];
 const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
 const CONTACT_NUMBERS = [
@@ -10,11 +14,8 @@ const CONTACT_NUMBERS = [
 ];
 
 const PhoneOptions = ({ number }) => (
-  <details className="group rounded-2xl bg-white/5 border border-white/10 p-3">
-    <summary className="cursor-pointer list-none flex items-center justify-between gap-3 text-gray-300 hover:text-secondary transition-colors">
-      <span className="font-semibold">{number.label}</span>
-      <span className="text-xs uppercase tracking-widest text-secondary">Options</span>
-    </summary>
+  <div className="rounded-2xl bg-white/5 border border-white/10 p-3">
+    <p className="font-semibold text-gray-200 mb-3">{number.label}</p>
     <div className="grid grid-cols-2 gap-2 mt-3">
       <a
         href={`https://wa.me/${number.whatsapp}`}
@@ -31,7 +32,7 @@ const PhoneOptions = ({ number }) => (
         <Phone size={14} /> Phone
       </a>
     </div>
-  </details>
+  </div>
 );
 const PRIMARY_EMAIL = 'dinahgraceabel@gmail.com';
 const PRIMARY_PHONE = { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' };

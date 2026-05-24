@@ -89,7 +89,9 @@
     "historyFirst": "Founded in 2018, TEWOYEI started as a collective of women organized in savings groups in the Teso sub-region of Uganda.",
     "historySecond": "Recognizing that their challenges - family neglect, domestic violence, and lack of essential resources - needed a structural solution, they transformed their initiative into a Community Based Organization to front the needs of the less privileged.",
     "leadershipTitle": "Our Leadership",
-    "executiveTeam": "Our Executive Team",
+    "foundersTitle": "Founder Members",
+    "boardTitle": "Board of Directors",
+    "executiveTeam": "Founder Members",
     "leadershipImageAlt": "Leadership",
     "foundersTitle": "Founder Members",
     "foundersSubtitle": "The visionaries who established TEWOYEI and continue to guide its mission of social, economic and political transformation.",
@@ -102,6 +104,34 @@
       {
         "name": "Among Dinah Grace",
         "title": "Director",
+        "bio": "Founder member and Director of TEWOYEI. She holds a Bachelor's degree in Social Work and Social Administration."
+      },
+      {
+        "name": "Oluka Samuel Akol",
+        "title": "Co Director",
+        "bio": "Founder member and Co Director of TEWOYEI. He holds a Bachelor's degree in Human Medicine and Surgery."
+      }
+    ],
+    "boardMembers": [
+      {
+        "name": "Akurut Angella",
+        "title": "BOD Chair"
+      },
+      {
+        "name": "Ekodeu Ricard",
+        "title": "BOD"
+      },
+      {
+        "name": "Rev. Fr Opure Deo",
+        "title": "BOD Treasurer"
+      },
+      {
+        "name": "Edith",
+        "title": "BOD Member"
+      },
+      {
+        "name": "Among Dinah Grace",
+        "title": "BOD Secretary"
         "qualification": "Bachelor's degree in Social Work and Social Administration",
         "bio": "A dedicated leader in community transformation, Dinah Grace oversees the strategic implementation of TEWOYEI's field operations. With years of experience in grass-roots mobilization in the Teso sub-region, she ensures that every intervention \u2014 from SRHR sensitizations to vocational skilling \u2014 reaches the most vulnerable women and youth."
       },
@@ -246,22 +276,24 @@
     "subtitle": "Witness the real transformations happening on the ground in the Teso sub-region.",
     "featuredHighlights": "Featured Highlights",
     "fullCollection": "Full Collection",
+    "photoStories": "Photo Stories",
+    "photoStoriesIntro": "The pictures tell the story of TEWOYEI's work on the ground.",
     "ourGallery": "Our Gallery",
     "images": [
-      { "title": "Tailoring in Atiira", "tags": ["Skilling", "Atiira"] },
-      { "title": "Tailoring in Kapelebyong", "tags": ["Skilling", "Kapelebyong"] },
-      { "title": "BCP in Orungo", "tags": ["BCP", "Orungo"] },
-      { "title": "Construction Training", "tags": ["BCP"] },
-      { "title": "Community Project", "tags": ["BCP"] },
-      { "title": "Savings Group", "tags": ["Community"] }
+      { "title": "Community leadership in action", "tags": ["Leadership", "Advocacy"] },
+      { "title": "Listening to community voices", "tags": ["Field Work", "Community"] },
+      { "title": "Health service visit", "tags": ["Health", "Hospital"] },
+      { "title": "Among Dinah Grace", "tags": ["Leadership", "Director"] },
+      { "title": "Tailoring skills training", "tags": ["Skilling", "Livelihood"] },
+      { "title": "Building and concrete practice", "tags": ["BCP", "Training"] }
     ],
     "componentImages": [
-      "Tailoring in Atiira",
-      "Tailoring in Kapelebyong",
-      "BCP in Orungo",
-      "Construction Training",
-      "Community Project",
-      "Teso Region"
+      "Community leadership in action",
+      "Listening to community voices",
+      "Health service visit",
+      "Among Dinah Grace",
+      "Tailoring skills training",
+      "Building and concrete practice"
     ]
   },
   "contact": {
@@ -273,7 +305,7 @@
     "subtitle": "We'd love to hear from you. Reach out for partnerships, inquiries, or support.",
     "headquarters": "Headquarters",
     "address": "Amuria / Kapelebyong District, Teso Sub-Region, Uganda",
-    "projectCoordinator": "Project Coordinator",
+    "projectCoordinator": "Director / Founder Member",
     "sendMessageTitle": "Send a Message",
     "firstName": "First Name",
     "lastName": "Last Name",
@@ -283,6 +315,7 @@
     "lastNamePlaceholder": "Doe",
     "emailPlaceholder": "john@example.com",
     "messagePlaceholder": "How can we collaborate?",
+    "coordinatorTitle": "Director & Founder Member",
     "coordinatorTitle": "Director & Co-Founder",
     "name": "Name",
     "yourName": "Your Name",
