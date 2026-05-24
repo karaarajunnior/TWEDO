@@ -1,12 +1,12 @@
 import React from 'react';
 import { Mail, MessageCircle, Phone, MapPin, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { founders, primaryContact } from '../data/leadership';
 
-const CONTACT_EMAILS = ['tewoyeiuganda@gmail.com', 'dinahgraceabel@gmail.com'];
+const CONTACT_EMAILS = [primaryContact.email];
 const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
 const CONTACT_NUMBERS = [
-  { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' },
-  { label: '+256 789 789 806', tel: '+256789789806', whatsapp: '256789789806' }
+  { label: primaryContact.localPhone, tel: primaryContact.internationalPhone, whatsapp: primaryContact.internationalPhone.replace('+', '') }
 ];
 
 const PhoneOptions = ({ number }) => (
@@ -115,9 +115,23 @@ const Contact = ({ t }) => {
               </div>
 
               <div className="bg-white/5 rounded-3xl p-6 border border-white/10">
-                <h5 className="font-bold text-sm uppercase tracking-widest text-gray-500 mb-2">{t.contact.projectCoordinator}</h5>
-                <p className="font-outfit text-xl font-bold mb-1">{t.contact.person}</p>
-                <a href="mailto:dinahgraceabel@gmail.com" className="text-secondary text-sm hover:underline">dinahgraceabel@gmail.com</a>
+                <h5 className="font-bold text-sm uppercase tracking-widest text-gray-500 mb-2">Primary Contact</h5>
+                <p className="font-outfit text-xl font-bold mb-1">{founders[0].name}</p>
+                <p className="text-sm text-gray-400 mb-2">{founders[0].role}</p>
+                <a href={`mailto:${primaryContact.email}`} className="block text-secondary text-sm hover:underline">{primaryContact.email}</a>
+                <a href={`tel:${primaryContact.internationalPhone}`} className="block text-secondary text-sm hover:underline mt-1">{primaryContact.localPhone}</a>
+              </div>
+
+              <div className="bg-white/5 rounded-3xl p-6 border border-white/10 mt-4">
+                <h5 className="font-bold text-sm uppercase tracking-widest text-gray-500 mb-4">Founder Members</h5>
+                <ul className="space-y-3">
+                  {founders.map((founder) => (
+                    <li key={founder.name} className="border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
+                      <p className="font-semibold text-white">{founder.name}</p>
+                      <p className="text-xs text-gray-400 uppercase tracking-wider">{founder.role}</p>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
 

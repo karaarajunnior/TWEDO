@@ -1,11 +1,11 @@
 import React from 'react';
 import { Mail, MessageCircle, Phone, MapPin } from 'lucide-react';
+import { founders, primaryContact } from '../data/leadership';
 
-const CONTACT_EMAILS = ['tewoyeiuganda@gmail.com', 'dinahgraceabel@gmail.com'];
+const CONTACT_EMAILS = [primaryContact.email];
 const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
 const CONTACT_NUMBERS = [
-  { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' },
-  { label: '+256 789 789 806', tel: '+256789789806', whatsapp: '256789789806' }
+  { label: primaryContact.localPhone, tel: primaryContact.internationalPhone, whatsapp: primaryContact.internationalPhone.replace('+', '') }
 ];
 
 const PhoneOptions = ({ number }) => (
@@ -99,9 +99,10 @@ const Contact = ({ t }) => {
             </div>
 
             <div className="p-8 rounded-3xl bg-teso-light border border-gray-100">
-               <h4 className="font-bold mb-2">{t.contact.person}</h4>
-               <p className="text-sm text-gray-500 mb-4">{t.contact.coordinatorTitle}</p>
-               <a href="mailto:dinahgraceabel@gmail.com" className="text-primary font-semibold hover:underline">dinahgraceabel@gmail.com</a>
+               <h4 className="font-bold mb-2">{founders[0].name}</h4>
+               <p className="text-sm text-gray-500 mb-4">{founders[0].role}</p>
+               <a href={`mailto:${primaryContact.email}`} className="text-primary font-semibold hover:underline">{primaryContact.email}</a>
+               <a href={`tel:${primaryContact.internationalPhone}`} className="block mt-2 text-primary font-semibold hover:underline">{primaryContact.localPhone}</a>
             </div>
           </div>
 

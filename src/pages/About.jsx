@@ -1,25 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, Heart, ChevronUp } from 'lucide-react';
+import { founders, boardOfDirectors } from '../data/leadership';
 
 const About = ({ t }) => {
   const [activeSubSection, setActiveSubSection] = useState('leadership');
   const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
-
-  const fallbackLeaderImages = ['hero-image.png', 'leadership.png'];
-  const getLeaderImage = (leader, index) => {
-    if (/dinah|grace/i.test(leader.name)) {
-      return getAssetPath('leadership/grace.jpg');
-    }
-
-    return getAssetPath(fallbackLeaderImages[index % fallbackLeaderImages.length]);
-  };
-
-  const leaders = t.about.team.map((leader, i) => ({
-    ...leader,
-    image: getLeaderImage(leader, i),
-    fallbackImage: getAssetPath(fallbackLeaderImages[i % fallbackLeaderImages.length])
-  }));
 
   const subSections = [
     { id: 'about', label: t.about.tabs.about },
@@ -144,34 +130,48 @@ const About = ({ t }) => {
 
                   <div className="mb-20">
                      <div className="w-16 h-1 bg-primary mb-4" />
-                     <h3 className="text-3xl font-bold font-outfit uppercase tracking-tight">{t.about.executiveTeam}</h3>
+                     <h3 className="text-3xl font-bold font-outfit uppercase tracking-tight">Founder Members</h3>
+                     <p className="text-gray-500 mt-2 max-w-2xl">
+                       Our founders and board provide strategic leadership for TEWOYEI through community service, accountability, and practical action.
+                     </p>
                   </div>
 
-                  <div className="space-y-24">
-                     {leaders.map((leader, i) => (
-                       <div key={i} className="grid md:grid-cols-3 gap-12 items-start">
-                         <div className="md:col-span-1">
-                            <div className="aspect-[4/5] overflow-hidden rounded-lg mb-6 shadow-lg border border-gray-100">
-                               <img
-                                 src={leader.image}
-                                 onError={(e) => {
-                                   e.currentTarget.onerror = null;
-                                   e.currentTarget.src = leader.fallbackImage;
-                                 }}
-                                 className="w-full h-full object-cover"
-                                 alt={leader.name}
-                               />
-                            </div>
-                            <h4 className="text-2xl font-bold font-outfit uppercase">{leader.name}</h4>
-                            <p className="text-gray-500 font-medium">{leader.title}</p>
-                         </div>
-                         <div className="md:col-span-2">
-                            <p className="text-gray-600 text-lg leading-relaxed font-inter">
-                               {leader.bio}
-                            </p>
-                         </div>
-                       </div>
-                     ))}
+                  <div className="grid lg:grid-cols-2 gap-10 mb-20">
+                    {founders.map((leader) => (
+                      <article key={leader.name} className="bg-white border border-gray-100 rounded-[2rem] overflow-hidden shadow-sm">
+                        <div className="aspect-[4/3] overflow-hidden">
+                          <img src={leader.image} className="w-full h-full object-cover" alt={leader.name} />
+                        </div>
+                        <div className="p-7">
+                          <h4 className="text-2xl font-bold font-outfit uppercase">{leader.name}</h4>
+                          <p className="text-primary font-semibold uppercase tracking-wider text-sm mt-1">{leader.role}</p>
+                          <p className="text-gray-600 mt-4">{leader.qualification}</p>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+
+                  <div className="mb-8">
+                    <div className="w-16 h-1 bg-primary mb-4" />
+                    <h3 className="text-3xl font-bold font-outfit uppercase tracking-tight">Board of Directors (BOD)</h3>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8">
+                    {boardOfDirectors.map((leader) => (
+                      <article key={`${leader.name}-${leader.role}`} className="bg-white border border-gray-100 rounded-[2rem] overflow-hidden shadow-sm group">
+                        <div className="aspect-[4/3] overflow-hidden">
+                          <img
+                            src={leader.image}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            alt={leader.name}
+                          />
+                        </div>
+                        <div className="p-6">
+                          <h4 className="text-xl font-bold font-outfit uppercase">{leader.name}</h4>
+                          <p className="text-gray-500 font-medium mt-1">{leader.role}</p>
+                        </div>
+                      </article>
+                    ))}
                   </div>
                 </motion.div>
               )}
