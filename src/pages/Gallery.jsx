@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { imageAssets } from '../data/siteAssets';
+import { leadershipPhotos } from '../data/leadership';
 
 const collectionPageSize = 12;
 
@@ -112,6 +113,40 @@ const Gallery = ({ t }) => {
                  </div>
                </div>
              ))}
+          </div>
+
+          <div className="mb-20">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+              <div>
+                <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Leadership</span>
+                <h3 className="text-3xl md:text-4xl font-bold font-outfit text-teso-dark">Leadership in Photos</h3>
+                <p className="text-gray-500 mt-2">Founder members and board leadership profiles.</p>
+              </div>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {leadershipPhotos.map((member, index) => (
+                <motion.article
+                  key={`${member.name}-${member.role}-${index}`}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: index * 0.04 }}
+                  className="rounded-3xl overflow-hidden shadow-lg bg-white border border-gray-100"
+                >
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-bold text-lg font-outfit uppercase">{member.name}</h4>
+                    <p className="text-gray-500 text-sm mt-1">{member.role}</p>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
           </div>
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">

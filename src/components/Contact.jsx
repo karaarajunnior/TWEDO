@@ -1,10 +1,20 @@
 import React from 'react';
 import { Mail, MessageCircle, Phone, MapPin } from 'lucide-react';
+import { founders, primaryContact } from '../data/leadership';
 
 const CONTACT_EMAILS = ['dinahgraceabel@gmail.com'];
 const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
 const CONTACT_NUMBERS = [
   { label: '0777 676 436', tel: '+256777676436', whatsapp: '256777676436' }
+const CONTACT_EMAILS = [primaryContact.email];
+const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
+const CONTACT_NUMBERS = [
+  { label: primaryContact.localPhone, tel: primaryContact.internationalPhone, whatsapp: primaryContact.internationalPhone.replace('+', '') }
+const PRIMARY_EMAIL = 'dinahgraceabel@gmail.com';
+const CONTACT_EMAILS = [PRIMARY_EMAIL];
+const CONTACT_MAILTO = PRIMARY_EMAIL;
+const CONTACT_NUMBERS = [
+  { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' }
 ];
 
 const PhoneOptions = ({ number }) => (
@@ -42,7 +52,7 @@ const Contact = ({ t }) => {
       senderEmail ? `Email: ${senderEmail}` : null,
       '',
       message || ''
-    ].filter(line => line !== null).join('\n');
+    ].filter((line) => line !== null).join('\n');
 
     window.location.href = `mailto:${CONTACT_MAILTO}?subject=${encodeURIComponent(`Website message from ${name}`)}&body=${encodeURIComponent(body)}`;
   };
@@ -51,7 +61,6 @@ const Contact = ({ t }) => {
     <section className="section-padding bg-white" id="contact">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-16">
-          {/* Contact Info */}
           <div>
             <h2 className="text-4xl font-bold font-outfit mb-8">{t.contact.title}</h2>
             <div className="space-y-8 mb-12">
@@ -95,13 +104,16 @@ const Contact = ({ t }) => {
             </div>
 
             <div className="p-8 rounded-3xl bg-teso-light border border-gray-100">
-               <h4 className="font-bold mb-2">{t.contact.person}</h4>
-               <p className="text-sm text-gray-500 mb-4">{t.contact.coordinatorTitle}</p>
-               <a href="mailto:dinahgraceabel@gmail.com" className="text-primary font-semibold hover:underline">dinahgraceabel@gmail.com</a>
+               <h4 className="font-bold mb-2">{founders[0].name}</h4>
+               <p className="text-sm text-gray-500 mb-4">{founders[0].role}</p>
+               <a href={`mailto:${primaryContact.email}`} className="text-primary font-semibold hover:underline">{primaryContact.email}</a>
+               <a href={`tel:${primaryContact.internationalPhone}`} className="block mt-2 text-primary font-semibold hover:underline">{primaryContact.localPhone}</a>
+              <h4 className="font-bold mb-2">{t.contact.person}</h4>
+              <p className="text-sm text-gray-500 mb-4">{t.contact.coordinatorTitle}</p>
+              <a href={`mailto:${PRIMARY_EMAIL}`} className="text-primary font-semibold hover:underline">{PRIMARY_EMAIL}</a>
             </div>
           </div>
 
-          {/* Contact Form Placeholder */}
           <div className="bg-white border border-gray-200 rounded-[3rem] p-10 shadow-xl">
             <form className="space-y-6" onSubmit={handleContactSubmit}>
               <div className="grid md:grid-cols-2 gap-6">

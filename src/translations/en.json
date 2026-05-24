@@ -93,6 +93,13 @@
     "boardTitle": "Board of Directors",
     "executiveTeam": "Founder Members",
     "leadershipImageAlt": "Leadership",
+    "foundersTitle": "Founder Members",
+    "foundersSubtitle": "The visionaries who established TEWOYEI and continue to guide its mission of social, economic and political transformation.",
+    "bodTitle": "Board of Directors",
+    "bodSubtitle": "Our governing board provides strategic oversight, accountability and stewardship across every TEWOYEI programme.",
+    "qualificationLabel": "Qualification",
+    "pictureGalleryTitle": "Our Pictures Speak for Themselves",
+    "pictureGallerySubtitle": "From district engagements to hospital visits and skilling sessions \u2014 these are the faces and moments shaping change in the Teso sub-region.",
     "founders": [
       {
         "name": "Among Dinah Grace",
@@ -125,7 +132,22 @@
       {
         "name": "Among Dinah Grace",
         "title": "BOD Secretary"
+        "qualification": "Bachelor's degree in Social Work and Social Administration",
+        "bio": "A dedicated leader in community transformation, Dinah Grace oversees the strategic implementation of TEWOYEI's field operations. With years of experience in grass-roots mobilization in the Teso sub-region, she ensures that every intervention \u2014 from SRHR sensitizations to vocational skilling \u2014 reaches the most vulnerable women and youth."
+      },
+      {
+        "name": "Oluka Samuel Akol",
+        "title": "Co-Director",
+        "qualification": "Bachelor's degree in Human Medicine and Surgery",
+        "bio": "A medical doctor by training, Oluka Samuel Akol brings clinical expertise and a deep commitment to community health. He helps shape TEWOYEI's health programming \u2014 including SRHR, menstrual health, malaria prevention and hospital advocacy \u2014 ensuring that interventions are evidence-based and people-centred."
       }
+    ],
+    "boardOfDirectors": [
+      { "name": "Akurut Angella", "title": "BOD Chair" },
+      { "name": "Ekodeu Ricard", "title": "Board Member" },
+      { "name": "Rev. Fr. Opure Deo", "title": "BOD Treasurer" },
+      { "name": "Edith", "title": "BOD Member" },
+      { "name": "Among Dinah Grace", "title": "BOD Secretary" }
     ]
   },
   "home": {
@@ -294,10 +316,17 @@
     "emailPlaceholder": "john@example.com",
     "messagePlaceholder": "How can we collaborate?",
     "coordinatorTitle": "Director & Founder Member",
+    "coordinatorTitle": "Director & Co-Founder",
     "name": "Name",
     "yourName": "Your Name",
     "yourEmail": "Your Email",
-    "helpPlaceholder": "How can we help?"
+    "helpPlaceholder": "How can we help?",
+    "primaryContactTitle": "Primary Contact",
+    "primaryContactNote": "Reach us directly through our office contact below \u2014 calls, WhatsApp and email are answered by our coordination team.",
+    "emailLabel": "Email Address",
+    "phoneLabel": "Phone / WhatsApp",
+    "whatsappCta": "Chat on WhatsApp",
+    "callCta": "Call Office"
   },
   "getInvolved": {
     "pageTitle": "Get Involved",

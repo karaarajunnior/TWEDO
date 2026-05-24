@@ -6,6 +6,11 @@ const CONTACT_EMAILS = ['dinahgraceabel@gmail.com'];
 const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
 const CONTACT_NUMBERS = [
   { label: '0777 676 436', tel: '+256777676436', whatsapp: '256777676436' }
+const PRIMARY_EMAIL = 'dinahgraceabel@gmail.com';
+const CONTACT_EMAILS = [PRIMARY_EMAIL];
+const CONTACT_MAILTO = PRIMARY_EMAIL;
+const CONTACT_NUMBERS = [
+  { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' }
 ];
 
 const PhoneOptions = ({ number, iconColor }) => (
