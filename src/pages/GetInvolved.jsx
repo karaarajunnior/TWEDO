@@ -2,6 +2,8 @@ import React from 'react';
 import { Heart, Briefcase, Users, MessageCircle } from 'lucide-react';
 import { contactMailto } from '../data/organization';
 
+const CONTACT_MAILTO = 'dinahgraceabel@gmail.com';
+
 const GetInvolved = ({ t }) => {
   const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
   const positionImages = [

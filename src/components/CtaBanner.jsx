@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { MessageCircle, Mail } from 'lucide-react';
 import { contactMailto } from '../data/organization';
 
+const CONTACT_MAILTO = 'dinahgraceabel@gmail.com';
+
 const CtaBanner = ({ t }) => {
   return (
     <section className="py-20 bg-secondary rounded-[3rem] mx-4 md:mx-10 my-20">
