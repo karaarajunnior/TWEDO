@@ -89,19 +89,32 @@
     "historyFirst": "Founded in 2018, TEWOYEI started as a collective of women organized in savings groups in the Teso sub-region of Uganda.",
     "historySecond": "Recognizing that their challenges - family neglect, domestic violence, and lack of essential resources - needed a structural solution, they transformed their initiative into a Community Based Organization to front the needs of the less privileged.",
     "leadershipTitle": "Our Leadership",
-    "executiveTeam": "Our Executive Team",
+    "executiveTeam": "Founder Members",
+    "leadershipIntro": "TEWOYEI is guided by founder members and a Board of Directors rooted in service, health, social work, and community accountability.",
     "leadershipImageAlt": "Leadership",
     "team": [
       {
-        "name": "Angela Ahrendts",
-        "title": "Board Chair",
-        "bio": "Angela Ahrendts DBE was most recently Senior Vice President, Apple Retail based in Cupertino, CA. During her five years with Apple, she integrated the company's physical and digital businesses to create a seamless customer journey for over a billion visitors a year. Under her leadership, she redesigned the stores, recrafted the roles for 70,000 employees globally, and reimagined the retail experience. Before Apple, Angela was Chief Executive Officer of Burberry Group plc for nearly nine years, where she led the 150-year-old British fashion house through a period of phenomenal global growth."
+        "name": "Among Dinah Grace",
+        "title": "Director",
+        "credential": "Bachelor's degree in Social Work and Social Administration",
+        "bio": "Dinah Grace provides strategic leadership for TEWOYEI's community transformation work, keeping women, youth, and vulnerable families at the center of every intervention."
       },
       {
-        "name": "Among Dinah Grace",
-        "title": "Project Coordinator",
-        "bio": "A dedicated leader in community transformation, Dinah Grace oversees the strategic implementation of TEWOYEI's field operations. With years of experience in grass-roots mobilization in the Teso sub-region, she ensures that every intervention - from SRHR sensitizations to vocational skilling - reaches the most vulnerable women and youth."
+        "name": "Oluka Samuel Akol",
+        "title": "Co-Director",
+        "credential": "Bachelor's degree in Human Medicine and Surgery",
+        "bio": "Samuel brings a health-focused perspective to TEWOYEI's programs, strengthening community outreach, care, and advocacy for improved wellbeing across the Teso sub-region."
       }
+    ],
+    "boardEyebrow": "Board of Directors",
+    "boardTitle": "BOD",
+    "boardIntro": "The Board of Directors supports governance, stewardship, and transparent decision-making for TEWOYEI's mission.",
+    "boardMembers": [
+      { "name": "Akurut Angella", "role": "BOD Chair" },
+      { "name": "Ekodeu Ricard", "role": "BOD Member" },
+      { "name": "Rev. Fr. Opure Deo", "role": "BOD Treasurer" },
+      { "name": "Edith", "role": "BOD Member" },
+      { "name": "Among Dinah Grace", "role": "BOD Secretary" }
     ]
   },
   "home": {

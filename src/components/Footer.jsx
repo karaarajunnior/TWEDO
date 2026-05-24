@@ -1,13 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Youtube, Mail, MessageCircle, Phone, MapPin, Heart } from 'lucide-react';
-
-const CONTACT_EMAILS = ['tewoyeiuganda@gmail.com', 'dinahgraceabel@gmail.com'];
-const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
-const CONTACT_NUMBERS = [
-  { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' },
-  { label: '+256 789 789 806', tel: '+256789789806', whatsapp: '256789789806' }
-];
+import { CONTACT_EMAILS, CONTACT_MAILTO, CONTACT_NUMBERS } from '../data/contactDetails';
 
 const PhoneOptions = ({ number, iconColor }) => (
   <li className="flex items-start gap-3">

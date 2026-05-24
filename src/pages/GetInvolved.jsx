@@ -1,7 +1,6 @@
 import React from 'react';
 import { Heart, Briefcase, Users, MessageCircle } from 'lucide-react';
-
-const CONTACT_MAILTO = 'tewoyeiuganda@gmail.com,dinahgraceabel@gmail.com';
+import { CONTACT_MAILTO, buildWhatsappUrl } from '../data/contactDetails';
 
 const GetInvolved = ({ t }) => {
   const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
@@ -38,9 +37,9 @@ const GetInvolved = ({ t }) => {
             <div className="flex-1 text-center md:text-left">
                <h3 className="text-3xl font-bold font-outfit mb-4">{t.getInvolved.donationTitle}</h3>
                <p className="text-gray-600 font-inter mb-6">{t.getInvolved.donationText}</p>
-               <a 
-                  href="https://wa.me/256777676436?text=Hello%20TEWOYEI,%20I%20would%20like%20to%20donate%20to%20your%20campaign." 
-                  target="_blank" 
+               <a
+                  href={buildWhatsappUrl('Hello TEWOYEI, I would like to donate to your campaign.')}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary inline-flex items-center gap-2"
                 >

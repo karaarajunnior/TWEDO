@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, Heart, ChevronUp } from 'lucide-react';
+import { Award, Eye, Heart, UserRound, ChevronUp } from 'lucide-react';
 
 const About = ({ t }) => {
   const [activeSubSection, setActiveSubSection] = useState('leadership');
   const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
 
-  const fallbackLeaderImages = ['hero-image.png', 'leadership.png'];
+  const fallbackLeaderImages = [
+    'leadership/grace.png',
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.41.jpeg',
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.26.jpeg'
+  ];
   const getLeaderImage = (leader, index) => {
     if (/dinah|grace/i.test(leader.name)) {
-      return getAssetPath('leadership/grace.jpg');
+      return getAssetPath('leadership/grace.png');
     }
 
     return getAssetPath(fallbackLeaderImages[index % fallbackLeaderImages.length]);
@@ -20,6 +24,7 @@ const About = ({ t }) => {
     image: getLeaderImage(leader, i),
     fallbackImage: getAssetPath(fallbackLeaderImages[i % fallbackLeaderImages.length])
   }));
+  const boardMembers = t.about.boardMembers || [];
 
   const subSections = [
     { id: 'about', label: t.about.tabs.about },
@@ -142,36 +147,64 @@ const About = ({ t }) => {
                     </div>
                   </div>
 
-                  <div className="mb-20">
+                  <div className="mb-12">
                      <div className="w-16 h-1 bg-primary mb-4" />
                      <h3 className="text-3xl font-bold font-outfit uppercase tracking-tight">{t.about.executiveTeam}</h3>
+                     <p className="text-gray-500 mt-3 max-w-2xl">{t.about.leadershipIntro}</p>
                   </div>
 
-                  <div className="space-y-24">
+                  <div className="grid lg:grid-cols-2 gap-8 mb-20">
                      {leaders.map((leader, i) => (
-                       <div key={i} className="grid md:grid-cols-3 gap-12 items-start">
-                         <div className="md:col-span-1">
-                            <div className="aspect-[4/5] overflow-hidden rounded-lg mb-6 shadow-lg border border-gray-100">
+                       <div key={i} className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100">
+                         <div className="relative h-80">
                                <img
                                  src={leader.image}
                                  onError={(e) => {
                                    e.currentTarget.onerror = null;
                                    e.currentTarget.src = leader.fallbackImage;
                                  }}
-                                 className="w-full h-full object-cover"
+                                 className="absolute inset-0 w-full h-full object-cover"
                                  alt={leader.name}
                                />
-                            </div>
-                            <h4 className="text-2xl font-bold font-outfit uppercase">{leader.name}</h4>
-                            <p className="text-gray-500 font-medium">{leader.title}</p>
+                               <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/80 via-transparent to-transparent" />
+                               <div className="absolute bottom-6 left-6 right-6">
+                                 <span className="inline-flex items-center gap-2 bg-primary text-white text-xs font-bold uppercase tracking-widest rounded-full px-4 py-2 mb-3">
+                                   <UserRound size={14} /> {leader.title}
+                                 </span>
+                                 <h4 className="text-3xl font-bold font-outfit text-white uppercase">{leader.name}</h4>
+                               </div>
                          </div>
-                         <div className="md:col-span-2">
-                            <p className="text-gray-600 text-lg leading-relaxed font-inter">
-                               {leader.bio}
-                            </p>
+                         <div className="p-8">
+                           {leader.credential && (
+                             <p className="flex items-start gap-3 text-secondary font-bold mb-4">
+                               <Award size={20} className="shrink-0 mt-0.5" /> {leader.credential}
+                             </p>
+                           )}
+                           <p className="text-gray-600 leading-relaxed font-inter">
+                             {leader.bio}
+                           </p>
                          </div>
                        </div>
                      ))}
+                  </div>
+
+                  <div className="bg-teso-light rounded-[3rem] p-8 md:p-12 border border-gray-100">
+                    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+                      <div>
+                        <span className="text-primary font-bold uppercase tracking-widest text-sm">{t.about.boardEyebrow}</span>
+                        <h3 className="text-3xl md:text-4xl font-bold font-outfit text-teso-dark mt-2">{t.about.boardTitle}</h3>
+                      </div>
+                      <p className="text-gray-500 max-w-xl">{t.about.boardIntro}</p>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                      {boardMembers.map((member) => (
+                        <div key={`${member.name}-${member.role}`} className="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm">
+                          <p className="text-xs font-bold uppercase tracking-[0.2em] text-secondary mb-3">{member.role}</p>
+                          <h4 className="text-xl font-bold font-outfit text-teso-dark">{member.name}</h4>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               )}
