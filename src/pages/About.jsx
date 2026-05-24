@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, Heart, ChevronUp } from 'lucide-react';
+import { Award, ChevronUp, Eye, Heart, Users } from 'lucide-react';
 
 const About = ({ t }) => {
   const [activeSubSection, setActiveSubSection] = useState('leadership');
   const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
 
-  const fallbackLeaderImages = ['hero-image.png', 'leadership.png'];
-  const getLeaderImage = (leader, index) => {
-    if (/dinah|grace/i.test(leader.name)) {
-      return getAssetPath('leadership/grace.jpg');
-    }
+  const founderImages = ['leadership/grace.png', 'leadership.png'];
+  const boardImages = [
+    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.45.jpeg',
+    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.23.jpeg',
+    'hospital/hospital-visit-1.jpg',
+    'others/other_1/WhatsApp Image 2026-05-11 at 19.29.02.jpeg',
+    'hero-image.png'
+  ];
 
-    return getAssetPath(fallbackLeaderImages[index % fallbackLeaderImages.length]);
-  };
-
-  const leaders = t.about.team.map((leader, i) => ({
+  const leaders = (t.about.founders || t.about.team || []).map((leader, i) => ({
     ...leader,
-    image: getLeaderImage(leader, i),
-    fallbackImage: getAssetPath(fallbackLeaderImages[i % fallbackLeaderImages.length])
+    image: getAssetPath(founderImages[i % founderImages.length]),
+    fallbackImage: getAssetPath('leadership.png')
+  }));
+  const boardMembers = (t.about.boardMembers || []).map((member, i) => ({
+    ...member,
+    image: getAssetPath(boardImages[i % boardImages.length])
   }));
 
   const subSections = [
@@ -142,36 +146,72 @@ const About = ({ t }) => {
                     </div>
                   </div>
 
-                  <div className="mb-20">
+                  <div className="mb-10">
                      <div className="w-16 h-1 bg-primary mb-4" />
-                     <h3 className="text-3xl font-bold font-outfit uppercase tracking-tight">{t.about.executiveTeam}</h3>
+                     <h3 className="text-3xl font-bold font-outfit uppercase tracking-tight">{t.about.foundersTitle || t.about.executiveTeam}</h3>
                   </div>
 
-                  <div className="space-y-24">
+                  <div className="grid md:grid-cols-2 gap-8 mb-20">
                      {leaders.map((leader, i) => (
-                       <div key={i} className="grid md:grid-cols-3 gap-12 items-start">
-                         <div className="md:col-span-1">
-                            <div className="aspect-[4/5] overflow-hidden rounded-lg mb-6 shadow-lg border border-gray-100">
-                               <img
-                                 src={leader.image}
-                                 onError={(e) => {
-                                   e.currentTarget.onerror = null;
-                                   e.currentTarget.src = leader.fallbackImage;
-                                 }}
-                                 className="w-full h-full object-cover"
-                                 alt={leader.name}
-                               />
+                       <motion.article
+                         key={leader.name}
+                         whileHover={{ y: -6 }}
+                         className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100"
+                       >
+                         <div className="relative aspect-[4/5] bg-teso-light">
+                            <img
+                              src={leader.image}
+                              onError={(e) => {
+                                e.currentTarget.onerror = null;
+                                e.currentTarget.src = leader.fallbackImage;
+                              }}
+                              className="absolute inset-0 w-full h-full object-cover"
+                              alt={leader.name}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/85 via-teso-dark/10 to-transparent" />
+                            <div className="absolute bottom-6 left-6 right-6 text-white">
+                              <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest mb-3 ${i === 0 ? 'bg-primary' : 'bg-secondary text-teso-dark'}`}>
+                                <Award size={14} /> {leader.title}
+                              </span>
+                              <h4 className="text-3xl font-bold font-outfit uppercase leading-tight">{leader.name}</h4>
                             </div>
-                            <h4 className="text-2xl font-bold font-outfit uppercase">{leader.name}</h4>
-                            <p className="text-gray-500 font-medium">{leader.title}</p>
                          </div>
-                         <div className="md:col-span-2">
-                            <p className="text-gray-600 text-lg leading-relaxed font-inter">
+                         <div className="p-8">
+                            <p className="text-gray-600 text-base leading-relaxed font-inter">
                                {leader.bio}
                             </p>
                          </div>
-                       </div>
+                       </motion.article>
                      ))}
+                  </div>
+
+                  <div className="bg-teso-light rounded-[3rem] p-8 md:p-10 border border-gray-100">
+                    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+                      <div>
+                        <div className="w-16 h-1 bg-secondary mb-4" />
+                        <h3 className="text-3xl font-bold font-outfit uppercase tracking-tight">{t.about.boardTitle}</h3>
+                      </div>
+                      <div className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs">
+                        <Users size={18} /> BOD
+                      </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {boardMembers.map((member) => (
+                        <article key={`${member.name}-${member.title}`} className="group bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm">
+                          <div className="relative h-40 bg-teso-dark">
+                            <img src={member.image} alt="" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/80 to-transparent" />
+                            <span className="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-white/90 text-teso-dark text-[10px] font-bold uppercase tracking-widest">
+                              {member.title}
+                            </span>
+                          </div>
+                          <div className="p-6">
+                            <h4 className="text-xl font-bold font-outfit uppercase text-teso-dark">{member.name}</h4>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               )}

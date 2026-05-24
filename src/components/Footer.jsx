@@ -2,11 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Youtube, Mail, MessageCircle, Phone, MapPin, Heart } from 'lucide-react';
 
-const CONTACT_EMAILS = ['tewoyeiuganda@gmail.com', 'dinahgraceabel@gmail.com'];
+const CONTACT_EMAILS = ['dinahgraceabel@gmail.com'];
 const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
 const CONTACT_NUMBERS = [
-  { label: '+256 777 676 436', tel: '+256777676436', whatsapp: '256777676436' },
-  { label: '+256 789 789 806', tel: '+256789789806', whatsapp: '256789789806' }
+  { label: '0777 676 436', tel: '+256777676436', whatsapp: '256777676436' }
 ];
 
 const PhoneOptions = ({ number, iconColor }) => (
