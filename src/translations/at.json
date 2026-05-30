@@ -89,20 +89,26 @@
     "historyFirst": "Ageun kotoma okaru 2018, TEWOYEI ageun kwape egiriko loangor lueitingerete aibwo kotoma Teso sub-region, Uganda.",
     "historySecond": "Aboikin isio ebe atiokisio nueloliete angor ekotos ebeit aiswama nuepolok, isio ajulakini ekiror lo Community Based Organization aijarakin luemitakina.",
     "leadershipTitle": "Airit Kosi",
-    "foundersTitle": "Founder Members",
+    "foundersTitle": "Etunga Luageunete Aiswamait",
+    "foundersSubtitle": "Etunga luageunete TEWOYEI, lueirite aswam kosi kotoma aijulakin social, economic keda political.",
     "boardTitle": "Board of Directors",
+    "bodTitle": "Board of Directors",
+    "bodSubtitle": "Board kosi ejarakini airit ejok keda accountability kotoma aidis daadang lu TEWOYEI.",
     "executiveTeam": "Founder Members",
     "leadershipImageAlt": "Airit",
+    "qualificationLabel": "Akisiyom",
+    "pictureGalleryTitle": "Apiko Kosi Ekirote Akiro",
+    "pictureGallerySubtitle": "Aitejei aswam kosi kotoma etem, hospital keda iidisan luka skilling - apiko nukomamori aijulakin kotoma Teso sub-region.",
     "founders": [
       {
         "name": "Among Dinah Grace",
         "title": "Director",
-        "bio": "Founder member and Director of TEWOYEI. Bachelor's degree in Social Work and Social Administration."
+        "bio": "Founder member keda Director lo TEWOYEI. Ejalai Bachelor's degree kotoma Social Work and Social Administration."
       },
       {
         "name": "Oluka Samuel Akol",
         "title": "Co Director",
-        "bio": "Founder member and Co Director of TEWOYEI. Bachelor's degree in Human Medicine and Surgery."
+        "bio": "Founder member keda Co Director lo TEWOYEI. Ejalai Bachelor's degree kotoma Human Medicine and Surgery."
       }
     ],
     "boardMembers": [
@@ -125,25 +131,6 @@
       {
         "name": "Among Dinah Grace",
         "title": "BOD Secretary"
-    "foundersTitle": "Etunga Luageunete Aiswamait",
-    "foundersSubtitle": "Etunga luageunete TEWOYEI, lueirite aswam kosi kotoma aijulakin social, economic keda political.",
-    "bodTitle": "Board of Directors",
-    "bodSubtitle": "Board kosi ejarakini airit ejok keda accountability kotoma aidis daadang lu TEWOYEI.",
-    "qualificationLabel": "Akisiyom",
-    "pictureGalleryTitle": "Apiko Kosi Ekirote Akiro",
-    "pictureGallerySubtitle": "Aitejei aswam kosi kotoma etem, hospital keda iidisan luka skilling \u2014 apiko nukomamori aijulakin kotoma Teso sub-region.",
-    "founders": [
-      {
-        "name": "Among Dinah Grace",
-        "title": "Director",
-        "qualification": "Bachelor's degree kotoma Social Work and Social Administration",
-        "bio": "Dinah Grace erai airit loetem loeswamai aitodolikin aidis lu TEWOYEI kotoma Teso sub-region, neejeni ebe aidis daadang eyapi angor keda atukot luemitakina."
-      },
-      {
-        "name": "Oluka Samuel Akol",
-        "title": "Co-Director",
-        "qualification": "Bachelor's degree kotoma Human Medicine and Surgery",
-        "bio": "Oluka Samuel Akol erai doctor loejeni aijar etunga. Ejarakini aidis nuka health kotoma TEWOYEI \u2014 SRHR, menstrual health, malaria prevention keda hospital advocacy \u2014 neejeni ebe aidis eyapi etunga ejok."
       }
     ],
     "boardOfDirectors": [
@@ -395,6 +382,8 @@
         { "title": "Menstrual Hygiene Day Celebrations", "date": "May 28, 2027", "time": "08:00 AM", "location": "Okungur Subcounty", "type": "Campaign", "image": "tailoring-kapelebyong.jpg", "summary": "School and community campaign on menstrual dignity, reusable products, and confidence for adolescent girls.", "impact": "Girls, teachers, and caregivers", "partners": "Schools and health workers" }
       ],
       "latest": [
+        { "title": "Youth Skilling in Tailoring", "date": "May 18, 2026", "time": "09:00 AM", "location": "Teso Sub-Region", "type": "Training", "image": "tailoring-atiira.jpg", "summary": "TEWOYEI aitodolikini atukot kotoma tailoring skills kanu livelihood, akitodolikin, keda self-reliance.", "impact": "Youth equipped with practical tailoring skills", "partners": "Community trainers" },
+        { "title": "Training on Making Reusable Sanitary Pads", "date": "May 14, 2026", "time": "10:00 AM", "location": "Odiding and Agonga Primary Schools", "type": "School Training", "image": "health.png", "summary": "Girls keda school communities neitodolikinit on making reusable sanitary pads keda menstrual hygiene management in Odiding and Agonga Primary Schools.", "impact": "Girls trained in reusable sanitary pad making", "partners": "School leaders and teachers" },
         { "title": "Aitodik Hospital: Atiokisio nuka Aijarakin", "date": "May 10, 2026", "time": "10:00 AM", "location": "Amuria Referral Hospital", "type": "Aitodik Kosoman", "image": "hospital/hospital-visit-1.jpg", "summary": "Atukot ka TEWOYEI kotoi aitodik hospital kanu angolokin atiokisio nueboikinit aijarakin keda angor keda ikoku.", "impact": "Aitidau atiokisio 5 nuepolok", "partners": "Hospital Administration", "photos": ["hospital/hospital-visit-1.jpg", "hospital/hospital-visit-2.jpg", "hospital/hospital-visit-3.jpg", "hospital/hospital-visit-4.jpg", "hospital/hospital-visit-5.jpg", "hospital/WhatsApp Image 2026-05-11 at 19.29.51.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.51 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.52.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.52 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.53.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.53 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.55.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.55 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.55 (2).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.56.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.56 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.57.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.58.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.59.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.00.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.00 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.02.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.02 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.03.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.03 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.04.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.05.jpeg"] },
         { "title": "Youth Entrepreneurship Pitch", "date": "Apr 10, 2026", "time": "10:00 AM", "location": "Teso Region", "type": "Workshop", "image": "bcp-construction1.jpg", "summary": "Young people shared small business ideas after vocational and business planning mentorship.", "impact": "Business confidence and peer learning", "partners": "Community mentors", "videoId": "Zczerp00kEY" },
         { "title": "GBV Awareness Drive", "date": "Mar 25, 2026", "time": "09:00 AM", "location": "Orungo", "type": "Advocacy", "image": "about-image.png", "summary": "A community awareness drive focused on prevention, survivor support, and reporting pathways.", "impact": "Household dialogues and referrals", "partners": "Local leaders, protection actors", "videoId": "25d83dD1Ops" },
