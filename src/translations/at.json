@@ -106,7 +106,6 @@
       {
         "name": "Among Dinah Grace",
         "title": "Director",
-        "bio": "Founder member keda Director lo TEWOYEI. Ejalai Bachelor's degree kotoma Social Work and Social Administration."
         "credential": "Bachelor's degree in Social Work and Social Administration",
         "bio": "Dinah Grace iritio aswam nuka TEWOYEI kotoma etem, atubokin angor, atukot neejeni, keda ikalia luemitakina kotoma aidis daadang."
       },
@@ -120,20 +119,6 @@
     "boardEyebrow": "Board of Directors",
     "boardTitle": "BOD",
     "boardIntro": "Board of Directors ijari governance, stewardship, keda decision-making nuekitetet kanu mission ka TEWOYEI.",
-    "boardMembers": [
-      { "name": "Akurut Angella", "role": "BOD Chair" },
-      { "name": "Ekodeu Ricard", "role": "BOD Member" },
-      { "name": "Rev. Fr. Opure Deo", "role": "BOD Treasurer" },
-      { "name": "Edith", "role": "BOD Member" },
-      { "name": "Among Dinah Grace", "role": "BOD Secretary" }
-        "bio": "Founder member and Director of TEWOYEI. Bachelor's degree in Social Work and Social Administration."
-      },
-      {
-        "name": "Oluka Samuel Akol",
-        "title": "Co Director",
-        "bio": "Founder member keda Co Director lo TEWOYEI. Ejalai Bachelor's degree kotoma Human Medicine and Surgery."
-      }
-    ],
     "boardMembers": [
       {
         "name": "Akurut Angella",

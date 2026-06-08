@@ -120,20 +120,6 @@
     "boardTitle": "BOD",
     "boardIntro": "The Board of Directors supports governance, stewardship, and transparent decision-making for TEWOYEI's mission.",
     "boardMembers": [
-      { "name": "Akurut Angella", "role": "BOD Chair" },
-      { "name": "Ekodeu Ricard", "role": "BOD Member" },
-      { "name": "Rev. Fr. Opure Deo", "role": "BOD Treasurer" },
-      { "name": "Edith", "role": "BOD Member" },
-      { "name": "Among Dinah Grace", "role": "BOD Secretary" }
-        "bio": "Founder member and Director of TEWOYEI. She holds a Bachelor's degree in Social Work and Social Administration."
-      },
-      {
-        "name": "Oluka Samuel Akol",
-        "title": "Co Director",
-        "bio": "Founder member and Co Director of TEWOYEI. He holds a Bachelor's degree in Human Medicine and Surgery."
-      }
-    ],
-    "boardMembers": [
       {
         "name": "Akurut Angella",
         "title": "BOD Chair"

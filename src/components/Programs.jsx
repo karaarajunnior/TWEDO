@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getAssetPath } from '../data/siteAssets';
 
 const Programs = ({ t }) => {
   const programs = t.programs.cards || [];
@@ -44,7 +45,7 @@ const Programs = ({ t }) => {
           >
             <div className="absolute -inset-4 bg-primary/10 rounded-[3rem] -rotate-3"></div>
             <img 
-              src="/assets/about-image.png" 
+              src={getAssetPath('about-image.png')} 
               alt={t.about.title}
               className="relative rounded-[3rem] shadow-2xl w-full h-[500px] object-cover"
             />
@@ -66,7 +67,7 @@ const Programs = ({ t }) => {
                 className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group"
               >
                 <div className="h-60 overflow-hidden">
-                  <img src={`/assets/${program.img}`} alt={program.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <img src={getAssetPath(program.img, program.title + ' ' + program.desc)} alt={program.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 </div>
                 <div className="p-8">
                   <h3 className="text-xl font-bold mb-4 font-outfit">{program.title}</h3>

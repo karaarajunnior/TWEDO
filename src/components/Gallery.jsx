@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { getAssetPath } from '../data/siteAssets';
 
 const Gallery = ({ t }) => {
   const titles = t.gallery.componentImages;
-  const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
   const images = [
     { src: getAssetPath('district_meeting/WhatsApp Image 2026-05-11 at 19.29.45.jpeg'), title: titles[0] },
     { src: getAssetPath('info_gathering/WhatsApp Image 2026-05-11 at 19.30.23.jpeg'), title: titles[1] },

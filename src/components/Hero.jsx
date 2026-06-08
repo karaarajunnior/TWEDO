@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { getAssetPath } from '../data/siteAssets';
 
 const TypewriterText = ({ text, delay = 0 }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -35,15 +36,15 @@ const Hero = ({ t }) => {
   
   const slides = [
     {
-      image: "/assets/hero-image.png",
+      image: getAssetPath('hero-image.png'),
       alt: t.hero.slides.womenTraining
     },
     {
-      image: "/assets/skilling.png",
+      image: getAssetPath('skilling.png'),
       alt: t.hero.slides.youthSkilling
     },
     {
-      image: "/assets/about-image.png",
+      image: getAssetPath('about-image.png'),
       alt: t.hero.slides.communityOutreach
     }
   ];

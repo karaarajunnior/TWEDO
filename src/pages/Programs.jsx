@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Target as TargetIcon, AlertTriangle, ListChecks, ChevronLeft, ChevronRight } from 'lucide-react';
-
-const getAssetPath = (image) => {
-  if (!image) return '';
-  if (image.startsWith('/')) return image;
-  return '/assets/' + image.split('/').map(encodeURIComponent).join('/');
-};
+import { getAssetPath } from '../data/siteAssets';
 
 const carouselThemes = {
   primary: {
@@ -78,7 +73,7 @@ const ActivityCarousel = ({ title, items, images, theme = 'primary', label }) =>
       >
         <div className="relative min-h-[22rem] rounded-[2rem] overflow-hidden bg-teso-light shadow-lg">
           <img
-            src={getAssetPath(images[activeIndex % images.length])}
+            src={getAssetPath(images[activeIndex % images.length], activeItem)}
             alt={activeItem}
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -109,7 +104,7 @@ const ActivityCarousel = ({ title, items, images, theme = 'primary', label }) =>
                   aria-label={`Show ${label} ${itemIndex + 1}`}
                 >
                   <img
-                    src={getAssetPath(images[itemIndex % images.length])}
+                    src={getAssetPath(images[itemIndex % images.length], items[itemIndex])}
                     alt={items[itemIndex]}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
@@ -135,7 +130,7 @@ const ActivityCarousel = ({ title, items, images, theme = 'primary', label }) =>
               aria-label={`Open ${label} ${i + 1}`}
             >
               <div className="relative h-24 rounded-xl overflow-hidden mb-3">
-                <img src={getAssetPath(images[i % images.length])} alt={item} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src={getAssetPath(images[i % images.length], item)} alt={item} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <span className={`absolute top-2 left-2 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${themeClasses.badge}`}>
                   {i + 1}
                 </span>
@@ -264,7 +259,7 @@ const Programs = ({ t }) => {
                   >
                     <div className="relative h-36 bg-teso-dark overflow-hidden">
                       <img
-                        src={getAssetPath(objectiveImages[i % objectiveImages.length])}
+                        src={getAssetPath(objectiveImages[i % objectiveImages.length], obj)}
                         alt={obj}
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
@@ -282,7 +277,7 @@ const Programs = ({ t }) => {
             </div>
 
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl bg-teso-dark text-white sticky top-24">
-              <img src={getAssetPath('skilling.png')} alt={t.programs.thematicAreasTitle} className="absolute inset-0 w-full h-full object-cover opacity-25" />
+              <img src={getAssetPath('skilling.png', t.programs.thematicAreasTitle)} alt={t.programs.thematicAreasTitle} className="absolute inset-0 w-full h-full object-cover opacity-25" />
               <div className="absolute inset-0 bg-gradient-to-br from-teso-dark via-teso-dark/95 to-secondary-dark/90" />
               <div className="relative p-6 md:p-8">
                 <span className="inline-flex items-center gap-2 text-secondary font-extrabold uppercase tracking-widest text-xs mb-3">
@@ -301,7 +296,7 @@ const Programs = ({ t }) => {
                       className="group grid grid-cols-[5.5rem_1fr] gap-4 items-center rounded-3xl bg-white/10 backdrop-blur-md border border-white/10 p-3 hover:bg-white/15 transition-all"
                     >
                       <div className="relative h-20 rounded-2xl overflow-hidden bg-white/10">
-                        <img src={getAssetPath(thematicImages[i % thematicImages.length])} alt={area} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <img src={getAssetPath(thematicImages[i % thematicImages.length], area)} alt={area} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         <div className="absolute inset-0 bg-secondary-dark/30" />
                         <CheckCircle className="absolute bottom-2 left-2 text-secondary" size={20} />
                       </div>
@@ -363,7 +358,7 @@ const Programs = ({ t }) => {
              <div className="lg:col-span-4">
                 <div className="bg-red-50 p-6 md:p-8 rounded-3xl border border-red-100 sticky top-24 overflow-hidden">
                   <div className="relative h-44 rounded-2xl overflow-hidden mb-6 bg-red-100">
-                    <img src={getAssetPath('hospital/hospital-visit-5.jpg')} alt={t.programs.challengesTitle} className="absolute inset-0 w-full h-full object-cover" />
+                    <img src={getAssetPath('hospital/hospital-visit-5.jpg', t.programs.challengesTitle)} alt={t.programs.challengesTitle} className="absolute inset-0 w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-red-950/70 to-transparent" />
                     <AlertTriangle className="absolute bottom-4 left-4 text-white" size={28} />
                   </div>

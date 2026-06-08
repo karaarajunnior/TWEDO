@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Users, TrendingUp, PlayCircle, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import Hero from '../components/Hero';
 import ImpactStats from '../components/ImpactStats';
-import { fieldStoryVideos } from '../data/siteAssets';
+import { fieldStoryVideos, getAssetPath } from '../data/siteAssets';
 
 const Home = ({ t }) => {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
@@ -14,7 +14,7 @@ const Home = ({ t }) => {
     title: video.title || `TEWOYEI Field Story ${index + 1}`,
     label: index === 0 ? 'Community Outreach' : 'Field Story'
   }));
-  const activityImages = ['/assets/skilling.png', '/assets/about-image.png', '/assets/hero-image.png', '/assets/skilling.png'];
+  const activityImages = t.home.activities.map(act => getAssetPath('', act.title + ' ' + act.location));
 
   return (
     <div className="bg-white">
@@ -211,7 +211,7 @@ const Home = ({ t }) => {
                 {t.home.activities.map((act, i) => (
                   <div key={i} className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-4">
                     <div className="group relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-xl">
-                      <img src={activityImages[i]} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={act.title} />
+                      <img src={activityImages[i % activityImages.length]} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={act.title} />
                       <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/95 via-teso-dark/25 to-transparent opacity-80" />
                       <div className="absolute bottom-8 left-8 right-8 text-white">
                         <span className="px-3 py-1 bg-primary text-[10px] font-bold rounded-full uppercase tracking-widest mb-3 inline-block">{act.location}</span>

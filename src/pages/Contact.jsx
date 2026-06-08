@@ -3,9 +3,9 @@ import { Mail, MessageCircle, Phone, MapPin, Send, ArrowUpRight } from 'lucide-r
 import { motion } from 'framer-motion';
 import { CONTACT_EMAIL, CONTACT_EMAILS, CONTACT_MAILTO, CONTACT_NUMBERS, buildWhatsappUrl } from '../data/contactDetails';
 import { contactEmails, contactMailto, contactNumbers, contactPhotoHighlights, founderMembers } from '../data/organization';
+import { getAssetPath } from '../data/siteAssets';
 
 const Contact = ({ t }) => {
-  const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
   const primaryContact = founderMembers[0];
   const primaryNumber = contactNumbers[0];
   const primaryEmail = contactEmails[0];
@@ -148,7 +148,9 @@ const Contact = ({ t }) => {
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary text-white px-4 py-3 text-sm font-bold"
                   >
                     <Phone size={16} /> {CONTACT_NUMBERS[0].label}
-                <h5 className="font-bold text-sm uppercase tracking-widest text-gray-500 mb-4">Field moments</h5>
+                  </a>
+                </div>
+                <h5 className="font-bold text-sm uppercase tracking-widest text-gray-500 mb-4 mt-6">Field moments</h5>
                 <div className="grid gap-4">
                   {contactPhotoHighlights.map((photo) => (
                     <div key={photo.title} className="grid grid-cols-[6rem_1fr] gap-4 items-center rounded-[1.5rem] bg-white/5 p-3 border border-white/5">

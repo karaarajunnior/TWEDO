@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Pagination from '../components/Pagination';
 import { Calendar, MapPin, Clock, PlayCircle, X, ChevronLeft, ChevronRight, Image as ImageIcon } from 'lucide-react';
+import { getAssetPath } from '../data/siteAssets';
 
 const galleryPhotoSets = {
   hospital: [
@@ -149,7 +150,7 @@ const PhotoGalleryModal = ({ event, onClose, getAssetPath }) => {
 
         <img
           key={activeIndex}
-          src={getAssetPath(photos[activeIndex])}
+          src={getAssetPath(photos[activeIndex], event.title + " " + event.summary)}
           alt={`${event.title} - Photo ${activeIndex + 1}`}
           className="max-h-full max-w-full rounded-2xl object-contain shadow-2xl"
           style={{ maxHeight: 'calc(100vh - 220px)' }}
@@ -186,7 +187,7 @@ const PhotoGalleryModal = ({ event, onClose, getAssetPath }) => {
               }`}
             >
               <img
-                src={getAssetPath(photo)}
+                src={getAssetPath(photo, event.title + " " + event.summary)}
                 alt={`Thumbnail ${i + 1}`}
                 className="w-full h-full object-cover"
               />
@@ -205,12 +206,6 @@ const Events = ({ t }) => {
   const [galleryEvent, setGalleryEvent] = useState(null);
   const itemsPerPage = 3;
 
-  const getAssetPath = (image) => {
-    if (!image) return '';
-    if (image.startsWith('/')) return image;
-    // URL-encode each segment so filenames with spaces/parens work in <img src>
-    return '/assets/' + image.split('/').map(encodeURIComponent).join('/');
-  };
 
   const eventsData = t.events.data;
   const currentList = eventsData[activeTab];
@@ -284,7 +279,7 @@ const Events = ({ t }) => {
                   {/* Thumbnail */}
                   <div className="relative w-full md:w-44 h-52 md:h-36 shrink-0 bg-teso-light rounded-2xl overflow-hidden text-white">
                     <img
-                      src={getAssetPath(event.image)}
+                      src={getAssetPath(event.image, event.title + " " + event.summary)}
                       alt={event.title}
                       className="absolute inset-0 w-full h-full object-cover"
                       onError={e => { e.target.style.display = 'none'; }}

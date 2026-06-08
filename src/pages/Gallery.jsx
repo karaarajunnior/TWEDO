@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-import { imageAssets } from '../data/siteAssets';
+import { imageAssets, getAssetPath } from '../data/siteAssets';
 
 const collectionPageSize = 12;
 
@@ -75,7 +75,6 @@ const Gallery = ({ t }) => {
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [collectionPage, setCollectionPage] = useState(0);
   const [activePhoto, setActivePhoto] = useState(null);
-  const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
   const galleryItems = t.gallery.images;
   const images = [
     { src: '/assets/tailoring-atiira.jpg', ...galleryItems[0] },
@@ -202,10 +201,6 @@ const Gallery = ({ t }) => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">{t.gallery.fullCollection}</span>
-              <h3 className="text-3xl md:text-4xl font-bold font-outfit text-teso-dark">All Field Images</h3>
-              <h3 className="text-3xl md:text-4xl font-bold font-outfit text-teso-dark">Photos That Tell the Story</h3>
-              <p className="text-gray-500 mt-2">
-                Click any image to let the field moment fill the screen.
               <h3 className="text-3xl md:text-4xl font-bold font-outfit text-teso-dark">{t.gallery.photoStories}</h3>
               <p className="text-gray-500 mt-2">
                 Showing {collectionStart + 1}-{Math.min(collectionStart + visibleCollection.length, fullCollection.length)} of {fullCollection.length} images from assets.
@@ -232,48 +227,34 @@ const Gallery = ({ t }) => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[18rem]">
-            {visibleCollection.map((item, index) => (
-              <motion.button
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {visibleCollection.map((item, index) => (
               <motion.div
                 key={`${item.src}-${collectionPage}`}
-                type="button"
                 onClick={() => setActivePhoto(item)}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.03 }}
-                className={`group relative rounded-3xl overflow-hidden shadow-lg cursor-zoom-in border-4 border-white text-left ${index % 7 === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}
+                className="group relative rounded-3xl overflow-hidden shadow-lg cursor-zoom-in border-4 border-white aspect-square"
                 aria-label={`Open ${item.title}`}
-                className="group relative rounded-3xl overflow-hidden shadow-lg aspect-square border-4 border-white"
               >
                 <img
                   src={item.src}
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
                 />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/90 via-teso-dark/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                  <div className="flex gap-2 mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/90 via-teso-dark/20 to-transparent flex flex-col justify-end p-8">
-                  <div className="flex flex-wrap gap-2 mb-3">
+                <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/90 via-teso-dark/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex flex-wrap gap-2 mb-2">
                     {item.tags.map((tag) => (
                       <span key={tag} className="px-3 py-1 bg-primary text-white text-[10px] uppercase tracking-widest font-bold rounded-full">
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <h3 className="text-white text-xl font-bold font-outfit max-w-sm">{item.title}</h3>
-                  <h3 className="text-white text-xl font-bold font-outfit max-w-sm">
-                    {item.title}
-                  </h3>
-                  <p className="text-white/80 text-sm mt-2 transform translate-y-4 group-hover:translate-y-0 transition-transform delay-100">{item.caption}</p>
+                  <h3 className="text-white text-lg font-bold font-outfit leading-snug">{item.title}</h3>
+                  <p className="text-white/80 text-xs mt-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{item.caption}</p>
                 </div>
-              </motion.button>
+              </motion.div>
             ))}
           </div>
 
