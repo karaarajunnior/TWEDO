@@ -1,5 +1,11 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Eye, Heart, ChevronUp } from 'lucide-react';
+import { boardOfDirectors, founderMembers, leadershipPhotoStories } from '../data/organization';
+
+const About = ({ t }) => {
+  const [activeSubSection, setActiveSubSection] = useState('leadership');
+  const getAssetPath = (image) => '/assets/' + image.split('/').map(encodeURIComponent).join('/');
 import { Award, Eye, Heart, User, ChevronUp } from 'lucide-react';
 import { Award, ChevronUp, Eye, Heart, Users } from 'lucide-react';
 import { Eye, Heart, ChevronUp } from 'lucide-react';
@@ -140,8 +146,6 @@ const About = ({ t }) => {
     <div className="pt-20 bg-white min-h-screen">
       <div className="container py-20">
         <div className="grid lg:grid-cols-4 gap-8 lg:gap-12">
-
-          {/* Sidebar */}
           <aside className="lg:col-span-1">
             <div className="sticky top-24 lg:top-32 z-20 bg-white/95 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-0 pb-3 lg:pb-0">
               <div className="flex items-center justify-between mb-0 border-b border-gray-200 pb-4">
