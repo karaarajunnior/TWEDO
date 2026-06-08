@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Youtube, Mail, MessageCircle, Phone, MapPin, Heart } from 'lucide-react';
+import { CONTACT_EMAILS, CONTACT_MAILTO, CONTACT_NUMBERS } from '../data/contactDetails';
 import { contactEmails, contactMailto, contactNumbers } from '../data/organization';
 
 const PhoneOptions = ({ number, iconColor }) => (

@@ -91,6 +91,9 @@
     "leadershipTitle": "Airit Kosi",
     "foundersTitle": "Etunga Luageunete Aiswamait",
     "foundersSubtitle": "Etunga luageunete TEWOYEI, lueirite aswam kosi kotoma aijulakin social, economic keda political.",
+    "executiveTeam": "Founder Members",
+    "leadershipIntro": "TEWOYEI iritio keda founder members keda Board of Directors luetacakin aswam, health, social work, keda accountability kotoma etem.",
+    "foundersTitle": "Founder Members",
     "boardTitle": "Board of Directors",
     "bodTitle": "Board of Directors",
     "bodSubtitle": "Board kosi ejarakini airit ejok keda accountability kotoma aidis daadang lu TEWOYEI.",
@@ -104,6 +107,26 @@
         "name": "Among Dinah Grace",
         "title": "Director",
         "bio": "Founder member keda Director lo TEWOYEI. Ejalai Bachelor's degree kotoma Social Work and Social Administration."
+        "credential": "Bachelor's degree in Social Work and Social Administration",
+        "bio": "Dinah Grace iritio aswam nuka TEWOYEI kotoma etem, atubokin angor, atukot neejeni, keda ikalia luemitakina kotoma aidis daadang."
+      },
+      {
+        "name": "Oluka Samuel Akol",
+        "title": "Co-Director",
+        "credential": "Bachelor's degree in Human Medicine and Surgery",
+        "bio": "Samuel ajenuni health kotoma aidis nuka TEWOYEI, aijarakin outreach, care, keda advocacy kanu ajokis kotoma Teso sub-region."
+      }
+    ],
+    "boardEyebrow": "Board of Directors",
+    "boardTitle": "BOD",
+    "boardIntro": "Board of Directors ijari governance, stewardship, keda decision-making nuekitetet kanu mission ka TEWOYEI.",
+    "boardMembers": [
+      { "name": "Akurut Angella", "role": "BOD Chair" },
+      { "name": "Ekodeu Ricard", "role": "BOD Member" },
+      { "name": "Rev. Fr. Opure Deo", "role": "BOD Treasurer" },
+      { "name": "Edith", "role": "BOD Member" },
+      { "name": "Among Dinah Grace", "role": "BOD Secretary" }
+        "bio": "Founder member and Director of TEWOYEI. Bachelor's degree in Social Work and Social Administration."
       },
       {
         "name": "Oluka Samuel Akol",

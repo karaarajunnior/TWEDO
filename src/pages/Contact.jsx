@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail, MessageCircle, Phone, MapPin, Send, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { CONTACT_EMAIL, CONTACT_EMAILS, CONTACT_MAILTO, CONTACT_NUMBERS, buildWhatsappUrl } from '../data/contactDetails';
 import { contactEmails, contactMailto, contactNumbers, contactPhotoHighlights, founderMembers } from '../data/organization';
 
 const Contact = ({ t }) => {
@@ -129,6 +130,24 @@ const Contact = ({ t }) => {
               </div>
 
               <div className="bg-white/5 rounded-3xl p-6 border border-white/10">
+                <h5 className="font-bold text-sm uppercase tracking-widest text-gray-500 mb-2">{t.contact.projectCoordinator}</h5>
+                <p className="font-outfit text-xl font-bold mb-1">{t.contact.person}</p>
+                <p className="text-gray-400 text-sm mb-3">{t.contact.coordinatorTitle}</p>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-secondary text-sm hover:underline">{CONTACT_EMAIL}</a>
+                <div className="grid sm:grid-cols-2 gap-3 mt-5">
+                  <a
+                    href={buildWhatsappUrl('Hello TEWOYEI, I would like to get in touch.')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 text-white px-4 py-3 text-sm font-bold"
+                  >
+                    <MessageCircle size={16} /> WhatsApp
+                  </a>
+                  <a
+                    href={`tel:${CONTACT_NUMBERS[0].tel}`}
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary text-white px-4 py-3 text-sm font-bold"
+                  >
+                    <Phone size={16} /> {CONTACT_NUMBERS[0].label}
                 <h5 className="font-bold text-sm uppercase tracking-widest text-gray-500 mb-4">Field moments</h5>
                 <div className="grid gap-4">
                   {contactPhotoHighlights.map((photo) => (
