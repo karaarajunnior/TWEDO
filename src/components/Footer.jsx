@@ -144,11 +144,6 @@ Please add ${email} to your newsletter mailing list.`;
             {t.footer.registration} <strong className="text-white">80034872646031</strong> | {t.footer.registered}
           </div>
 
-          <div className="flex items-center gap-2 text-xs text-secondary-light/70">
-            <Heart size={12} className="text-primary" />
-            <span>{t.common.developedBy} <a href="tel:+256771331473" className="text-primary hover:underline">+256 771 331 473</a></span>
-          </div>
-
           <div className="flex items-center gap-3">
             {socialLinks.map(({ href, label, Icon }, i) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:-translate-y-1"
