@@ -83,7 +83,7 @@ const About = ({ t }) => {
   const board = t.about.boardOfDirectors || [];
 
   const gallerySpotlight = useMemo(() => {
-    const folders = ['district_meeting/', 'info_gathering/', 'hospital/', 'others/'];
+    const folders = ['activities/district_meeting/', 'activities/info_gathering/', 'activities/hospital/', 'activities/baking/', 'others/'];
     const seen = new Set();
     const picks = [];
     folders.forEach((folder) => {

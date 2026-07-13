@@ -37,6 +37,12 @@ const galleryStories = [
     tags: ['Construction', 'BCP']
   },
   {
+    match: (path) => path.includes('baking'),
+    title: 'Bakery and Pastry Skilling',
+    caption: 'Equipping youth and women with practical baking skills.',
+    tags: ['Skilling', 'Bakery']
+  },
+  {
     match: (path) => path.includes('health'),
     title: 'Health and hygiene outreach',
     caption: 'Community health work focused on prevention, care, and awareness.',

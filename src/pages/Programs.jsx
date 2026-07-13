@@ -186,7 +186,7 @@ const Programs = ({ t }) => {
     'others/other_3/WhatsApp Image 2026-05-11 at 19.29.14.jpeg',
     'bcp-construction1.jpg',
     'leadership.png',
-    'bcp-orungo.jpg',
+    'activities/baking/bakingSkill (2).jpeg',
     'hospital/hospital-visit-4.jpg'
   ];
   const objectiveImages = [

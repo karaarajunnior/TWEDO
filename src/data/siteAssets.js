@@ -91,7 +91,8 @@ export const getAssetPath = (image, contextText) => {
           { keys: ['hospital', 'referral', 'healthcare', 'visit', 'mngmt', 'management'], matchers: ['hospital'] },
           { keys: ['leadership', 'summit', 'meeting', 'district', 'governance', 'officer', 'coordinator', 'lead'], matchers: ['leadership', 'district_meeting'] },
           { keys: ['info', 'gathering', 'survey', 'advocacy', 'sensitization', 'community', 'dialogue', 'campaign', 'gbv', 'violence', 'activism'], matchers: ['info_gathering', 'communitySHRHSensitization1'] },
-          { keys: ['bcp', 'concrete', 'brick', 'construction', 'building'], matchers: ['bcp-construction', 'bcp-orungo'] }
+          { keys: ['bcp', 'concrete', 'brick', 'construction', 'building'], matchers: ['bcp-construction', 'bcp-orungo'] },
+          { keys: ['bakery', 'baking', 'bread', 'pastry', 'cake'], matchers: ['baking'] }
         ];
 
         for (const rule of semanticRules) {
@@ -156,7 +157,7 @@ export const getAssetPath = (image, contextText) => {
   if (overrides[cleanImage]) {
     cleanImage = overrides[cleanImage];
   } else {
-    const subfolders = ['district_meeting', 'hospital', 'info_gathering', 'leadership', 'tailorig', 'training on sanitary pads', 'malaria awareness'];
+    const subfolders = ['district_meeting', 'hospital', 'info_gathering', 'leadership', 'tailorig', 'training on sanitary pads', 'malaria awareness', 'baking'];
     const otherFolders = ['other_1', 'other_2', 'other_3'];
 
     const segments = cleanImage.split('/');

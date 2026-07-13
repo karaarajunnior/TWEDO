@@ -55,7 +55,7 @@
     "amuriaDistrict": "Amuria District",
     "kapelebyongDistrict": "Kapelebyong District",
     "femalesTrained": "Angor Nueitodolikinit",
-    "malesTrained": "I\u014bes Nueitodolikinit",
+    "malesTrained": "Iŋes Nueitodolikinit",
     "skillsDistribution": "Aijulakin Nukogelgel",
     "tailoring": "Aijon",
     "bcp": "BCP",
@@ -63,7 +63,7 @@
     "computerShort": "Comp.",
     "sweater": "Sweater",
     "females": "Angor",
-    "males": "I\u014bes",
+    "males": "Iŋes",
     "grandTotal": "Akesi Nukiror"
   },
   "about": {
@@ -89,16 +89,14 @@
     "historyFirst": "Ageun kotoma okaru 2018, TEWOYEI ageun kwape egiriko loangor lueitingerete aibwo kotoma Teso sub-region, Uganda.",
     "historySecond": "Aboikin isio ebe atiokisio nueloliete angor ekotos ebeit aiswama nuepolok, isio ajulakini ekiror lo Community Based Organization aijarakin luemitakina.",
     "leadershipTitle": "Airit Kosi",
-    "foundersTitle": "Etunga Luageunete Aiswamait",
-    "foundersSubtitle": "Etunga luageunete TEWOYEI, lueirite aswam kosi kotoma aijulakin social, economic keda political.",
     "executiveTeam": "Founder Members",
     "leadershipIntro": "TEWOYEI iritio keda founder members keda Board of Directors luetacakin aswam, health, social work, keda accountability kotoma etem.",
     "foundersTitle": "Founder Members",
-    "boardTitle": "Board of Directors",
+    "boardTitle": "BOD",
+    "leadershipImageAlt": "Airit",
+    "foundersSubtitle": "Etunga luageunete TEWOYEI, lueirite aswam kosi kotoma aijulakin social, economic keda political.",
     "bodTitle": "Board of Directors",
     "bodSubtitle": "Board kosi ejarakini airit ejok keda accountability kotoma aidis daadang lu TEWOYEI.",
-    "executiveTeam": "Founder Members",
-    "leadershipImageAlt": "Airit",
     "qualificationLabel": "Akisiyom",
     "pictureGalleryTitle": "Apiko Kosi Ekirote Akiro",
     "pictureGallerySubtitle": "Aitejei aswam kosi kotoma etem, hospital keda iidisan luka skilling - apiko nukomamori aijulakin kotoma Teso sub-region.",
@@ -117,7 +115,6 @@
       }
     ],
     "boardEyebrow": "Board of Directors",
-    "boardTitle": "BOD",
     "boardIntro": "Board of Directors ijari governance, stewardship, keda decision-making nuekitetet kanu mission ka TEWOYEI.",
     "boardMembers": [
       {
@@ -138,15 +135,38 @@
       },
       {
         "name": "Among Dinah Grace",
-        "title": "BOD Secretary"
+        "title": "BOD Secretary",
+        "qualification": "Bachelor's degree in Social Work and Social Administration",
+        "bio": "Airit loetogogongit aswam nuka TEWOYEI kotoma etem, Dinah Grace eongoli aswam nuka TEWOYEI field operations. Keda akipetoi nuka okaru luipuloi kotoma grassroots mobilization kotoma Teso sub-region, iswamai ngesi aingara ebe aidis daadang — ageun keda SRHR sensitization paka vocational skilling — edolikit angor keda atukot luemitakina."
+      },
+      {
+        "name": "Oluka Samuel Akol",
+        "title": "Co-Director",
+        "qualification": "Bachelor's degree in Human Medicine and Surgery",
+        "bio": "Erai doctor loka community health, Oluka Samuel Akol ajenuni aswam nuka healthcare keda aingarakin etem. Ngesi aingarakini aswam nuka health programming — aingari SRHR, menstrual health, malaria prevention keda hospital advocacy — kanu aingarakin ebe aidis daadang erai luepolok keda luikamunit etunga."
       }
     ],
     "boardOfDirectors": [
-      { "name": "Akurut Angella", "title": "BOD Chair" },
-      { "name": "Ekodeu Ricard", "title": "Board Member" },
-      { "name": "Rev. Fr. Opure Deo", "title": "BOD Treasurer" },
-      { "name": "Edith", "title": "BOD Member" },
-      { "name": "Among Dinah Grace", "title": "BOD Secretary" }
+      {
+        "name": "Akurut Angella",
+        "title": "BOD Chair"
+      },
+      {
+        "name": "Ekodeu Ricard",
+        "title": "Board Member"
+      },
+      {
+        "name": "Rev. Fr. Opure Deo",
+        "title": "BOD Treasurer"
+      },
+      {
+        "name": "Edith",
+        "title": "BOD Member"
+      },
+      {
+        "name": "Among Dinah Grace",
+        "title": "BOD Secretary"
+      }
     ]
   },
   "home": {
@@ -160,19 +180,46 @@
     "impactMotion": "Aigolikin Aiyapane Kotoma Aswam",
     "fieldStoriesDescription": "Angolokin aswam, agogong, keda aijarakin nuka atukot kosi kosoman kotoma Teso.",
     "videos": [
-      { "title": "Angolokin: Aijon Atiira", "duration": "4:20" },
-      { "title": "Angolokin: Aibwo Nueyapinit", "duration": "5:45" },
-      { "title": "Angolokin: Aidis Nukatem", "duration": "3:12" },
-      { "title": "Angolokin: Youth Entrepreneurship Summit", "duration": "6:50" },
-      { "title": "Angolokin: GBV Awareness Campaign", "duration": "8:10" }
+      {
+        "title": "Angolokin: Aijon Atiira",
+        "duration": "4:20"
+      },
+      {
+        "title": "Angolokin: Aibwo Nueyapinit",
+        "duration": "5:45"
+      },
+      {
+        "title": "Angolokin: Aidis Nukatem",
+        "duration": "3:12"
+      },
+      {
+        "title": "Angolokin: Youth Entrepreneurship Summit",
+        "duration": "6:50"
+      },
+      {
+        "title": "Angolokin: GBV Awareness Campaign",
+        "duration": "8:10"
+      }
     ],
     "fieldActivities": "Iidisan Kosoman",
     "communityWork": "Aswam Kosi Kotoma Etem",
     "activities": [
-      { "title": "Aidis Nukaijon", "location": "Atiira" },
-      { "title": "Egiriko Loaibwo", "location": "Kapelebyong" },
-      { "title": "Airit Summit", "location": "Amuria" },
-      { "title": "Aitodolikin Bakery", "location": "Orungo" }
+      {
+        "title": "Aidis Nukaijon",
+        "location": "Atiira"
+      },
+      {
+        "title": "Egiriko Loaibwo",
+        "location": "Kapelebyong"
+      },
+      {
+        "title": "Airit Summit",
+        "location": "Amuria"
+      },
+      {
+        "title": "Aitodolikin Bakery",
+        "location": "Orungo"
+      }
     ],
     "trustedBy": "Aiyunio Keda Partners"
   },
@@ -279,12 +326,48 @@
     "photoStoriesIntro": "Apiko itiai awaragasia nuka aswam ka TEWOYEI kosoman.",
     "ourGallery": "Eitabo Kosi",
     "images": [
-      { "title": "Community leadership in action", "tags": ["Leadership", "Advocacy"] },
-      { "title": "Listening to community voices", "tags": ["Field Work", "Community"] },
-      { "title": "Health service visit", "tags": ["Health", "Hospital"] },
-      { "title": "Among Dinah Grace", "tags": ["Leadership", "Director"] },
-      { "title": "Tailoring skills training", "tags": ["Skilling", "Livelihood"] },
-      { "title": "Building and concrete practice", "tags": ["BCP", "Training"] }
+      {
+        "title": "Community leadership in action",
+        "tags": [
+          "Leadership",
+          "Advocacy"
+        ]
+      },
+      {
+        "title": "Listening to community voices",
+        "tags": [
+          "Field Work",
+          "Community"
+        ]
+      },
+      {
+        "title": "Health service visit",
+        "tags": [
+          "Health",
+          "Hospital"
+        ]
+      },
+      {
+        "title": "Among Dinah Grace",
+        "tags": [
+          "Leadership",
+          "Director"
+        ]
+      },
+      {
+        "title": "Tailoring skills training",
+        "tags": [
+          "Skilling",
+          "Livelihood"
+        ]
+      },
+      {
+        "title": "Building and concrete practice",
+        "tags": [
+          "BCP",
+          "Training"
+        ]
+      }
     ],
     "componentImages": [
       "Community leadership in action",
@@ -314,14 +397,13 @@
     "lastNamePlaceholder": "Doe",
     "emailPlaceholder": "john@example.com",
     "messagePlaceholder": "Etiai ngesi aswam keda isio?",
-    "coordinatorTitle": "Director & Founder Member",
     "coordinatorTitle": "Director keda Co-Founder",
     "name": "Ekiror",
     "yourName": "Ekiror Kon",
     "yourEmail": "Email Kon",
     "helpPlaceholder": "Etiai ngesi isio aijarakin?",
     "primaryContactTitle": "Aitodik Lokageun",
-    "primaryContactNote": "Itodik isio kotoma akiro nu kelo \u2014 call, WhatsApp arai email daadang ebongokini atukot kosi.",
+    "primaryContactNote": "Itodik isio kotoma akiro nu kelo — call, WhatsApp arai email daadang ebongokini atukot kosi.",
     "emailLabel": "Email Address",
     "phoneLabel": "Phone / WhatsApp",
     "whatsappCta": "Aisirum kotoma WhatsApp",
@@ -373,36 +455,225 @@
     },
     "noEventsPrefix": "Emam",
     "noEventsSuffix": "events found.",
-    "eventDetails": "Akiro Nukikidi",
-    "eventMedia": "Akipiketa keda video",
-    "photoStory": "Awaragasia kapiketa",
-    "videoStory": "Awaragasia ka video",
-    "campaignSummary": "Akisiakinet",
-    "partners": "Partners",
     "impact": "Aiyapane",
-    "viewPhotos": "Angolokin apiko",
-    "watchVideo": "Angolokin video",
+    "partners": "Partners",
+    "watchCampaign": "Angolokin video loka campaign",
     "last": "Asekon",
     "data": {
       "upcoming": [
-        { "title": "Annual Women Skilling Workshop", "date": "Oct 15, 2026", "time": "09:00 AM", "location": "Amuria District", "type": "Training", "image": "skilling.png", "summary": "Aitodolikin angor keda atukot kotoma tailoring, bakery, business planning, keda savings group management.", "impact": "120 women and youth targeted", "partners": "District technical teams, local trainers" },
-        { "title": "Community SRHR Sensitization", "date": "Nov 02, 2026", "time": "10:00 AM", "location": "Kapelebyong", "type": "Community", "image": "health.png", "summary": "Community dialogues on SRHR, menstrual health, school retention, and referral pathways for young people.", "impact": "Schools, parents, and youth clubs", "partners": "Health educators, community leaders" },
-        { "title": "Menstrual Hygiene Day Celebrations", "date": "May 28, 2027", "time": "08:00 AM", "location": "Okungur Subcounty", "type": "Campaign", "image": "tailoring-kapelebyong.jpg", "summary": "School and community campaign on menstrual dignity, reusable products, and confidence for adolescent girls.", "impact": "Girls, teachers, and caregivers", "partners": "Schools and health workers" }
+        {
+          "title": "Annual Women Skilling Workshop",
+          "date": "Oct 15, 2026",
+          "time": "09:00 AM",
+          "location": "Amuria District",
+          "type": "Training",
+          "image": "skilling.png",
+          "summary": "Aitodolikin angor keda atukot kotoma tailoring, bakery, business planning, keda savings group management.",
+          "impact": "120 women and youth targeted",
+          "partners": "District technical teams, local trainers",
+          "videoId": "25d83dD1Ops"
+        },
+        {
+          "title": "Community SRHR Sensitization",
+          "date": "Nov 02, 2026",
+          "time": "10:00 AM",
+          "location": "Kapelebyong",
+          "type": "Community",
+          "image": "health.png",
+          "summary": "Community dialogues on SRHR, menstrual health, school retention, and referral pathways for young people.",
+          "impact": "Schools, parents, and youth clubs",
+          "partners": "Health educators, community leaders",
+          "videoId": "Zczerp00kEY"
+        },
+        {
+          "title": "Menstrual Hygiene Day Celebrations",
+          "date": "May 28, 2027",
+          "time": "08:00 AM",
+          "location": "Okungur Subcounty",
+          "type": "Campaign",
+          "image": "about-image.png",
+          "summary": "School and community campaign on menstrual dignity, reusable products, and confidence for adolescent girls.",
+          "impact": "Girls, teachers, and caregivers",
+          "partners": "Schools and health workers"
+        },
+        {
+          "title": "Akiro nu Airit nuka Apesur",
+          "date": "Aug 12, 2027",
+          "time": "02:00 PM",
+          "location": "Amuria Town Council",
+          "type": "Akiro / Dialogue",
+          "image": "leadership.png",
+          "summary": "Akiro nuka mentorship keda leadership kanu adolescent girls, women leaders keda local duty bearers.",
+          "impact": "Akitogogong confidence loka leadership nuka apesur",
+          "partners": "Women leaders, local duty bearers"
+        }
       ],
       "latest": [
-        { "title": "Youth Skilling in Tailoring", "date": "May 18, 2026", "time": "09:00 AM", "location": "Teso Sub-Region", "type": "Training", "image": "tailoring-atiira.jpg", "summary": "TEWOYEI aitodolikini atukot kotoma tailoring skills kanu livelihood, akitodolikin, keda self-reliance.", "impact": "Youth equipped with practical tailoring skills", "partners": "Community trainers" },
-        { "title": "Training on Making Reusable Sanitary Pads", "date": "May 14, 2026", "time": "10:00 AM", "location": "Odiding and Agonga Primary Schools", "type": "School Training", "image": "health.png", "summary": "Girls keda school communities neitodolikinit on making reusable sanitary pads keda menstrual hygiene management in Odiding and Agonga Primary Schools.", "impact": "Girls trained in reusable sanitary pad making", "partners": "School leaders and teachers" },
-        { "title": "Aitodik Hospital: Atiokisio nuka Aijarakin", "date": "May 10, 2026", "time": "10:00 AM", "location": "Amuria Referral Hospital", "type": "Aitodik Kosoman", "image": "hospital/hospital-visit-1.jpg", "summary": "Atukot ka TEWOYEI kotoi aitodik hospital kanu angolokin atiokisio nueboikinit aijarakin keda angor keda ikoku.", "impact": "Aitidau atiokisio 5 nuepolok", "partners": "Hospital Administration", "photos": ["hospital/hospital-visit-1.jpg", "hospital/hospital-visit-2.jpg", "hospital/hospital-visit-3.jpg", "hospital/hospital-visit-4.jpg", "hospital/hospital-visit-5.jpg", "hospital/WhatsApp Image 2026-05-11 at 19.29.51.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.51 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.52.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.52 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.53.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.53 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.55.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.55 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.55 (2).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.56.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.56 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.57.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.58.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.59.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.00.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.00 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.02.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.02 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.03.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.03 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.04.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.05.jpeg"] },
-        { "title": "Youth Entrepreneurship Pitch", "date": "Apr 10, 2026", "time": "10:00 AM", "location": "Teso Region", "type": "Workshop", "image": "bcp-construction1.jpg", "summary": "Young people shared small business ideas after vocational and business planning mentorship.", "impact": "Business confidence and peer learning", "partners": "Community mentors", "videoId": "Zczerp00kEY" },
-        { "title": "GBV Awareness Drive", "date": "Mar 25, 2026", "time": "09:00 AM", "location": "Orungo", "type": "Advocacy", "image": "about-image.png", "summary": "A community awareness drive focused on prevention, survivor support, and reporting pathways.", "impact": "Household dialogues and referrals", "partners": "Local leaders, protection actors", "videoId": "25d83dD1Ops" },
-        { "title": "Savings Groups Field Visit", "date": "Feb 18, 2026", "time": "02:00 PM", "location": "Kapelebyong", "type": "Field Visit", "image": "hero-image.png", "summary": "Follow-up visits with women savings groups to strengthen record keeping and household income planning.", "impact": "Improved savings discipline", "partners": "Women savings groups" }
+        {
+          "title": "Aidis nuka Bakery keda Pastry Skilling",
+          "date": "May 22, 2026",
+          "time": "09:00 AM",
+          "location": "Amuria District",
+          "type": "Training",
+          "image": "activities/baking/bakingSkill (1).jpeg",
+          "summary": "TEWOYEI aiswama training loka baking keda pastry kanu youth keda angor luemitakina, kanu aingarakin etunga kotoma income generation.",
+          "impact": "Angor keda youth skilled kotoma bakery keda pastry",
+          "partners": "Local bakery instructors"
+        },
+        {
+          "title": "Youth Skilling in Tailoring",
+          "date": "May 18, 2026",
+          "time": "09:00 AM",
+          "location": "Teso Sub-Region",
+          "type": "Training",
+          "image": "tailoring-atiira.jpg",
+          "summary": "TEWOYEI aitodolikini atukot kotoma tailoring skills kanu livelihood, akitodolikin, keda self-reliance.",
+          "impact": "Youth equipped with practical tailoring skills",
+          "partners": "Community trainers"
+        },
+        {
+          "title": "Training on Making Reusable Sanitary Pads",
+          "date": "May 14, 2026",
+          "time": "10:00 AM",
+          "location": "Odiding and Agonga Primary Schools",
+          "type": "School Training",
+          "image": "health.png",
+          "summary": "Girls keda school communities neitodolikinit on making reusable sanitary pads keda menstrual hygiene management in Odiding and Agonga Primary Schools.",
+          "impact": "Girls trained in reusable sanitary pad making",
+          "partners": "School leaders and teachers"
+        },
+        {
+          "title": "Aitodik Hospital: Atiokisio nuka Aijarakin",
+          "date": "May 10, 2026",
+          "time": "10:00 AM",
+          "location": "Amuria Referral Hospital",
+          "type": "Aitodik Kosoman",
+          "image": "hospital/hospital-visit-1.jpg",
+          "summary": "Atukot ka TEWOYEI kotoi aitodik hospital kanu angolokin atiokisio nueboikinit aijarakin keda angor keda ikoku.",
+          "impact": "Aitidau atiokisio 5 nuepolok",
+          "partners": "Hospital Administration",
+          "photos": [
+            "hospital/hospital-visit-1.jpg",
+            "hospital/hospital-visit-2.jpg",
+            "hospital/hospital-visit-3.jpg",
+            "hospital/hospital-visit-4.jpg",
+            "hospital/hospital-visit-5.jpg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.51.jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.51 (1).jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.52.jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.52 (1).jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.53.jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.53 (1).jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.55.jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.55 (1).jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.55 (2).jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.56.jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.56 (1).jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.57.jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.58.jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.29.59.jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.30.00.jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.30.00 (1).jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.30.02.jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.30.02 (1).jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.30.03.jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.30.03 (1).jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.30.04.jpeg",
+            "hospital/WhatsApp Image 2026-05-11 at 19.30.05.jpeg"
+          ]
+        },
+        {
+          "title": "Youth Entrepreneurship Pitch",
+          "date": "Apr 10, 2026",
+          "time": "10:00 AM",
+          "location": "Teso Region",
+          "type": "Workshop",
+          "image": "skilling.png",
+          "summary": "Young people shared small business ideas after vocational and business planning mentorship.",
+          "impact": "Business confidence and peer learning",
+          "partners": "Community mentors"
+        },
+        {
+          "title": "GBV Awareness Drive",
+          "date": "Mar 25, 2026",
+          "time": "09:00 AM",
+          "location": "Orungo",
+          "type": "Advocacy",
+          "image": "hero-image.png",
+          "summary": "A community awareness drive focused on prevention, survivor support, and reporting pathways.",
+          "impact": "Household dialogues and referrals",
+          "partners": "Local leaders, protection actors",
+          "videoId": "RYFQBYb4Zcs"
+        },
+        {
+          "title": "Savings Groups Field Visit",
+          "date": "Feb 18, 2026",
+          "time": "11:00 AM",
+          "location": "Kapelebyong",
+          "type": "Field Visit",
+          "image": "about-image.png",
+          "summary": "Follow-up visits with women savings groups to strengthen record keeping and household income planning.",
+          "impact": "Improved savings discipline",
+          "partners": "Women savings groups"
+        }
       ],
       "completed": [
-        { "title": "Malaria Prevention Sensitization", "date": "Aug 2023 - Sep 2023", "time": "Various", "location": "Agonga & Airabet", "type": "Health", "image": "health.png", "summary": "Community sessions on malaria prevention, treatment care, and household-level protection practices.", "impact": "Over 1,500 community members sensitized", "partners": "TASO Uganda, CDFU, Global Fund" },
-        { "title": "Menstrual Cup Distribution", "date": "March 2023 - Sep 2023", "time": "Various", "location": "4 Schools in Kapelebyong", "type": "Distribution", "image": "tailoring-atiira.jpg", "summary": "Menstrual health education and cup distribution to support girls' dignity and school attendance.", "impact": "300 menstrual cups distributed", "partners": "USAID, East West Management Institute" },
-        { "title": "16 Days of Activism Campaign", "date": "Dec 2022", "time": "All Day", "location": "Regional", "type": "Campaign", "image": "leadership.png", "summary": "Community campaign against teenage pregnancy and gender based violence during the global activism period.", "impact": "Public dialogue on GBV prevention", "partners": "Community leaders and protection actors", "videoId": "RYFQBYb4Zcs" },
-        { "title": "COVID-19 Impact on GBV Radio Dramas", "date": "2021", "time": "Weekly", "location": "Radio Stations", "type": "Media", "image": "about-image.png", "summary": "Radio drama series sensitizing communities on the link between COVID-19 stress and GBV risks.", "impact": "8 radio dramas produced", "partners": "Radio stations" },
-        { "title": "Bread Baking & Knitting Training", "date": "2020 - 2021", "time": "Routine", "location": "Amuria", "type": "Training", "image": "skilling.png", "summary": "Practical income-generation sessions in baking and knitting for women groups.", "impact": "80 women trained", "partners": "Women groups" }
+        {
+          "title": "Malaria Prevention Sensitization",
+          "date": "Aug 2023 - Sep 2023",
+          "time": "Various",
+          "location": "Agonga & Airabet",
+          "type": "Health",
+          "image": "health.png",
+          "summary": "Community sessions on malaria prevention, treatment care, and household-level protection practices.",
+          "impact": "Over 1,500 community members sensitized",
+          "partners": "TASO Uganda, CDFU, Global Fund"
+        },
+        {
+          "title": "Menstrual Cup Distribution",
+          "date": "March 2023 - Sep 2023",
+          "time": "Various",
+          "location": "4 Schools in Kapelebyong",
+          "type": "Distribution",
+          "image": "about-image.png",
+          "summary": "Menstrual health education and cup distribution to support girls' dignity and school attendance.",
+          "impact": "300 menstrual cups distributed",
+          "partners": "USAID, East West Management Institute"
+        },
+        {
+          "title": "16 Days of Activism Campaign",
+          "date": "Dec 2022",
+          "time": "All Day",
+          "location": "Regional",
+          "type": "Campaign",
+          "image": "hero-image.png",
+          "summary": "Community campaign against teenage pregnancy and gender based violence during the global activism period.",
+          "impact": "Public dialogue on GBV prevention",
+          "partners": "Community leaders and protection actors"
+        },
+        {
+          "title": "COVID-19 Impact on GBV Radio Dramas",
+          "date": "2021",
+          "time": "Weekly",
+          "location": "Radio Stations",
+          "type": "Media",
+          "image": "leadership.png",
+          "summary": "Radio drama series sensitizing communities on the link between COVID-19 stress and GBV risks.",
+          "impact": "8 radio dramas produced",
+          "partners": "Radio stations",
+          "videoId": "RYFQBYb4Zcs"
+        },
+        {
+          "title": "Bread Baking & Knitting Training",
+          "date": "2020 - 2021",
+          "time": "Routine",
+          "location": "Amuria",
+          "type": "Training",
+          "image": "skilling.png",
+          "summary": "Practical income-generation sessions in baking and knitting for women groups.",
+          "impact": "80 women trained",
+          "partners": "Women groups"
+        }
       ]
     }
   },
@@ -437,9 +708,18 @@
       }
     ],
     "future": [
-      { "title": "Research Publications", "desc": "Field research reports keda papers." },
-      { "title": "Training Manuals", "desc": "Guides for GBV response keda SRHR education." },
-      { "title": "Documentary Series", "desc": "Documentaries from Teso sub-region." }
+      {
+        "title": "Research Publications",
+        "desc": "Field research reports keda papers."
+      },
+      {
+        "title": "Training Manuals",
+        "desc": "Guides for GBV response keda SRHR education."
+      },
+      {
+        "title": "Documentary Series",
+        "desc": "Documentaries from Teso sub-region."
+      }
     ]
   },
   "cta": {

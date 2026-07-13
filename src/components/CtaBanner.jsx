@@ -4,7 +4,7 @@ import { MessageCircle, Mail } from 'lucide-react';
 import { CONTACT_MAILTO, buildWhatsappUrl } from '../data/contactDetails';
 import { contactMailto } from '../data/organization';
 
-const CONTACT_MAILTO = 'dinahgraceabel@gmail.com';
+const CONTACT_MAILTO = 'tewedouganda@gmail.com';
 
 const CtaBanner = ({ t }) => {
   return (

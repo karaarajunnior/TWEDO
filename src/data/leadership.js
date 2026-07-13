@@ -1,7 +1,7 @@
 const toAssetUrl = (assetPath) => `/assets/${assetPath.split('/').map(encodeURIComponent).join('/')}`;
 
 export const primaryContact = {
-  email: 'dinahgraceabel@gmail.com',
+  email: 'tewedouganda@gmail.com',
   localPhone: '0777676436',
   internationalPhone: '+256777676436'
 };

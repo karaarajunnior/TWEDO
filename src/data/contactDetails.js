@@ -1,4 +1,4 @@
-export const CONTACT_EMAIL = 'dinahgraceabel@gmail.com';
+export const CONTACT_EMAIL = 'tewedouganda@gmail.com';
 export const CONTACT_EMAILS = [CONTACT_EMAIL];
 export const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
 

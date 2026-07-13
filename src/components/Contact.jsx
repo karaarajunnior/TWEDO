@@ -4,15 +4,7 @@ import { CONTACT_EMAIL, CONTACT_EMAILS, CONTACT_MAILTO, CONTACT_NUMBERS } from '
 import { contactEmails, contactMailto, contactNumbers } from '../data/organization';
 import { founders, primaryContact } from '../data/leadership';
 
-const CONTACT_EMAILS = ['dinahgraceabel@gmail.com'];
-const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
-const CONTACT_NUMBERS = [
-  { label: '0777 676 436', tel: '+256777676436', whatsapp: '256777676436' }
-const CONTACT_EMAILS = [primaryContact.email];
-const CONTACT_MAILTO = CONTACT_EMAILS.join(',');
-const CONTACT_NUMBERS = [
-  { label: primaryContact.localPhone, tel: primaryContact.internationalPhone, whatsapp: primaryContact.internationalPhone.replace('+', '') }
-const PRIMARY_EMAIL = 'dinahgraceabel@gmail.com';
+const PRIMARY_EMAIL = 'tewedouganda@gmail.com';
 const CONTACT_EMAILS = [PRIMARY_EMAIL];
 const CONTACT_MAILTO = PRIMARY_EMAIL;
 const CONTACT_NUMBERS = [

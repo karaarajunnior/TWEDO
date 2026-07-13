@@ -24,9 +24,9 @@ const Navbar = ({ t, language, setLanguage }) => {
   ];
   const socialLinks = [
     { href: 'https://www.facebook.com/search/top?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on Facebook', Icon: Facebook },
-    { href: 'https://twitter.com/search?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on X', Icon: Twitter },
+    { href: 'https://x.com/tewedo_t', label: 'Find TEWOYEI on X', Icon: Twitter },
     { href: 'https://www.instagram.com/explore/search/keyword/?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on Instagram', Icon: Instagram },
-    { href: 'https://www.youtube.com/results?search_query=TEWOYEI+Uganda', label: 'Find TEWOYEI on YouTube', Icon: Youtube },
+    { href: 'https://www.youtube.com/@DINAHGRACEAMONG', label: 'Find TEWOYEI on YouTube', Icon: Youtube },
   ];
 
   useEffect(() => {
