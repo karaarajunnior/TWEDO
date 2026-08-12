@@ -50,9 +50,6 @@ logs/
 .eslintcache
 .stylelintcache
 
-# --- Package manager locks (keep only one) ---
-# yarn.lock  ← uncomment if using yarn
-# pnpm-lock.yaml ← uncomment if using pnpm
 
 # --- Misc sensitive / large non-repo files ---
 *.docx

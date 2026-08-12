@@ -394,6 +394,34 @@
       ],
       "latest": [
         {
+          "title": "Ogongora Center BCP Success",
+          "date": "Feb 24, 2022",
+          "time": "10:00 AM",
+          "location": "Ogongora Learning Center, Amuria",
+          "type": "Success Story",
+          "image": "activities/construction/bcp1.jpg",
+          "summary": "Highlighting the story of two outstanding women in Ogongora who shattered stereotypes by mastering Brick and Concrete Practice (BCP). They are now able to interpret house plans, lay bricks, and construct houses, proving they can be fully self-reliant.",
+          "impact": "Empowered female builders",
+          "partners": "Local government, Wizarts Foundation",
+          "photos": ["activities/construction/bcp1.jpg", "activities/construction/bcp2.jpg"]
+        },
+        {
+          "title": "Akodokodoi Skills Competition",
+          "date": "Mar 15, 2022",
+          "time": "09:00 AM",
+          "location": "Akodokodoi Learning Center",
+          "type": "Competition",
+          "image": "activities/leadership/okodoi compt.png",
+          "summary": "A first-of-its-kind skills competition held between Akodokodoi, Aridai, and Amotom learning centers. Tailoring students competed in dressmaking, and hairdressing students competed in styles like 'pencil', 'three-three', and 'Kiswahili'. Akodokodoi emerged best in hairdressing, and Amotom won best tailoring.",
+          "impact": "3 learning centers competed",
+          "partners": "Community instructors and CDO Okungur",
+          "photos": [
+            "activities/leadership/okodoi compt.png",
+            "activities/leadership/benefi compt.png",
+            "activities/leadership/compt group photo.png"
+          ]
+        },
+        {
           "title": "Bakery and Pastry Skilling Program",
           "date": "May 22, 2026",
           "time": "09:00 AM",
@@ -406,12 +434,27 @@
         },
         { "title": "Youth Skilling in Tailoring", "date": "May 18, 2026", "time": "09:00 AM", "location": "Teso Sub-Region", "type": "Training", "image": "tailoring-atiira.jpg", "summary": "TEWOYEI supported young people with hands-on tailoring skills training to strengthen livelihood opportunities and self-reliance.", "impact": "Youth equipped with practical tailoring skills", "partners": "Community trainers" },
         { "title": "Training on Making Reusable Sanitary Pads", "date": "May 14, 2026", "time": "10:00 AM", "location": "Odiding and Agonga Primary Schools", "type": "School Training", "image": "health.png", "summary": "Girls and school communities were trained on making reusable sanitary pads and improving menstrual hygiene management in Odiding and Agonga Primary Schools.", "impact": "Girls trained in reusable sanitary pad making", "partners": "School leaders and teachers" },
-        { "title": "Hospital Visit: Healthcare Challenges", "date": "May 10, 2026", "time": "10:00 AM", "location": "Amuria Referral Hospital", "type": "Field Visit", "image": "hospital/hospital-visit-1.jpg", "summary": "TEWOYEI team visited the hospital to document healthcare delivery challenges and advocate for improved services for women and children.", "impact": "Documented 5 key challenge areas", "partners": "Hospital Administration", "photos": ["hospital/hospital-visit-1.jpg", "hospital/hospital-visit-2.jpg", "hospital/hospital-visit-3.jpg", "hospital/hospital-visit-4.jpg", "hospital/hospital-visit-5.jpg", "hospital/WhatsApp Image 2026-05-11 at 19.29.51.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.51 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.52.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.52 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.53.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.53 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.55.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.55 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.55 (2).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.56.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.56 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.57.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.58.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.29.59.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.00.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.00 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.02.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.02 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.03.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.03 (1).jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.04.jpeg", "hospital/WhatsApp Image 2026-05-11 at 19.30.05.jpeg"] },
+        { "title": "Hospital Visit: Healthcare Challenges", "date": "May 10, 2026", "time": "10:00 AM", "location": "Amuria Referral Hospital", "type": "Field Visit", "image": "hospital/hospital-visit-1.jpg", "summary": "TEWOYEI team visited the hospital to document healthcare delivery challenges and advocate for improved services for women and children.", "impact": "Documented 5 key challenge areas", "partners": "Hospital Administration", "photos": ["activities/hospital/hospital1.jpg", "activities/hospital/hospital2.jpeg", "activities/hospital/hospital5.jpeg", "activities/hospital/meeting with hospital mngmt.jpeg", "activities/hospital/counselling.jpeg", "activities/hospital/health.png"] },
         { "title": "Youth Entrepreneurship Pitch", "date": "Apr 10, 2026", "time": "10:00 AM", "location": "Teso Region", "type": "Workshop", "image": "skilling.png", "summary": "Young people presented business ideas from skilling programs and received coaching on market readiness.", "impact": "Business confidence and peer learning", "partners": "Community mentors" },
         { "title": "GBV Awareness Drive", "date": "Mar 25, 2026", "time": "09:00 AM", "location": "Orungo", "type": "Advocacy", "image": "hero-image.png", "summary": "Community conversations focused on prevention, referral pathways, and survivor support.", "impact": "Household dialogues and referrals", "partners": "Local leaders, protection actors", "videoId": "RYFQBYb4Zcs" },
         { "title": "Community Savings Group Visit", "date": "Feb 18, 2026", "time": "11:00 AM", "location": "Kapelebyong", "type": "Field Visit", "image": "about-image.png", "summary": "Follow-up visit with women's savings groups to document progress and strengthen accountability.", "impact": "Improved savings discipline", "partners": "Women savings groups" }
       ],
       "completed": [
+        {
+          "title": "16 Days of Activism Against Gender-Based Violence (GBV)",
+          "date": "Nov 25 - Dec 10, 2021",
+          "time": "All Day",
+          "location": "Amuria & Kapelebyong Districts",
+          "type": "Campaign",
+          "image": "activities/leadership/activism.png",
+          "summary": "TEWOYEI beneficiaries and field staff actively participated in the global 16 Days of Activism campaign. Beneficiaries staged community dramas and performed songs focused on raising awareness of the dangers of teenage pregnancy, child marriage, and GBV in families.",
+          "impact": "Spreading sensitization messages to local villages across Kapelebyong and Amuria districts.",
+          "partners": "Local leaders, CDOs, and community actors",
+          "photos": [
+            "activities/leadership/activism.png",
+            "activities/leadership/activism_campaign1.jpeg"
+          ]
+        },
         { "title": "Malaria Prevention Sensitization", "date": "Aug 2023 - Sep 2023", "time": "Various", "location": "Agonga & Airabet", "type": "Health", "image": "health.png", "summary": "Reached households with prevention messages and referrals for malaria testing and care.", "impact": "Over 1,500 community members sensitized", "partners": "TASO Uganda, CDFU, Global Fund" },
         { "title": "Menstrual Cup Distribution", "date": "March 2023 - Sep 2023", "time": "Various", "location": "4 Schools in Kapelebyong", "type": "Distribution", "image": "about-image.png", "summary": "Distributed 300 menstrual cups with practical training and school-based follow-up support.", "impact": "300 menstrual cups distributed", "partners": "USAID, East West Management Institute" },
         { "title": "16 Days of Activism Campaign", "date": "Dec 2022", "time": "All Day", "location": "Regional", "type": "Campaign", "image": "hero-image.png", "summary": "Mobilized communities to end teenage pregnancy and fight gender-based violence.", "impact": "Public dialogue on GBV prevention", "partners": "Community leaders and protection actors" },

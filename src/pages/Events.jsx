@@ -4,60 +4,77 @@ import { Calendar, MapPin, Clock, PlayCircle, X, ChevronLeft, ChevronRight, Imag
 import { getAssetPath } from '../data/siteAssets';
 
 const galleryPhotoSets = {
+  baking: [
+    'activities/baking/bakingSkill (1).jpeg',
+    'activities/baking/bakingSkill (8).jpeg',
+    'activities/baking/bakingSkill (12).jpeg'
+  ],
+  construction: [
+    'activities/construction/bcp1.jpg',
+    'activities/construction/bcp2.jpg'
+  ],
+  district_meeting: [
+    'activities/district_meeting/districtmeeting (3).jpeg',
+    'activities/district_meeting/districtmeeting (12).jpeg',
+    'activities/district_meeting/districtmeeting (24).jpeg'
+  ],
   hospital: [
-    'hospital/hospital-visit-1.jpg',
-    'hospital/hospital-visit-2.jpg',
-    'hospital/hospital-visit-3.jpg',
-    'hospital/hospital-visit-4.jpg',
-    'hospital/hospital-visit-5.jpg',
-    'hospital/WhatsApp Image 2026-05-11 at 19.29.51.jpeg',
-    'hospital/WhatsApp Image 2026-05-11 at 19.29.52.jpeg',
-    'hospital/WhatsApp Image 2026-05-11 at 19.30.00.jpeg'
+    'activities/hospital/hospital1.jpg',
+    'activities/hospital/hospital2.jpeg',
+    'activities/hospital/hospital5.jpeg',
+    'activities/hospital/meeting with hospital mngmt.jpeg',
+    'activities/hospital/counselling.jpeg',
+    'activities/hospital/health.png'
   ],
-  skilling: [
-    'skilling.png',
-    'tailoring-atiira.jpg',
-    'tailoring-kapelebyong.jpg',
-    'bcp-construction1.jpg',
-    'bcp-construction2.jpg',
-    'bcp-orungo.jpg'
+  info_gathering: [
+    'activities/info_gathering/info1 (1).jpeg',
+    'activities/info_gathering/info1 (2).jpeg',
+    'activities/info_gathering/info1 (3).jpeg',
+    'activities/info_gathering/info1 (4).jpeg',
+    'activities/info_gathering/info1 (5).jpeg'
   ],
-  health: [
-    'health.png',
-    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.15.jpeg',
-    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.23.jpeg',
-    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.26.jpeg',
-    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.32.jpeg',
-    'hospital/hospital-visit-3.jpg'
+  leadership: [
+    'activities/leadership/activism_campaign1.jpeg',
+    'activities/leadership/community_leadership (1).jpeg',
+    'activities/leadership/community_leadership (2).jpeg',
+    'activities/leadership/community_leadership (3).jpeg',
+    'activities/leadership/schooloutreach.jpg',
+    'activities/leadership/grace.png',
+    'activities/leadership/teweyoi qtr1.png'
   ],
-  advocacy: [
-    'hero-image.png',
-    'leadership.png',
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.37.jpeg',
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.41.jpeg',
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.47.jpeg',
-    'others/other_2/WhatsApp Image 2026-05-11 at 19.29.24.jpeg'
+  malaria: [
+    'activities/malaria awareness/malaria awareness.jpeg',
+    'activities/malaria awareness/malariaAwareness.jpeg',
+    'activities/malaria awareness/WhatsApp Image 2026-05-11 at 19.30.49 (1).jpeg'
   ],
-  community: [
-    'about-image.png',
-    'others/other_1/WhatsApp Image 2026-05-11 at 19.29.02.jpeg',
-    'others/other_1/WhatsApp Image 2026-05-11 at 19.29.07.jpeg',
-    'others/other_2/WhatsApp Image 2026-05-11 at 19.29.20.jpeg',
-    'others/other_3/WhatsApp Image 2026-05-11 at 19.29.14.jpeg',
-    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.44.jpeg'
+  tailoring: [
+    'activities/tailorig/amoni_tailor2.jpeg',
+    'activities/tailorig/amoni_tailor3.jpeg',
+    'activities/tailorig/amoni_tailor4.jpeg',
+    'activities/tailorig/amoni_tailor5.jpeg'
   ],
-  meeting: [
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.34.jpeg',
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.36.jpeg',
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.39.jpeg',
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.44.jpeg',
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.48.jpeg',
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.50.jpeg'
+  sanitary_pads: [
+    'activities/training on sanitary pads/amoni_sanitary.jpeg',
+    'activities/training on sanitary pads/sanitaary2.jpeg',
+    'activities/training on sanitary pads/sanitarypad3.jpeg',
+    'activities/training on sanitary pads/sanitaryPadTraining1.jpg',
+    'activities/training on sanitary pads/sanitaryPadTraining2.jpg'
   ]
 };
 
 const getEventPhotoSet = (event) => {
   if (event.photos?.length) return event.photos;
+
+  const titleLower = (event.title || '').toLowerCase();
+  if (
+    titleLower.includes('srhr sensitization') ||
+    titleLower.includes('menstrual hygiene') ||
+    titleLower.includes('leadership dialogue') ||
+    titleLower.includes('airit nuka apesur') ||
+    titleLower.includes('savings group')
+  ) {
+    return [];
+  }
 
   const searchableText = [
     event.title,
@@ -67,24 +84,35 @@ const getEventPhotoSet = (event) => {
     event.image
   ].filter(Boolean).join(' ').toLowerCase();
 
-  if (searchableText.includes('hospital')) return galleryPhotoSets.hospital;
-  if (/(skilling|training|workshop|tailoring|bakery|knitting|construction|entrepreneur|pitch)/.test(searchableText)) {
-    return galleryPhotoSets.skilling;
+  if (searchableText.includes('hospital')) {
+    return galleryPhotoSets.hospital;
   }
-  if (/(health|srhr|menstrual|malaria|hygiene|cup|sexuality)/.test(searchableText)) {
-    return galleryPhotoSets.health;
+  if (/(bakery|baking|bread|pastry|cake)/.test(searchableText)) {
+    return galleryPhotoSets.baking;
   }
-  if (/(gbv|activism|campaign|radio|covid|advocacy|violence|teenage)/.test(searchableText)) {
-    return galleryPhotoSets.advocacy;
+  if (/(tailor|tailoring|knitting|sweater|sewing)/.test(searchableText)) {
+    return galleryPhotoSets.tailoring;
   }
-  if (/(leadership|dialogue|clm|district|partner|meeting)/.test(searchableText)) {
-    return galleryPhotoSets.meeting;
+  if (/(construction|bcp|building|brick)/.test(searchableText)) {
+    return galleryPhotoSets.construction;
   }
-  if (/(community|savings|field|visit|outreach)/.test(searchableText)) {
-    return galleryPhotoSets.community;
+  if (/(malaria)/.test(searchableText)) {
+    return galleryPhotoSets.malaria;
+  }
+  if (/(sanitary|pad|pads|menstrual|cup|hygiene)/.test(searchableText)) {
+    return galleryPhotoSets.sanitary_pads;
+  }
+  if (/(district|meeting|partner)/.test(searchableText)) {
+    return galleryPhotoSets.district_meeting;
+  }
+  if (/(gbv|activism|campaign|radio|covid|advocacy|violence|teenage|leadership|dialogue|clm)/.test(searchableText)) {
+    return galleryPhotoSets.leadership;
+  }
+  if (/(community|savings|field|visit|outreach|info|gathering|survey)/.test(searchableText)) {
+    return galleryPhotoSets.info_gathering;
   }
 
-  return galleryPhotoSets.community;
+  return galleryPhotoSets.leadership;
 };
 
 /* ─── Photo Gallery Modal ─── */
@@ -150,7 +178,7 @@ const PhotoGalleryModal = ({ event, onClose, getAssetPath }) => {
 
         <img
           key={activeIndex}
-          src={getAssetPath(photos[activeIndex], event.title + " " + event.summary)}
+          src={getAssetPath(photos[activeIndex])}
           alt={`${event.title} - Photo ${activeIndex + 1}`}
           className="max-h-full max-w-full rounded-2xl object-contain shadow-2xl"
           style={{ maxHeight: 'calc(100vh - 220px)' }}
@@ -187,7 +215,7 @@ const PhotoGalleryModal = ({ event, onClose, getAssetPath }) => {
               }`}
             >
               <img
-                src={getAssetPath(photo, event.title + " " + event.summary)}
+                src={getAssetPath(photo)}
                 alt={`Thumbnail ${i + 1}`}
                 className="w-full h-full object-cover"
               />
@@ -277,27 +305,36 @@ const Events = ({ t }) => {
                   className="bg-white p-5 md:p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col md:flex-row md:items-center gap-6 hover:shadow-md transition-shadow"
                 >
                   {/* Thumbnail */}
-                  <div className="relative w-full md:w-44 h-52 md:h-36 shrink-0 bg-teso-light rounded-2xl overflow-hidden text-white">
-                    <img
-                      src={getAssetPath(event.image, event.title + " " + event.summary)}
-                      alt={event.title}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      onError={e => { e.target.style.display = 'none'; }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/85 via-teso-dark/20 to-transparent" />
-                    <span className="absolute bottom-4 left-4 text-xs font-bold uppercase tracking-wider bg-primary px-3 py-1 rounded-full">
-                      {event.type}
-                    </span>
-                    {/* Photo count badge */}
-                    <span className="absolute top-3 right-3 flex items-center gap-1 text-xs font-bold bg-black/60 text-white px-2 py-1 rounded-full">
-                      <ImageIcon size={12} /> {eventPhotos.length}
-                    </span>
-                  </div>
+                  {eventPhotos.length > 0 && (
+                    <div className="relative w-full md:w-44 h-52 md:h-36 shrink-0 bg-teso-light rounded-2xl overflow-hidden text-white">
+                      <img
+                        src={getAssetPath(event.image, event.title + " " + event.summary)}
+                        alt={event.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        onError={e => { e.target.style.display = 'none'; }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/85 via-teso-dark/20 to-transparent" />
+                      <span className="absolute bottom-4 left-4 text-xs font-bold uppercase tracking-wider bg-primary px-3 py-1 rounded-full">
+                        {event.type}
+                      </span>
+                      {/* Photo count badge */}
+                      <span className="absolute top-3 right-3 flex items-center gap-1 text-xs font-bold bg-black/60 text-white px-2 py-1 rounded-full">
+                        <ImageIcon size={12} /> {eventPhotos.length}
+                      </span>
+                    </div>
+                  )}
 
                   {/* Info */}
                   <div className="flex-1">
-                    <h3 className="text-xl md:text-2xl font-bold font-outfit mb-3">{event.title}</h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed text-sm md:text-base">{event.summary}</p>
+                    <div className="flex flex-wrap items-center gap-3 mb-3">
+                      {eventPhotos.length === 0 && (
+                        <span className="text-xs font-bold uppercase tracking-wider bg-primary/10 text-primary px-3 py-1 rounded-full font-outfit">
+                          {event.type}
+                        </span>
+                      )}
+                      <h3 className="text-xl md:text-2xl font-bold font-outfit">{event.title}</h3>
+                    </div>
+                    <p className="text-gray-600 mb-4 leading-relaxed text-sm md:text-base font-inter">{event.summary}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {event.impact && (
                         <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
@@ -328,14 +365,16 @@ const Events = ({ t }) => {
                   </div>
 
                   {/* Action Button */}
-                  <button
-                    type="button"
-                    onClick={() => setGalleryEvent({ ...event, photos: eventPhotos })}
-                    className="btn btn-primary shrink-0 w-full md:w-auto flex items-center justify-center gap-2"
-                  >
-                    <ImageIcon size={16} />
-                    {t.common.viewDetails}
-                  </button>
+                  {eventPhotos.length > 0 && (
+                    <button
+                      type="button"
+                      onClick={() => setGalleryEvent({ ...event, photos: eventPhotos })}
+                      className="btn btn-primary shrink-0 w-full md:w-auto flex items-center justify-center gap-2"
+                    >
+                      <ImageIcon size={16} />
+                      {t.common.viewDetails}
+                    </button>
+                  )}
                 </div>
                 );
               })

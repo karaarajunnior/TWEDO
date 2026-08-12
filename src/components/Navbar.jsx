@@ -46,7 +46,7 @@ const Navbar = ({ t, language, setLanguage }) => {
 
         <Link to="/" className="flex items-center gap-3 font-bold font-outfit" aria-label="TEWOYEI home">
           <span className="bg-white rounded-2xl p-1.5 shadow-sm">
-            <img src="/assets/tewoyei-logo.svg" alt="TEWOYEI logo" className="h-12 w-16 md:h-14 md:w-20 object-contain" />
+            <img src="/assets/icons and logo/tewoyei-logo.svg" alt="TEWOYEI logo" className="h-12 w-16 md:h-14 md:w-20 object-contain" />
           </span>
           <span
             className="text-xl md:text-2xl"

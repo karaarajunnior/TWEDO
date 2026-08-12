@@ -26,25 +26,53 @@ const GetInvolved = ({ t }) => {
 
       <section className="section-padding">
         <div className="container max-w-5xl">
-          <div id="donate" className="scroll-mt-28 bg-white rounded-[3rem] p-10 md:p-16 shadow-xl border border-gray-100 flex md:flex-row flex-col gap-10 items-center mb-16">
-            <div className="relative w-full md:w-64 h-56 shrink-0 rounded-[2rem] overflow-hidden shadow-lg bg-primary/10">
-              <img src="/assets/health.png" alt={t.getInvolved.donationTitle} className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/70 to-transparent" />
-              <div className="absolute bottom-4 left-4 w-16 h-16 rounded-full bg-white/90 flex items-center justify-center text-primary shadow-lg">
-                <Heart size={30} />
+          <div id="donate" className="scroll-mt-28 bg-white rounded-[3rem] p-10 md:p-16 shadow-xl border border-gray-100 mb-16">
+            <div className="flex md:flex-row flex-col gap-10 items-center">
+              <div className="relative w-full md:w-64 h-56 shrink-0 rounded-[2rem] overflow-hidden shadow-lg bg-primary/10">
+                <img src="/assets/health.png" alt={t.getInvolved.donationTitle} className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/70 to-transparent" />
+                <div className="absolute bottom-4 left-4 w-16 h-16 rounded-full bg-white/90 flex items-center justify-center text-primary shadow-lg">
+                  <Heart size={30} />
+                </div>
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-3xl font-bold font-outfit mb-4">{t.getInvolved.donationTitle}</h3>
+                <p className="text-gray-600 font-inter mb-6">{t.getInvolved.donationText}</p>
+                <a
+                  href={buildWhatsappUrl('Hello TEWOYEI, I would like to donate to your campaign.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary inline-flex items-center gap-2"
+                >
+                  <MessageCircle size={20} /> {t.getInvolved.whatsappDonate}
+                </a>
               </div>
             </div>
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-3xl font-bold font-outfit mb-4">{t.getInvolved.donationTitle}</h3>
-              <p className="text-gray-600 font-inter mb-6">{t.getInvolved.donationText}</p>
-              <a
-                href={buildWhatsappUrl('Hello TEWOYEI, I would like to donate to your campaign.')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary inline-flex items-center gap-2"
-              >
-                <MessageCircle size={20} /> {t.getInvolved.whatsappDonate}
-              </a>
+
+            {/* Operational Bottlenecks List */}
+            <div className="mt-12 border-t border-gray-100 pt-10">
+              <h4 className="text-xl font-bold font-outfit text-teso-dark mb-6 uppercase tracking-wider text-center md:text-left">
+                Our Current Operational Bottlenecks:
+              </h4>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  { title: "Sewing Machines", desc: "Mobilizing and hiring more sewing machines to improve the machine-to-student ratio." },
+                  { title: "Office Equipment", desc: "Desktops/laptops for report preparation and data tracking." },
+                  { title: "Transport Support", desc: "Motorcycles for field officers to cover the large scope of the 8 sub-counties over poor road networks." },
+                  { title: "Training Supplies", desc: "Hairdressing practice dolls and tailoring fabrics for exam preparations." },
+                  { title: "Stipends", desc: "Support to cover stipends/lunches for the 34 voluntary instructors and 14 center coordinators." }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex gap-4 items-start bg-teso-light/50 p-5 rounded-2xl border border-gray-50 shadow-sm hover:shadow-md transition-shadow">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm">
+                      {idx + 1}
+                    </span>
+                    <div>
+                      <h5 className="font-bold text-teso-dark text-base">{item.title}</h5>
+                      <p className="text-xs text-gray-500 mt-2 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 

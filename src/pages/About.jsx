@@ -1,15 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, Heart, ChevronUp, Award, GraduationCap, Quote, Camera, Users } from 'lucide-react';
-import { imageAssets, getAssetPath } from '../data/siteAssets';
-
-const FALLBACK_LEADER_IMAGES = [
-  'leadership/grace.png',
-  'info_gathering/WhatsApp Image 2026-05-11 at 19.30.26.jpeg',
-  'district_meeting/WhatsApp Image 2026-05-11 at 19.29.41.jpeg',
-  'hero-image.png',
-  'leadership.png'
-];
+import { Eye, Heart, ChevronUp, GraduationCap } from 'lucide-react';
+import { getAssetPath } from '../data/siteAssets';
 
 const getInitials = (name = '') =>
   name
@@ -82,22 +74,6 @@ const About = ({ t }) => {
 
   const board = t.about.boardOfDirectors || [];
 
-  const gallerySpotlight = useMemo(() => {
-    const folders = ['activities/district_meeting/', 'activities/info_gathering/', 'activities/hospital/', 'activities/baking/', 'others/'];
-    const seen = new Set();
-    const picks = [];
-    folders.forEach((folder) => {
-      const folderAssets = imageAssets.filter((asset) => asset.path.startsWith(folder));
-      folderAssets.slice(0, 3).forEach((asset) => {
-        if (!seen.has(asset.path)) {
-          seen.add(asset.path);
-          picks.push(asset);
-        }
-      });
-    });
-    return picks.slice(0, 12);
-  }, []);
-
   const subSections = [
     { id: 'about', label: t.about.tabs.about },
     { id: 'history', label: t.about.tabs.history },
@@ -119,11 +95,10 @@ const About = ({ t }) => {
                   <button
                     key={section.id}
                     onClick={() => setActiveSubSection(section.id)}
-                    className={`text-left py-3 px-5 lg:py-6 lg:px-8 text-base lg:text-2xl font-bold font-outfit transition-all border border-gray-200 lg:border-x-0 lg:border-t-0 rounded-full lg:rounded-none relative ${
-                      activeSubSection === section.id
-                        ? 'bg-primary text-white lg:bg-gray-50 lg:text-teso-dark lg:border-l-[6px] lg:border-l-primary'
-                        : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50'
-                    }`}
+                    className={`text-left py-3 px-5 lg:py-6 lg:px-8 text-base lg:text-2xl font-bold font-outfit transition-all border border-gray-200 lg:border-x-0 lg:border-t-0 rounded-full lg:rounded-none relative ${activeSubSection === section.id
+                      ? 'bg-primary text-white lg:bg-gray-50 lg:text-teso-dark lg:border-l-[6px] lg:border-l-primary'
+                      : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50'
+                      }`}
                   >
                     {section.label}
                   </button>
@@ -153,7 +128,7 @@ const About = ({ t }) => {
                       </p>
                     </div>
                     <div className="relative min-h-72 lg:min-h-full">
-                      <img src={getAssetPath('info_gathering/WhatsApp Image 2026-05-11 at 19.30.26.jpeg')} alt={t.about.introTitle} className="absolute inset-0 w-full h-full object-cover" />
+                      <img src={getAssetPath('leadership/teweyoi qtr1.png')} alt={t.about.introTitle} className="absolute inset-0 w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/45 to-transparent" />
                     </div>
                   </div>
@@ -170,6 +145,39 @@ const About = ({ t }) => {
                         <Heart size={28} className="text-primary" /> {t.about.missionTitle}
                       </h4>
                       <p className="text-gray-600">{t.about.missionText}</p>
+                    </div>
+                  </div>
+
+                  {/* OVC Home Visits Program Section */}
+                  <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-[3rem] border border-primary/10 p-8 md:p-12 shadow-md relative overflow-hidden">
+                    <div className="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+                      {/* Left: Photos grid */}
+                      <div className="lg:col-span-5 grid grid-cols-2 gap-4">
+                        <div className="rounded-2xl overflow-hidden shadow-md aspect-square">
+                          <img src={getAssetPath('activities/leadership/home visit.png')} alt="Home visit" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div className="rounded-2xl overflow-hidden shadow-md aspect-square">
+                          <img src={getAssetPath('activities/leadership/home visi.png')} alt="Field validation" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                        </div>
+                      </div>
+
+                      {/* Right: Info */}
+                      <div className="lg:col-span-7 space-y-6 text-left">
+                        <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest font-outfit">
+                          Community Integrity & Support
+                        </span>
+                        <h3 className="text-3xl font-bold font-outfit text-teso-dark">OVC Home Visits Program</h3>
+                        <p className="text-gray-600 leading-relaxed font-inter">
+                          TEWOYEI is deeply committed to ensuring that support goes where it is most needed. Our field teams conduct rigorous, door-to-door <strong>field validation</strong> home visits to check the vulnerability status of applicants who cannot afford exam or registration fees, keeping community service accountable.
+                        </p>
+
+                        <div className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm space-y-2">
+                          <h4 className="font-bold text-sm uppercase tracking-wider text-primary font-outfit">Akeriau OVC Sponsorship</h4>
+                          <p className="text-xs text-gray-500 leading-relaxed font-inter">
+                            During Q1, three girls under the Orphans and Vulnerable Children (OVC) category in Akeriau Sub-County — <strong>Iyamu Caroline</strong> (Okude village), <strong>Ameso Rose</strong> (Alecer village), and <strong>Aguro Catherine</strong> (Akeriau village) — were identified through home visits and pledged full sponsorship to acquire life-changing vocational skills.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -316,51 +324,6 @@ const About = ({ t }) => {
                         </div>
                       ))}
                     </div>
-                  </div>
-
-                  {/* Pictures Speak Gallery */}
-                  <div className="rounded-[2.5rem] bg-teso-dark text-white p-8 md:p-12 overflow-hidden">
-                    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
-                      <div className="max-w-2xl">
-                        <span className="inline-flex items-center gap-2 text-secondary font-bold uppercase tracking-widest text-xs mb-3">
-                          <Camera size={16} /> {t.about.pictureGalleryTitle}
-                        </span>
-                        <h3 className="text-3xl md:text-4xl font-bold font-outfit leading-tight">
-                          {t.about.pictureGalleryTitle}
-                        </h3>
-                        <p className="text-gray-300 mt-3 font-inter">{t.about.pictureGallerySubtitle}</p>
-                      </div>
-                      <Quote className="text-white/10 hidden md:block" size={80} />
-                    </div>
-
-                    {gallerySpotlight.length > 0 ? (
-                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-                        {gallerySpotlight.map((asset, i) => (
-                          <div
-                            key={asset.path}
-                            className={`relative overflow-hidden rounded-2xl group ${
-                              i % 5 === 0 ? 'sm:col-span-2 sm:row-span-2 aspect-square' : 'aspect-square'
-                            }`}
-                          >
-                            <img
-                              src={asset.src}
-                              alt={asset.title}
-                              loading="lazy"
-                              className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        {FALLBACK_LEADER_IMAGES.slice(0, 6).map((path) => (
-                          <div key={path} className="aspect-square rounded-2xl overflow-hidden">
-                            <img src={getAssetPath(path)} alt="TEWOYEI field work" className="w-full h-full object-cover" />
-                          </div>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 </motion.div>
               )}

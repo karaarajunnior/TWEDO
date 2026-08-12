@@ -69,7 +69,7 @@ Please add ${email} to your newsletter mailing list.`;
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6 lg:col-span-1">
             <Link to="/" aria-label="TEWOYEI home" className="inline-flex bg-white rounded-2xl p-2 shadow-lg">
-              <img src="/assets/tewoyei-logo.svg" alt="TEWOYEI logo" className="h-16 w-24 object-contain" />
+              <img src="/assets/icons and logo/tewoyei-logo.svg" alt="TEWOYEI logo" className="h-16 w-24 object-contain" />
             </Link>
             <p className="text-sm leading-relaxed text-secondary-light/80">{t.footer.description}</p>
             <div className="flex flex-wrap gap-3 text-xs font-bold">
@@ -140,7 +140,7 @@ Please add ${email} to your newsletter mailing list.`;
 
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-xs text-secondary-light/70 text-center md:text-left leading-relaxed">
-            &copy; {new Date().getFullYear()} {t.footer.copyright}<br/>
+            &copy; {new Date().getFullYear()} {t.footer.copyright}<br />
             {t.footer.registration} <strong className="text-white">80034872646031</strong> | {t.footer.registered}
           </div>
 

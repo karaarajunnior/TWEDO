@@ -313,6 +313,55 @@ const Programs = ({ t }) => {
         </div>
       </section>
 
+      {/* Education for Life Highlight Section */}
+      <section className="section-padding bg-white overflow-hidden">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center bg-gradient-to-br from-primary/5 to-secondary/5 rounded-[3rem] border border-primary/10 p-8 md:p-12 shadow-md relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-1/3 translate-x-1/3"></div>
+            
+            {/* Left side: Image and description */}
+            <div className="relative z-10 space-y-6">
+              <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">
+                Special Program
+              </span>
+              <h3 className="text-3xl md:text-4xl font-bold font-outfit text-teso-dark leading-tight">
+                Education for Life (Soft Skills)
+              </h3>
+              <div className="relative h-64 md:h-72 rounded-2xl overflow-hidden shadow-md">
+                <img 
+                  src={getAssetPath('activities/leadership/educ for life.png')} 
+                  alt="Education for Life" 
+                  className="absolute inset-0 w-full h-full object-cover animate-fade-in" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/60 via-transparent to-transparent" />
+              </div>
+              <p className="text-gray-600 leading-relaxed font-inter text-base">
+                Alongside vocational training, our unique <strong>Education for Life</strong> curriculum focuses on the mindset shifts and soft skills necessary to prepare beneficiaries for the future, build critical thinking, and help them establish successful paths to income-generation.
+              </p>
+            </div>
+
+            {/* Right side: Core focus points stack */}
+            <div className="relative z-10 space-y-5">
+              {[
+                { title: "Mindset Change", desc: "Shifting perspectives from dependency to proactive planning, self-reliance, and community leadership." },
+                { title: "Financial Literacy", desc: "Understanding savings, household budgeting, resource mobilization, and financial planning." },
+                { title: "Critical Thinking", desc: "Building decision-making and problem-solving skills for business growth and sustainable livelihood." }
+              ].map((item, idx) => (
+                <div key={idx} className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                  <h4 className="font-bold text-lg text-primary mb-2 flex items-center gap-2">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold font-outfit">
+                      {idx + 1}
+                    </span>
+                    {item.title}
+                  </h4>
+                  <p className="text-sm text-gray-500 leading-relaxed pl-8">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Activities Grid */}
       <section className="section-padding bg-teso-light border-y border-gray-200 overflow-hidden">
         <div className="container">
@@ -358,7 +407,7 @@ const Programs = ({ t }) => {
              <div className="lg:col-span-4">
                 <div className="bg-red-50 p-6 md:p-8 rounded-3xl border border-red-100 sticky top-24 overflow-hidden">
                   <div className="relative h-44 rounded-2xl overflow-hidden mb-6 bg-red-100">
-                    <img src={getAssetPath('hospital/hospital-visit-5.jpg', t.programs.challengesTitle)} alt={t.programs.challengesTitle} className="absolute inset-0 w-full h-full object-cover" />
+                    <img src={getAssetPath(' ', t.programs.challengesTitle)} alt={t.programs.challengesTitle} className="absolute inset-0 w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-red-950/70 to-transparent" />
                     <AlertTriangle className="absolute bottom-4 left-4 text-white" size={28} />
                   </div>

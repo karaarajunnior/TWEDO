@@ -510,6 +510,34 @@
       ],
       "latest": [
         {
+          "title": "Aiyapane BCP Ogongora Center",
+          "date": "Feb 24, 2022",
+          "time": "10:00 AM",
+          "location": "Ogongora Learning Center, Amuria",
+          "type": "Awaragatia Aijulakin",
+          "image": "activities/construction/bcp1.jpg",
+          "summary": "Angolokin awaragatia nuka angor aare nuepolok kotoma Ogongora lueitodolikinite aswam nuka Brick keda Concrete Practice (BCP). Isiamasi ngesi aongol blueprints, aijon brick, keda adup ebeit, aitodik ebe eboiet aibwo daadang.",
+          "impact": "Angor luekupakina adup",
+          "partners": "Local government, Wizarts Foundation",
+          "photos": ["activities/construction/bcp1.jpg", "activities/construction/bcp2.jpg"]
+        },
+        {
+          "title": "Akodokodoi Skills Competition",
+          "date": "Mar 15, 2022",
+          "time": "09:00 AM",
+          "location": "Akodokodoi Learning Center",
+          "type": "Competition",
+          "image": "activities/leadership/okodoi compt.png",
+          "summary": "Competition lokageun loaswama kakatukot luka Akodokodoi, Aridai keda Amotom learning centers. Tailoring students neijon dressmaking, keda hairdressing students neiaswama styles kwape 'pencil', 'three-three', keda 'Kiswahili'. Akodokodoi eyauni best hairdressing, keda Amotom eyauni best tailoring.",
+          "impact": "3 learning centers neaswamai",
+          "partners": "Community instructors keda CDO Okungur",
+          "photos": [
+            "activities/leadership/okodoi compt.png",
+            "activities/leadership/benefi compt.png",
+            "activities/leadership/compt group photo.png"
+          ]
+        },
+        {
           "title": "Aidis nuka Bakery keda Pastry Skilling",
           "date": "May 22, 2026",
           "time": "09:00 AM",
@@ -553,33 +581,12 @@
           "impact": "Aitidau atiokisio 5 nuepolok",
           "partners": "Hospital Administration",
           "photos": [
-            "hospital/hospital-visit-1.jpg",
-            "hospital/hospital-visit-2.jpg",
-            "hospital/hospital-visit-3.jpg",
-            "hospital/hospital-visit-4.jpg",
-            "hospital/hospital-visit-5.jpg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.51.jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.51 (1).jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.52.jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.52 (1).jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.53.jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.53 (1).jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.55.jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.55 (1).jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.55 (2).jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.56.jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.56 (1).jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.57.jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.58.jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.29.59.jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.30.00.jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.30.00 (1).jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.30.02.jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.30.02 (1).jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.30.03.jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.30.03 (1).jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.30.04.jpeg",
-            "hospital/WhatsApp Image 2026-05-11 at 19.30.05.jpeg"
+            "activities/hospital/hospital1.jpg",
+            "activities/hospital/hospital2.jpeg",
+            "activities/hospital/hospital5.jpeg",
+            "activities/hospital/meeting with hospital mngmt.jpeg",
+            "activities/hospital/counselling.jpeg",
+            "activities/hospital/health.png"
           ]
         },
         {
@@ -618,6 +625,21 @@
         }
       ],
       "completed": [
+        {
+          "title": "Campaign loka 16 Days of Activism (GBV)",
+          "date": "Nov 25 - Dec 10, 2021",
+          "time": "All Day",
+          "location": "Amuria & Kapelebyong Districts",
+          "type": "Campaign",
+          "image": "activities/leadership/activism.png",
+          "summary": "Trainees kosi keda field staff luka TEWOYEI neitokakisina kotoma campaign loka 16 Days of Activism kotoma etem. Eswamasi drama keda aiyenere nuelolomit aisisian etunga on dangers nuka teenage pregnancy, child marriage keda domestic violence.",
+          "impact": "Aitodik sensitization messages kotoma aipeta kosi daadang kotoma Kapelebyong keda Amuria.",
+          "partners": "Local leaders, CDOs, keda community actors",
+          "photos": [
+            "activities/leadership/activism.png",
+            "activities/leadership/activism_campaign1.jpeg"
+          ]
+        },
         {
           "title": "Malaria Prevention Sensitization",
           "date": "Aug 2023 - Sep 2023",
