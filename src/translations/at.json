@@ -52,6 +52,7 @@
     "pillars": "Apilae Nuepolok",
     "trainingBreakdown": "Akiro Nukaitodolikin",
     "trainingPeriod": "Nov 2021 - March 2022 - Amuria keda Kapelebyong Districts",
+    "chartLegend": "Aiboisio akuan 4 kotoma atukot nu training: aanyun district reach keda female-to-male participation balance.",
     "amuriaDistrict": "Amuria District",
     "kapelebyongDistrict": "Kapelebyong District",
     "femalesTrained": "Angor Nueitodolikinit",
@@ -147,26 +148,11 @@
       }
     ],
     "boardOfDirectors": [
-      {
-        "name": "Akurut Angella",
-        "title": "BOD Chair"
-      },
-      {
-        "name": "Ekodeu Ricard",
-        "title": "Board Member"
-      },
-      {
-        "name": "Rev. Fr. Opure Deo",
-        "title": "BOD Treasurer"
-      },
-      {
-        "name": "Edith",
-        "title": "BOD Member"
-      },
-      {
-        "name": "Among Dinah Grace",
-        "title": "BOD Secretary"
-      }
+      { "name": "Akurut Angella", "title": "BOD Chair", "bio": "Aitodolar aingarakin leadership keda aiteran TEWOYEI mission kotoma Teso sub-region.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Ekodeu Richard", "title": "Board Member", "bio": "Aitodolar governance keda decisions nuepolok kanu aiyapane isio nuka atukot.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Rev. Fr. Opure Deo", "title": "BOD Treasurer", "bio": "Aitodolar financial accountability keda service-centred perspective kotoma isio nuka board.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Edith", "title": "BOD Member", "bio": "Aitodolar inclusive leadership keda community wellbeing kotoma direction loka TEWOYEI.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Among Dinah Grace", "title": "BOD Secretary", "bio": "Aitodolar board coordination, transparent records, keda focus on TEWOYEI mission.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." }
     ]
   },
   "home": {

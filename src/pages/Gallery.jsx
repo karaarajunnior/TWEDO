@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { imageAssets, getAssetPath } from '../data/siteAssets';
 
-const collectionPageSize = 12;
+const fieldPhotoPrefixes = [
+  'activities/district_meeting/', 'activities/info_gathering/', 'activities/hospital/',
+  'activities/leadership/', 'activities/tailorig/', 'activities/training on sanitary pads/',
+  'activities/malaria awareness/', 'activities/baking/', 'activities/construction/',
+  'activities/others/', 'others/'
+];
+
+const galleryExcludePrefixes = ['icons and logo/', 'leadership/board/'];
 
 const galleryStories = [
   {
@@ -25,7 +32,7 @@ const galleryStories = [
     tags: ['Hospital Visit', 'Health']
   },
   {
-    match: (path) => path.includes('tailoring'),
+    match: (path) => path.includes('tailoring') || path.includes('tailorig'),
     title: 'Skilling for livelihood',
     caption: 'Women and youth building practical skills for income and dignity.',
     tags: ['Skilling', 'Tailoring']
@@ -79,8 +86,10 @@ const getImageStory = (path) => galleryStories.find((story) => story.match(path)
 
 const Gallery = ({ t }) => {
   const [galleryIndex, setGalleryIndex] = useState(0);
-  const [collectionPage, setCollectionPage] = useState(0);
   const [activePhoto, setActivePhoto] = useState(null);
+  const [isNearCollectionEnd, setIsNearCollectionEnd] = useState(false);
+  const collectionStripRef = useRef(null);
+  const dragState = useRef({ active: false, startX: 0, startLeft: 0 });
   const galleryItems = t.gallery.images;
   const images = [
     { src: '/assets/tailoring-atiira.jpg', ...galleryItems[0] },
@@ -109,22 +118,43 @@ const Gallery = ({ t }) => {
     }
   ];
 
-  const fullCollection = imageAssets.map((asset) => ({
+  const fullCollection = imageAssets
+    .filter((asset) => (
+      fieldPhotoPrefixes.some((prefix) => asset.path.startsWith(prefix))
+      && !galleryExcludePrefixes.some((prefix) => asset.path.startsWith(prefix))
+    ))
+    .map((asset) => ({
     src: asset.src,
     path: asset.path,
     ...getImageStory(asset.path)
   }));
-  const totalCollectionPages = Math.ceil(fullCollection.length / collectionPageSize);
-  const collectionStart = collectionPage * collectionPageSize;
-  const visibleCollection = fullCollection.slice(collectionStart, collectionStart + collectionPageSize);
 
-  const previousCollectionPage = () => {
-    setCollectionPage((prev) => (prev === 0 ? totalCollectionPages - 1 : prev - 1));
+  const updateCollectionEnd = () => {
+    const strip = collectionStripRef.current;
+    if (strip) setIsNearCollectionEnd(strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 32);
   };
 
-  const nextCollectionPage = () => {
-    setCollectionPage((prev) => (prev === totalCollectionPages - 1 ? 0 : prev + 1));
+  const onCollectionWheel = (event) => {
+    const strip = collectionStripRef.current;
+    if (!strip || !event.deltaY || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+    strip.scrollLeft += event.deltaY;
   };
+
+  const onCollectionPointerDown = (event) => {
+    if (event.pointerType !== 'mouse') return;
+    const strip = collectionStripRef.current;
+    if (!strip) return;
+    dragState.current = { active: true, startX: event.clientX, startLeft: strip.scrollLeft };
+    strip.setPointerCapture?.(event.pointerId);
+  };
+
+  const onCollectionPointerMove = (event) => {
+    const strip = collectionStripRef.current;
+    if (!strip || !dragState.current.active) return;
+    strip.scrollLeft = dragState.current.startLeft - (event.clientX - dragState.current.startX);
+  };
+
+  const onCollectionPointerUp = () => { dragState.current.active = false; };
 
   return (
     <div className="pt-20">
@@ -209,39 +239,31 @@ const Gallery = ({ t }) => {
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">{t.gallery.fullCollection}</span>
               <h3 className="text-3xl md:text-4xl font-bold font-outfit text-teso-dark">{t.gallery.photoStories}</h3>
               <p className="text-gray-500 mt-2">
-                Showing {collectionStart + 1}-{Math.min(collectionStart + visibleCollection.length, fullCollection.length)} of {fullCollection.length} images from assets.
+                {fullCollection.length} images from the field.
               </p>
-            </div>
-            <div className="flex items-center gap-4">
-              <span className="text-sm font-bold text-gray-400">{collectionPage + 1} / {totalCollectionPages}</span>
-              <button
-                type="button"
-                onClick={previousCollectionPage}
-                className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
-                aria-label="Previous gallery page"
-              >
-                <ChevronLeft size={20} />
-              </button>
-              <button
-                type="button"
-                onClick={nextCollectionPage}
-                className="w-12 h-12 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
-                aria-label="Next gallery page"
-              >
-                <ChevronRight size={20} />
-              </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {visibleCollection.map((item, index) => (
+          <div className="relative -mx-6">
+            <div
+              ref={collectionStripRef}
+              onScroll={updateCollectionEnd}
+              onWheel={onCollectionWheel}
+              onPointerDown={onCollectionPointerDown}
+              onPointerMove={onCollectionPointerMove}
+              onPointerUp={onCollectionPointerUp}
+              onPointerCancel={onCollectionPointerUp}
+              className="scrollbar-none flex gap-6 overflow-x-auto px-6 pb-5 snap-x snap-mandatory cursor-grab active:cursor-grabbing"
+            >
+            {fullCollection.map((item, index) => (
               <motion.div
-                key={`${item.src}-${collectionPage}`}
+                key={item.src}
                 onClick={() => setActivePhoto(item)}
                 initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.5, delay: index * 0.03 }}
-                className="group relative rounded-3xl overflow-hidden shadow-lg cursor-zoom-in border-4 border-white aspect-square"
+                className="group relative w-[260px] sm:w-[300px] md:w-[340px] shrink-0 snap-start rounded-3xl overflow-hidden shadow-lg cursor-zoom-in border-4 border-white aspect-square"
                 aria-label={`Open ${item.title}`}
               >
                 <img
@@ -262,16 +284,8 @@ const Gallery = ({ t }) => {
                 </div>
               </motion.div>
             ))}
-          </div>
-
-          <div className="flex justify-center items-center gap-4 mt-12">
-            <button type="button" onClick={previousCollectionPage} className="btn btn-outline flex items-center gap-2">
-              <ChevronLeft size={18} /> Previous
-            </button>
-            <span className="text-sm font-bold text-gray-400">{collectionPage + 1} / {totalCollectionPages}</span>
-            <button type="button" onClick={nextCollectionPage} className="btn btn-primary flex items-center gap-2">
-              Next <ChevronRight size={18} />
-            </button>
+            </div>
+            {!isNearCollectionEnd && <div className="pointer-events-none absolute inset-y-0 right-0 w-20 md:w-32 bg-gradient-to-l from-teso-light via-teso-light/75 to-transparent" />}
           </div>
         </div>
       </section>

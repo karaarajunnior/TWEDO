@@ -1,49 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Youtube, Mail, MessageCircle, Phone, MapPin, Heart } from 'lucide-react';
-import { CONTACT_EMAILS, CONTACT_MAILTO, CONTACT_NUMBERS } from '../data/contactDetails';
+import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { contactEmails, contactMailto, contactNumbers } from '../data/organization';
 
-const PhoneOptions = ({ number, iconColor }) => (
-  <li className="flex items-start gap-3">
-    <Phone size={16} className={`${iconColor} shrink-0 mt-2`} />
-    <details className="group flex-1 rounded-xl bg-white/5 border border-white/10 p-2">
-      <summary className="cursor-pointer list-none flex items-center justify-between gap-3 text-secondary-light/80 hover:text-primary transition-colors">
-        <span>{number.label}</span>
-        <span className="text-[10px] uppercase tracking-widest text-primary">Options</span>
-      </summary>
-      <div className="grid grid-cols-2 gap-2 mt-3">
-        <a
-          href={`https://wa.me/${number.whatsapp}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1 rounded-full bg-green-500 text-white px-2 py-2 text-[11px] font-bold"
-        >
-          <MessageCircle size={12} /> WhatsApp
-        </a>
-        <a
-          href={`tel:${number.tel}`}
-          className="inline-flex items-center justify-center gap-1 rounded-full bg-secondary text-white px-2 py-2 text-[11px] font-bold"
-        >
-          <Phone size={12} /> Phone
-        </a>
-      </div>
-    </details>
-  </li>
-);
-
 const Footer = ({ t }) => {
+  const [subscribeStatus, setSubscribeStatus] = useState('idle');
+
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
-
     const formData = new FormData(e.currentTarget);
     const email = formData.get('newsletterEmail')?.toString().trim();
-    const subject = 'Newsletter subscription';
-    const body = `Hello TEWOYEI,
-
-Please add ${email} to your newsletter mailing list.`;
-
-    window.location.href = `mailto:${contactMailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    if (email) {
+      const subject = 'Newsletter subscription';
+      const body = `Hello TEWOYEI,\n\nPlease add ${email} to your newsletter mailing list.`;
+      
+      setSubscribeStatus('success');
+      
+      setTimeout(() => {
+        window.location.href = `mailto:${contactMailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        setSubscribeStatus('idle');
+      }, 1500);
+      
+      e.currentTarget.reset();
+    }
   };
 
   const quickLinks = [
@@ -54,6 +34,7 @@ Please add ${email} to your newsletter mailing list.`;
     { to: '/gallery', label: t.gallery.pageTitle },
     { to: '/get-involved', label: t.nav.getInvolved },
   ];
+  
   const socialLinks = [
     { href: 'https://www.facebook.com/search/top?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on Facebook', Icon: Facebook },
     { href: 'https://x.com/tewedo_t', label: 'Find TEWOYEI on X', Icon: Twitter },
@@ -62,98 +43,149 @@ Please add ${email} to your newsletter mailing list.`;
   ];
 
   return (
-    <footer className="text-secondary-light pt-20 pb-10" style={{ background: 'linear-gradient(160deg, #243b6b 0%, #31558f 60%, #1565C0 100%)' }}>
-      <div className="container">
-        <div className="h-1 w-full rounded-full mb-16" style={{ background: 'linear-gradient(90deg, #e91e8c 0%, #ffffff 50%, #1565C0 100%)' }} />
+    <footer className="text-secondary-light/90 pt-10 md:pt-16 bg-[#182C51] relative z-40" style={{ background: 'linear-gradient(160deg, #182C51 0%, #154580 60%, #0D47A1 100%)' }}>
+      
+      {/* Top Gradient Divider */}
+      <div className="absolute top-0 left-0 w-full h-1" style={{ background: 'linear-gradient(90deg, #e91e8c 0%, #1565C0 100%)' }} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div className="space-y-6 lg:col-span-1">
-            <Link to="/" aria-label="TEWOYEI home" className="inline-flex bg-white rounded-2xl p-2 shadow-lg">
+      <div className="max-w-[1100px] mx-auto px-6 md:px-12 w-full">
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.2fr_1.3fr] gap-10 md:gap-8 lg:gap-8 pb-12">
+          
+          {/* Column 1: Brand & Mission */}
+          <div className="space-y-6">
+            <Link to="/" aria-label="TEWOYEI home" className="inline-block bg-white rounded-2xl p-3 shadow-lg hover:-translate-y-1 transition-transform duration-200">
               <img src="/assets/icons and logo/tewoyei-logo.svg" alt="TEWOYEI logo" className="h-16 w-24 object-contain" />
             </Link>
-            <p className="text-sm leading-relaxed text-secondary-light/80">{t.footer.description}</p>
-            <div className="flex flex-wrap gap-3 text-xs font-bold">
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 text-primary">
-                <span className="w-2 h-2 rounded-full bg-primary inline-block"></span> {t.footer.women}
-              </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-secondary/30 text-secondary">
-                <span className="w-2 h-2 rounded-full bg-secondary inline-block"></span> {t.footer.justice}
-              </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/30 text-white">
-                <span className="w-2 h-2 rounded-full bg-white inline-block"></span> {t.footer.integrity}
-              </span>
+            <p className="text-sm leading-relaxed text-secondary-light/80 line-clamp-3 lg:line-clamp-none">
+              {t.footer.description}
+            </p>
+            {/* 
+              If the client later requests the pillars (Faith · Justice · Integrity) as text:
+              <p className="text-xs font-semibold text-white/90">Our Pillars: Faith &middot; Justice &middot; Integrity</p>
+            */}
+            
+            <div className="flex items-center gap-3 pt-2">
+              {socialLinks.map(({ href, label, Icon }) => (
+                <a 
+                  key={label} 
+                  href={href} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  aria-label={label} 
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary hover:scale-105 transition-all duration-200"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
 
-          <div className="space-y-6">
-            <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">{t.common.quickLinks}</h4>
-            <ul className="space-y-3 text-sm">
+          {/* Column 2: Quick Links */}
+          <nav className="space-y-6" aria-label="Footer Quick Links">
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest">{t.common.quickLinks}</h4>
+            <ul className="space-y-3">
               {quickLinks.map(link => (
                 <li key={link.to}>
-                  <Link to={link.to} className="hover:text-primary transition-colors flex items-center gap-2 group">
-                    <span className="w-1 h-1 rounded-full bg-primary/40 group-hover:bg-primary transition-colors"></span>
-                    {link.label}
+                  <Link 
+                    to={link.to} 
+                    className="flex items-center gap-2 text-sm text-secondary-light/80 hover:text-white hover:translate-x-1 transition-all duration-200 group"
+                  >
+                    <ChevronRight size={14} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                    <span className="-ml-5 group-hover:ml-0 transition-all duration-200">{link.label}</span>
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          <div className="space-y-6">
-            <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">{t.common.contactUs}</h4>
-            <ul className="space-y-4 text-sm">
+          {/* Column 3: Contact Us */}
+          <address className="space-y-6 not-italic">
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest">{t.common.contactUs}</h4>
+            <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-primary shrink-0 mt-0.5" />
-                <span className="text-secondary-light/80">{t.footer.address}</span>
+                <MapPin size={16} className="text-primary shrink-0 mt-1" />
+                <span className="text-sm text-secondary-light/80 leading-relaxed">{t.footer.address}</span>
               </li>
-              {contactNumbers.map((number, i) => (
-                <PhoneOptions key={number.tel} number={number} iconColor={i % 2 === 0 ? 'text-primary' : 'text-secondary'} />
+              {contactNumbers.slice(0, 2).map((number) => (
+                <li key={number.tel} className="flex items-center gap-3">
+                  <Phone size={16} className="text-primary shrink-0" />
+                  <a 
+                    href={`tel:${number.tel}`} 
+                    className="text-sm text-secondary-light/80 hover:text-white hover:underline transition-colors duration-200"
+                  >
+                    {number.label}
+                  </a>
+                </li>
               ))}
-              <li className="flex items-center gap-3">
-                <Mail size={16} className="text-primary shrink-0" />
-                <div className="space-y-1">
+              <li className="flex items-start gap-3">
+                <Mail size={16} className="text-primary shrink-0 mt-1" />
+                <div className="flex flex-col gap-1">
                   {contactEmails.map((email) => (
-                    <a key={email} href={`mailto:${contactMailto}`} className="block text-secondary-light/80 hover:text-primary transition-colors">{email}</a>
+                    <a 
+                      key={email} 
+                      href={`mailto:${email}`} 
+                      className="text-sm text-secondary-light/80 hover:text-white hover:underline transition-colors duration-200 break-all"
+                    >
+                      {email}
+                    </a>
                   ))}
                 </div>
               </li>
             </ul>
-          </div>
+          </address>
 
+          {/* Column 4: Newsletter */}
           <div className="space-y-6">
-            <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em]">{t.common.newsletter}</h4>
-            <p className="text-sm text-secondary-light/80">{t.footer.newsletterText}</p>
-            <form className="flex flex-col gap-3" onSubmit={handleNewsletterSubmit}>
-              <input
-                name="newsletterEmail"
-                type="email"
-                required
-                placeholder={t.common.emailPlaceholder}
-                className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-white placeholder-gray-500"
-              />
-              <button type="submit" className="btn btn-primary text-sm py-3 w-full">
-                {t.common.subscribe}
-              </button>
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest">{t.common.newsletter}</h4>
+            <p className="text-sm text-secondary-light/80 leading-relaxed">
+              {t.footer.newsletterText || "Join our mailing list for field updates and impact stories from Teso."}
+            </p>
+            
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-2">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+                <label htmlFor="newsletterEmail" className="sr-only">{t.common.emailPlaceholder || "Your email address"}</label>
+                <input
+                  id="newsletterEmail"
+                  name="newsletterEmail"
+                  type="email"
+                  required
+                  placeholder={t.common.emailPlaceholder || "Your email address"}
+                  className="w-full bg-white/10 border border-white/20 sm:border-r-0 rounded-xl sm:rounded-r-none sm:rounded-l-xl px-4 py-3 text-sm focus:outline-none focus:border-primary focus:bg-white/15 transition-all text-white placeholder-white/50"
+                />
+                <button 
+                  type="submit" 
+                  disabled={subscribeStatus === 'success'}
+                  className="bg-primary hover:bg-primary-dark text-white font-semibold text-sm px-6 py-3 rounded-xl sm:rounded-l-none sm:rounded-r-xl transition-colors duration-200 shrink-0 flex items-center justify-center whitespace-nowrap disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {subscribeStatus === 'success' ? (
+                    <>
+                      <CheckCircle2 size={16} className="mr-2" /> 
+                      Sent!
+                    </>
+                  ) : (
+                    t.common.subscribe || "Subscribe"
+                  )}
+                </button>
+              </div>
+              <p className="text-[11px] text-white/50 mt-1">No spam. Unsubscribe anytime.</p>
             </form>
           </div>
+          
         </div>
-
-        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-xs text-secondary-light/70 text-center md:text-left leading-relaxed">
-            &copy; {new Date().getFullYear()} {t.footer.copyright}<br />
-            {t.footer.registration} <strong className="text-white">80034872646031</strong> | {t.footer.registered}
+        
+        {/* Bottom Bar */}
+        <div className="py-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-secondary-light/60">
+          <div className="text-center md:text-left">
+            &copy; {new Date().getFullYear()} TEWOYEI. All rights reserved.<br className="md:hidden" />
+            <span className="hidden md:inline"> | </span>Registered CBO: 80034872646031
           </div>
-
-          <div className="flex items-center gap-3">
-            {socialLinks.map(({ href, label, Icon }, i) => (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-9 h-9 rounded-full flex items-center justify-center transition-all hover:-translate-y-1"
-                style={{ background: i % 2 === 0 ? 'rgba(233,30,140,0.15)' : 'rgba(21,101,192,0.15)', color: i % 2 === 0 ? '#e91e8c' : '#1565C0' }}
-              >
-                <Icon size={15} />
-              </a>
-            ))}
+          <div className="flex items-center gap-6">
+            <Link to="#" className="hover:text-white transition-colors duration-200">Privacy Policy</Link>
+            <Link to="#" className="hover:text-white transition-colors duration-200">Terms of Use</Link>
           </div>
         </div>
+        
       </div>
     </footer>
   );

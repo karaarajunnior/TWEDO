@@ -10,6 +10,8 @@ import Contact from './pages/Contact';
 import GetInvolved from './pages/GetInvolved';
 import Events from './pages/Events';
 import Resources from './pages/Resources';
+import ChatWidget from './components/ChatWidget';
+import WhatsAppButton from './components/WhatsAppButton';
 import en from './translations/en.json';
 import at from './translations/at.json';
 
@@ -53,6 +55,8 @@ const App = () => {
           </Routes>
         </main>
         <Footer t={t} />
+        <WhatsAppButton />
+        <ChatWidget />
       </div>
     </Router>
   );

@@ -52,6 +52,7 @@
     "pillars": "Strategic Pillars",
     "trainingBreakdown": "Training Statistics Breakdown",
     "trainingPeriod": "Nov 2021 - March 2022 - Amuria & Kapelebyong Districts",
+    "chartLegend": "Four views of the same training cohort: district reach and the female-to-male participation balance.",
     "amuriaDistrict": "Amuria District",
     "kapelebyongDistrict": "Kapelebyong District",
     "femalesTrained": "Females Trained",
@@ -150,11 +151,11 @@
       }
     ],
     "boardOfDirectors": [
-      { "name": "Akurut Angella", "title": "BOD Chair" },
-      { "name": "Ekodeu Ricard", "title": "Board Member" },
-      { "name": "Rev. Fr. Opure Deo", "title": "BOD Treasurer" },
-      { "name": "Edith", "title": "BOD Member" },
-      { "name": "Among Dinah Grace", "title": "BOD Secretary" }
+      { "name": "Akurut Angella", "title": "BOD Chair", "bio": "Provides strategic oversight and helps guide TEWOYEI's mission across the Teso sub-region.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Ekodeu Richard", "title": "Board Member", "bio": "Supports accountable governance and thoughtful decisions that strengthen the organisation's community work.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Rev. Fr. Opure Deo", "title": "BOD Treasurer", "bio": "Stewards financial accountability and brings a service-centred perspective to the board's work.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Edith", "title": "BOD Member", "bio": "Contributes to inclusive board leadership and keeps community wellbeing at the centre of TEWOYEI's direction.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Among Dinah Grace", "title": "BOD Secretary", "bio": "Supports sound board coordination, transparent records, and continued focus on TEWOYEI's mission.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." }
     ]
   },
   "home": {

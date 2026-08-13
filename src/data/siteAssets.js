@@ -135,6 +135,13 @@ export const getAssetPath = (image, contextText) => {
 
   let cleanImage = image.replace(/^\/?assets\//, '');
 
+  // Prefer an exact public asset before applying legacy activity-folder aliases.
+  // This keeps dedicated images such as leadership/board headshots addressable.
+  const directUrl = `/assets/${cleanImage.split('/').map(encodeURIComponent).join('/')}`;
+  if (imageAssets.some((asset) => asset.src === directUrl) || videoAssets.some((asset) => asset.src === directUrl)) {
+    return directUrl;
+  }
+
   const overrides = {
     'district_meeting/WhatsApp Image 2026-05-11 at 19.29.47.jpeg': 'activities/district_meeting/districtmeeting (1).jpeg',
     'district_meeting/WhatsApp Image 2026-05-11 at 19.29.41.jpeg': 'activities/district_meeting/districtmeeting (2).jpeg',

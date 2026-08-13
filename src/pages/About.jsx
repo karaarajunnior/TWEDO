@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, Heart, ChevronUp, GraduationCap } from 'lucide-react';
+import { Eye, Heart, ChevronUp, GraduationCap, Quote } from 'lucide-react';
 import { getAssetPath } from '../data/siteAssets';
 
 const getInitials = (name = '') =>
@@ -30,9 +30,11 @@ const colorForName = (name = '') => {
 };
 
 const getPersonImage = (name) => {
-  if (/dinah|grace/i.test(name)) {
-    return getAssetPath('leadership/grace.png');
-  }
+  if (/angella|akurut/i.test(name)) return getAssetPath('leadership/board/board-angella.jpg');
+  if (/ekodeu|ricard|richard/i.test(name)) return getAssetPath('leadership/board/board-richard.jpg');
+  if (/opure|deo|rev\.?\s*fr\.?/i.test(name)) return getAssetPath('leadership/board/board-deo.jpg');
+  if (/edith/i.test(name)) return getAssetPath('leadership/board/board-edith.jpg');
+  if (/dinah|grace|among/i.test(name)) return getAssetPath('leadership/board/board-grace.jpg');
   if (/samuel|akol|oluka/i.test(name)) {
     return getAssetPath('leadership.png');
   }
@@ -300,6 +302,16 @@ const About = ({ t }) => {
                       <p className="text-gray-500 mt-3 max-w-3xl font-inter">{t.about.bodSubtitle}</p>
                     </div>
 
+                    <div className="relative aspect-[16/6] rounded-[2.5rem] overflow-hidden mb-8 shadow-xl">
+                      <img src={getAssetPath('icons and logo/board1.jpeg')} alt="Our Board and Team" className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/90 via-teso-dark/20 to-transparent flex items-end p-7 md:p-10">
+                        <div className="text-white">
+                          <p className="text-2xl md:text-3xl font-bold font-outfit">Our Board and Team</p>
+                          <p className="mt-1 text-sm md:text-base text-white/80">Guided by service, accountability, and a shared commitment to the Teso sub-region.</p>
+                        </div>
+                      </div>
+                    </div>
+
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
                       {board.map((member, i) => (
                         <div
@@ -320,6 +332,12 @@ const About = ({ t }) => {
                             <h5 className="font-bold font-outfit text-lg text-teso-dark leading-tight">
                               {member.name}
                             </h5>
+                            {member.bio && (
+                              <div className="mt-3 flex gap-2.5 text-sm leading-relaxed text-gray-500">
+                                <Quote size={16} className="mt-0.5 shrink-0 text-primary/70" />
+                                <p>{member.bio}</p>
+                              </div>
+                            )}
                           </div>
                         </div>
                       ))}
