@@ -214,40 +214,13 @@ const About = ({ t }) => {
                   exit={{ opacity: 0, x: -20 }}
                   className="space-y-16"
                 >
-                  <div className="relative rounded-[3rem] overflow-hidden mb-16 aspect-[21/9] group">
-                    <img src={getAssetPath('leadership.png')} className="absolute inset-0 w-full h-full object-cover opacity-80" alt={t.about.leadershipImageAlt} />
-                    <div className="absolute inset-0 bg-gradient-to-r from-teso-dark/70 to-transparent flex items-end p-8 md:p-16">
-                      <h2 className="text-primary text-3xl sm:text-5xl md:text-6xl font-bold font-outfit bg-white px-4 sm:px-8 py-2 sm:py-4 uppercase">{t.about.leadershipTitle}</h2>
-                    </div>
-                  </div>
-
-                  <div className="grid xl:grid-cols-[1.2fr_0.8fr] gap-8 mb-16">
-                    <div className="rounded-[3rem] border border-gray-100 bg-white p-8 md:p-10 shadow-sm">
-                      <div className="w-16 h-1 bg-primary mb-4" />
-                      <h3 className="text-3xl font-bold font-outfit uppercase tracking-tight mb-4">{t.about.executiveTeam}</h3>
-                      <p className="text-lg text-gray-600 leading-relaxed font-inter">
-                        {t.about.leadershipIntro}
-                      </p>
-                    </div>
-
-                    <div className="grid sm:grid-cols-3 xl:grid-cols-1 gap-4">
-                      <div className="rounded-[2rem] bg-primary-light border border-primary/10 p-6">
-                        <p className="text-sm uppercase tracking-[0.2em] text-primary font-bold mb-2">{t.about.foundersTitle}</p>
-                        <p className="text-4xl font-bold font-outfit">{founders.length}</p>
-                      </div>
-                      <div className="rounded-[2rem] bg-secondary-light border border-secondary/10 p-6">
-                        <p className="text-sm uppercase tracking-[0.2em] text-secondary font-bold mb-2">{t.about.boardTitle}</p>
-                        <p className="text-4xl font-bold font-outfit">{board.length}</p>
-                      </div>
-                      <div className="rounded-[2rem] bg-teso-light border border-gray-100 p-6">
+                  
+                  {/* Founders */}
+                  <div>
+                    <div className="rounded-[2rem] bg-teso-light border border-gray-100 p-6">
                         <p className="text-sm uppercase tracking-[0.2em] text-gray-500 font-bold mb-2">Leadership focus</p>
                         <p className="text-lg font-semibold text-teso-dark">Faith, justice, integrity, and community service</p>
                       </div>
-                    </div>
-                  </div>
-
-                  {/* Founders */}
-                  <div>
                     <div className="mb-12">
                       <div className="w-16 h-1 bg-primary mb-4" />
                       <h3 className="text-3xl md:text-4xl font-bold font-outfit uppercase tracking-tight">{t.about.foundersTitle}</h3>

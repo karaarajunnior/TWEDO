@@ -213,9 +213,9 @@ const Gallery = ({ t }) => {
 
           <div className="mb-16">
             <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Photo stories</span>
-            <h3 className="text-3xl md:text-4xl font-bold font-outfit text-teso-dark">Pictures that sound for themselves</h3>
+            <h3 className="text-3xl md:text-4xl font-bold font-outfit text-teso-dark">Pictures that capture the unsaid</h3>
             <p className="text-gray-500 mt-3 max-w-3xl">
-              These  images add context to the field gallery by showing  direct community engagement.
+              Seec direct community engagement.
             </p>
           </div>
 
