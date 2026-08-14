@@ -160,8 +160,8 @@ const Gallery = ({ t }) => {
     <div className="pt-20">
       <section className="relative py-32 bg-teso-dark text-white text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/assets/hero-image.png" alt="Gallery Background" className="w-full h-full object-cover opacity-40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-teso-dark via-teso-dark/70 to-secondary-dark/50"></div>
+          <img src="/assets/activities/tailorig/TAILORING%202.jpg" alt="Gallery Background" className="w-full h-full object-cover opacity-35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-teso-dark via-teso-dark/75 to-secondary-dark/50"></div>
         </div>
         <div className="container relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold font-outfit mb-6">{t.gallery.pageTitle}</h1>

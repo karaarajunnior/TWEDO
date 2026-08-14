@@ -70,7 +70,7 @@ export const getAssetPath = (image, contextText) => {
       for (const asset of imageAssets) {
         let score = 0;
         const lowerPath = asset.path.toLowerCase();
-        
+
         // Match keywords against the asset path
         for (const word of keywords) {
           if (lowerPath.includes(word)) {
@@ -177,17 +177,17 @@ export const getAssetPath = (image, contextText) => {
     }
 
     if (cleanImage.includes('hospital/hospital-visit-')) {
-       const match = cleanImage.match(/hospital-visit-(\d+)\.jpg/);
-       if (match) {
-          const num = match[1];
-          cleanImage = `activities/hospital/hospital2 (${num}).jpeg`;
-       }
+      const match = cleanImage.match(/hospital-visit-(\d+)\.jpg/);
+      if (match) {
+        const num = match[1];
+        cleanImage = `activities/hospital/hospital2 (${num}).jpeg`;
+      }
     }
   }
 
   const cleanImageEncoded = cleanImage.split('/').map(encodeURIComponent).join('/');
   const targetUrl = `/assets/${cleanImageEncoded}`;
-  
+
   const exists = imageAssets.some(asset => asset.src === targetUrl) || videoAssets.some(asset => asset.src === targetUrl);
   if (exists) {
     return targetUrl;

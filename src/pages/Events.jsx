@@ -261,8 +261,8 @@ const Events = ({ t }) => {
       {/* Hero */}
       <section className="relative py-32 bg-teso-dark text-white text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/assets/hero-image.png" alt={t.events.pageTitle} className="w-full h-full object-cover opacity-40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-teso-dark via-teso-dark/70 to-secondary-dark/50"></div>
+          <img src="/assets/activities/leadership/community_leadership%20(1).jpeg" alt={t.events.pageTitle} className="w-full h-full object-cover opacity-35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-teso-dark via-teso-dark/75 to-secondary-dark/50"></div>
         </div>
         <div className="container relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold font-outfit mb-6">{t.events.pageTitle}</h1>
@@ -297,7 +297,8 @@ const Events = ({ t }) => {
           <div className="space-y-6 mb-12">
             {paginatedEvents.length > 0 ? (
               paginatedEvents.map(event => {
-                const eventPhotos = getEventPhotoSet(event);
+                const isUpcoming = activeTab === 'upcoming' || event.status === 'upcoming';
+                const eventPhotos = isUpcoming ? [] : getEventPhotoSet(event);
 
                 return (
                 <div

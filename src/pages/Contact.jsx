@@ -34,8 +34,8 @@ const Contact = ({ t }) => {
     <div className="pt-20">
       <section className="relative py-32 bg-teso-dark text-white text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/assets/hero-image.png" alt={t.contact.pageTitle} className="w-full h-full object-cover opacity-40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-teso-dark via-teso-dark/65 to-secondary-dark/45"></div>
+          <img src="/assets/activities/district_meeting/districtmeeting%20(12).jpeg" alt={t.contact.pageTitle} className="w-full h-full object-cover opacity-35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-teso-dark via-teso-dark/75 to-secondary-dark/45"></div>
         </div>
         <div className="container relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold font-outfit mb-6">{t.contact.pageTitle}</h1>

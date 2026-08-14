@@ -28,117 +28,111 @@ const carouselThemes = {
   }
 };
 
-const ActivityCarousel = ({ title, items, images, theme = 'primary', label }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeItem = items[activeIndex];
+const ActivityHorizontalSection = ({ title, items, images, theme = 'primary', label, isPlanned = false }) => {
+  const containerRef = React.useRef(null);
   const themeClasses = carouselThemes[theme];
-  const prev = () => setActiveIndex(index => (index === 0 ? items.length - 1 : index - 1));
-  const next = () => setActiveIndex(index => (index === items.length - 1 ? 0 : index + 1));
+
+  const scroll = (direction) => {
+    if (containerRef.current) {
+      const scrollAmount = direction === 'left' ? -340 : 340;
+      containerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   return (
-    <div className="bg-white rounded-[2.5rem] md:rounded-[3rem] p-4 md:p-6 border border-gray-100 shadow-xl overflow-hidden">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+    <div className="bg-white rounded-[2.5rem] md:rounded-[3rem] p-6 md:p-8 border border-gray-100 shadow-xl overflow-hidden mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
-          <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest mb-3 ${themeClasses.soft}`}>
-            {activeIndex + 1} / {items.length}
+          <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest mb-2 ${themeClasses.soft}`}>
+            {items.length} {label} Items
           </span>
           <h4 className={`text-2xl md:text-3xl font-bold font-outfit ${themeClasses.text}`}>{title}</h4>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-2 shrink-0">
           <button
             type="button"
-            onClick={prev}
-            className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all ${themeClasses.border} ${themeClasses.text} ${themeClasses.hover}`}
-            aria-label={`Previous ${title}`}
+            onClick={() => scroll('left')}
+            className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all ${themeClasses.border} ${themeClasses.text} ${themeClasses.hover}`}
+            aria-label={`Scroll left ${title}`}
           >
-            <ChevronLeft size={22} />
+            <ChevronLeft size={20} />
           </button>
           <button
             type="button"
-            onClick={next}
-            className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all ${themeClasses.border} ${themeClasses.text} ${themeClasses.hover}`}
-            aria-label={`Next ${title}`}
+            onClick={() => scroll('right')}
+            className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all ${themeClasses.border} ${themeClasses.text} ${themeClasses.hover}`}
+            aria-label={`Scroll right ${title}`}
           >
-            <ChevronRight size={22} />
+            <ChevronRight size={20} />
           </button>
         </div>
       </div>
 
-      <motion.div
-        key={activeIndex}
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35 }}
-        className="grid lg:grid-cols-[1.15fr_0.85fr] gap-6"
-      >
-        <div className="relative min-h-[22rem] rounded-[2rem] overflow-hidden bg-teso-light shadow-lg">
-          <img
-            src={getAssetPath(images[activeIndex % images.length], activeItem)}
-            alt={activeItem}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/90 via-teso-dark/25 to-transparent" />
-          <span className={`absolute top-5 left-5 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-widest ${themeClasses.badge}`}>
-            {label} {activeIndex + 1}
-          </span>
-          <div className="absolute bottom-6 left-6 right-6 text-white">
-            <p className="text-2xl md:text-3xl font-bold font-outfit leading-tight">{activeItem}</p>
-          </div>
-        </div>
-
-        <div className="rounded-[2rem] bg-teso-light p-6 md:p-8 border border-gray-100 flex flex-col justify-between">
-          <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.25em] text-gray-400 mb-4">{title}</p>
-            <h5 className="text-2xl font-bold font-outfit text-teso-dark mb-4">{label} Focus</h5>
-            <p className="text-gray-600 leading-relaxed">{activeItem}</p>
-          </div>
-          <div className="mt-8 grid grid-cols-2 gap-3">
-            {[0, 1, 2, 3].map((offset) => {
-              const itemIndex = (activeIndex + offset) % items.length;
+      <div className="relative -mx-2 px-2">
+        <div
+          ref={containerRef}
+          className="scrollbar-none flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 pt-1"
+        >
+          {items.map((item, i) => {
+            if (isPlanned) {
+              // PLANNED ACTIVITIES: NO IMAGES! Text-based cards only.
               return (
-                <button
-                  type="button"
-                  key={`${title}-${itemIndex}`}
-                  onClick={() => setActiveIndex(itemIndex)}
-                  className={`relative h-24 rounded-2xl overflow-hidden text-left border-2 transition-all ${itemIndex === activeIndex ? themeClasses.border : 'border-white hover:border-gray-300'}`}
-                  aria-label={`Show ${label} ${itemIndex + 1}`}
+                <motion.div
+                  key={i}
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-[280px] sm:w-[320px] shrink-0 snap-start rounded-3xl bg-white border border-gray-200/80 p-6 shadow-sm hover:shadow-xl transition-all relative overflow-hidden flex flex-col justify-between"
                 >
-                  <img
-                    src={getAssetPath(images[itemIndex % images.length], items[itemIndex])}
-                    alt={items[itemIndex]}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-teso-dark/55" />
-                  <span className="absolute bottom-2 left-2 right-2 text-white text-[11px] font-bold line-clamp-2">
-                    {items[itemIndex]}
-                  </span>
-                </button>
+                  <div className={`absolute top-0 left-0 right-0 h-1.5 ${themeClasses.badge}`} />
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className={`px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest ${themeClasses.soft}`}>
+                        {label} {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <TargetIcon size={18} className={themeClasses.text} />
+                    </div>
+                    <h5 className="text-gray-800 font-bold font-outfit text-base sm:text-lg leading-snug">
+                      {item}
+                    </h5>
+                  </div>
+                  <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-gray-400">
+                    <span>TEWOYEI Planned Initiative</span>
+                    <span className={`w-2 h-2 rounded-full ${themeClasses.badge}`} />
+                  </div>
+                </motion.div>
               );
-            })}
-          </div>
-        </div>
-      </motion.div>
+            }
 
-      <div className="mt-6 overflow-x-auto pb-2">
-        <div className="flex gap-3 min-w-max">
-          {items.map((item, i) => (
-            <button
-              type="button"
-              key={`${title}-thumb-${i}`}
-              onClick={() => setActiveIndex(i)}
-              className={`group w-56 rounded-2xl p-2 border-2 bg-white text-left transition-all ${activeIndex === i ? themeClasses.border : 'border-gray-100 hover:border-gray-300'}`}
-              aria-label={`Open ${label} ${i + 1}`}
-            >
-              <div className="relative h-24 rounded-xl overflow-hidden mb-3">
-                <img src={getAssetPath(images[i % images.length], item)} alt={item} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <span className={`absolute top-2 left-2 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${themeClasses.badge}`}>
-                  {i + 1}
-                </span>
-              </div>
-              <p className="text-xs text-gray-600 line-clamp-2 leading-relaxed">{item}</p>
-            </button>
-          ))}
+            // CURRENT & IMPLEMENTED ACTIVITIES: Cards with matching images
+            const imagePath = images && images[i % images.length] ? images[i % images.length] : 'hero-image.png';
+            return (
+              <motion.div
+                key={i}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.3 }}
+                className="group relative w-[280px] sm:w-[320px] shrink-0 snap-start rounded-3xl overflow-hidden shadow-lg aspect-[4/5]"
+              >
+                <img
+                  src={getAssetPath(imagePath, item)}
+                  alt={item}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <span className={`px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest ${themeClasses.badge} shadow`}>
+                    {label} {String(i + 1).padStart(2, '0')}
+                  </span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="text-white text-sm sm:text-base font-bold font-outfit leading-snug line-clamp-4">
+                    {item}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-white to-transparent" />
       </div>
     </div>
   );
@@ -153,66 +147,54 @@ const Programs = ({ t }) => {
     achievements,
     challenges
   } = t.programs;
+
   const currentActivityImages = [
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.41 (1).jpeg',
-    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.23.jpeg',
-    'hospital/hospital-visit-1.jpg',
-    'tailoring-atiira.jpg',
-    'skilling.png',
-    'others/other_1/WhatsApp Image 2026-05-11 at 19.29.02.jpeg',
-    'about-image.png',
-    'health.png',
-    'leadership.png',
-    'others/other_2/WhatsApp Image 2026-05-11 at 19.29.24.jpeg',
-    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.32.jpeg',
-    'hospital/hospital-visit-3.jpg'
+    'activities/info_gathering/info1 (3).jpeg',
+    'activities/training on sanitary pads/sanitaryPadTraining1.jpg',
+    'activities/district_meeting/districtmeeting (12).jpeg',
+    'activities/tailorig/TAILORING 1.jpg',
+    'activities/construction/CONSTRUCTION.jpg',
+    'activities/leadership/community leadership.png',
+    'activities/hospital/counselling.jpeg',
+    'activities/leadership/home visit.png',
+    'activities/training on sanitary pads/sanitaryPadTraining2.jpg',
+    'activities/baking/bakingSkill (1).jpeg',
+    'activities/leadership/activism.png',
+    'activities/training on sanitary pads/sanitaary2.jpeg',
+    'activities/malaria awareness/malaria awareness.jpeg'
   ];
-  const plannedActivityImages = [
-    'health.png',
-    'tailoring-kapelebyong.jpg',
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.47.jpeg',
-    'hero-image.png',
-    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.44.jpeg'
-  ];
+
   const achievementImages = [
-    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.15.jpeg',
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.44.jpeg',
-    'hospital/hospital-visit-2.jpg',
-    'health.png',
-    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.26.jpeg',
-    'tailoring-atiira.jpg',
-    'tailoring-kapelebyong.jpg',
-    'skilling.png',
-    'others/other_3/WhatsApp Image 2026-05-11 at 19.29.14.jpeg',
-    'bcp-construction1.jpg',
-    'leadership.png',
-    'activities/baking/bakingSkill (2).jpeg',
-    'hospital/hospital-visit-4.jpg'
+    'activities/training on sanitary pads/sanitarypad3.jpeg',
+    'activities/district_meeting/districtmeeting (3).jpeg',
+    'activities/district_meeting/districtmeeting (24).jpeg',
+    'activities/malaria awareness/WhatsApp Image 2026-05-11 at 19.30.49 (1).jpeg',
+    'activities/leadership/schooloutreach.jpg',
+    'activities/tailorig/TAILORING 2.jpg',
+    'activities/tailorig/amoni_tailor4.jpeg',
+    'activities/baking/bakingSkill (8).jpeg',
+    'activities/leadership/activism_campaign1.jpeg',
+    'activities/construction/bcp1.jpg',
+    'activities/leadership/community_leadership (1).jpeg',
+    'activities/baking/bakingSkill (12).jpeg',
+    'activities/malaria awareness/malariaAwareness.jpeg'
   ];
-  const objectiveImages = [
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.37.jpeg',
-    'hero-image.png',
-    'leadership.png',
-    'district_meeting/WhatsApp Image 2026-05-11 at 19.29.47.jpeg',
-    'about-image.png',
-    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.26.jpeg',
-    'health.png',
-    'tailoring-kapelebyong.jpg'
-  ];
+
+  const objectiveImages = [];
   const thematicImages = [
-    'tailoring-atiira.jpg',
-    'leadership.png',
-    'hospital/hospital-visit-1.jpg',
-    'others/other_1/WhatsApp Image 2026-05-11 at 19.29.02.jpeg',
-    'info_gathering/WhatsApp Image 2026-05-11 at 19.30.44.jpeg'
+    'activities/tailorig/TAILORING 1.jpg',
+    'activities/leadership/community leadership.png',
+    'activities/hospital/hospital1.jpg',
+    'activities/info_gathering/info1 (1).jpeg',
+    'activities/training on sanitary pads/sanitaryPadTraining1.jpg'
   ];
 
   return (
     <div className="pt-20">
       <section className="relative py-32 bg-teso-dark text-white text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/assets/skilling.png" alt={t.programs.headerTitle} className="w-full h-full object-cover opacity-40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-teso-dark via-teso-dark/70 to-primary/30"></div>
+          <img src="/assets/activities/leadership/community%20leadership.png" alt={t.programs.headerTitle} className="w-full h-full object-cover opacity-35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-teso-dark via-teso-dark/75 to-primary/40"></div>
         </div>
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto">
@@ -247,7 +229,7 @@ const Programs = ({ t }) => {
                 </span>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-2 gap-5">
                 {objectives.map((obj, i) => (
                   <motion.div
                     key={obj}
@@ -255,22 +237,23 @@ const Programs = ({ t }) => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.04 }}
-                    className="group rounded-[2rem] bg-white border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+                    className="group relative rounded-[2rem] bg-white border border-gray-150/80 p-6 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden"
                   >
-                    <div className="relative h-36 bg-teso-dark overflow-hidden">
-                      <img
-                        src={getAssetPath(objectiveImages[i % objectiveImages.length], obj)}
-                        alt={obj}
-                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/85 via-teso-dark/15 to-transparent" />
-                      <span className="absolute top-4 left-4 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-extrabold shadow-lg">
+                    {/* Top gradient accent line */}
+                    <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary via-secondary to-primary opacity-80 group-hover:opacity-100 transition-opacity" />
+                    
+                    <div className="flex items-start gap-4 mb-4">
+                      <span className="shrink-0 w-11 h-11 rounded-2xl bg-primary/10 text-primary font-outfit font-extrabold text-base flex items-center justify-center border border-primary/20 group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300 shadow-sm">
                         {String(i + 1).padStart(2, '0')}
                       </span>
+                      <div className="pt-1">
+                        <span className="text-[10px] font-extrabold uppercase tracking-widest text-primary block mb-1">Objective {i + 1}</span>
+                      </div>
                     </div>
-                    <div className="p-5">
-                      <p className="text-gray-700 leading-relaxed font-medium">{obj}</p>
-                    </div>
+                    
+                    <p className="text-gray-700 leading-relaxed font-medium text-base sm:text-lg">
+                      {obj}
+                    </p>
                   </motion.div>
                 ))}
               </div>
@@ -371,19 +354,20 @@ const Programs = ({ t }) => {
               <p className="text-gray-500 mt-4 text-lg">{t.programs.headerSubtitle}</p>
            </div>
            <div className="space-y-10 max-w-6xl mx-auto">
-             <ActivityCarousel
+             <ActivityHorizontalSection
                title={t.programs.currentActivitiesTitle}
                items={currentActivities}
                images={currentActivityImages}
                theme="primary"
                label="Current"
              />
-             <ActivityCarousel
+             <ActivityHorizontalSection
                title={t.programs.plannedActivitiesTitle}
                items={plannedActivities}
-               images={plannedActivityImages}
+               images={[]}
                theme="secondary"
                label="Planned"
+               isPlanned={true}
              />
            </div>
         </div>
@@ -394,8 +378,7 @@ const Programs = ({ t }) => {
         <div className="container">
            <div className="grid lg:grid-cols-12 gap-12">
              <div className="lg:col-span-8">
-                <h3 className="text-3xl font-bold font-outfit mb-8">{t.programs.successfullyImplemented}</h3>
-                <ActivityCarousel
+                <ActivityHorizontalSection
                   title={t.programs.successfullyImplemented}
                   items={achievements}
                   images={achievementImages}

@@ -36,7 +36,7 @@
   },
   "hero": {
     "title": "Empowering Women, Transforming Teso.",
-    "subtitle": "Teso Women Empowerment Youth Organization Initiative (TEWOYEI) is a women-led initiative dedicated to social, economic, and political transformation in Uganda.",
+    "subtitle": "Teso Women and Youth Empowerment Initiatives (TEWOYEI) is a national Organization that was formed and registered in 2018 first as Teso Women Empowerment Development Organization (TEWEDO), a Community Based Organization (CBO) which is an initiative of women and youths and is based in Teso sub region with its headquarters located in Amuria/Kapelebyong district. In 2025, TEWEDO was rebranded to TEWOYEI in a process of obtaining registration certificate at URSB during the incorporation, a women led, governed and managed organization majorly dealing with women, adolescent girls and youth empowerment. Due to the challenges women, young adolescent girls and youth face that include family neglect, domestic violence, early child marriages have caused many girls and women to live in adverse life conditions due to inadequate necessities, moved by this, women organized themselves in a group that later transformed in to an organization to collectively seek solutions to the challenges they are facing.",
     "cta_programs": "Our Programs",
     "cta_learn": "Learn More",
     "slides": {
@@ -118,28 +118,28 @@
       }
     ],
     "boardEyebrow": "Board of Directors",
-    "boardTitle": "BOD",
+    "boardTitle": "Board",
     "boardIntro": "The Board of Directors supports governance, stewardship, and transparent decision-making for TEWOYEI's mission.",
     "boardMembers": [
       {
         "name": "Akurut Angella",
-        "title": "BOD Chair"
+        "title": "Board Chair"
       },
       {
         "name": "Ekodeu Ricard",
-        "title": "BOD"
+        "title": "Board Member"
       },
       {
         "name": "Rev. Fr Opure Deo",
-        "title": "BOD Treasurer"
+        "title": "Board Treasurer"
       },
       {
         "name": "Edith",
-        "title": "BOD Member"
+        "title": "Board Member"
       },
       {
         "name": "Among Dinah Grace",
-        "title": "BOD Secretary",
+        "title": "Board Secretary",
         "qualification": "Bachelor's degree in Social Work and Social Administration",
         "bio": "A dedicated leader in community transformation, Dinah Grace oversees the strategic implementation of TEWOYEI's field operations. With years of experience in grass-roots mobilization in the Teso sub-region, she ensures that every intervention \u2014 from SRHR sensitizations to vocational skilling \u2014 reaches the most vulnerable women and youth."
       },
@@ -151,11 +151,11 @@
       }
     ],
     "boardOfDirectors": [
-      { "name": "Akurut Angella", "title": "BOD Chair", "bio": "Provides strategic oversight and helps guide TEWOYEI's mission across the Teso sub-region.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Akurut Angella", "title": "Board Chair", "bio": "Provides strategic oversight and helps guide TEWOYEI's mission across the Teso sub-region.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
       { "name": "Ekodeu Richard", "title": "Board Member", "bio": "Supports accountable governance and thoughtful decisions that strengthen the organisation's community work.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
-      { "name": "Rev. Fr. Opure Deo", "title": "BOD Treasurer", "bio": "Stewards financial accountability and brings a service-centred perspective to the board's work.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
-      { "name": "Edith", "title": "BOD Member", "bio": "Contributes to inclusive board leadership and keeps community wellbeing at the centre of TEWOYEI's direction.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
-      { "name": "Among Dinah Grace", "title": "BOD Secretary", "bio": "Supports sound board coordination, transparent records, and continued focus on TEWOYEI's mission.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." }
+      { "name": "Rev. Fr. Opure Deo", "title": "Board Treasurer", "bio": "Stewards financial accountability and brings a service-centred perspective to the board's work.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Edith", "title": "Board Member", "bio": "Contributes to inclusive board leadership and keeps community wellbeing at the centre of TEWOYEI's direction.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Among Dinah Grace", "title": "Board Secretary", "bio": "Supports sound board coordination, transparent records, and continued focus on TEWOYEI's mission.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." }
     ]
   },
   "home": {
@@ -213,7 +213,8 @@
       "Community engagements and sensitization on GBV",
       "Community and school engagements on Menstrual cups and SRHR",
       "District engagement on CLM in Kapelebyong district in 8 Health facilities.",
-      "Skilling of the youth and vulnerable women (tailoring, building and concrete practice, sweater making, knitting, hairdressing, beading, bakery)",
+      "Skilling of the youth and vulnerable women (tailoring, sweater making, knitting, hairdressing, beading, bakery)",
+      "Building, construction and concrete practice (BCP) skilling for young women and youth",
       "Trainings on mind set change for both youth and parents",
       "Guidance and counseling",
       "Support to the OVCs",

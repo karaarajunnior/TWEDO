@@ -36,7 +36,7 @@
   },
   "hero": {
     "title": "Aitogogong Angor, Aijulak Teso.",
-    "subtitle": "Teso Women Empowerment Youth Organization Initiative (TEWOYEI) erai eicolong loangor loete keda akitogogong keda aijulakin Teso.",
+    "subtitle": "Teso Women and Youth Empowerment Initiatives (TEWOYEI) is a national Organization that was formed and registered in 2018 first as Teso Women Empowerment Development Organization (TEWEDO), a Community Based Organization (CBO) which is an initiative of women and youths and is based in Teso sub region with its headquarters located in Amuria/Kapelebyong district. In 2025, TEWEDO was rebranded to TEWOYEI in a process of obtaining registration certificate at URSB during the incorporation, a women led, governed and managed organization majorly dealing with women, adolescent girls and youth empowerment. Due to the challenges women, young adolescent girls and youth face that include family neglect, domestic violence, early child marriages have caused many girls and women to live in adverse life conditions due to inadequate necessities, moved by this, women organized themselves in a group that later transformed in to an organization to collectively seek solutions to the challenges they are facing.",
     "cta_programs": "Iidisan Kosi",
     "cta_learn": "Akisisyom Kakidau",
     "slides": {
@@ -93,7 +93,7 @@
     "executiveTeam": "Founder Members",
     "leadershipIntro": "TEWOYEI iritio keda founder members keda Board of Directors luetacakin aswam, health, social work, keda accountability kotoma etem.",
     "foundersTitle": "Founder Members",
-    "boardTitle": "BOD",
+    "boardTitle": "Board",
     "leadershipImageAlt": "Airit",
     "foundersSubtitle": "Etunga luageunete TEWOYEI, lueirite aswam kosi kotoma aijulakin social, economic keda political.",
     "bodTitle": "Board of Directors",
@@ -120,23 +120,23 @@
     "boardMembers": [
       {
         "name": "Akurut Angella",
-        "title": "BOD Chair"
+        "title": "Board Chair"
       },
       {
         "name": "Ekodeu Ricard",
-        "title": "BOD"
+        "title": "Board Member"
       },
       {
         "name": "Rev. Fr Opure Deo",
-        "title": "BOD Treasurer"
+        "title": "Board Treasurer"
       },
       {
         "name": "Edith",
-        "title": "BOD Member"
+        "title": "Board Member"
       },
       {
         "name": "Among Dinah Grace",
-        "title": "BOD Secretary",
+        "title": "Board Secretary",
         "qualification": "Bachelor's degree in Social Work and Social Administration",
         "bio": "Airit loetogogongit aswam nuka TEWOYEI kotoma etem, Dinah Grace eongoli aswam nuka TEWOYEI field operations. Keda akipetoi nuka okaru luipuloi kotoma grassroots mobilization kotoma Teso sub-region, iswamai ngesi aingara ebe aidis daadang — ageun keda SRHR sensitization paka vocational skilling — edolikit angor keda atukot luemitakina."
       },
@@ -148,11 +148,11 @@
       }
     ],
     "boardOfDirectors": [
-      { "name": "Akurut Angella", "title": "BOD Chair", "bio": "Aitodolar aingarakin leadership keda aiteran TEWOYEI mission kotoma Teso sub-region.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Akurut Angella", "title": "Board Chair", "bio": "Aitodolar aingarakin leadership keda aiteran TEWOYEI mission kotoma Teso sub-region.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
       { "name": "Ekodeu Richard", "title": "Board Member", "bio": "Aitodolar governance keda decisions nuepolok kanu aiyapane isio nuka atukot.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
-      { "name": "Rev. Fr. Opure Deo", "title": "BOD Treasurer", "bio": "Aitodolar financial accountability keda service-centred perspective kotoma isio nuka board.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
-      { "name": "Edith", "title": "BOD Member", "bio": "Aitodolar inclusive leadership keda community wellbeing kotoma direction loka TEWOYEI.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
-      { "name": "Among Dinah Grace", "title": "BOD Secretary", "bio": "Aitodolar board coordination, transparent records, keda focus on TEWOYEI mission.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." }
+      { "name": "Rev. Fr. Opure Deo", "title": "Board Treasurer", "bio": "Aitodolar financial accountability keda service-centred perspective kotoma isio nuka board.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Edith", "title": "Board Member", "bio": "Aitodolar inclusive leadership keda community wellbeing kotoma direction loka TEWOYEI.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." },
+      { "name": "Among Dinah Grace", "title": "Board Secretary", "bio": "Aitodolar board coordination, transparent records, keda focus on TEWOYEI mission.", "bioStatus": "TODO: Replace with real bio from TEWOYEI." }
     ]
   },
   "home": {
@@ -237,7 +237,8 @@
       "Community engagements keda sensitization on GBV",
       "Community keda school engagements on Menstrual cups keda SRHR",
       "District engagement on CLM kotoma Kapelebyong district kotoma 8 Health facilities.",
-      "Skilling of youth keda vulnerable women (tailoring, building, concrete practice, sweater making, knitting, hairdressing, beading, bakery)",
+      "Skilling of youth keda vulnerable women (tailoring, sweater making, knitting, hairdressing, beading, bakery)",
+      "Building, construction keda concrete practice (BCP) skilling kanu young women keda youth",
       "Trainings on mindset change kanu youth keda parents",
       "Guidance keda counseling",
       "Support to the OVCs",

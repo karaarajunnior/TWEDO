@@ -11,41 +11,41 @@ export const founders = [
     name: 'Among Dinah Grace',
     role: 'Director',
     qualification: "Bachelor's degree in Social Work and Social Administration",
-    image: toAssetUrl('leadership/grace.png')
+    image: toAssetUrl('leadership/board/board-grace.jpg')
   },
-  {
-    name: 'Oluka Samuel Akol',
-    role: 'Co-Director',
-    qualification: "Bachelor's degree in Human Medicine and Surgery",
-    image: toAssetUrl('district_meeting/WhatsApp Image 2026-05-11 at 19.29.34.jpeg')
-  }
+  // {
+  //   name: 'Oluka Samuel Akol',
+  //   role: 'Co-Director',
+  //   qualification: "Bachelor's degree in Human Medicine and Surgery",
+  //   image: toAssetUrl('district_meeting/WhatsApp Image 2026-05-11 at 19.29.34.jpeg')
+  // }
 ];
 
 export const boardOfDirectors = [
   {
     name: 'Akurut Angella',
-    role: 'BOD Chair',
+    role: 'Board Chair',
     image: toAssetUrl('district_meeting/WhatsApp Image 2026-05-11 at 19.29.35.jpeg')
   },
   {
     name: 'Ekodeu Ricard',
-    role: 'BOD Member',
+    role: 'Board Member',
     image: toAssetUrl('district_meeting/WhatsApp Image 2026-05-11 at 19.29.37.jpeg')
   },
   {
     name: 'Rev. Fr Opure Deo',
-    role: 'BOD Treasurer',
+    role: 'Board Treasurer',
     image: toAssetUrl('district_meeting/WhatsApp Image 2026-05-11 at 19.29.40.jpeg')
   },
   {
     name: 'Edith',
-    role: 'BOD Member',
+    role: 'Board Member',
     image: toAssetUrl('info_gathering/WhatsApp Image 2026-05-11 at 19.30.14.jpeg')
   },
   {
     name: 'Among Dinah Grace',
-    role: 'BOD Secretary',
-    image: toAssetUrl('leadership/grace.png')
+    role: 'Board Secretary',
+    image: toAssetUrl('leadership/board/board-grace.jpg')
   }
 ];
 

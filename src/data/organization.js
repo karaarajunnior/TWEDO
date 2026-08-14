@@ -16,24 +16,24 @@ export const founderMembers = [
     name: 'Among Dinah Grace',
     title: 'Director',
     qualification: "Bachelor's degree in Social Work and Social Administration",
-    image: 'leadership/grace.png',
+    image: 'leadership/board/board-grace.jpg',
     imageAlt: 'Among Dinah Grace portrait'
   },
-  {
-    name: 'Oluka Samuel Akol',
-    title: 'Co-Director',
-    qualification: "Bachelor's degree in Human Medicine and Surgery",
-    image: 'leadership.png',
-    imageAlt: 'TEWOYEI leadership in action'
-  }
+  // {
+  //   name: 'Oluka Samuel Akol',
+  //   title: 'Co-Director',
+  //   qualification: "Bachelor's degree in Human Medicine and Surgery",
+  //   image: 'leadership.png',
+  //   imageAlt: 'TEWOYEI leadership in action'
+  // }
 ];
 
 export const boardOfDirectors = [
-  { name: 'Akurut Angella', title: 'BOD Chair' },
-  { name: 'Ekodeu Ricard', title: 'BOD Member' },
-  { name: 'Rev. Fr Opure Deo', title: 'BOD Treasurer' },
-  { name: 'Edith', title: 'BOD Member' },
-  { name: 'Among Dinah Grace', title: 'BOD Secretary' }
+  { name: 'Akurut Angella', title: 'BOARD Chair' },
+  { name: 'Ekodeu Ricard', title: 'BOARD Member' },
+  { name: 'Rev. Fr Opure Deo', title: 'BOARD Treasurer' },
+  { name: 'Edith', title: 'BOARD Member' },
+  { name: 'Among Dinah Grace', title: 'BOARD Secretary' }
 ];
 
 export const leadershipPhotoStories = [

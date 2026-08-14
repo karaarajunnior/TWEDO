@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Twitter, Youtube, Mail, Phone, MapPin, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { contactEmails, contactMailto, contactNumbers } from '../data/organization';
 
 const Footer = ({ t }) => {
@@ -36,9 +36,7 @@ const Footer = ({ t }) => {
   ];
   
   const socialLinks = [
-    { href: 'https://www.facebook.com/search/top?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on Facebook', Icon: Facebook },
     { href: 'https://x.com/tewedo_t', label: 'Find TEWOYEI on X', Icon: Twitter },
-    { href: 'https://www.instagram.com/explore/search/keyword/?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on Instagram', Icon: Instagram },
     { href: 'https://www.youtube.com/@DINAHGRACEAMONG', label: 'Find TEWOYEI on YouTube', Icon: Youtube },
   ];
 

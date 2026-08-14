@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Globe, ChevronDown, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown, Twitter, Youtube } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { buildWhatsappUrl } from '../data/contactDetails';
 
@@ -23,9 +23,7 @@ const Navbar = ({ t, language, setLanguage }) => {
     { to: '/resources#success-stories', label: t.nav.successStories, color: 'bg-primary' },
   ];
   const socialLinks = [
-    { href: 'https://www.facebook.com/search/top?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on Facebook', Icon: Facebook },
     { href: 'https://x.com/tewedo_t', label: 'Find TEWOYEI on X', Icon: Twitter },
-    { href: 'https://www.instagram.com/explore/search/keyword/?q=TEWOYEI%20Uganda', label: 'Find TEWOYEI on Instagram', Icon: Instagram },
     { href: 'https://www.youtube.com/@DINAHGRACEAMONG', label: 'Find TEWOYEI on YouTube', Icon: Youtube },
   ];
 

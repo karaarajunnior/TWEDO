@@ -16,8 +16,8 @@ const Resources = ({ t }) => {
       {/* Page Header */}
       <section className="relative py-32 bg-teso-dark text-white text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/assets/skilling.png" alt={t.resources.pageTitle} className="w-full h-full object-cover opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-teso-dark via-teso-dark/70 to-teso-dark/40"></div>
+          <img src="/assets/activities/training%20on%20sanitary%20pads/sanitaryPadTraining2.jpg" alt={t.resources.pageTitle} className="w-full h-full object-cover opacity-35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-teso-dark via-teso-dark/75 to-teso-dark/40"></div>
         </div>
         <div className="container relative z-10">
           <span className="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-4 block">{t.resources.media}</span>
