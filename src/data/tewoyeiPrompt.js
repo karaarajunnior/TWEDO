@@ -34,9 +34,10 @@ KEY ACHIEVEMENTS
 - Conducts community awareness sessions on GBV and Sexual Reproductive Health and Rights in Obalanga Town Council.
 - Secured a free site for a tree-seedling/repellent nursery bed with a local stakeholder.
 - Distributed 300 menstrual cups to women and schoolgirls in Okungur sub-county and Obalanga Town Council, supported by Rotary Club of Kyanja Metro in partnership with "Could You Cup".
+- Implemented a menstrual health & hygiene training project in 4 schools in Kapelebyong district/Okungur sub-county (including reusable sanitary pad making and menstrual dignity campaigns), supported by USAID through the East-West Management Institute (Mar–Sep 2023).
+- Trained girls and community members in Odiding and Agonga Primary Schools on reusable sanitary pad making and menstrual hygiene management.
 - Mapped and mobilised 40 CBOs across the Lango region under the KAL Consortium Africa.
 - Implemented a malaria prevention project in Kapelebyong district/Okungur sub-county with TASO Uganda and CDFU, funded by the Global Fund (Aug–Sep 2023 and Jun–Dec 2022).
-- Implemented a menstrual health project in 4 schools in Kapelebyong district/Okungur sub-county, supported by USAID through the East-West Management Institute (Mar–Sep 2023).
 - Trained 1,447 youths in vocational skills across Amuria and Kapelebyong districts (827 beneficiaries in Amuria, 620 in Kapelebyong): skills include tailoring, brick and concrete practice (BCP), hairdressing, computer skills, and sweater/knitting. Of these, 1,082 were female and 365 were male.
 - Supported 10 vulnerable youth (5 female, 5 male) who had lost hope due to difficult home circumstances to acquire vocational skills.
 - Included persons with disabilities in training programmes.
@@ -51,6 +52,7 @@ CHALLENGES TEWOYEI IS OPEN ABOUT (share honestly if asked)
 - Some community members expect materials/equipment to be provided for free rather than co-contributing to trainings.
 - A small staff team relative to the scale of monitoring needed.
 - Limited office equipment (computers, printers, photocopiers).
+- Transportation and logistical constraints reaching remote rural schools during rainy seasons.
 
 CONTACT
 - Head office: P.O. Box 291972, Soroti, Uganda.

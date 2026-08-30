@@ -195,7 +195,7 @@ const About = ({ t }) => {
                   <h3 className="text-4xl font-bold font-outfit mb-8 border-l-4 border-primary pl-6 uppercase">{t.about.historyTitle}</h3>
                   <div className="grid lg:grid-cols-[18rem_1fr] gap-8 items-start">
                     <div className="relative h-80 rounded-[2rem] overflow-hidden shadow-xl bg-teso-light">
-                      <img src={getAssetPath('district_meeting/WhatsApp Image 2026-05-11 at 19.29.41.jpeg')} alt={t.about.historyTitle} className="absolute inset-0 w-full h-full object-cover" />
+                      <img src={getAssetPath('youth.jpg')} alt={t.about.historyTitle} className="absolute inset-0 w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-gradient-to-t from-teso-dark/55 to-transparent" />
                     </div>
                     <div className="prose prose-xl text-gray-600 font-inter">

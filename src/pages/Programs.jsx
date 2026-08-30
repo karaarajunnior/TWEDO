@@ -48,11 +48,11 @@ const ActivityHorizontalSection = ({ title, items, images, theme = 'primary', la
           </span>
           <h4 className={`text-2xl md:text-3xl font-bold font-outfit ${themeClasses.text}`}>{title}</h4>
         </div>
-        <div className="flex gap-2 shrink-0">
+        <div className="flex gap-2 shrink-0 z-10">
           <button
             type="button"
             onClick={() => scroll('left')}
-            className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all ${themeClasses.border} ${themeClasses.text} ${themeClasses.hover}`}
+            className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all cursor-pointer active:scale-95 touch-manipulation ${themeClasses.border} ${themeClasses.text} ${themeClasses.hover}`}
             aria-label={`Scroll left ${title}`}
           >
             <ChevronLeft size={20} />
@@ -60,7 +60,7 @@ const ActivityHorizontalSection = ({ title, items, images, theme = 'primary', la
           <button
             type="button"
             onClick={() => scroll('right')}
-            className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all ${themeClasses.border} ${themeClasses.text} ${themeClasses.hover}`}
+            className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all cursor-pointer active:scale-95 touch-manipulation ${themeClasses.border} ${themeClasses.text} ${themeClasses.hover}`}
             aria-label={`Scroll right ${title}`}
           >
             <ChevronRight size={20} />
@@ -150,26 +150,26 @@ const Programs = ({ t }) => {
 
   const currentActivityImages = [
     'activities/info_gathering/info1 (3).jpeg',
-    'activities/training on sanitary pads/sanitaryPadTraining1.jpg',
+    'menstrual.jpg',
     'activities/district_meeting/districtmeeting (12).jpeg',
     'activities/tailorig/TAILORING 1.jpg',
     'activities/construction/CONSTRUCTION.jpg',
     'activities/leadership/community leadership.png',
     'activities/hospital/counselling.jpeg',
     'activities/leadership/home visit.png',
-    'activities/training on sanitary pads/sanitaryPadTraining2.jpg',
+    'menstrual2.jpg',
     'activities/baking/bakingSkill (1).jpeg',
     'activities/leadership/activism.png',
-    'activities/training on sanitary pads/sanitaary2.jpeg',
+    'menstrual.jpg',
     'activities/malaria awareness/malaria awareness.jpeg'
   ];
 
   const achievementImages = [
-    'activities/training on sanitary pads/sanitarypad3.jpeg',
+    'menstrual.jpg',
     'activities/district_meeting/districtmeeting (3).jpeg',
     'activities/district_meeting/districtmeeting (24).jpeg',
     'activities/malaria awareness/WhatsApp Image 2026-05-11 at 19.30.49 (1).jpeg',
-    'activities/leadership/schooloutreach.jpg',
+    'menstrual2.jpg',
     'activities/tailorig/TAILORING 2.jpg',
     'activities/tailorig/amoni_tailor4.jpeg',
     'activities/baking/bakingSkill (8).jpeg',
@@ -390,7 +390,7 @@ const Programs = ({ t }) => {
              <div className="lg:col-span-4">
                 <div className="bg-red-50 p-6 md:p-8 rounded-3xl border border-red-100 sticky top-24 overflow-hidden">
                   <div className="relative h-44 rounded-2xl overflow-hidden mb-6 bg-red-100">
-                    <img src={getAssetPath(' ', t.programs.challengesTitle)} alt={t.programs.challengesTitle} className="absolute inset-0 w-full h-full object-cover" />
+                    <img src={getAssetPath('challenge.jpeg')} alt={t.programs.challengesTitle} className="absolute inset-0 w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-red-950/70 to-transparent" />
                     <AlertTriangle className="absolute bottom-4 left-4 text-white" size={28} />
                   </div>

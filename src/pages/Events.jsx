@@ -54,6 +54,8 @@ const galleryPhotoSets = {
     'activities/tailorig/amoni_tailor5.jpeg'
   ],
   sanitary_pads: [
+    'menstrual.jpg',
+    'menstrual2.jpg',
     'activities/training on sanitary pads/amoni_sanitary.jpeg',
     'activities/training on sanitary pads/sanitaary2.jpeg',
     'activities/training on sanitary pads/sanitarypad3.jpeg',

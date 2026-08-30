@@ -87,7 +87,7 @@ export const getAssetPath = (image, contextText) => {
         const semanticRules = [
           { keys: ['malaria'], matchers: ['malaria awareness'] },
           { keys: ['tailor', 'tailoring', 'sweater', 'knitting', 'needle'], matchers: ['tailorig', 'tailoring-atiira', 'tailoring-kapelebyong'] },
-          { keys: ['sanitary', 'pad', 'pads', 'menstrual', 'cup', 'hygiene', 'reusable'], matchers: ['training on sanitary pads'] },
+          { keys: ['sanitary', 'pad', 'pads', 'menstrual', 'cup', 'hygiene', 'reusable'], matchers: ['training on sanitary pads', 'menstrual', 'menstrual2'] },
           { keys: ['hospital', 'referral', 'healthcare', 'visit', 'mngmt', 'management'], matchers: ['hospital'] },
           { keys: ['leadership', 'summit', 'meeting', 'district', 'governance', 'officer', 'coordinator', 'lead'], matchers: ['leadership', 'district_meeting'] },
           { keys: ['info', 'gathering', 'survey', 'advocacy', 'sensitization', 'community', 'dialogue', 'campaign', 'gbv', 'violence', 'activism'], matchers: ['info_gathering', 'communitySHRHSensitization1'] },

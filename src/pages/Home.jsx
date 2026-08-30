@@ -35,7 +35,7 @@ const Home = ({ t }) => {
       activity: 'Sanitary Pad & Menstrual Health',
       quote: 'Learning reusable sanitary pad production restored our confidence and independence. Now I train young adolescent girls to ensure they stay in school comfortably.',
       name: 'Akiteng Grace',
-      image: 'activities/training on sanitary pads/sanitaryPadTraining1.jpg',
+      image: 'menstrual.jpg',
       location: t.home.kapelebyongDistrict
     },
     {
@@ -80,7 +80,7 @@ const Home = ({ t }) => {
       title: 'Health & Hygiene Training',
       category: 'Kapelebyong',
       description: 'Menstrual health for schoolgirls',
-      image: '/assets/activities/training%20on%20sanitary%20pads/sanitaryPadTraining2.jpg',
+      image: '/assets/menstrual2.jpg',
       alt: 'Health Training - Kapelebyong'
     },
     {
@@ -104,7 +104,7 @@ const Home = ({ t }) => {
             const vid = sectionNode.querySelector('video');
             if (vid) {
               vid.muted = true; // Auto-mute to bypass browser autoplay restrictions
-              vid.play().catch(() => {});
+              vid.play().catch(() => { });
             }
           }
         });
@@ -190,11 +190,11 @@ const Home = ({ t }) => {
             </div>
 
             {/* Slider Controls */}
-            <div className="flex gap-3">
+            <div className="flex gap-3 shrink-0 z-10">
               <button
                 type="button"
                 onClick={() => setVideoIndex(prev => (prev === 0 ? localVideos.length - 1 : prev - 1))}
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-teso-dark hover:border-secondary transition-all"
+                className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-teso-dark hover:border-secondary transition-all cursor-pointer active:scale-95 touch-manipulation"
                 aria-label="Previous impact video"
               >
                 <ChevronLeft size={24} />
@@ -202,7 +202,7 @@ const Home = ({ t }) => {
               <button
                 type="button"
                 onClick={() => setVideoIndex(prev => (prev === localVideos.length - 1 ? 0 : prev + 1))}
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-teso-dark hover:border-secondary transition-all"
+                className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/10 flex items-center justify-center text-white hover:bg-secondary hover:text-teso-dark hover:border-secondary transition-all cursor-pointer active:scale-95 touch-manipulation"
                 aria-label="Next impact video"
               >
                 <ChevronRight size={24} />
@@ -279,14 +279,14 @@ const Home = ({ t }) => {
                 A glimpse into the real work happening across Teso — empowering lives, one community at a time.
               </p>
             </div>
-            
+
             {/* Scroll Navigation Buttons & Full Gallery Link */}
-            <div className="flex items-center gap-4 shrink-0">
+            <div className="flex items-center justify-between sm:justify-start gap-4 shrink-0 w-full sm:w-auto z-10">
               <div className="flex gap-2">
                 <button
                   type="button"
                   onClick={() => scrollActivities('left')}
-                  className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm"
+                  className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm cursor-pointer active:scale-95 touch-manipulation"
                   aria-label="Scroll left"
                 >
                   <ChevronLeft size={20} />
@@ -294,7 +294,7 @@ const Home = ({ t }) => {
                 <button
                   type="button"
                   onClick={() => scrollActivities('right')}
-                  className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm"
+                  className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm cursor-pointer active:scale-95 touch-manipulation"
                   aria-label="Scroll right"
                 >
                   <ChevronRight size={20} />
@@ -302,7 +302,7 @@ const Home = ({ t }) => {
               </div>
               <a
                 href="/gallery"
-                className="btn btn-outline text-sm px-5 py-2.5"
+                className="btn btn-outline text-sm px-5 py-2.5 cursor-pointer active:scale-95 touch-manipulation inline-flex items-center justify-center"
               >
                 View Gallery →
               </a>
@@ -354,6 +354,8 @@ const Home = ({ t }) => {
             <span className="text-2xl font-bold font-outfit">CDFU</span>
             <span className="text-2xl font-bold font-outfit">Wizarts Foundation Uganda</span>
             <span className="text-2xl font-bold font-outfit">Local Governments</span>
+            <span className="text-2xl font-bold font-outfit">FOWODE</span>
+            <span className="text-2xl font-bold font-outfit">MAK Chapter-TESDA</span>
             <span className="text-2xl font-bold font-outfit">Ministry of Health</span>
           </div>
         </div>
